@@ -223,7 +223,8 @@ namespace CRMBussiness.ViewModel
     }
     public class PersonViewModel
     {
-        public virtual long Id { get; set; }
+        public virtual int Id { get; set; }
+        public virtual DateTime? CreateDate { get; set; }
         public virtual long IdConstracStaff { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Chưa nhập tên tài khoản")]
