@@ -141,7 +141,7 @@ namespace CRMSite.Controllers
             //NamNP encode pass
             string passwEncode = _eCode.EncodeMD5(model.Pass);
 
-            if (res.Result.Count == 0 || res.Result.First().Pass != passwEncode) 
+            if (res.Result.Count == 0 || res.Result.First().AccountPassword != passwEncode) 
             {
                 //write trace log
                 _logModel.Message = "Invalid username or password";
@@ -158,82 +158,52 @@ namespace CRMSite.Controllers
             };
 
             var user = res.Result[0];
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
-                new Claim(SiteConst.TokenKey.FULLNAME, user.FullName ?? string.Empty),
-                new Claim(ClaimTypes.Role, user.Role.ToString()),
-                new Claim(ClaimTypes.Authentication, user.CodeStaff),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(SiteConst.TokenKey.BRANCHCODE, user.BranchCode?.ToString() ?? string.Empty),
-                new Claim(SiteConst.TokenKey.OFFICECODE, user.OfficeCode?.ToString() ?? string.Empty),
-                new Claim(SiteConst.TokenKey.DEPARTMENTCODE, user.DepartmentCode?.ToString() ?? string.Empty),
-                new Claim(SiteConst.TokenKey.TEAMCODE, user.TeamCode?.ToString() ?? string.Empty),
-                new Claim(SiteConst.TokenKey.USERNAME, user.UserName),
-            };
-
-            var claimsIdentity = new ClaimsIdentity(
-                claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-            try
-            {
-                await HttpContext.SignInAsync(
-                            CookieAuthenticationDefaults.AuthenticationScheme,
-                            new ClaimsPrincipal(claimsIdentity), authProperties);
-            }
-            catch(Exception ex)
-            {
-                //write trace log
-                _logModel.Message = $"Throw an except [{ex.Message}] when an user login this account";
-                _logModel.Result = ActionResultValue.LoginFailed;
-                _logger.LogError(_logModel.ToString());
-
-                return Json(new { Status = 400, Errors = new List<string> { "Không đăng nhập thành công!" } });
-            }
+            
 
             string nextView = "/";
-            switch (user.Role)
-            {
-                // administrator
-                case 1:
-                    nextView = "/Admin/Mechanism/Index";
-                    break;
+            nextView = "/Admin/Mechanism/Index";
+            //switch (user.Role)
+            //{
+            //    // administrator
+            //    case 1:
+            //        nextView = "/Admin/Mechanism/Index";
+            //        break;
 
-                    // accountant
-                case 2:
-                    nextView = "/Accountant/ConfirmPayment/Index";
-                    break;
+            //        // accountant
+            //    case 2:
+            //        nextView = "/Accountant/ConfirmPayment/Index";
+            //        break;
 
-                    // HR
-                case 3:
-                    nextView = "/HR/PersonalInfo/Index";
-                    break;
+            //        // HR
+            //    case 3:
+            //        nextView = "/HR/PersonalInfo/Index";
+            //        break;
 
-                    // sale
-                case 4:
-                case 5:
-                case 6:
-                case 10:
-                case 11:
-                    nextView = "/Sale/Dashboard/Index";
-                    break;
+            //        // sale
+            //    case 4:
+            //    case 5:
+            //    case 6:
+            //    case 10:
+            //    case 11:
+            //        nextView = "/Sale/Dashboard/Index";
+            //        break;
 
-                    //sale admin
-                case 7:
-                    nextView = "/SaleAdmin/PersonalInfo/Index";
-                    break;
+            //        //sale admin
+            //    case 7:
+            //        nextView = "/SaleAdmin/PersonalInfo/Index";
+            //        break;
 
-                    //telesale
-                //case 8:
-                case 9:
-                    nextView = "/Tele/ExpectedInvestor/Index";
-                    break;
+            //        //telesale
+            //    //case 8:
+            //    case 9:
+            //        nextView = "/Tele/ExpectedInvestor/Index";
+            //        break;
 
-                default:
-                    await HttpContext.SignOutAsync();
-                    return Json(new { Status = 400, Errors = new List<string> { "Bạn chưa có quyền đăng nhập phần mềm!" } });
+            //    default:
+            //        await HttpContext.SignOutAsync();
+            //        return Json(new { Status = 400, Errors = new List<string> { "Bạn chưa có quyền đăng nhập phần mềm!" } });
 
-            }
+            //}
 
             HttpContext.Session.Remove(SystemConstants.SessionKey.PreviousScreen);
             HttpContext.Session.SetInt32(SiteConst.SessionKey.OWN_SHARE, user.Share.GetValueOrDefault());
@@ -245,7 +215,7 @@ namespace CRMSite.Controllers
 
             //write trace log
             _logModel.Data = string.Empty;
-            _logModel.Username = user.UserName;
+            _logModel.Username = user.AccountName;
             _logModel.Role = Helper.GetRoleName(user.Role);
             _logModel.Result = ActionResultValue.LoginSuccess;
             _logger.LogInformation(_logModel.ToString());
