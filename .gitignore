@@ -8,11 +8,10 @@
 *.user
 *.userosscache
 *.sln.docstates
-appsettings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-appsettings.json
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -78,7 +77,7 @@ StyleCopReport.xml
 *.tmp
 *.tmp_proj
 *.log
-*.json
+
 *.vspscc
 *.vssscc
 .builds
