@@ -118,3 +118,12 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'value')
     data((if any)),
     thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
     message: [] (b8c9a129)
+2021-08-08T21:34:25.9927344+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:34:26.0102324+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:34:26.0150504+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:34:26.2447863+07:00 80000008-0005-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:37:44.3667681+07:00 80000005-0004-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:41:13.8782404+07:00 8000000a-0005-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:42:54.7342178+07:00 80000004-0000-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:46:45.5392691+07:00 8000000b-0007-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:47:18.5068298+07:00 8000000e-0001-ff00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
