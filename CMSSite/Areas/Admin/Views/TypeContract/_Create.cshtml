@@ -1,0 +1,45 @@
+﻿@model CRMBussiness.ViewModel.TypeContractViewModel
+
+<!-- header -->
+<div class="header-modal">
+    <h3 class="modal__title">thêm mới loại hợp đồng</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/crm/images/layout/close-modal.svg" alt="" />
+    </span>
+</div>
+
+<!-- body -->
+<div class="body-modal">
+    <form id="create-form">
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col sm-50">
+                <div class="modal-item">
+                    <label>Tên loại hợp đồng</label>
+                    @Html.EditorFor(model => model.NameType, new { htmlAttributes = new { @class = "" } })
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col">
+                <div class="modal-item">
+                    <label>Nội dung</label>
+                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "" } })
+                </div>
+            </div>
+        </div>
+     </form>
+</div>
+
+<!-- footer -->
+<div class="footer-modal">
+    <button id="create-type-contract"
+            class="close__btn btn-green"
+            type="button">
+        Lưu
+    </button>
+    <button modal-show="close"
+            class="close__btn btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+</div>

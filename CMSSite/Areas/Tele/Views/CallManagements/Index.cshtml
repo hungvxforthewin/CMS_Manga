@@ -1,0 +1,353 @@
+﻿@section Styles{
+    <link href="~/Assets/SA/css/callmanagement/upgrade.min.css" rel="stylesheet" />
+}
+<section class="section_call-management section_list-customer-lookingup">
+    <div class="module-wrapper">
+        <div class="module-title">
+            <h2>Quản lý cuộc gọi</h2>
+        </div>
+        <div class="module-content">
+            <!-- search -->
+            <div class="search" id="search-call-management">
+                <form id="search-form">
+                    <div class="bs-row">
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Từ ngày</label>
+                                <div class="date-select">
+                                    <input type="text" class="search__input form_datetime" name="DateFrom" />
+                                    <img src="/Assets/SA/images/layout/date.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Tới ngày</label>
+                                <div class="date-select">
+                                    <input type="text" class="search__input form_datetime" name="DateTo" />
+                                    <img src="/Assets/SA/images/layout/date.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Sản phẩm</label>
+                                <select class="select2 select-product" name="ProductCode">
+                                    <option value="">--</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Show up</label>
+                                <select class="select2 select-event" name="EventCode">
+                                    <option value="">--</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Mức độ quan tâm</label>
+                                <select class="select2 select-level" name="LevelconcernCode">
+                                    <option value="">--</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Trạng thái data</label>
+                                <select class="select2 select-status" name="StatusCode">
+                                    <option value="">--</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Show up</label>
+                                <input type="text" placeholder="Tên khách hàng, SĐT" name="Key"/>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-button search-item input-group">
+                                <button id="btn-search-call" type="button" class="btn-green">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- handle -->
+            <div class="handle">
+                <button class="add handle-button"
+                        type="button"
+                        id="btn-show-add">
+                    <img src="/Assets/SA/images/layout/add.svg" alt="" /> Thêm mới
+                </button>
+                <button style="display: none"
+                        modal-show="show"
+                        modal-data="#add-call_modal"
+                        id="btn-hiid-show">
+                </button>
+                <button class="edit handle-button"
+                        type="button"
+                        id="btn-edit-call-sale"
+                        @*modal-show="show"
+                        modal-data="#edit-call_modal"*@>
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/edit-purple.svg" alt="edit" />
+                    </div>
+                    Chỉnh sửa
+                </button>
+
+                <button class="delete handle-button"
+                        id="del-call-sale"
+                        type="button"
+                        @*modal-show="show"
+                        modal-data="#delete-call_modal"*@>
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/trash-red.svg" alt="delete" />
+                    </div>
+                    Xóa
+                </button>
+
+                <button class="delete handle-button"
+                        type="button"
+                        modal-show="show"
+                        modal-data="#delete-call_modal">
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/trash-red.svg" alt="delete" />
+                    </div>
+                    Xóa tất cả
+                </button>
+
+                @*<label for="fileinput" class="import handle-button" type="button">
+                    <input type="file" id="fileinput" style="display: none" />
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/download-gray.svg"
+                             alt="import" />
+                    </div>
+                    Tải file mẫu
+                </label>
+
+                <label for="fileinput" class="import handle-button" type="button">
+                    <input type="file" id="fileinput" style="display: none" />
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/download-gray.svg"
+                             alt="import" />
+                    </div>
+                    Import file
+                </label>
+
+                <button class="export handle-button"
+                        type="button"
+                        modal-show="show"
+                        modal-data="#delete_all-employee_modal">
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/export.svg" alt="" />
+                    </div>
+                    Xuất file Excel
+                </button>*@
+            </div>
+            <!-- table -->
+            <div class="data-table">
+                <table class="white-table radio-table" style="min-width: 800px">
+                  
+                    <tbody id="table-body">
+
+                        @*<tr>
+                            <td>
+                                <label class="custom-radio">
+                                    <input type="radio" class="radio" name="call" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td>1</td>
+                            <td modal-show="show"
+                                modal-data="#detail-call_modal"
+                                style="text-decoration: underline">
+                                Nguyễn Văn A
+                            </td>
+                            <td>0912613725</td>
+                            <td>BVOTE</td>
+                            <td>Ca 1 - BVOTE</td>
+                            <td>Đang khai thác</td>
+                            <td>QT 1</td>
+                            <td>20/07/2021</td>
+                        </tr>*@
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- paging -->
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+        </div>
+
+        <!-- modals -->
+        <!-- delete -->
+        <div class="bs-modal delete-modal" id="delete-call_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title"></h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/SA/images/layout/close-modal.svg" />
+                        </span>
+                    </div>
+                    <div class="body-modal">
+                        <img src="/Assets/SA/images/layout/delete-modal.png" alt="delete" />
+                        <p>Bạn có muốn xóa thông tin khách hàng này?</p>
+                    </div>
+                    <div class="footer-modal">
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                        <button modal-show="close"
+                                id="delete-empl-call"
+                                class="close__btn btn-green del-call-accept"
+                                type="button">
+                            Đồng ý
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- add -->
+        <div class="bs-modal add-modal" id="add-call_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title">Thêm mới data</h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/SA/images/layout/close-modal.svg" />
+                        </span>
+                    </div>
+                    <div class="body-modal">
+                        <form id="add-call-sale">
+                            <div class="bs-row">
+                                <div class="bs-col md-50">
+                                    <div class="modal-item input-group">
+                                        <label>Họ và tên khách hàng <span class="required">*</span></label>
+                                        <input type="text" name="NameInvestor" />
+                                        @Html.AntiForgeryToken()
+                                    </div>
+                                </div>
+
+                                <div class="bs-col md-50">
+                                    <div class="modal-item input-group">
+                                        <label>Số điện thoại <span class="required">*</span></label>
+                                        <input type="text" name="PhoneInvestor" />
+                                    </div>
+                                </div>
+
+                                <div class="bs-col md-50">
+                                    <div class="modal-item input-group">
+                                        <label>Sản phẩm <span class="required">*</span></label>
+                                        <select class="select2 select-product" name="ProductCode">
+                                            <option value="">--</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="bs-col md-50">
+                                    <div class="modal-item input-group">
+                                        <label>Show up <span class="required">*</span></label>
+                                        <select class="select2 select-event" name="EventCode">
+                                            <option value="">--</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="bs-col md-50">
+                                    <div class="modal-item input-group">
+                                        <label>Mức độ quan tâm <span class="required">*</span></label>
+                                        <select class="select2 select-level" name="LevelConcernCode">
+                                            <option value="">--</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- col -->
+                                <div class="bs-col md-50">
+                                    <div class="modal-item input-group">
+                                        <label>Trạng thái data <span class="required">*</span></label>
+                                        <select class="select2 select-status" name="StatusCode">
+                                            <option value="">--</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="footer-modal">
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                        <button
+                                class="btn-green btn-add-call"
+                                type="button">
+                            Đồng ý
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- detail -->
+        <div class="bs-modal detail-modal" id="detail-call_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- edit -->
+        <div class="bs-modal detail-modal" id="edit-call_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        @section Scripts{
+            <script src="~/Content/js/app.js"></script>
+            <script src="~/Content/js/extend/method.js"></script>
+            <script src="~/js/system.js"></script>
+            <script src="~/js/controllers/call-management.js"></script>
+        }

@@ -1,0 +1,55 @@
+﻿@using CRMBussiness.ViewModel
+@model IEnumerable<SaleChart>
+@section Styles{
+    <link href="~/css/dashboard.css" rel="stylesheet" />
+}
+<section class="section_dashboard">
+    <div class="module-header">
+        <h3 class="header">Dashboard</h3>
+        <p class="sub-header">Xin chào, @ViewBag.FullName</p>
+    </div>
+    <div class="module-content">
+        <div class="chart">
+            <span class="left axis_y-title">TOP</span>
+            <span class="right axis_y-title">DOANH SỐ (VNĐ)</span>
+
+            @{
+                int stt = 1;
+            }
+            @if (Model.ToList().Count > 0)
+            {
+
+                foreach (var item in Model)
+                {
+                    <div class="chart-row">
+                        <div class="top">@(stt++)</div>
+                        
+                        <div class="detail">
+                            <img src="/images/dashboard/avatar.png"
+                                alt="avatar"
+                                width="32"
+                                height="32" />
+                            <span class="name">@item.FullName</span>
+                        </div>
+
+                        <div class="total-percentage">
+                            <div class="own-percentage" data-percentage=@item.Percent></div>
+                        </div>
+                        <span class="sale">đ @String.Format("{0:#,0}", item.RevenueSale)</span>
+                    </div>
+
+                }
+            }
+
+        </div>
+    </div>
+</section>
+@section Scripts{
+
+    <script>
+        $(".total-percentage .own-percentage").each(function () {
+            const percentage = $(this).attr("data-percentage");
+            $(this).css("width", percentage + "%");
+        });
+    </script>
+}

@@ -1,0 +1,174 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords">
+    <meta content="eCommerce HTML Template Free Download" name="description">
+    <title>PHẦN MỀM CRM SAILFISH</title>
+    @*<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">*@
+    @*<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">*@
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    @* Hungvx CSS *@
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="~/Content/css/nprogress.css" />
+    <link rel="stylesheet" href="~/Content/css/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="~/Content/css/custom.min.css" />
+    <link rel="stylesheet" href="~/Content/css/cropper.min.css" />
+    <link rel="stylesheet" href="~/Content/css/style.css" />
+    <link rel="stylesheet" href="~/Content/css/toastr.min.css" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap-editable.css" />
+    <link rel="stylesheet" href="~/Content/css/select2.min.css" />
+    @* End *@
+
+    @RenderSection("Styles", required: false)
+    <style>
+        .login-item {
+            position: absolute;
+            right: 0;
+            border: 1px solid deepskyblue;
+            width: 150px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+            .login-item > a {
+                color: deepskyblue !important;
+            }
+    </style>
+</head>
+<body>
+    <!-- Nav Bar Start -->
+    @*<div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Trang chủ</a>
+                            <a href="#" class="nav-item nav-link">Trang 2</a>
+                        </div>
+                        <div class="navbar-nav ml-auto">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle my-name" data-toggle="dropdown">Tài khoản</a>
+                                <div class="dropdown-menu">
+                                    <div class="not-logined-actions">
+                                        <a class="dropdown-item" onclick="window.location.href = '/Login/Login';">Đăng nhập</a>
+                                        <a href="#" class="dropdown-item">Đăng ký</a>
+                                    </div>
+                                    <div class="logined-actions">
+                                        <a class="dropdown-item" onclick="Logout()">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>*@
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">HR</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li>
+                    <a asp-area="" asp-controller="AllowanceOrDeducts" asp-action="Index" class="nav-item nav-link">Tiền Phạt</a>
+                </li>
+
+                <li>
+                    <a asp-area="" asp-controller="Investors" asp-action="Index" class="nav-item nav-link">Khách hàng</a>
+                </li> 
+                <li>
+                    <a asp-area="" asp-controller="Products" asp-action="Index" class="nav-item nav-link">Sản Phẩm</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="dropdown-item" onclick="Logout()"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Nav Bar End -->
+    @*<div class="container">
+        <main role="main" class="pb-3">*@
+    @RenderBody()
+    @*</main>
+        </div>*@
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - CRMSite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    @* Hungvx js *@
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/4.1.0/autoNumeric.min.js" integrity="sha512-U0/lvRgEOjWpS5e0JqXK6psnAToLecl7pR+c7EEnndsVkWq3qGdqIGQGN2qxSjrRnCyBJhoaktKXTVceVG2fTw==" crossorigin="anonymous"></script>
+    <script src="~/Content/js/define/Define_ShortcutKeyboard.js"></script>
+    <script src="~/Content/js/define/Define_AutoNumeric.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Content/js/bootstrap-datepicker.vi.min.js"></script>
+    <script src="~/Content/js/fastclick.js"></script>
+    <script src="~/Content/js/nprogress.js"></script>
+    @*<script src="~/Content/js/jquery.mCustomScrollbar.concat.min.js"></script>*@
+    <script src="~/Content/js/custom.min.js"></script>
+    @*<script src="~/Content/js/toastr.min.js"></script>*@
+    <script src="~/Content/js/moment.min.js"></script>
+    <script src="~/Content/js/moment-with-locales.js"></script>
+    <script src="~/Content/js/jquery.cookie.js"></script>
+    <script src="~/Content/js/extend/toastr.js"></script>
+    <script src="~/Content/js/extend/method.js"></script>
+    <script src="~/Assets/vendors/jquery-number/jquery.number.js"></script>
+    <script src="~/Assets/common/extendDate.js"></script>
+    <script src="~/Assets/common/extendNumber.js"></script>
+    <script src="~/Assets/common/extendString.js"></script>
+    <script src="~/Assets/common/extendJquery.js"></script>
+    <script src="~/Assets/common/extendMethods.js"></script>
+    <script src="~/Assets/vendors/jquery-number/jquery.number.min.js"></script>
+    <script src="~/Content/js/bootstrap-table.min.js"></script>
+    <script src="~/Content/js/bootstrap-table-vi-VN.min.js"></script>
+    <script src="~/Content/js/select2.full.min.js"></script>
+    <script src="~/Content/js/app.js"></script>
+    <script src="~/Content/js/extend/upfile.js"></script>
+    @* End *@
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/lib/toarst/toastr.js"></script>
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+    <script src="~/js/alert.js"></script>
+    <script>
+        if (typeof (Storage) !== "undefined") {
+            let name = localStorage.getItem("FullName");
+            if (name) {
+                //$(".my-name").text(name);
+                $('.not-logined-actions').hide();
+                $('.logined-actions').show();
+            }
+            else {
+                $('.not-logined-actions').show();
+                $('.logined-actions').hide();
+            }
+        }
+        function Logout() {
+
+            if (typeof (Storage) !== "undefined") {
+                localStorage.clear();
+            }
+            window.location.href = "/Home/Logout";
+        }
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿@model CRMBussiness.ViewModel.LevelConcernViewModel
+
+<!-- header -->
+<div class="header-modal">
+    <h3 class="modal__title">Chỉnh sửa mức độ quan tâm show up</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/crm/images/layout/close-modal.svg" alt="" />
+    </span>
+</div>
+
+<!-- body -->
+<div class="body-modal">
+    <form id="update-form">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="LevelConcernCode" value="@Model.LevelConcernCode" />
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col sm-50">
+                <div class="modal-item">
+                    <label>Mức độ quan tâm show up</label>
+                    @Html.EditorFor(model => model.NameConcern, new { htmlAttributes = new { @class = "" } })
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- footer -->
+<div class="footer-modal">
+    <button id="update-concern"
+            class="close__btn btn-green"
+            type="button">
+        Cập nhật
+    </button>
+    <button modal-show="close"
+            class="close__btn btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+</div>

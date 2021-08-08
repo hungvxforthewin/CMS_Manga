@@ -1,0 +1,127 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>PHẦN MỀM CRM SAILFISH</title>
+    <link rel="stylesheet" type="text/css" href="/Assets/SA/css/tool.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Assets/SA/css/main.min.css" />
+    <link href="~/css/update.css" rel="stylesheet" />
+    <link href="~/css/toastr.min.css" rel="stylesheet" />
+    <style>
+        #main .main-content .select_pagination .pagination button, #main .main-content .select_pagination .pagination li a {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            font-family: K2D;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+            color: #828282;
+            padding: 7px 12px;
+            margin-left: 12px;
+            border-radius: 25px;
+            background: rgba(255,255,255,.5);
+            border: 1px solid #E3E8F0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        #main .main-content .select_pagination .pagination li.active a {
+            border: unset;
+            background: #20CB8D;
+            color: #FFF;
+        }
+
+        #main .main-content{
+            position: relative;
+        }
+
+        #main .main-content .notice {
+            color: red;
+            position: absolute;
+            top: 10%;
+            left: 12%;
+        }
+    </style>
+</head>
+
+<body class="index">
+    <div class="loading-wrapper" style="display: none;">
+        <div class="loading">
+            <div class="pacman"></div>
+            <div class="ghost"></div>
+            <div class="ghost"></div>
+            <div class="ghost"></div>
+            <div class="ghost"></div>
+        </div>
+    </div>
+
+    <div class="main-web">
+        <div class="main-left">
+            <!-- <img src="/Assets/SA/images/layout/pattern.png" alt="" /> -->
+            <div class="logo">
+                <a href="#" class="link"><img src="/Assets/SA/images/layout/logo.png" alt="" /></a>
+                <span class="show__menu"><i class="fas fa-bars"></i></span>
+            </div>
+            <div class="menu">
+                <span class="close__menu"><i class="fas fa-times"></i></span>
+                <div class="menu-list">
+                </div>
+                <div class="right">
+                    <img src="/Assets/SA/images/layout/right.png" alt="" />
+                    <span>© 2021 - Bản quyền thuộc về Công ty CP Bytesoft Việt Nam</span>
+                </div>
+            </div>
+        </div>
+        <div class="main-right">
+            <div id="header">
+                <div class="header_left">
+                    <img src="/Assets/SA/images/layout/bars.svg" alt="" class="bars" />
+                    <span>PHẦN MỀM CRM SAILFISH</span>
+                </div>
+                <div class="header_right">
+                    <a href="/Login/Logout">Đăng xuất</a>
+                    @*<a href="/Login/Logout">Đăng xuất</a>
+                    <img src="/Assets/SA/images/layout/search.svg" alt="" />
+                    <img src="/Assets/SA/images/layout/notifications.svg" alt="" />
+                    <img src="/Assets/SA/images/layout/avt.png" alt="" />
+                    <img src="/Assets/SA/images/layout/dots.svg" alt="" />*@
+                </div>
+            </div>
+            <div id="main">
+                <div class="main-content">
+                    <h1 class="notice">
+                        Truy cập trái phép tới trang mà bạn không có quyền. <br />
+                        Vui lòng liên hệ tới Administrator để được hỗ trợ thêm.
+                    </h1>
+                </div>
+            </div>
+            <div id="footer"></div>
+        </div>
+    </div>
+    <script src="/Assets/SA/js/tool.min.js"></script>
+    <script src="/Assets/SA/js/main.js"></script>
+    <script src="~/js/toastr.min.js"></script>
+    <script src="~/js/pagination.min.js"></script>
+    <script>
+
+    </script>
+    <script src="~/js/site.js"></script>
+</body>
+
+</html>

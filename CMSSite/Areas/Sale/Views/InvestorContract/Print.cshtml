@@ -1,0 +1,806 @@
+﻿@{
+    Layout = null;
+}
+@using CRMBussiness.ViewModel
+@model ContractInvestorPrintViewModel
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style>
+        #print {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <button type="button" onClick="print()">In</button>
+    <button type="button" onClick="Export2Doc('print', 'hợp đồng')">Tải về</button>
+    <div id="print">
+        <style>
+            @@media print {
+
+                html,
+                body {
+                    height: 99%;
+                    page-break-after: avoid !important;
+                    page-break-before: avoid !important;
+                }
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                ul li {
+                    position: relative;
+                    padding-left: 15px
+                }
+
+                    ul li:after {
+                        content: "-";
+                        position: absolute;
+                        top: -2px;
+                        left: 0
+                    }
+
+            table {
+                page-break-inside: auto;
+            }
+
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto
+            }
+
+            ul li.english:after {
+                display: none;
+            }
+
+            ul.circle li {
+                padding-left: 0;
+            }
+
+                ul.circle li:after {
+                    display: none;
+                }
+
+            .hidden {
+                opacity: 0;
+            }
+
+            ol {
+                padding-left: 15px;
+            }
+
+            .content {
+                padding-left: 30px;
+            }
+
+            p,
+            table,
+            span,
+            strong,
+            em,
+            li,
+            h1,
+            h2,
+            h6 {
+                color: #000;
+                letter-spacing: unset;
+                font-size: 13px;
+                margin-bottom: 7px;
+                margin-top: 0;
+                line-height: 20px;
+                text-align: justify;
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+
+            table {
+                page-break-inside: auto;
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto
+            }
+
+            table p {
+                margin: 0;
+            }
+
+            #page-container div {
+                font-family: 'Times New Roman 1';
+            }
+
+            h6 {
+                margin-top: 10px
+            }
+
+            .italic {
+                font-style: italic
+            }
+
+            .style_border {
+                display: block;
+                position: absolute !important;
+                height: 4px;
+                background: #000;
+                width: 100%;
+                bottom: -9px;
+                text-shadow: unset;
+                opacity: 1;
+            }
+        </style>
+        <div style="text-align: center">
+            <p style="text-align: center"><strong>CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</strong></p>
+            <p style="text-align: center"><strong>Độc lập - Tự do - Hạnh phúc</strong></p>
+            <hr style="width: 178px; margin-top: 0;" />
+            <p style="text-align: center"><strong>SOCIALIST REPUBLIC OF VIETNAM</strong></p>
+            <p style="text-align: center"><strong>Independence – Freedom - Happiness</strong></p>
+            <p><strong>&nbsp;</strong></p>
+            <p style="text-align: center"><strong>HỢP ĐỒNG CHUYỂN NHƯỢNG CỔ PHẦN</strong></p>
+            <p style="text-align: center"><strong>SHARE TRANSFER AGREEMENT</strong></p>
+            <p style="text-align: center">Số:@Model.CodeContract</p>
+            <p style="text-align: center">No:@Model.CodeContract</p>
+        </div>
+
+        <ul>
+            <li>
+                <em>Căn cứ Bộ luật Dân sự được Quốc hội nước Cộng hoà xã hội chủ nghĩa Việt Nam thông qua ngày 24/11/2015;</em>
+                <p><em>Pursuant to the Civil Code approved by the National Assembly of the Socialist Republic of Vietnam on November 24, 2015;</em></p>
+            </li>
+            <li>
+                <em>Căn cứ Luật doanh nghiệp số 59/2020/QH14 được Quốc hội nước Cộng hoà xã hội chủ nghĩa Việt Nam thông qua ngày 17/06/2020;</em>
+                <p><em>Pursuant to the Law on Enterprises approved by the National Assembly of the Socialist Republic of Vietnam on June 17, 2020;</em></p>
+            </li>
+            <li>
+                <em>Căn cứ vào nhu cầu và khả năng của hai bên.</em>
+                <p><em>Based on the needs and capabilities of both Parties.</em></p>
+            </li>
+        </ul>
+        <p>Hôm nay, ngày @DateTime.Now.Day.ToString() tháng @DateTime.Now.Month.ToString() năm 2021, các bên ký kết hợp đồng bao gồm:</p>
+        <p><em>Today, day @DateTime.Now.Day.ToString() month @DateTime.Now.Month.ToString() year 2021, the Parties include:</em></p>
+        <p><strong>BÊN CHUYỂN NHƯỢNG: CÔNG TY CỔ PHẦN C3 GROUP </strong></p>
+        <p><strong>TRANSFEROR : C3 GROUP JOINT STOCK COMPANY</strong></p>
+        <table>
+            <tr>
+                <td width="150px"><span style="width: 150px; display: block">Mã số doanh nghiệp</span></td>
+                <td>: 0106451309 Do Phòng ĐKKD Sở Kế hoạch và Đầu Tư Hà Nội cấp đầu ngày 24/1/2014</td>
+            </tr>
+            <tr>
+                <td width="150px"><em style="width: 150px; display: block">Registration No.</em></td>
+                <td><em>: 0106451309 issued by Business Registration Authorities under Hanoi Department of Planning and Investment</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Trụ sở</td>
+                <td>: Cụm 6, xã Hồng Hà, huyện Đan Phượng, Thành phố Hà Nội</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Head office</em></td>
+                <td><em>: Lane 6, Hong Ha commune, Dan Phuong district, Hanoi</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Văn phòng</td>
+                <td>: Tầng 8, Tòa văn phòng 1, Sunsquare Building, 21 Lê Đức Thọ, Hà Nội</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Office</em></td>
+                <td><em>: 8th floor, VP 1, Sun Square Building, No. 21 Le Duc Tho street, Hanoi</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Điện thoại</td>
+                <td>: </td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Tel</em></td>
+                <td><em>: </em></td>
+            </tr>
+            <tr>
+                <td width="150px">Người đại diện</td>
+                <td>: ông Nguyễn Văn Thái</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Representative (Mr.)</em></td>
+                <td><em>: Nguyen Van Thai</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Chức vụ</td>
+                <td>: Giám đốc</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Position</em></td>
+                <td><em>: Director</em></td>
+            </tr>
+        </table>
+        <p>Sau đây gọi là &ldquo;<strong>Bên A&rdquo;</strong></p>
+        <p><em>Hereinafter as &ldquo;<strong>Party A&rdquo;</strong></em></p>
+        <p><strong>BÊN NHẬN CHUYỂN NHƯỢNG:</strong></p>
+        <p><strong>TRANSFEREE:</strong></p>
+        <table>
+            <tr>
+                <td width="150px"><span style="width: 150px; display: block">Số CMND/Hộ chiếu</span></td>
+                <td>: @Model.IdCard</td>
+            </tr>
+            <tr>
+                <td width="150px"><em style="width: 150px; display: block">Identity Card/ Passport No.</em></td>
+                <td><em>: @Model.IdCard</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Ngày cấp</td>
+                <td>: @Model.DateOfIssuance</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Date of issurance</em></td>
+                <td><em>: @Model.DateOfIssuancePrint</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Nơi cấp</td>
+                <td>: @Model.AddressIssuance</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Place of issurance</em></td>
+                <td><em>: @Model.AddressIssuancePrint</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Địa chỉ</td>
+                <td>: @Model.Address</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Address</em></td>
+                <td><em>: @Model.AddressPrint</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Mã số thuế cá nhân</td>
+                <td>: @Model.PersonalTaxCode</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Tax Identification Number</em></td>
+                <td><em>: @Model.PersonalTaxCode</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Điện thoại</td>
+                <td>: @Model.Phone</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Tel</em></td>
+                <td><em>: @Model.Phone</em></td>
+            </tr>
+            <tr>
+                <td width="150px">Số tài khoản</td>
+                <td>: @Model.AccountBank</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Bank account</em></td>
+                <td><em>: @Model.AccountBank</em></td>
+            </tr>
+
+            <tr>
+                <td width="150px">Tại Ngân hàng</td>
+                <td>: @Model.Bank</td>
+            </tr>
+            <tr>
+                <td width="150px"><em>Bank</em></td>
+                <td><em>: @Model.BankPrint</em></td>
+            </tr>
+        </table>
+        <p>Sau đây gọi là &ldquo;<strong>Bên B&rdquo;</strong></p>
+        <p><em>Hereinafter as &ldquo;<strong>Party B&rdquo;</strong></em></p>
+        <p><strong>Xét rằng:</strong></p>
+        <p><strong>Whereas:</strong></p>
+        <ol>
+            <li>
+                Bên A là cá nhân sở hữu hợp pháp Cổ phần tại Công ty Cổ phần Tập đoàn Sailfish; <p><em>Party A is a legal individual owning shares of Sailfish Group Join Stock Company;</em></p>
+            </li>
+            <li>
+                Bên B là cá nhân có năng lực tài chính và có nhu cầu đầu tư; <p><em>Party B is an individual with financial capability and investment demand;</em></p>
+            </li>
+            <li>
+                Bên A và Bên B mong muốn hợp tác. <p><em>Party A and Party B want to cooperate with each other.</em></p>
+            </li>
+        </ol>
+        <p>Các bên dưới đây gọi chung là &ldquo;Các Bên&rdquo;, gọi riêng là &ldquo;Mỗi Bên&rdquo;, &ldquo;Bên&rdquo; cùng thoả thuận ký kết Hợp đồng chuyển nhượng cổ phần với những nội dung cụ thể như sau:</p>
+        <p><em>The parties hereinafter collectively referred to as the “Parties”, individually referred to as “Party” together agree to sign a Share Transfer Agreement with the following specific contents:</em></p>
+        <p><strong>ĐIỀU 1: NHỮNG KHÁI NIỆM ĐƯỢC SỬ DỤNG TRONG HỢP ĐỒNG:</strong></p>
+        <p><strong>ARTICLE 1: INTEPRETATION:</strong></p>
+        <div class="content">
+            <p>1.1 <strong>&ldquo;Hợp đồng&rdquo;</strong> là Hợp đồng chuyển nhượng cổ phần số @Model.CodeContract và các Phụ lục Hợp đồng (nếu có) được ký kết giữa Các Bên;</p>
+            <p><em><strong>&ldquo;Agreement&rdquo;</strong> means the Share Transfer Agreement No. @Model.CodeContract and its appendixes (if any) singed by the Parties;</em></p>
+            <p>1.2 <strong>&ldquo;Cổ Phần&rdquo;</strong> là cổ phần của Công ty Cổ phần Tập đoàn Sailfish với một số đặc điểm được quy định tại Điều 2 của Hợp đồng này và được Các Bên thoả thuận mua bán theo quy định tại Hợp đồng.</p>
+            <p><em><strong>&ldquo;Shares&rdquo;</strong> means shares of Sailfish Group Joint Stock Company with some features specified in Article 2 of this Agreement and agreed to buy and sell by the Parties in accordance with the Agreement.</em></p>
+        </div>
+        <p><strong>ĐIỀU 2: ĐỐI TƯỢNG VÀ NỘI DUNG CỦA HỢP ĐỒNG</strong></p>
+        <p><strong>ARTICLE 2: OBJECT AND CONTENT</strong></p>
+        <div class="content">
+            <p>Bên A đồng ý chuyển nhượng một phần cổ phần do Bên A nắm giữ tại Công ty Cổ phần Tập đoàn Sailfish cho Bên B (sau đây gọi là &ldquo;<em>Gói đầu tư</em>&rdquo;) theo nội dung sau:</p>
+            <p><em>Party A agrees to partly transfer his/her shares in Sailfish Group Joint Stock Company to Party B (hereinafter referred to as &ldquo;<em>Investment Package</em>&rdquo;) in accordance with the following contents:</em></p>
+            <table width="92%">
+                <tbody>
+                    <tr>
+                        <td width="26%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Tên tổ chức phát hành</p>
+                            <p><em>Issuer</em></p>
+                        </td>
+                        <td width="4%" style="border: 1px solid #000; padding: 5px; text-align: center">
+                            <p>:</p>
+                        </td>
+                        <td width="69%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Công ty Cổ phần Tập đoàn Sailfish</p>
+                            <p><em>Sailfish Group Joint Stock Company</em></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="26%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Loại cổ phần</p>
+                            <p><em>Type of share</em></p>
+                        </td>
+                        <td width="4%" style="border: 1px solid #000; padding: 5px; text-align: center">
+                            <p>:</p>
+                        </td>
+                        <td width="69%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Cổ phần phổ thông, tự do chuyển nhượng</p>
+                            <p><em>Ordinary share</em></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="26%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Mệnh giá cổ phần</p>
+                            <p><em>Face price</em></p>
+                        </td>
+                        <td width="4%" style="border: 1px solid #000; padding: 5px; text-align: center">
+                            <p>:</p>
+                        </td>
+                        <td width="69%" style="border: 1px solid #000; padding: 5px;">
+                            <p><strong>10.000</strong> đồng/cổ phần (<em>Mười nghìn đồng một cổ phần)</em></p>
+                            <p><em><strong>10.000</strong> VND/share (<em>ten thoudsand Vietnam dong per share)</em></em></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="26%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Số lượng cổ phần chuyển nhượng</p>
+                            <p><em>Number of shares transferred</em></p>
+                        </td>
+                        <td width="4%" style="border: 1px solid #000; padding: 5px; text-align: center">
+                            <p>:</p>
+                        </td>
+                        <td width="69%" style="border: 1px solid #000; padding: 5px;">
+                            <p>&hellip;@Model.CountShare&hellip;&hellip; (&hellip;&hellip;&hellip;&hellip;&hellip;..&hellip;&hellip;@Model.CountShareVN&hellip;&hellip;&hellip;..&hellip;&hellip;.&hellip;) cổ phần</p>
+                            <p><em>&hellip;@Model.CountShare&hellip;&hellip; (&hellip;&hellip;&hellip;&hellip;&hellip;..&hellip;&hellip;@Model.CountShareEN &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..&hellip;&hellip;.&hellip;) shares</em></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="26%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Giá trị cổ phần chuyển nhượng</p>
+                            <p><em>Purchuse price</em></p>
+                        </td>
+                        <td width="4%" style="border: 1px solid #000; padding: 5px; text-align: center">
+                            <p>:</p>
+                        </td>
+                        <td width="69%" style="border: 1px solid #000; padding: 5px;">
+                            <p>50.000 đồng/cổ phần (<em>năm mươi nghìn đồng/cổ phần</em>).</p>
+                            <p><em>50.000 VND/shares (<em>fifty thoudsand Vietnam dong/share</em>).</em></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="26%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Tổng giá trị cổ phần chuyển nhượng</p>
+                            <p><em>Total price</em></p>
+                        </td>
+                        <td width="4%" style="border: 1px solid #000; padding: 5px; text-align: center">
+                            <p>:</p>
+                        </td>
+                        <td width="69%" style="border: 1px solid #000; padding: 5px;">
+                            <p>&hellip;&hellip;&hellip;@String.Format("{0:#,0}", Model.InvestmentAmount) &hellip;&hellip;&hellip;&hellip;đồng</p>
+                            <p>(<em>Bằng chữ:&hellip;&hellip;&hellip;&hellip;&hellip; @Model.InvestmentAmountPrint  đồng&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</em>.)</p>
+                            <p><em>&hellip;&hellip;&hellip;@String.Format("{0:#,0}", Model.InvestmentAmount) &hellip;&hellip;&hellip;VND</em></p>
+                            <p><em>(in words:&hellip;&hellip;&hellip;&hellip;&hellip;@Model.InvestmentAmountPrintEN VND&hellip;&hellip;&hellip;&hellip;&hellip;</em></p>
+                            <p><em>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</em>.)</p>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Tổng giá trị cổ phần chuyển nhượng nêu tại Điều 2 của Hợp đồng này không bao gồm các khoản thuế, phí và lệ phí phải trả. Các khoản thuế, Phí, lệ phí phải trả liên quan đến việc chuyển nhượng cổ phần (nếu có) sẽ do Bên A thanh toán toàn bộ theo quy định của pháp luật.</p>
+            <p><em>The total price of transferred shares stated in Article 2 of this Agreement does not include taxes, fees and charges. Taxes, fees and charges related to share transfer (if any) will be fully paid by Party A in accordance with the law.</em></p>
+        </div>
+        <p><strong>ĐIỀU 3: PHƯƠNG THỨC GIAO DỊCH VÀ THANH TOÁN</strong></p>
+        <p><strong>ARTICLE 3: MODE OF TRANSACTION AND PAYMENT</strong></p>
+        <div class="content">
+            <p>3.1 Thời hạn thanh toán</p>
+            <p><em>Payment period</em></p>
+            <p>Bên B sẽ thực hiện thanh toán toàn bộ Tổng giá trị cổ phần chuyển nhượng theo quy định tại Điều 2 của Hợp đồng này cho Bên A thành 02 đợt:</p>
+            <p><em>Party B will pay for the Total Price according to the provisions of Article 2 of this Agreement to Party A in 02 installments:</em></p>
+            <ul>
+                <li>Đợt 1: Ngay sau khi kí Hợp đồng này, Bên B sẽ đặt cọc một khoản tiền tương ứng là @Model.PercenDeposit % giá trị của Hợp đồng.</li>
+                <li class="english"><em>Phase 1: Immediately after signing this Agreement, Party B will deposit an amount of money corresponding to @Model.PercenDeposit% of the Total Price.</em></li>
+                <li>Đợt 2: Sau @Model.day ngày, kể từ ngày ký kết hợp đồng đến ngày @(Model.BillTwo != null ? Model.BillTwo.Value.Day.ToString() : "__") tháng @(Model.BillTwo != null ? Model.BillTwo.Value.Month.ToString() : "__") năm 2021, Bên B thanh toán cho Bên A khoản tiền còn lại là: &hellip;&hellip;&hellip;@String.Format("{0:#,0}", Model.RemainAmount)&hellip;&hellip;&hellip;&hellip; đồng (bằng chữ: &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;@Model.RemainAmountVN& đồng&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;...&hellip;&hellip;&hellip;..&hellip;&hellip;).</li>
+                <li class="english"><em>Phase 2: After @Model.day days, from the signing date to day @(Model.BillTwo != null ? Model.BillTwo.Value.Day.ToString() : "__") month @(Model.BillTwo != null ? Model.BillTwo.Value.Month.ToString() : "__") 2021, Party B pays Party A the remaining amount of: &hellip;&hellip;@String.Format("{0:#,0}", Model.RemainAmount)&hellip;&hellip;&hellip;&hellip;&hellip; VND (in words: &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;@Model.RemainAmountEN& VND&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;...&hellip;&hellip;&hellip;..&hellip;&hellip;).</em></li>
+                <li>Khoản tiền đặt cọc tại Đợt 1 sẽ được khấu trừ vào Tổng giá trị cổ phần chuyển nhượng mà Bên B phải thanh toán cho Bên A.</li>
+                <li class="english"><em>The deposit in Phase 1 will be deducted from the Total price of transferred shares that Party B must pay to Party A.</em></li>
+            </ul>
+            <p>3.2 Xử lý đặt cọc</p>
+            <p><em>Deposit processing</em></p>
+            <ul>
+                <li>Trường hợp hết thời hạn thanh toán được quy định tại Đợt 2 của Khoản 3.1 Điều này mà Bên A từ chối thực hiện việc chuyển nhượng cổ phần không phải do lỗi của bên B thì Bên B được nhận lại tiền đặt cọc tại ngân hàng và Bên A phải chịu phạt cọc một khoản tiền tương đương khoản đặt cọc cho bên B.</li>
+                <li class="english"><em>In case of expiration of the payment period specified in Phase 2 of Clause 3.1 of this Article, but Party A refuses to transfer shares to Party B, Party B will get the deposit back at the bank and Party A must pay a deposit of an amount equivalent to the deposit for Party B.</em></li>
+                <li>Trường hợp hết thời hạn thanh toán được quy định tại Đợt 2 của Khoản 3.1 Điều này mà Bên B không thanh toán đủ và/hoặc không thanh toán thì Bên B bị mất tiền đặt cọc, Hợp đồng này sẽ chấm dứt.</li>
+                <li class="english"><em>In case of expiration of the payment period specified in Phase 2 of Clause 3.1 of this Article, but Party B fails to pay in full and/or fails to pay, Party B will lose the deposit, this Agreement will be terminated.</em></li>
+            </ul>
+            <p>3.3 Phương thức thanh toán: Bằng tiền mặt hoặc bằng chuyển khoản.</p>
+            <p><em>Mode of payment: By cash or bank transfer.</em></p>
+            <p>Trường hợp thanh toán bằng chuyển khoản, Bên B sẽ chuyển khoản vào tài khoản của Bên A theo chỉ dẫn thanh toán sau:</p>
+            <p><em>In case of paying by bank transfer, Party B will transfer money to Party A's bank account according to the following payment instructions:</em></p>
+            <ul style="list-style-type: circle;     margin-left: 19px;" class="circle">
+                <li><span><span style=" width: 100px;display: inline-block;">Người thụ hưởng </span>: Công ty Cổ phần C3 Group <br /> <em><span style=" width: 100px;display: inline-block;">Beneficiary </span>: C3 Group Join Stock Company</em></span></li>
+                <li><span style=" width: 100px;display: inline-block;">Số tài khoản </span>: @Model.AccountBank<br /> <em><span style=" width: 100px;display: inline-block;">Bank account </span>: @Model.AccountBank</em></li>
+                <li><span style=" width: 100px;display: inline-block;">Tại ngân hàng </span>: @Model.Bank<br /> <em><span style=" width: 100px;display: inline-block;">Bank </span>: @Model.BankPrint</em></li>
+                <li><span style=" width: 100px;display: inline-block;">Nội dung </span>: Thanh toán Tổng giá trị cổ phần theo Hợp đồng số @Model.CodeContract <br /> <em><span style=" width: 100px;display: inline-block;">Message </span>: Payment of the total number of shares in accordance with the Agreement No @Model.CodeContract</em></li>
+            </ul>
+        </div>
+        <p><strong>ĐIỀU 4: THỎA THUẬN VỀ GIAO DỊCH MUA LẠI CỔ PHẦN CHUYỂN NHƯỢNG</strong></p>
+        <p><strong>ARTICLE 4: AGREEMENT ON REPURCHASING TRANSFERRED SHARES</strong></p>
+        <div class="content">
+            <p>4.1 Các bên thống nhất, trong thời hạn 05 năm kể từ Ngày Bên B hoàn tất thanh toán toàn bộ Tổng giá trị cổ phần chuyển nhượng, (&ldquo;Thời Điểm Mua Lại&rdquo;) các bên sẽ cùng xem xét và thống nhất Bên B có quyền yêu cầu Bên A và/hoặc Bên Thứ Ba do Bên A chỉ định) mua lại một phần hoặc toàn bộ Cổ phần chuyển nhượng cùng với toàn bộ cổ phiếu được chia thưởng và cổ tức được trả bằng cổ phiếu được phát sinh từ cổ phiếu do Bên B đầu tư theo nội dung cụ thể dưới đây:</p>
+            <p><em><span class="hidden"></span> The Parties agree that within 05 years from the date Party B completes payment of the total number of shares transferred, ("Time of Repurchase") the parties will consider whether Party B has the right to request Party A and/or a Third Party appointed by Party A) to partly or fully buy back the number of transferred Shares together with all bonus shares and dividends paid in shares arising from the shares invested by Party B according to the following specific contents:</em></p>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td width="33%" style="border: 1px solid #000; padding: 5px;">
+                            <p><strong>Thời gian mua lại</strong></p>
+                            <p><strong><em>Time of Repurchase</em></strong></p>
+                        </td>
+                        <td width="66%" style="border: 1px solid #000; padding: 5px; text-align: center;">
+                            <p style="text-align: center;"><strong>Giá mua lại so với Giá đầu tư</strong></p>
+                            <p style="text-align: center;"><strong><em>Repurchase price compared to investment Price</em></strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Dưới 2 năm</p>
+                            <p><em>Less than 2 years</em></p>
+                        </td>
+                        <td width="66%" style="border: 1px solid #000; padding: 5px; text-align: center;">
+                            <p style="text-align: center;">Không mua lại</p>
+                            <p style="text-align: center;"><em>Not buying back</em></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Từ 2 đến dưới 3 năm</p>
+                            <p><em>2 years to less than 3 years</em></p>
+                        </td>
+                        <td width="66%" style="border: 1px solid #000; padding: 5px; text-align: center;">
+                            <p style="text-align: center;">110%</p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Từ 3 đến dưới 4 năm</p>
+                            <p><em>3 years to less than 4 years</em></p>
+                        </td>
+                        <td width="66%" style="border: 1px solid #000; padding: 5px; text-align: center;">
+                            <p style="text-align: center;">150%</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Từ 4 đến dưới 5 năm</p>
+                            <p><em>4 years to less than 5 years</em></p>
+                        </td>
+                        <td width="66%" style="border: 1px solid #000; padding: 5px; text-align: center;">
+                            <p style="text-align: center;">200%</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%" style="border: 1px solid #000; padding: 5px;">
+                            <p>5 năm</p>
+                            <p><em>5 years</em></p>
+                        </td>
+                        <td width="66%" style="border: 1px solid #000; padding: 5px; text-align: center;">
+                            <p style="text-align: center;">300%</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%" style="border: 1px solid #000; padding: 5px;">
+                            <p>Trên 5 năm</p>
+                            <p><em>More than 5 years</em></p>
+                        </td>
+                        <td width="66%" style="border: 1px solid #000; padding: 5px;text-align: center;">
+                            <p style="text-align: center;">Không mua lại</p>
+                            <p style="text-align: center;"><em>Not buying back</em></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Ví dụ:</p>
+            <p><em>For example:</em></p>
+            <p>Bên A hoàn tất việc mua 2.000 cổ phiếu Công ty Cổ phần Tập đoàn Sailfish từ Bên B vào ngày 25/05/2021, với tổng giá trị đầu tư là 100.000.000 đồng (một trăm triệu đồng). Ngày 25/04/2026 Bên B gửi thông báo đến Bên A yêu cầu mua lại, và Bên A xác nhận đã nhận thông báo vào ngày 25/04/2026. Ngày 25/05/2026, 2 Bên thực hiện yêu cầu mua lại như sau:</p>
+            <p><em>Party B completed the purchase process of 2,000 shares of Sailfish Group Joint Stock Company from Party A on May 25, 2021, with total investment value of VND100,000,000 (one hundred million VND). On April 25, 2026, Party B sends a notice to Party A requesting to buy back, and Party A confirms to have received the notice on April 25, 2026. On May 25, 2026, the two Parties start repurchasing as follows:</em></p>
+            <ul class="arrow">
+                <li>
+                    Trong trường hợp Bên B yêu cầu Bên A mua lại 50% Gói đầu tư, Bên A sẽ thanh toán cho Bên B 300% * 50% * 100.000.000 = 150.000.000 đồng (một trăm năm mươi triệu đồng), và Bên A sẽ nhận lại 1.000 cổ phiếu Công ty Cổ phần Tập đoàn Sailfish, cộng với toàn bộ cổ phiếu được chia thưởng và cổ tức được trả bằng cổ phiếu phát sinh từ 1.000 cổ phiếu trên trong giai đoạn từ 25/05/2021 đến 25/05/2026. <p><em>In case Party B requests Party A to buy back 50% of the Investment Package, Party A will pay Party B 300% * 50% * 100,000,000 = 150,000,000 VND (one hundred and fifty million VND), and Party A will receive back 1,000 shares of Sailfish Group Joint Stock Company, plus all bonus shares and stock dividends arising from the 1,000 shares in the period from May 25, 2021 to May 25, 2026.</em></p>
+                </li>
+                <li>
+                    Trong trường hợp Bên B yêu cầu Bên A mua lại 100% Gói đầu tư, Bên A sẽ thanh toán cho Bên B 300% * 100% * 100.000.000 = 300.000.000 đồng (ba trăm triệu đồng), và Bên A sẽ nhận lại 2.000 cổ phiếu Công ty Cổ phần Tập đoàn Sailfish, cộng với toàn bộ cổ phiếu được chia thưởng và cổ tức được trả bằng cổ phiếu phát sinh từ 1.000 cổ phiếu trên trong giai đoạn từ 25/05/2021 đến 25/05/2026. <p><em>In case Party B requests Party A to buy back 100% of the Investment Package, Party A will pay Party B 300% * 100% * 100,000,000 = 300,000,000 VND (three hundred million dong), and Party A will receive back 2,000 shares of Sailfish Group Joint Stock Company, plus all bonus shares and stock dividends arising from the 2,000 shares in the period from May 25, 2021 to May 25, 2026.</em></p>
+                </li>
+            </ul>
+            <p>4.2 Để làm rõ, việc mua lại Cổ phần chuyển nhượng theo quy định tại khoản 1 điều này được thực hiện theo nguyên tắc sau:</p>
+            <p><span class="hidden"></span> <em>To clarify, buying back transferred Shares as prescribed in Clause 1 of this Article is done according to the following principles:</em></p>
+            <ol style="list-style-type: lower-alpha;">
+                <li>Trong trường hợp bên B lựa chọn bán lại Cổ phần chuyển nhượng cho bên A thì Bên B có trách nhiệm gửi văn bản đề nghị mua lại cho Bên A thông qua các cách thức được quy định tại Điều 9 của Hợp đồng này trong thời hạn 30 (Ba mươi) ngày trước Thời Điểm Mua Lại. <br /> <em>In case Party B chooses to resell the transferred Shares to Party A, Party B is responsible for sending a written repurchase request to Party A under the methods specified in Article 9 of this Agreement in 30 (Thirty) days prior to the Time of Repurchasing.</em></li>
+                <li>Trong thời hạn 05 (Năm) ngày làm việc kể từ thời điểm nhận được Văn bản đề nghị mua lại của Bên B, Bên A (và/hoặc Bên Thứ Ba do Bên A chỉ định) có trách nhiệm ký kết Hợp đồng chuyển nhượng Cổ phần phù hợp với số cổ phần đề nghị mua lại. <br /> <em>Within 05 (five) working days from the day of receiving Party B's written repurchase request, Party A (and/or the Third Party appointed by Party A) is responsible for signing the Share Transfer Agreement in accordance with the number of shares proposed to be repurchased.</em></li>
+            </ol>
+            <p>4.3 Trong quá trình mua lại, nếu Bên A phát hiện có sự gian lận đến từ bên B nhằm trục lợi bất chính qua các cam kết mua lại bên trên thì bên A sẽ từ chối mua lại cổ phần chuyển nhượng và cổ phần phát sinh.</p>
+            <p><em> During the repurchase process, if Party A detects fraud from Party B in order to gain illicit profits through the repurchase commitments above, Party A will refuse to repurchase the transferred shares and arising shares.</em></p>
+            <p>4.4 Trong trường hợp phát sinh các cổ phần khác xuất phát từ cổ phần chuyển nhượng mà nằm ngoài các trường hợp được Bên A cam kết mua lại bên trên thì Bên A có toàn quyền quyết định việc mua lại hoặc không mua lại các cổ phần từ các trường hợp phát sinh đó.</p>
+            <p><em>In case of arising other shares derived from the transferred shares and out of the cases that Party A is committed to repurchasing, Party A has the full right to decide to repurchase the shares from Party A in those arising cases or not.</em></p>
+        </div>
+        <p><strong>ĐIỀU 5: THỎA THUẬN VỀ THỰC HIỆN THỦ TỤC CHỨNG NHẬN TƯ CÁCH CỔ ĐÔNG CỦA BÊN B </strong></p>
+        <p><strong>ARTICLE 5: AGREEMENT ON IMPLEMENTATION OF THE PROCEDURES FOR CERTIFICATION OF SHAREHOLDER OF PARTY B</strong></p>
+        <div class="content">
+            <p>5.1<strong> </strong>Các Bên thống nhất, trong thời hạn 03 (ba) ngày làm việc kể từ Ngày Bên B hoàn tất thanh toán toàn bộ Tổng giá trị cổ phần chuyển nhượng, Bên A có trách nhiệm thực hiện các thủ tục pháp lý chứng nhận tư cách cổ đông của Bên B và có trách nhiệm phối hợp cùng Tổ chức phát hành để hoàn thành thủ tục cấp Cổ phiếu tương ứng với số lượng Cổ phần chuyển nhượng quy định tại Điều 2 của Hợp đồng này cho Bên B phù hợp với quy định tại Điều lệ Công ty và quy định pháp luật hiện hành.</p>
+            <p><em>The Parties agree that, within 03 (three) working days from the date Party B completes payment of the total number of shares transferred, Party A is responsible for carrying out legal procedures for certification of Shareholder of Party B and coordinating with the Issuer to complete the procedures for giving Shares equivalent to the number of Shares transferred as specified in Article 2 of this Agreement to Party B in accordance with the provisions of the Company's Charter and current regulations.</em></p>
+            <p>5.2 Quy định về chuyển quyền sở hữu Cổ phần</p>
+            <p><em>Regulations on share ownership transfer</em></p>
+            <ol style="list-style-type: lower-alpha;">
+                <li>Hai Bên thống nhất Bên B được hưởng toàn bộ các quyền, nghĩa vụ của chủ sở hữu Cổ phần ngay sau khi thanh toán đầy đủ Tổng giá trị cổ phần chuyển nhượng theo Điều 2 của Hợp đồng này không phụ thuộc vào việc thủ tục hành chính chuyển giao quyền sở hữu Cổ phần và Cổ phiếu cho Bên B đã hoàn thành hay chưa. <br /> <em>The two Parties agree that Party B shall enjoy all rights and obligations of the Shareholder right after the full payment of the total number of shares transferred according to Article 2 of this Agreement, regardless of the completion of the administrative procedure for share ownership transfer to Party B.</em></li>
+                <li>
+                    Theo đây, Trong thời hạn 05 năm kể từ thời điểm Bên B thanh toán đầy đủ Tổng giá trị Cổ phần chuyển nhượng, Bên B ủy quyền cho Bên A đồng ý ủy quyền toàn bộ và không hủy ngang các quyền và nghĩa vụ của Cổ đông cho Bên A (ngoại trừ quyền chuyển nhượng, cầm cố và đăng ký mua thêm cổ phần phát hành mới (nếu có)) phát sinh từ (i) số cổ phần chuyển nhượng nêu trên và (ii) số cổ phần được chia thưởng và trả cổ tức bằng cổ phiếu phát sinh từ só cổ phần chuyển nhượng nêu trên. <br />
+                    <p><em>Hereby, within 05 years from the day Party B fully pays for the total number of shares transferred, Party B agrees to authorize all and irrevocably all rights and obligations of Shareholder to Party A (except for the right to transfer, pledge and register to buy more new issued shares (if any)) arising from (i) the transferred shares above and (ii) the number of bonus shares and stock dividends paid arising from the transferred shares above.</em></p>
+                    <p>Để làm rõ quy định này, Hợp đồng này có giá trị như Hợp đồng/ Giấy ủy quyền chính thức cho bên A (và/ hoặc Bên thứ ba do bên A chỉ định). Bằng thỏa thuận Ủy quyền này, Bên A (và/ hoặc Bên thứ ba do bên A chỉ định) được quyền nhân danh và thay mặt bên B phát biểu và biểu quyết tại cuộc họp Đại hội đồng Cổ đông của Công ty với số phiếu biểu quyết tương ứng Cổ phần chuyển nhượng.</p>
+                    <p><em>To clarify this provision, this Agreement has the same validity as the Agreement/ Official Power of Attorney for Party A (and/or the Third Party appointed by Party A). By this Power of Attorney, Party A (and/or a Third Party appointed by Party A) is entitled to speak and vote on behalf of Party B at the Company's General Meeting of Shareholders with a number of votes equivalent to transferred shares.</em></p>
+                </li>
+
+                <li>
+                    Bên B tại đây cam kết và bảo đảm rằng Bên B sẽ không tự mình thực hiện bất kỳ công việc nào mà Bên B đã ủy quyền toàn bộ và không hủy ngang cho Bên A tại điểm b) nêu trên. <br />
+                    <p><em>Party B is committed and warrants that Party B will not perform any work on its own that Party B has fully and irrevocably authorized to Party A at point b) above.</em></p>
+                </li>
+            </ol>
+        </div>
+        <p><strong>ĐIỀU 6: CAM ĐOAN VÀ ĐẢM BẢO CỦA CÁC BÊN</strong></p>
+        <p><strong>ARTICLE 6: ASSURANCE AND WARRANTY</strong></p>
+        <div class="content">
+            <p>6.1 Các điều khoản, nội dung của Hợp đồng cùng với việc ký kết và thực hiện Hợp đồng sẽ không mâu thuẫn hoặc dẫn đến sự vi phạm đối với bất kỳ thỏa thuận hay văn kiện nào khác mà mỗi Bên đã ký kết hoặc tham gia.</p>
+            <p><em>The terms and contents of the Agreement together with the signing and performance of the Agreement shall not conflict with or lead to a breach of any other agreements or documents that each Party has signed or entered into.</em></p>
+            <p>6.2 Mọi cam đoan và bảo đảm của Các Bên trong Hợp đồng sẽ tạo thành các nghĩa vụ pháp lý, có hiệu lực và ràng buộc của Các Bên và sẽ có hiệu lực trong suốt thời hạn hiệu lực của Hợp đồng.</p>
+            <p><em>All assurance and warranties of the Parties in the Agreement shall constitute the legal, enforceable and binding obligations of the Parties and take effect for the validity duration of the Agreement.</em></p>
+            <p>6.3 Các Bên có đầy đủ năng lực thực hiện Thỏa thuận và tuân thủ nghiêm ngặt mọi quy định tại Hợp đồng này.</p>
+            <p><em>The Parties are fully capable of implementing the Agreement and strictly complying with all provisions of this Agreement.</em></p>
+            <p>6.4 Mỗi bên cam kết bảo mật thông tin của Hợp đồng này và các giao dịch khác liên quan đến Hợp đồng này, chỉ được tiết lộ nội dung của Hợp đồng khi (i) được bên còn lại chấp thuận bằng văn bản; (ii) Theo yêu cầu của pháp luật, cơ quan nhà nước có thẩm quyền; (iii) Cho mục đích kế toán, kiểm toán hoặc thủ tục thực hiện chuyển quyền sở hữu Cổ phần; (iv) Cho mục đích tuân thủ nội bộ và vận hành khác của mỗi Bên. Quy định này vẫn được bảo lưu hiệu lực sau khi Hợp đồng này chấm dứt.</p>
+            <p><em>Each party undertakes to keep the information of this Agreement and other transactions related to this Agreement confidential, only discloses the contents of the Agreement when (i) it is approved in writing by the other party; (ii) As required by law, competent authorities; (iii) For accounting, auditing purposes or procedures for share ownership transfer; (iv) For each Party's internal compliance and other operational purposes. This provision shall remain in effect after the termination of this Agreement.</em></p>
+        </div>
+        <p><strong>ĐIỀU 7: CHẤM DỨT HỢP ĐỒNG</strong></p>
+        <p><strong>ARTICLE 7: TERMINATION OF AGREEMENT</strong></p>
+        <div class="content">
+            <p><strong></strong>Hợp Đồng này chấm dứt khi các Bên đã hoàn thành giao dịch và hoàn thành mọi nghĩa vụ quy định tại Hợp đồng này.</p>
+            <p><em>This Agreement terminates when the Parties completes the transaction and fulfills all obligations specified in this Agreement.</em></p>
+        </div>
+        <p><strong>ĐIỀU 8: </strong><strong>BẤT KHẢ KHÁNG</strong></p>
+        <p><strong>ARTICLE 8: FORCE MAJEURE</strong></p>
+        <div class="content">
+            <p>8.1. Nếu một Bên không có khả năng thực hiện các nghĩa vụ của mình quy định tại Hợp đồng do có Sự Kiện Bất Khả Kháng, thì Bên đó phải thông báo bằng văn bản cho Bên còn lại trong vòng hai mươi (20) ngày sau khi xảy ra Sự Kiện Bất Khả Kháng đó và phải tham khảo ý kiến của Bên còn lại, và mỗi Bên phải nỗ lực hợp lý để hạn chế thiệt hại trong phạm vi có thể.</p>
+            <p><em>If a Party is unable to perform its obligations under the Agreement due to a Force Majeure Event, that Party must notify the other Party in writing within twenty (20) days after occurrence of such Force Majeure Event and must consult with the other Party, and each Party shall use reasonable efforts to limit damages within their capabilities.</em></p>
+            <p>8.2. Nếu Các Bên đồng ý, việc thực hiện Hợp Đồng của Các Bên có thể được đình chỉ tạm thời trong thời gian xảy ra Sự Kiện Bất Khả Kháng.</p>
+            <p><em>If the Parties agree, their performance of the Agreement may be temporarily suspended during the occurrence of the Force Majeure Event.</em></p>
+        </div>
+        <p><strong>ĐIỀU 9: THÔNG BÁO</strong></p>
+        <p><strong>ARTICLE 9: NOTICE</strong></p>
+        <div class="content">
+            <p>9.1. Mọi thông báo hay trao đổi thông tin theo Hợp Đồng phải được gửi cho Các Bên theo địa chỉ phù hợp nêu tại phần giới thiệu Các Bên trong Hợp Đồng.</p>
+            <p><em>All notices or communications under the Agreement must be sent to the Parties at the appropriate address specified in the introduction of the Parties in the Agreement.</em></p>
+            <p>9.2. Trong trường hợp một Bên thay đổi địa chỉ, Bên đó phải thông báo cho Bên kia bằng văn bản, sau khi Bên kia xác nhận, địa chỉ mới sẽ thay thế địa chỉ được nêu trong Hợp Đồng và được sử dụng là địa chỉ để gửi mọi thông báo liên quan đến Hợp Đồng.</p>
+            <p><em>In case a Party changes its address, that Party must notify the other Party in writing, and upon confirmation by the other Party, the new address will replace the address stated in the Agreement and be used as the address to send all notices related to the Agreement.</em></p>
+            <p>9.3. Ngày mà Thông Báo được xem như đã gửi cho bên kia là ngày gửi nếu được gửi trực tiếp; hoặc là ngày được ghi trên xác nhận văn bản người nhận nếu được gửi thông qua dịch vụ chuyển phát nhanh có biên nhận hoặc qua đường bưu điện bằng thư bảo đảm. Bất kỳ Bên nào cũng có thể thay đổi địa chỉ gửi Thông Báo bằng cách gửi Thông Báo về sự thay đổi theo hình thức quy định ở trên.</p>
+            <p><em>The date on which the Notice is deemed delivered to the other party is the sending date if it is sent in person; or the date shown on the recipient's written confirmation if it is sent via expess mail services with a receipt or by registered mail. Any Party may change the address of receiving the Notice by submitting the Notice on changes in the form specified above.</em></p>
+        </div>
+        <p><strong>ĐIỀU 10: ĐIỀU KHOẢN CHUNG</strong></p>
+        <p><strong>ARTICLE 10: GENERAL TERMS</strong></p>
+        <div class="content">
+            <p>10.1 Hợp Đồng này có hiệu lực kể từ ngày ký và sẽ được tự động thanh lý sau khi các Bên đã hoàn thành mọi nghĩa vụ quy định tại Hợp Đồng này.</p>
+            <p><em>This Agreement takes effect from the signing date and will be automatically liquidated after the Parties have fulfilled all obligations specified in this Agreement.</em></p>
+            <p>10.2 Trong quá trình thực hiện, các Bên sẽ thông báo cho nhau biết tiến độ thực hiện, nếu có phát sinh vướng mắc, các Bên cùng thống nhất giải quyết trên tinh thần hợp tác, bình đẳng và cùng có lợi. Trường hợp không giải quyết được tranh chấp bằng thương lượng, hai Bên thống nhất đưa vụ việc ra Toà án có thẩm quyền giải quyết theo quy định của pháp luật.</p>
+            <p><em>During the implementation process, the Parties will notify each other of the implementation progress. If any problems arise, the Parties agree to solve them in the spirit of cooperation, equality and mutual benefit. In case the dispute cannot be resolved by negotiation, the two Parties agree to bring the case to a competent Court for settlement according to the provisions of law.</em></p>
+            <p>10.3 Mọi sửa đổi, bổ sung Hợp Đồng này (nếu có) đều phải được các Bên thoả thuận nhất trí bằng văn bản, có chữ ký của đại diện có thẩm quyền của các Bên. Các văn bản này (nếu có) sẽ là một phần không tách rời của Hợp đồng này.</p>
+            <p><em>All amendments and supplements to this Agreement (if any) must be agreed upon by the Parties in writing and signed by authorized representatives of the Parties. These documents (if any) shall form an integral part of this Agreement.</em></p>
+            <p>10.4 Việc bất kỳ quy định nào của Hợp đồng không có hiệu lực sẽ không ảnh hưởng tới hiệu lực của bất kỳ quy định nào khác trong Hợp đồng.</p>
+            <p><em>The invalidity of any provision of the Agreement shall not affect the validity of any other provision of the Agreement.</em></p>
+            <p>10.5 Hợp Đồng này được lập thành 03 (ba) bản có giá trị pháp lý như nhau, mỗi Bên giữ 01 bản.</p>
+            <p><em>This Agreement is made in 03 (three) copies with the same legal validity, each Party keeps 01 copy.</em></p>
+        </div>
+        <p><strong><em>Để khẳng định những thỏa thuận và cam kết nêu trên, các đại diện hợp pháp của Các Bên đã ký và đóng dấu dưới đây:</em></strong></p>
+        <p><strong><em>To confirm the agreements and commitments above, the legal representatives of the Parties sign and stamp below:</em></strong></p>
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td width="50%" style="text-align: center">
+                        <p style="text-align: center"><strong>ĐẠI DIỆN BÊN A</strong></p>
+                        <p style="text-align: center"><strong>REPRESENTATIVE OF PARTY A</strong></p>
+                        <p><strong>&nbsp;</strong></p>
+                        @if (Model.IdStatusContract == "PayDone" && !string.IsNullOrEmpty(Model.InvestorSignature))
+                        {
+                            <p style="text-align: center;">
+                                <img width="250" src="https://@HttpContextAccessor.HttpContext.Request.Host.Value/Assets/SA/images/contract/sep_thai.png" />
+                            </p>
+                        }
+                        else
+                        {
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                        }
+                        <p><strong>&nbsp;</strong></p>
+                        <p style="text-align: center;"><strong><i>Nguyễn Văn Thái</i></strong></p>
+                    </td>
+                    <td width="50%" style="text-align: center">
+                        <p style="text-align: center"><strong>BÊN B</strong></p>
+                        <p style="text-align: center"><strong>PARTY B</strong></p>
+                        <p><strong>&nbsp;</strong></p>
+                        @if (string.IsNullOrEmpty(Model.InvestorSignature))
+                        {
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p style="text-align: center;"><strong><i>@Model.Name</i></strong></p>
+                        }
+                        else
+                        {
+                            <p style="text-align: center;">
+                                <img width="250" src="@Model.InvestorSignature.Replace("\\", "/")" />
+                            </p>
+                            <p><strong>&nbsp;</strong></p>
+                            <p style="text-align: center;"><strong><i>@Model.Name</i></strong></p>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="page-break-after: always;">&nbsp;</p>
+        <p style="text-align: center;"><strong>XÁC NHẬN CỦA TỔ CHỨC PHÁT HÀNH </strong></p>
+        <p style="text-align: center;"><strong>CONFIRMATION OF ISSUER</strong></p>
+        <p>Công ty Cổ phần Tập đoàn Sailfish xác nhận Bên chuyển nhượng với mã số cổ đông số SFG0006 đã chuyển nhượng &hellip;&hellip;&hellip;&hellip;@Model.CountShare&hellip;&hellip;&hellip;&hellip;&hellip; (<em>bằng chữ&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;@Model.CountShareVN&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..</em>) cổ phần Công ty Cổ phần Tập đoàn Sailfish sang Bên nhận chuyển nhượng kể từ ngày @(Model.DatePaydone != null ? Model.DatePaydone.Value.ToString("dd/MM/yyyy") : "__/__/2021")</p>
+        <p>Sailfish Group JSC. certifies that the Transferor with the shareholder code No. SFG0006 transferred &hellip;&hellip;&hellip;&hellip;&hellip;@Model.CountShare&hellip;&hellip;&hellip;&hellip; (<em>in words &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;@Model.CountShareEN&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..</em>) shares of Sailfish Group Joint Stock Company to the Transferee from @(Model.DatePaydone != null ? Model.DatePaydone.Value.ToString("MM/dd/yyyy") : "__/__/2021").</p>
+        @if (Model.IdStatusContract == "PayDone" && !string.IsNullOrEmpty(Model.InvestorSignature))
+        {
+            <p style="text-align: center;">
+                <img width="220" src="https://@HttpContextAccessor.HttpContext.Request.Host.Value/Assets/SA/images/contract/sep_thuy.png" />
+            </p>
+        }
+        else
+        {
+            <p><strong>&nbsp;</strong></p>
+            <p><strong>&nbsp;</strong></p>
+            <p><strong>&nbsp;</strong></p>
+            <p><strong>&nbsp;</strong></p>
+            <p><strong>&nbsp;</strong></p>
+            <p><strong>&nbsp;</strong></p>
+        }
+        <p style="text-align: center;"><strong><i>Nguyễn Thị Thanh Thủy</i></strong></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></p>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        function print() {
+            var w = window.open();
+            w.document.write(document.getElementById("print").innerHTML);
+            w.document.close();
+            w.print();
+            w.close();
+        }
+        function Export2Doc(element, filename = '') {
+            //var preHtml =
+            //    "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+            //var postHtml = '</body></html>';
+            //var html = preHtml + document.getElementById(element).innerHTML + postHtml;
+
+            //var blob = new Blob(['\ufeff', html], {
+            //    type: 'application/msword',
+            //});
+
+
+            var meta = "Mime-Version: 1.0\nContent-Base: " + location.href + "\nContent-Type: Multipart/related; boundary=\"NEXT.ITEM-BOUNDARY\";type=\"text/html\"\n\n--NEXT.ITEM-BOUNDARY\nContent-Type: text/html; charset=\"utf-8\"\nContent-Location: " + location.href + "\n\n<!DOCTYPE html>\n<html>\n_html_</html>";
+            //  _styles_ will be replaced with custome css
+            var head = "<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n<style>\n_styles_\n</style>\n</head>\n";
+
+            var html = document.getElementById(element).innerHTML;
+
+            var blob = new Blob(['\ufeff', html], {
+                type: 'application/msword',
+            });
+
+            var css = (
+                '<style>' +
+                'img {width:300px;}table {border-collapse: collapse; border-spacing: 0;}td{padding: 6px;}' +
+                '</style>'
+            );
+            //  Image Area %%%%
+            var options = { maxWidth: 624 };
+            var images = Array();
+            var img = $("#" + element).find("img");
+            for (var i = 0; i < img.length; i++) {
+                // Calculate dimensions of output image
+                var w = Math.min(img[i].width, options.maxWidth);
+                var h = img[i].height * (w / img[i].width);
+                // Create canvas for converting image to data URL
+                var canvas = document.createElement("CANVAS");
+                canvas.width = w;
+                canvas.height = h;
+                // Draw image to canvas
+                var context = canvas.getContext('2d');
+                context.drawImage(img[i], 0, 0, w, h);
+                // Get data URL encoding of image
+                var uri = canvas.toDataURL("image/png");
+                $(img[i]).attr("src", img[i].src);
+                img[i].width = w;
+                img[i].height = h;
+                // Save encoded image to array
+                images[i] = {
+                    type: uri.substring(uri.indexOf(":") + 1, uri.indexOf(";")),
+                    encoding: uri.substring(uri.indexOf(";") + 1, uri.indexOf(",")),
+                    location: $(img[i]).attr("src"),
+                    data: uri.substring(uri.indexOf(",") + 1)
+                };
+            }
+
+            // Prepare bottom of mhtml file with image data
+            var imgMetaData = "\n";
+            for (var i = 0; i < images.length; i++) {
+                imgMetaData += "--NEXT.ITEM-BOUNDARY\n";
+                imgMetaData += "Content-Location: " + images[i].location + "\n";
+                imgMetaData += "Content-Type: " + images[i].type + "\n";
+                imgMetaData += "Content-Transfer-Encoding: " + images[i].encoding + "\n\n";
+                imgMetaData += images[i].data + "\n\n";
+
+            }
+            imgMetaData += "--NEXT.ITEM-BOUNDARY--";
+            // end Image Area %%
+
+            var output = meta.replace("_html_", head.replace("_styles_", css) + html) + imgMetaData;
+
+            // Specify link url
+            var url =
+                'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(output);
+            // Specify file name
+            filename = filename ? filename + '.doc' : 'document.doc';
+            // Create download link element
+            var downloadLink = document.createElement('a');
+            document.body.appendChild(downloadLink);
+            if (navigator.msSaveOrOpenBlob) {
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = url;
+                // Setting the file name
+                downloadLink.download = filename;
+                //triggering the function
+                downloadLink.click();
+            }
+            document.body.removeChild(downloadLink);
+        }
+
+    </script>
+</body>
+
+</html>

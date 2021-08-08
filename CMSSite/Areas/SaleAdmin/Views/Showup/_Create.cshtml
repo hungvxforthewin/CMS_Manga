@@ -1,0 +1,87 @@
+﻿@model CRMBussiness.ViewModel.EventViewModel
+
+<div class="header-modal">
+    <h3 class="modal__title">THÊM MỚI</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/list_data_image/close_24px.svg" />
+    </span>
+</div>
+<div class="body-modal">
+    <form id="create-form">
+        <div class="bs-row row-lg-5 row-md-10 row-sm-15 row-xs10 row-tn-10">
+
+            <div class="bs-col lg-100-10 md-100-10 sm-100-15 xs-100-10 tn-100-5 event-name">
+                <div class="left">
+                    <label for="fname">Tên sự kiện</label><br>
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { } })
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-100-10 md-100-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left">
+                    <label for="fname">Sản phẩm</label><br>
+                    @Html.DropDownListFor(model => model.ProductCode, new List<SelectListItem> {
+               new SelectListItem{ Value= "", Text = "Chọn sản phẩm"  }
+               }, new { @class = "select_modal2 product-select" })
+                </div>
+            </div>
+
+
+
+            <div class="bs-col lg-100-10 md-100-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left" style="margin-top: 20px;">
+                    <div class="form-inline date">
+                        <label>Thời gian bắt đầu</label>
+                        <div class="bs-row row-lg-5 row-md-5 row-sm-10 row-xs10 row-tn-5">
+                            <div class="bs-col lg-30-5 md-30-5 sm-30-10 xs-30-10 tn-30-5">
+                                <div class="wrap_timepicker">
+                                    @Html.EditorFor(model => model.EventTimeString, new { htmlAttributes = new { @class = "search__input form_time timepicker" } })
+                                </div>
+                            </div>
+                            <div class="bs-col lg-70-5 md-70-5 sm-700-10 xs-700-10 tn-70-5">
+                                <div class="datepicker">
+                                    @Html.EditorFor(model => model.EventDateString, new { htmlAttributes = new { @class = "search__input form_datetime" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-col lg-100-10 md-100-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left" style="margin-top: 20px;">
+                    <div class="form-inline date">
+                        <label>Thời gian kết thúc</label>
+                        <div class="bs-row row-lg-5 row-md-5 row-sm-10 row-xs10 row-tn-5">
+                            <div class="bs-col lg-30-5 md-30-5 sm-30-10 xs-30-10 tn-30-5">
+                                <div class="wrap_timepicker">
+                                    @Html.EditorFor(model => model.EndTimeString, new { htmlAttributes = new { @class = "search__input form_time timepicker" } })
+                                </div>
+                            </div>
+                            <div class="bs-col lg-70-5 md-70-5 sm-700-10 xs-700-10 tn-70-5">
+                                <div class="datepicker">
+                                    @Html.EditorFor(model => model.EndDateString, new { htmlAttributes = new { @class = "search__input form_datetime" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-col lg-100-10 md-100-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left" style="margin-top: 20px; margin-bottom: 20px;">
+                    <label for="fname">Trạng thái</label><br>
+                    @Html.DropDownListFor(model => model.Status, new List<SelectListItem> {
+                       new SelectListItem{ Value= "1", Text = "Mở khóa"  },
+                       new SelectListItem{ Value= "0", Text = "Khóa"  }
+                    }, new { @class = "select_modal2 status-select" })
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="footer-modal">
+    <button class="close__btn red__btn agree" id="create-show-up" type="button">Thêm mới</button>
+    <button modal-show="close" class="close__btn red__btn cancel" onclick="ClearCreateModal()" type="button">Hủy bỏ</button>
+</div>

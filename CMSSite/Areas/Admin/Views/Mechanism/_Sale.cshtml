@@ -1,0 +1,345 @@
+﻿<!-- sale -->
+<div class="sale" id="sale">
+    <h4 class="tab-title">Sale</h4>
+    <input type="hidden" name="Id" class="sale-id" />
+    <input type="hidden" name="CodeKpi" class="sale-kpi-code" />
+    <!-- table -->
+    <div class="table" style="overflow-x: auto">
+        <form class="remunerations">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Hoa hồng</th>
+                    <th>Cổ phần</th>
+                    <th>Lương cứng</th>
+                    <th>Doanh số cá nhân</th>
+                    <th></th>
+                </tr>
+
+                <!-- row -->
+                <tr class="value">
+                    <td>Level 1</td>
+                    <td>
+                        <input type="number" class="isPercent" name="PercentRemuneration" min="0" value="" />
+                    </td>
+                    <td>
+                        <input type="number" class="isPercent" name="CalculatingSharePercent" min="0" value="" />
+                    </td>
+                    <td>
+                        <input type="text" class="isNumber" name="Salary" value="" />
+                    </td>
+                    <td class="resize">
+                        <input type="text" class="revenue-range" name="RevenueRange" value="" />
+                    </td>
+                    <td>
+                        <img onclick="RemoveSalaryForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                             alt="" />
+                    </td>
+                </tr>
+
+                <!-- row -->
+                <tr class="row_add">
+                    <td colspan="5">
+                        <div class="add-item" onclick="AddSalaryForSale(this)">
+                            <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!-- kpi -->
+    <div class="kpi">
+        <div class="kpi_left">
+            <div class="title">
+                <h4>KPI 6 tháng đầu</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="value">
+                                <td>
+                                    <input type="number" class="isPercent" name="MinKpiPercent" min="0" value="" placeholder="Min" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="MaxKpiPercent" min="0" value="" placeholder="Max" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="SalaryPercent" min="0" value="" />
+                                </td>
+                                <td>
+                                    <img onclick="RemoveKpiForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                         alt="" />
+                                </td>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="kpi_right">
+            <div class="title">
+                <h4>KPI 6 tháng sau</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="value">
+                                <td>
+                                    <input type="number" class="isPercent" name="MinKpiPercent" min="0" value="" placeholder="Min" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="MaxKpiPercent" min="0" value="" placeholder="Max" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="SalaryPercent" min="0" value="" />
+                                </td>
+                                <td>
+                                    <img onclick="RemoveKpiForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                         alt="" />
+                                </td>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- leader sale -->
+<div class="leader-sale" id="leader-sale">
+    <h4 class="tab-title">Leader Sale</h4>
+    <input type="hidden" name="Id" class="leader-sale-id" />
+    <input type="hidden" name="CodeKpi" class="leader-sale-kpi-code" />
+    <!-- table -->
+    <div class="table" style="overflow-x: auto">
+        <form class="remunerations">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Mức hoa hồng nhóm</th>
+                    <th>Cổ phần</th>
+                    <th>Lương cứng</th>
+                    <th>Doanh số nhóm</th>
+                    <th></th>
+                </tr>
+
+                <!-- row -->
+                <tr class="value">
+                    <td>Level 1</td>
+                    <td>
+                        <input type="number" class="isPercent" name="PercentRemuneration" min="0" value="" />
+                    </td>
+                    <td>
+                        <input type="number" class="isPercent" name="CalculatingSharePercent" min="0" value="" />
+                    </td>
+                    <td>
+                        <input type="text" class="isNumber" name="Salary" value="" />
+                    </td>
+                    <td class="resize">
+                        <input type="text" class="revenue-range" name="RevenueRange" value="" />
+                    </td>
+                    <td>
+                        <img onclick="RemoveSalaryForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                             alt="" />
+                    </td>
+                </tr>
+
+                <!-- row -->
+                <tr class="row_add">
+                    <td colspan="5">
+                        <div class="add-item" onclick="AddSalaryForSale(this)">
+                            <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!-- kpi -->
+    <div class="kpi">
+        <div class="kpi_left">
+            <div class="title">
+                <h4>KPI 6 tháng đầu</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="value">
+                                <td>
+                                    <input type="number" class="isPercent" name="MinKpiPercent" min="0" value="" placeholder="Min" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="MaxKpiPercent" min="0" value="" placeholder="Max" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="SalaryPercent" min="0" value="" />
+                                </td>
+                                <td>
+                                    <img onclick="RemoveKpiForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                         alt="" />
+                                </td>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="kpi_right">
+            <div class="title">
+                <h4>KPI 6 tháng sau</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="value">
+                                <td>
+                                    <input type="number" class="isPercent" name="MinKpiPercent" min="0" value="" placeholder="Min" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="MaxKpiPercent" min="0" value="" placeholder="Max" />
+                                </td>
+                                <td>
+                                    <input type="number" class="isPercent" name="SalaryPercent" min="0" value="" />
+                                </td>
+                                <td>
+                                    <img onclick="RemoveKpiForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                         alt="" />
+                                </td>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- buttons -->
+<div class="group-buttons">
+    <button class="btn-gray" onclick="Cancel()">Hủy bỏ</button>
+    <button class="btn-green" onclick="SetupMechanismForSale()">Cập nhật</button>
+</div>

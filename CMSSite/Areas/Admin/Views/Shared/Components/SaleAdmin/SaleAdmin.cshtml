@@ -1,0 +1,108 @@
+﻿@using CRMSite.ViewModels
+@model SaleAdminViewModel
+<h4 class="tab-title">Sale Admin</h4>
+<!-- form -->
+<div class="sale-admin-form">
+    <!-- row -->
+    <div class="bs-row">
+        <!-- col -->
+        <div class="bs-col lg-50">
+            <div class="input-wrapper">
+                <input type="number" hidden class="IdRoleSalaryStaff" name="IdRoleSalaryStaff" value="@Model.IdRoleSalaryStaff" required />
+                <label for="">Lương cứng</label>
+                <div class="input">
+                    <input type="text" name="Salary" class="Salary_Sale_Admin isNumber" value="@String.Format("{0:#,0}", Model.Salary)" />
+                    <div class="unit">VND</div>
+                </div>
+            </div>
+        </div>
+        <!-- col -->
+        <div class="bs-col lg-50">
+            <div class="input-wrapper">
+                <label for="">Thời gian thử việc</label>
+                <div class="input">
+                    <input type="text" name="TimeProbationary" class="TimeProbationary_Sale_Admin isNumber" value="@Model.TimeProbationary" required />
+                    <div class="unit">/Tháng</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+    <div class="bs-row">
+        <!-- col -->
+        <div class="bs-col lg-50">
+            <div class="input-wrapper">
+                <label for="">Lương thử việc thử việc</label>
+                <div class="input">
+                    <input type="text" name="ProbationarySalary" class="ProbationarySalary_Sale_Admin isNumber" value="@String.Format("{0:#,0}",Model.ProbationarySalary)" required />
+                    <div class="unit">/Tháng</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- table -->
+<div class="sale-admin-table">
+    <div class="table" style="overflow-x: auto">
+        <table>
+            <tr>
+                <th></th>
+                <th>Hoa hồng<br />(VND)</th>
+                @*<th>Cổ phần<br /></th>*@
+                <th>Doanh số chi nhánh<br />(VND)</th>
+                <th></th>
+            </tr>
+            <!-- row -->
+            @if (Model.SaleAdminLevelSalaryRevenues != null)
+            {
+                var stt = 0;
+                foreach (var item in Model.SaleAdminLevelSalaryRevenues)
+                {
+
+                    stt = stt + 1;
+
+        <tr class="adminSaleAdd">
+            <td><label class="label-level">Level @stt</label></td>
+            <td>
+                <div>
+                    @*<input hidden value="@item.CodeKpi" name="CodeKpi" />
+                <input hidden value="@item.CodeRemuneration" name="CodeRemuneration" />
+                <input hidden value="@item.KpiId" name="KpiId" />
+                <input hidden value="@item.RemunerationId" name="RemunerationId" />*@
+                    <input type="text" value="@String.Format("{0:#,0}", item.PercentRemuneration)" name="" class="Remuneration_Admin_Sale" required />
+                </div>
+            </td>
+            @*<td>
+                <div>
+                    <input type="text" value="@item.SharePercent" name="" class="isPercent SharePercent_Admin_Sale" required />
+                </div>
+            </td>*@
+            <td class="resize">
+                <div>
+                    <input type="text" value="@item.MinMaxRevenueBranch" name="isMinMaxAdmin" class="Revenue_Admin_Sale" required />
+                </div>
+            </td>
+            <td>
+                <img onclick="RemoveSalaryForSaleAdmin(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                     alt="" />
+            </td>
+
+        </tr>
+                }
+            }
+
+            <tr class="row_add" onclick="AddSalaryForSaleAdmin(this)">
+                <td colspan="4">
+                    <div class="add-item">
+                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- buttons -->
+<div class="group-buttons">
+    <button class="btn-gray" onclick="Cancel()">Hủy bỏ</button>
+    <button class="btn-green" id="btnSaleAdminUpdate">Cập nhật</button>
+</div>

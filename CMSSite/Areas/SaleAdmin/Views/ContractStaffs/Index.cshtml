@@ -1,0 +1,785 @@
+﻿@section Styles{
+<link rel="stylesheet" href="~/Content/css/style.css" />
+<style>
+    .done {
+        color: red;
+        background: #ffe6e6;
+        padding: 3px 22px;
+        font-size: 12px;
+    }
+    .working {
+        color: #474eff;
+        background-color: #e9edff;
+        padding: 3px 22px;
+        font-size: 12px;
+    }
+</style>
+}
+<section class="section_list-contract">
+    <div class="module-wrapper">
+        <div class="module-title">
+            <img src="/Assets/SA/images/layout/left-arrow.svg" alt="" />
+            <h2>Danh sách hợp đồng</h2>
+        </div>
+        <div class="module-content">
+            <!-- search -->
+            <div class="search" id="search-contracStaff">
+                <form id="search-form">
+                    <div class="bs-row">
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-item input-group">
+                                <label>Nguồn hợp đồng</label>
+                                <select class="select2 select-resource" name="Resource">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-item input-group">
+                                <label>Telesale</label>
+                                <select class="select2 select-telesale" name="TeleSale">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-item input-group">
+                                <label>Sale</label>
+                                <select class="select2 select-sale" name="Sale">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-item input-group">
+                                <label>Trạng thái hợp đồng</label>
+                                <select class="select2 select-status" name="Status">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-item input-group">
+                                <label>Từ khóa</label>
+                                <input placeholder="Mã hợp đồng, tên khách hàng, ..." name="Key" />
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-button search-item input-group">
+                                <button type="button" class="btn-green" id="btn-search-contract-aaaa">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- handle -->
+            <div class="handle">
+                <!-- button -->
+                <button class="add handle-button"
+                        type="button"
+                        id="btn-show-add">
+                    <img src="/Assets/SA/images/layout/add.svg" alt="" /> Thêm mới
+                </button>
+                <button style="display: none"
+                        modal-show="show"
+                        modal-data="#add-contract_modal"
+                        id="btn-hiid-show">
+                </button>
+                <!-- button -->
+                <label for="import" class="import handle-button" type="button">
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/import.svg" alt="" />
+                    </div>
+                    Nhập file Excel
+                </label>
+                <input type="file" style="display: none" id="import" name="import" />
+                <!-- button -->
+                <button class="epxort handle-button"
+                        type="button">
+                    <div class="icon">
+                        <img src="/Assets/SA/images/layout/export.svg" alt="" />
+                    </div>
+                    Xuất file Excel
+                </button>
+                <!-- action button -->
+                <div class="handle-button action more-options"
+                     style="cursor: pointer; user-select: none">
+                    Tác vụ
+                    <img src="/Assets/SA/images/employee-attendance/more-options.svg"
+                         alt="" />
+                    <!-- options -->
+                    <div class="options">
+                        <!-- option -->
+                        <button class="option-item view-info-tab"
+                                type="button"
+                                @*modal-show="show"
+                                    modal-data="#select-contract-type_modal"*@>
+                            <div class="icon">
+                                <img src="/Assets/SA/images/layout/view-detail.svg" alt="" />
+                                <img src="/Assets/SA/images/layout/view-detail-active.svg"
+                                     alt="" />
+                            </div>
+                            <span>Xem thông tin</span>
+                        </button>
+                        <!-- option -->
+                        <button class="option-item"
+                                type="button"
+                                id="btn-show-edit"
+                                @*modal-show="show"
+                                    modal-data="#edit-contract_modal"*@>
+                            <div class="icon">
+                                <img src="/Assets/SA/images/layout/edit.svg" alt="" />
+                                <img src="/Assets/SA/images/layout/edit-active.svg" alt="" />
+                            </div>
+                            <span>Chỉnh sửa</span>
+                        </button>
+                        <!-- option -->
+                        <button class="option-item"
+                                type="button"
+                                modal-show="show"
+                                modal-data="#assign-contract_modal">
+                            <div class="icon">
+                                <img src="/Assets/SA/images/layout/showup.svg"
+                                     alt="" />
+                                <img src="/Assets/SA/images/layout/showup-active.svg"
+                                     alt="" />
+                            </div>
+                            <span>Bàn giao</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- table -->
+            <div class="data-table tr-bordered tr_left-border">
+                <table>
+                    <tbody id="table-body">
+                        <tr>
+                            <th>Mã hợp đồng</th>
+                            <th>Tên khách hàng</th>
+                            <th style=" min-width: 150px;">Số CMND</th>
+                            <th>Số điện thoại</th>
+                            <th>Sale</th>
+                            <th>Telesale</th>
+                            <th>Trạng thái hợp đồng</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- paging -->
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+
+            <!-- modals -->
+            <!-- view detail -->
+            <div class="bs-modal" id="detail-customer-contract_modal" data-id="contract-detail">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                    </div>
+                </div>
+            </div>
+
+            <!-- add contract -->
+            <div class="bs-modal" id="add-contract_modal" data-id="add-contract">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                        <div class="header-modal">
+                            <h3 class="modal__title">Thêm mới</h3>
+                            <span title="close" modal-show="close" class="close__modal">
+                                <img src="/Assets/SA/images/layout/close-modal.svg" />
+                            </span>
+                        </div>
+
+                        <div class="body-modal">
+                            <!-- steps -->
+                            <div class="module-steps add-contract_steps">
+                                <!-- step 1 -->
+                                <div class="add-contract_step-1 step active">
+                                    <div class="step-border">
+                                        <img src="/Assets/SA/images/list-customer-lookingup/first-step.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="step-content">
+                                        <div class="content-wrapper">
+                                            <div class="icon-wrapper">
+                                                <div class="icon">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step1.svg"
+                                                         alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="content">Thông tin khách hàng</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- step 2 -->
+                                <div class="add-contract_step-2 step">
+                                    <div class="step-border">
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                                             alt="" />
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="step-content">
+                                        <div class="content-wrapper">
+                                            <div class="icon-wrapper">
+                                                <div class="icon">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step2.svg"
+                                                         alt="" />
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step2-active.svg"
+                                                         alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="content">Thông tin đặt cọc</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- step 3 -->
+                                <div class="add-contract_step-3 step">
+                                    <div class="step-border">
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                                             alt="" />
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="step-content">
+                                        <div class="content-wrapper">
+                                            <div class="icon-wrapper">
+                                                <div class="icon">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step3.svg"
+                                                         alt="" />
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step3-active.svg"
+                                                         alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="content">Thông tin hợp đồng</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- step 4 -->
+                                <div class="add-contract_step-4 step">
+                                    <div class="step-border">
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                                             alt="" />
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="step-content">
+                                        <div class="content-wrapper">
+                                            <div class="icon-wrapper">
+                                                <div class="icon">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step4.svg"
+                                                         alt="" />
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step4-active.svg"
+                                                         alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="content">Thông tin thanh toán</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- step 5 -->
+                                <div class="add-contract_step-5 step">
+                                    <div class="step-border">
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                                             alt="" />
+                                        <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="step-content">
+                                        <div class="content-wrapper">
+                                            <div class="icon-wrapper">
+                                                <div class="icon">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step5.svg"
+                                                         alt="" />
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/contract-step5-active.svg"
+                                                         alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="content">Thông tin người thực hiện</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form id="add-contract-investor">
+                                <!-- step detail -->
+                                <div class="module-info add-contract-info" id="add-contract_step-1">
+                                    <div class="module-title">
+                                        <h4>Thông tin khách hàng</h4>
+                                    </div>
+                                    <div class="module-content">
+                                        <div class="bs-row">
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Số điện thoại</label>
+                                                    <input type="number" name="phone" data-required="true" id="checkPhone" />
+                                                </div>
+                                            </div>
+
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Tên khách hàng</label>
+                                                    <input type="text" name="name" data-required="true" />
+                                                    @Html.AntiForgeryToken()
+                                                </div>
+                                            </div>
+
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Ngày sinh</label>
+                                                    <input type="text" class="search__input form_datetime" name="birthday" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Số CMND</label>
+                                                    <div class="input_select">
+                                                        <select class="select2 id-type" name="IsCMT">
+                                                            <option data-id="0" value="0">CMND</option>
+                                                            <option data-id="1" value="1">CCCD</option>
+                                                        </select>
+                                                        <input type="text" name="idCard" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Ngày cấp</label>
+                                                    <input type="text" class="search__input form_datetime" name="dateOfIssuance" />
+                                                </div>
+                                            </div>
+                                            <!-- item ID Address -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group id-address">
+                                                    <label for="">Nơi cấp</label>
+                                                    <input type="text" name="addressIssuance" data-id="0" class="address-select active" />
+                                                    <div class="address-select" data-id="1">
+                                                        <select class="select2" name="AddressIssuanceCC">
+                                                            <option value="0">Cục cảnh sát đăng ký quản lý cư trú và dữ liệu quốc gia về dân cư </option>
+                                                            <option value="1">Cục Cảnh sát quản lý hành chính về trật tự xã hội</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            @*<div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                <label for="">Nơi cấp</label>
+                                                <input type="text" name="addressIssuance" />
+                                                </div>
+                                                </div>*@
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Email tài khoản</label>
+                                                    <input type="text" name="email" />
+                                                    <input type="text" hidden name="idInvestor" id="idInvestor" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Email</label>
+                                                    <input type="text" name="emailAccount" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Mã số thuế cá nhân</label>
+                                                    <input type="text" name="personalTaxCode" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Số tài khoản</label>
+                                                    <input type="text" name="accountBank" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Tại ngân hàng</label>
+                                                    <input type="text" name="bank" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Địa chỉ</label>
+                                                    <input type="text" name="address" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                             <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Mã số thuế quỹ Amber</label>
+                                                    <input type="number" name="taxCodeIntermediaries" id="taxCodeIntermediaries" />
+                                                </div>
+                                            </div>
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Số điện thoại quỹ Amber</label>
+                                                    <input type="number" name="phoneIntermediaries" id="phoneIntermediaries" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Mã quỹ Amber</label>
+                                                    <input type="text" name="codeIntermediaries" />
+                                                    <input type="text" hidden name="idIntermediaries" id="idIntermediaries" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Tên quỹ Amber</label>
+                                                    <input type="text" name="nameIntermediaries" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Địa chỉ quỹ Amber</label>
+                                                    <input type="text" name="addressIntermediaries" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- step detail -->
+                                <div class="module-info add-contract-info hide" id="add-contract_step-2">
+                                    <div class="module-title">
+                                        <h4>Thông tin đặt cọc</h4>
+                                    </div>
+                                    <div class="module-content">
+                                        <div class="bs-row">
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Số phiếu đặt cọc</label>
+                                                    <input readonly type="text" name="codeDeposit" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Số tiền đặt cọc</label>
+                                                    <input readonly type="text" name="depositAmount" class="isNumberF" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Ngày đặt cọc</label>
+                                                    <input readonly type="text" class="search__input form_datetime" name="depositDate" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Hình thức đặt cọc</label>
+                                                    <select class="select2" name="depositForm" data-ignore-reset="true">
+                                                        <option value="0">Chuyển khoản</option>
+                                                        <option value="1">Tiền mặt</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- step detail -->
+                                <div class="module-info add-contract-info hide" id="add-contract_step-3">
+                                    <div class="module-title">
+                                        <h4>Thông tin hợp đồng</h4>
+                                    </div>
+                                    <div class="module-content">
+                                        <div class="bs-row">
+
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Giá trị hợp đồng</label>
+                                                    <input type="text" name="investmentAmount" data-required="true" class="isNumberF" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Ngày vào hợp đồng</label>
+                                                    <input type="text" class="search__input form_datetime" name="createDate" data-required="true" />
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            @*<div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Mã hợp đồng quản lý danh mục đầu tư</label>
+                                                    <input type="text" placeholder="HÐQLDM/AFM/C3" name="codeManagementCatalog" data-required="true" />
+                                                </div>
+                                            </div>*@
+                                            <!-- item -->
+                                            @*<div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Mã hợp đồng thỏa thuận bổ sung</label>
+                                                    <input type="text" placeholder="FSFG/SFI" name="codeSupplementAgreement" data-required="true" />
+                                                </div>
+                                            </div>*@
+                                            <!-- item -->
+                                            @*<div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Mã hợp đồng chuyển nhượng</label>
+                                                    <input type="text" placeholder="FSFG/SFI" name="codeTransferAgreement" data-required="true" />
+                                                </div>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- step detail -->
+                                <div class="module-info add-contract-info hide" id="add-contract_step-4">
+                                    <div class="module-title">
+                                        <h4>Thông tin thanh toán</h4>
+                                    </div>
+                                    <!--<div class="bs-row">-->
+                                    <!-- item -->
+                                    <!--<div class="bs-col sm-50">
+                                        <div class="content-item input-group">
+                                            <label class="txtBill" for="">Thanh toán lần 2</label>
+                                            <input type="text" name="billMoney" class="isNumberF">
+                                        </div>
+                                    </div>-->
+                                    <!-- item -->
+                                    <!--<div class="bs-col sm-50">
+                                        <div class="content-item input-group">
+                                            <label for="">Ngày</label>
+                                            <div class="">
+                                                <input type="text" class="search__input form_datetime" name="dateBill">
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                    <!-- item -->
+                                    <!--<div class="bs-col sm-50">
+                                            <div class="content-item input-group">
+                                                <label for="">Hình thức</label>
+                                                <select class="select2" name="formBill" data-ignore-reset="true">
+                                                    <option value="0">Chuyển khoản</option>
+                                                    <option value="1">Tiền mặt</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="bs-col sm-10">
+                                            <img onclick="RemoveBill(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                                 alt="" />
+                                        </div>
+                                    </div>-->
+                                    <div class="module-content" id="info-bill">
+                                        <div class="bs-col">
+                                            <div class="bs-col sm-10">
+                                                <div class="content-item input-group">
+                                                    <img onclick="addViewBill()" src="/Assets/crm/images/mechanism/add.svg" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- step detail -->
+                                <div class="module-info add-contract-info hide" id="add-contract_step-5">
+                                    <div class="module-title">
+                                        <h4>Thông tin người thực hiện</h4>
+                                    </div>
+                                    <div class="module-content">
+                                        <div class="bs-row">
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Sale</label>
+                                                    <select class="select2 select-sale" name="sale" data-required="true">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Nguời chốt hộ</label>
+                                                    <select class="select2 select-saleref" name="saleRep" data-required="true">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- item -->
+                                            <div class="bs-col sm-50">
+                                                <div class="content-item input-group">
+                                                    <label for="">Tele</label>
+                                                    <select class="select2 select-telesale" name="teleSale">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="group-button add-contract_buttons" data-id="1">
+                                <button class="btn-gray prev hide">Quay lại</button>
+                                <button class="btn-gray">Hủy bỏ</button>
+                                <button class="btn-green next"
+                                        modal-show=""
+                                        modal-data="#contract-preview_modal">
+                                    Tiếp tục
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- edit contract -->
+            <div class="bs-modal" id="edit-contract_modal" data-id="edit-contract">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                    </div>
+                </div>
+            </div>
+
+            <!-- assign contract -->
+            <div class="bs-modal" id="assign-contract_modal">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                        <div class="header-modal">
+                            <h3 class="modal__title">Thông tin bàn giao hơp đồng</h3>
+                            <span title="close" modal-show="close" class="close__modal">
+                                <img src="/Assets/SA/images/layout/close-modal.svg" />
+                            </span>
+                        </div>
+
+                        <div class="body-modal">
+                            <div class="bs-row">
+                                <div class="bs-col sm-50">
+                                    <div class="input-group body-item">
+                                        <label for="">Mã hợp đồng</label>
+                                        <input disabled />
+                                    </div>
+                                </div>
+
+                                <div class="bs-col sm-50">
+                                    <div class="input-group body-item">
+                                        <label for="">Ngày bàn giao</label>
+                                        <input disabled />
+                                    </div>
+                                </div>
+
+                                <div class="bs-col sm-50 body-item">
+                                    <div class="input-group">
+                                        <label for="">Sale bàn giao</label>
+                                        <input disabled />
+                                    </div>
+                                </div>
+
+                                <div class="bs-col sm-50">
+                                    <div class="input-group">
+                                        <label for="">Sale nhận bàn giao </label>
+                                        <input disabled />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-modal">
+                            <div class="group-button">
+                                <button class="btn-gray">Hủy bỏ</button>
+                                <button class="btn-green">Cập nhật</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- preview -->
+            <div class="bs-modal" id="contract-preview_modal">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                    </div>
+                </div>
+            </div>
+
+            <!-- preview -->
+            <div class="bs-modal" id="select-contract-type_modal">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                        @*<div class="header-modal">
+                            <h3 class="modal__title">Chọn mẫu hợp đồng</h3>
+                            <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/SA/images/list_data_image/close_24px.svg" />
+                            </span>
+                            </div>
+                            <div class="body-modal">
+                            <form id="create-form">
+                            <div class="bs-row row-lg-5 row-md-10 row-sm-15 row-xs10 row-tn-10">
+                            <div class="bs-col lg-100-10 md-100-10 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="left">
+                            <label for="fname">Mẫu hợp đồng</label><br>
+                            <select class="select2" >
+                            <option value="0">Hợp đồng chuyển nhượng</option>
+                            <option value="1">Hợp đồng quản lý danh mục đầu tư</option>
+                            <option value="2">Thỏa thuận bổ sung</option>
+                            </select>
+                            </div>
+                            </div>
+                            </div>
+                            </form>
+                            </div>
+                            <div class="footer-modal">
+                            <button class="btn-green" id="select-contract-template" type="button">Chọn mẫu hợp đồng</button>
+                            <button modal-show="close" class="btn-gray" type="button">Hủy bỏ</button>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+
+            <button style="display: none"
+                    modal-show="show"
+                    modal-data="#contract-preview_modal"
+                    id="btn-hiid-show-preview">
+            </button>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+<script src="~/Content/js/app.js"></script>
+<script src="~/Content/js/extend/method.js"></script>
+<script src="~/js/system.js"></script>
+<script src="~/js/controllers/contractStaff.js"></script>
+    @*<script>
+    function showSelectingTemplateModal() {
+    $.get('/PrintContract/SelectContractTemplate', function (res) {
+    $('#select-contract-type_modal .content-modal').html(res);
+    ShowModal('#select-contract-type_modal');
+    });
+    }
+    </script>*@
+}

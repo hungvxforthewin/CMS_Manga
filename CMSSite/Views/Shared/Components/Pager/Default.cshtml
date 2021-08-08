@@ -1,0 +1,54 @@
+﻿@model CRMSite.Models.PaginationBase
+@{
+    var request = ViewContext.HttpContext.Request;
+    var urlPatitionPage = string.Join("/","/"+ ViewContext.RouteData.Values["area"] , ViewContext.RouteData.Values["controller"])  + "/Index?pageStart={0}";
+    var urlTemplate = string.Join("/","/"+ ViewContext.RouteData.Values["area"] , ViewContext.RouteData.Values["controller"])  + "/ClickPage" + "?page={0}";
+    foreach (var key in request.Query.Keys)
+    {
+        if (key == "page")
+        {
+            continue;
+        }
+        if (request.Query[key].Count > 1)
+        {
+            foreach (var item in (string[])request.Query[key])
+            {
+                urlTemplate += "&" + key + "=" + item;
+            }
+        }
+        else
+        {
+            urlTemplate += "&" + key + "=" + request.Query[key];
+        }
+    }
+}
+@if (Model != null && Model.NoPage >= 1)
+{
+    <div id="pagination">
+        @if (Model.HavePreviousPage)
+        {
+            <a class="page-link" href="@urlPatitionPage.Replace("{0}", (Model.PageStart - Model.NumPage).ToString())" data-path="@(Model.PageStart - Model.NumPage)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        }
+        @for (var i = Model.PageStart; i < Model.NoPage + Model.PageStart; i++)
+        {
+            if (i == Model.PageCurrent)
+            {
+                <a href="#" class="btn active" data-path="@i" title="Trang @i">@i</a>
+            }
+            else
+            {
+                <a href="@urlTemplate.Replace("{0}", i.ToString())" title="Trang @i.ToString()" data-path="@i" class="btn">@i</a>
+            }
+        }
+        @if (Model.HaveNextPage)
+        {
+            <a class="page-link" href="@urlPatitionPage.Replace("{0}", (Model.PageStart + Model.NoPage).ToString())" data-path="@(Model.PageStart + Model.NoPage)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        }
+    </div>
+}

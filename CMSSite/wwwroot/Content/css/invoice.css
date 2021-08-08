@@ -1,0 +1,109 @@
+﻿.row-title.before-blue {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    text-transform: uppercase;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size:15px
+}
+.themecolor {
+    color: #2980b9;
+    cursor: pointer;
+}
+table, th, td {
+    border-bottom: 1px solid #ddd;
+}
+    #tblPayMent.table > tbody > tr > th.pading0 {
+    padding: 0;
+}
+    #tblPayMent.table > tbody > tr > th.pading0 > div.input-group {
+        margin-bottom: 0 !important;
+    }
+.title-group {
+    position: relative;
+    z-index: 1;
+    margin: 10px 0;
+    color: #31708f;
+    background-color: #d9edf7;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+#tblDataProduct td .input-group {
+    margin: -8px;
+}
+#tblDataProduct td .select2 {
+    margin: -8px;
+}
+#tblDataProductDoi td .input-group {
+    margin: -8px;
+}
+#tblDataProductDoi td .select2 {
+    margin: -8px;
+}
+.tablered {
+    color: red;
+    font-size: 15px;
+}
+.font15 {
+    font-size: 15px;
+}
+.font12 {
+    font-size: 12px;
+}
+button > i.fa.fa-money {
+    font-size:20px;
+}
+button > i.fa.fa-floppy-o {
+    font-size: 20px;
+}
+.padding10
+{
+    padding:10px
+}
+.paddingRight15 {
+    padding-right: 12px !important
+}
+.colorwhite {
+    background-color: white !important;
+    border: white !important;
+}
+.font20 {
+    font-size: 20px;
+}
+/*li.nav-item > a.nav-link {
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #eeeeee;
+
+}
+li.nav-item.active > a.nav-link {
+    color: #495057;
+    text-transform: uppercase;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    font-weight: 700
+}*/
+.themeprice {
+    color: #2980b9;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px dotted #2980b9;
+}
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+.vh_50 {
+    min-height: 30vh;
+    max-height: 30vh;
+}
+.vh100 {
+    min-height: calc(100vh - 95px);
+    max-height: calc(100vh - 95px);
+    position: inherit;
+}

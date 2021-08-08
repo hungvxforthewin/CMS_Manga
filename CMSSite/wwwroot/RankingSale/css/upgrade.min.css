@@ -1,0 +1,154 @@
+.section_index .avt-container > img {
+    height: 100%
+}
+.section_index .pop_up {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    overflow: auto;
+    z-index: 999;
+    display: none;
+}
+
+    .section_index .pop_up .pop_up-content {
+        margin: 0 auto;
+        border: 1px solid #8c0000;
+        max-width: 600px;
+        min-width: 360px;
+        height: 600px;
+        position: relative;
+        background-image: url(/images/index/winner_modal-bg.png);
+        background-position: center;
+        background-size: cover;
+        padding-top: 244px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        opacity: 0;
+        -webkit-transform: scale(0.2);
+        transform: scale(0.2);
+        -webkit-animation: popup 0.3s ease-out forwards;
+        animation: popup 0.3s ease-out forwards;
+    }
+
+        .section_index .pop_up .pop_up-content .close-modal {
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            cursor: pointer;
+        }
+
+        .section_index .pop_up .pop_up-content ._1st .avt {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin-bottom: 90px;
+        }
+
+        .section_index .pop_up .pop_up-content ._1st .avt-container {
+            width: 178px;
+            height: 178px;
+            text-align: center;
+            border: 2px solid #ffc000;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .section_index .pop_up .pop_up-content .countdown {
+            position: absolute;
+            top: calc(100% - 1px);
+            left: -1px;
+            right: -1px;
+            background: #8c0000;
+            border-radius: 0 0 4px 4px;
+            padding: 20px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+            .section_index .pop_up .pop_up-content .countdown > span {
+                font-size: 20px;
+                line-height: 30px;
+                font-weight: 700;
+                display: inline-block;
+            }
+
+            .section_index .pop_up .pop_up-content .countdown .time {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                color: #ab0000;
+                background-color: #fff;
+                text-align: center;
+                padding-top: 7px;
+            }
+
+            .section_index .pop_up .pop_up-content .countdown .seperate {
+                color: #fff;
+                margin: 0 7px;
+            }
+
+    .section_index .pop_up.show {
+        display: block;
+    }
+
+@-webkit-keyframes popup {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.2);
+        transform: scale(0.2);
+    }
+
+    80% {
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.2);
+        transform: scale(0.2);
+    }
+
+    80% {
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,115 @@
+﻿@using CRMBussiness.ViewModel
+@model RatingSaleViewModel
+<div class="header-modal">
+    <h3 class="modal__title">Chỉnh sửa doanh số</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/layout/close-modal.svg" />
+    </span>
+</div>
+
+<form id="frm-employee-sales-edit">
+    @Html.AntiForgeryToken()
+    <div class="body-modal">
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <input type="hidden" class="hidden-branch" value="@Model.BranchCode" />
+                    <label>Chi nhánh</label>
+                    @Html.DropDownListFor(model => model.BranchCode,
+                        new List<SelectListItem>
+                            {
+                            new SelectListItem {Value = "", Text="Chi nhánh"},
+
+                            }, new { @class = "select2 select-branch", @readonly = "true" }
+                        )
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <input type="hidden" class="hidden-office" value="@Model.OfficeCode" />
+                    <label>Khối</label>
+                    @Html.DropDownListFor(model => model.OfficeCode,
+                        new List<SelectListItem>
+                            {
+                            new SelectListItem {Value = "", Text="Khối"},
+
+                            }, new { @class = "select2 select-office" }
+                        )
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <input type="hidden" class="hidden-dept" value="@Model.DepartmentCode" />
+                    <label>Phòng</label>
+                    @Html.DropDownListFor(model => model.DepartmentCode,
+                         new List<SelectListItem>
+                            {
+                            new SelectListItem {Value = "", Text="Phòng"},
+
+                            }, new { @class = "select2 select-department" }
+                        )
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <input type="hidden" class="hidden-team" value="@Model.TeamCode" />
+                    <label>Nhóm</label>
+                    @Html.DropDownListFor(model => model.TeamCode,
+                         new List<SelectListItem>
+                            {
+                            new SelectListItem {Value = "", Text="Nhóm"},
+
+                            }, new { @class = "select2 select-team" }
+                        )
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-33">
+                <div class="modal-item">                                       
+                    <input type="hidden" class="hidden-staff-sale" value="@Model.Sale" />
+                    <label>Nhân viên Sale</label>
+                    @Html.DropDownListFor(model => model.Sale,
+                         new List<SelectListItem>
+                            {
+                            new SelectListItem {Value = "", Text="Nhân viên"},
+
+                            }, new { @class = "select2 select-staff" }
+                        )
+                </div>
+            </div>
+
+        </div>
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <label>Ngày</label>
+                    <div class="date-select">
+                        <input type="text" class="search__input autofill_today" value="@Model.RevenueDate" name="RevenueDate">
+                        <img src="/Assets/SA/images/layout/date.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-66">
+                <div class="modal-item">
+                    <label>Doanh số</label>
+                    <input type="text" name="RevenueSale" value="@String.Format("{0:#,0}", Model.RevenueSale)" class="isNumberF" />
+                </div>
+            </div>
+            <input type="text" hidden name="Id" value="@Model.Id" />
+        </div>
+    </div>
+
+
+    <div class="footer-modal">
+        <div class="group-button">
+            <button type="button" class="btn-gray">Hủy bỏ</button>
+            <button type="button" class="btn-green" id="btn-update-rating">Cập nhật</button>
+        </div>
+    </div>
+</form>

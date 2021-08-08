@@ -1,0 +1,272 @@
+﻿@section Styles{
+    <style>
+        #main .main-content .module-content table tr:hover td {
+            color: #5f6fff;
+        }
+
+        .section_list_check_io .module_list_check_io .module-content .list_button #myModal_delete .modal-frame .content-modal, .section_list_check_io .module_list_check_io .module-content .list_button #myModal_checkout .modal-frame .content-modal {
+            padding: 80px 44px !important
+        }
+
+            .section_list_check_io .module_list_check_io .module-content .list_button #myModal_delete .modal-frame .content-modal .header-modal, .section_list_check_io .module_list_check_io .module-content .list_button #myModal_checkout .modal-frame .content-modal .header-modal {
+                margin-bottom: 80px
+            }
+
+            .section_list_check_io .module_list_check_io .module-content .list_button #myModal_delete .modal-frame .content-modal .body_modal_delete .remind_me, .section_list_check_io .module_list_check_io .module-content .list_button #myModal_checkout .modal-frame .content-modal .body_modal_delete .remind_me {
+                text-transform: unset;
+                margin-bottom: unset
+            }
+
+            .section_list_check_io .module_list_check_io .module-content .list_button #myModal_delete .modal-frame .content-modal .footer-modal, .section_list_check_io .module_list_check_io .module-content .list_button #myModal_checkout .modal-frame .content-modal .footer-modal {
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                padding: 0 !important
+            }
+
+            .section_list_check_io .module_list_check_io .module-content .list_button #myModal_delete .modal-frame .content-modal .body_modal_delete .remind_me span {
+                color: #828282;
+                font-weight: 600;
+            }
+    </style>
+}
+
+<div class="list-check-io">
+    <section class="section_list_check_io">
+        <div class="module module_list_check_io">
+            <div class="module-header">
+                <h2 class="title">
+                    <img src="/Assets/SA/images/accountant-image/arrow_back_24px_rounded.svg" />
+                    Danh sách khách hàng dự kiến
+                </h2>
+            </div>
+
+            <div class="module-content">
+                <div class="select" id="search-box">
+                    <form id="search-form">
+                        <div class="bs-row row-lg-5 row-md-5 row-sm-10 row-xs10 row-tn-10">
+                            <div class="bs-col lg-20-5 md-33-5 sm-33-10 xs-100-10 tn-100-5">
+                                <div class="select_lit select_lit_right">
+                                    <input type="hidden" value="@ViewBag.NearEvent" id="hidden-near-event" />
+                                    <div class="form-inline">
+                                        <label>Tên sự kiện</label>
+                                        <select class="event-select" name="Showup">
+                                            <option value="">--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-20-5 md-33-5 sm-33-10 xs-100-10 tn-100-5">
+                                <div class="select_lit">
+                                    <label>Capital Consultant</label>
+                                    <select class="select_sale" name="Sale">
+                                        <option value="">--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-20-5 md-33-5 sm-33-10 xs-100-10 tn-100-5">
+                                <div class="select_lit select_lit_right">
+                                    <label>Telesale</label>
+                                    <select class="select_tele" name="TeleSale">
+                                        <option value="">--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-20-5 md-33-5 sm-33-10 xs-100-10 tn-100-5">
+                                <div class="select_lit select_lit_right">
+                                    <div class="form-inline">
+                                        <label>Khách hàng</label>
+                                        <input placeholder="Nhập họ tên, số cmnd..." name="Key">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-20-5 md-33-5 sm-33-10 xs-100-10 tn-100-5">
+                                <div class="button_search">
+                                    <button type="button" id="search-checkin">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="list_button">
+                    <div class="flex1">
+                        <button class="button_lit button1 add_new" type="button" onclick="ClearInput('#myModal_add_new');" modal-show="show" modal-data="#myModal_add_new">
+                            <img src="/Assets/SA/images/list_data_image/control_point_24px.svg" alt="" />
+                            <p>Thêm mới</p>
+                        </button>
+                        <button class="handle-button" onclick="location.href = '/Content/Checkin_Sample_Standard.xlsx'">
+                            Tải mẫu nhập dữ liệu
+                        </button>
+                        <button class="handle-button"
+                                modal-show="show"
+                                modal-data="#checkin_import-modal"
+                                onclick="ClearInput('#checkin_import-modal')">
+                            Nhập dữ liệu
+                        </button>
+                    </div>
+
+                    <div class="flex2">
+                        <div class="handle-button action more-options" style="cursor: pointer; user-select: none">
+                            <p>Tác vụ</p>
+                            <!-- more options -->
+                            <img src="/Assets/SA/images/employee-attendance/more-options.svg" alt="" />
+                            <div class="options">
+                                <button class="option-item" type="button" id="View-CheckInOut">
+                                    <div class="icon">
+                                        <img src="/Assets/SA/images/layout/view-detail.svg" alt="" />
+                                        <img src="/Assets/SA/images/layout/view-detail-active.svg" alt="" />
+                                    </div>
+                                    <span>Xem thông tin</span>
+                                </button>
+                                <button class="option-item" type="button" id="Edit-CheckInOut">
+                                    <div class="icon">
+                                        <img src="/Assets/SA/images/layout/edit.svg" alt="" />
+                                        <img src="/Assets/SA/images/layout/edit-active.svg" alt="" />
+                                    </div>
+                                    <span>Chỉnh sửa</span>
+                                </button>
+                                <button class="option-item" type="button" id="Delete-CheckInOut">
+                                    <div class="icon">
+                                        <img src="/Assets/SA/images/layout/remove.svg" alt="" />
+                                        <img src="/Assets/SA/images/layout/remove-active.svg" alt="" />
+                                    </div>
+                                    <span>Xoá</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal-them -->
+                    <div class="bs-modal" id="myModal_add_new">
+                        <div class="modal-frame">
+                            <div class="content-modal">
+                                <partial name="_Create.cshtml" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal-chinh sua -->
+                    <div class="bs-modal" id="myModal_fix">
+                        <div class="modal-frame">
+                            <div class="content-modal">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal-chi tiet -->
+                    <div class="bs-modal" id="myModal_detail">
+                        <div class="modal-frame">
+                            <div class="content-modal">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal delete show up -->
+                    <div class="bs-modal" id="myModal_delete">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bs-modal" id="checkin_import-modal">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small" style="padding: 80px 44px">
+                                <div class="header-modal">
+                                    <h3 class="modal__title">NHẬP DỮ LIỆU</h3>
+                                    <span title="close" modal-show="close" class="close__modal">
+                                        <img src="/Assets/crm/images/layout/close-modal.svg" alt="" />
+                                    </span>
+                                </div>
+                                <div class="body-modal">
+                                    <form id="import-form" enctype="multipart/form-data">
+                                        <div class="bs-row">
+                                            <div class="bs-col md-100">
+                                                <div class="modal-item">
+                                                    <label for="fname">Tên sự kiện</label><br>
+                                                    <select name="EventCode" class="event-code event_select">
+                                                        <option value="">--</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="bs-col md-100">
+                                                <div class="modal-item">
+                                                    <label for="">Danh sách checkin</label>
+                                                    <input name="file" placeholder="Chọn file chứa thông tin checkin" type="file"
+                                                           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="footer-modal">
+                                    <button id="import-data"
+                                            class="close__btn btn-green"
+                                            type="button">
+                                        Nhập dữ liệu
+                                    </button>
+                                    <button modal-show="close"
+                                            class="close__btn btn-gray"
+                                            onclick=""
+                                            type="button">
+                                        Hủy bỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrap_table">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 20px;"></th>
+                                <th style="min-width: 140px;">Mã khách</th>
+                                <th style="min-width: 150px;">Họ tên khách</th>
+                                <th style="min-width: 160px;">Số điện thoại</th>
+                                <th style="min-width: 160px;">CC</th>
+                                <th style="min-width: 160px;">CL T.O</th>
+                                <th style="min-width: 160px;">Tele</th>
+                                <th style="min-width: 160px;">Check in</th>
+                                <th style="min-width: 160px;">Check out</th>
+                                <th style="min-width: 180px;">Tên sự kiện</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="select_pagination">
+                    <div class="select" id="size-page">
+                        <p>Hiển thị từ <span class="from">1</span> đến <span class="to">6</span> trong tổng số <span class="total">6</span> bản ghi. Hiển thị</p>
+                        <select>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                        </select>
+                        <p>&nbsp;bản ghi trên trang.</p>
+                    </div>
+                    <div class="pagination" id="pagination">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+    <script>
+        const baseUrl = '/Tele/ExpectedInvestor/';
+    </script>
+    <script src="~/js/controllers/expected-checkin.js"></script>
+}

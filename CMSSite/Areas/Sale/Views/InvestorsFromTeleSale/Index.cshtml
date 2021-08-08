@@ -1,0 +1,1191 @@
+﻿<div class="list-client-telesale">
+    <section class="section_list_client_telesale">
+        <div class="module module_list_client_telesale">
+            <div class="module-header">
+                <h2 class="title">
+                    <img src="/Assets/SA/images/accountant-image/arrow_back_24px_rounded.svg" />
+                    Danh sách khách hàng từ telesale
+                </h2>
+            </div>
+
+            <div class="module-content">
+                <div class="select">
+                    <div class="bs-row row-lg-5 row-md-5 row-sm-15 row-xs10 row-tn-10">
+                        <div class="bs-col lg-25-5 md-25-5 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="select_lit">
+                                <form class="form-inline date">
+                                    <label>Thời gian bắt đầu</label>
+                                    <div class="bs-row row-lg-5 row-md-5 row-sm-10 row-xs10 row-tn-5">
+                                        <div class="bs-col lg-45-5 md-45-5 sm-45-10 xs-45-10 tn-45-5">
+                                            <div class="wrap_timepicker for_right">
+                                                <input type="text" class="search__input form_time timepicker">
+                                            </div>
+                                        </div>
+                                        <div class="bs-col lg-55-5 md-55-5 sm-55-10 xs-55-10 tn-55-5">
+                                            <div class="for_right">
+                                                <div class="date-select">
+                                                    <input type="text" class="search__input form_datetime">
+                                                    <img src="/Assets/SA/images/layout/date.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="bs-col lg-25-5 md-25-5 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="select_lit">
+                                <form class="form-inline date">
+                                    <label>Thời gian kết thúc</label>
+                                    <div class="bs-row row-lg-5 row-md-5 row-sm-10 row-xs10 row-tn-5">
+                                        <div class="bs-col lg-45-5 md-45-5 sm-45-10 xs-45-10 tn-45-5">
+                                            <div class="wrap_timepicker for_right">
+                                                <input type="text" class="search__input form_time timepicker">
+                                            </div>
+                                        </div>
+                                        <div class="bs-col lg-55-5 md-55-5 sm-55-10 xs-55-10 tn-55-5">
+                                            <div class="for_right">
+                                                <div class="date-select">
+                                                    <input type="text" class="search__input form_datetime">
+                                                    <img src="/Assets/SA/images/layout/date.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="bs-col lg-25-5 md-25-5 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="select_lit for_right">
+                                <label>Loại sản phẩm</label>
+                                <select class="select_status">
+                                    <option value="" disabled selected>Chọn loại sản phẩm</option>
+                                    <option>Nhân viên</option>
+                                    <option>Giám đốc</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bs-col lg-25-5 md-25-5 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="select_lit">
+                                <label>Phân loại</label>
+                                <select class="select_status">
+                                    <option value="" disabled selected>Chọn phân loại</option>
+                                    <option>Nhân viên</option>
+                                    <option>Giám đốc</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bs-col lg-25-5 md-25-5 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="select_lit for_right">
+                                <label>Trạng thái hợp đồng</label>
+                                <select class="select_status">
+                                    <option value="" disabled selected>Chọn trạng thái</option>
+                                    <option>Nhân viên</option>
+                                    <option>Giám đốc</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bs-col lg-25-5 md-25-5 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="select_lit for_right">
+                                <form class="form-inline">
+                                    <label>Từ khóa</label>
+                                    <input placeholder="Tên khách hàng, số điện thoại">
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="bs-col lg-25-5 md-25-5 sm-100-15 xs-100-10 tn-100-5">
+                            <div class="button_search">
+                                <button type="submit">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list_button">
+                    <div class="flex2">
+                        <label class="button_lit button2">
+                            <input type="file" />
+                            <img src="/Assets/SA/images/list_client/Vector.svg" alt="" />
+                            Nhập file Excel
+                        </label>
+                        <button class="button_lit button6" type="button" modal-show="show" modal-data="#myModal_export">
+                            <img src="/Assets/SA/images/accountant-image/reply_24px.svg" alt="" />
+                            <p>Xuất file Excel</p>
+                        </button>
+                        <div class="handle-button action more-options" style="cursor: pointer; user-select: none">
+                            <p style="font-weight: normal;">Tác vụ</p>
+                            <!-- more options -->
+                            <img src="/Assets/SA/images/employee-attendance/more-options.svg" alt="" />
+                            <div class="options">
+                                <button class="option-item" type="button" modal-show="show" modal-data="#detail">
+                                    <img src="/Assets/SA/images/list-customer-lookingup/view-detail.svg" alt="" />
+                                    <span>Xem thông tin</span>
+                                </button>
+                                <button class="option-item" type="button" modal-show="show" modal-data="#edit-customer-lookingup_modal">
+                                    <img src="/Assets/SA/images/list-customer-lookingup/edit.svg" alt="" />
+                                    <span>Chỉnh sửa</span>
+                                </button>
+                                <button class="option-item" type="button" modal-show="show" modal-data="#myModal_ban_giao">
+                                    <img src="/Assets/SA/images/list-customer-lookingup/showup.svg" alt="" />
+                                    <span>Bàn giao</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal export -->
+                    <div class="bs-modal" id="myModal_export">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small">
+                                <div class="header-modal">
+                                    <h3 class="modal__title"></h3>
+                                    <span title="close" modal-show="close" class="close__modal">
+                                        <img src="/Assets/SA/images/list_data_image/close_24px.svg" />
+                                    </span>
+                                </div>
+                                <div class="body-modal body_modal_delete">
+                                    <img class="delete_infor" src="/Assets/SA/images/list_data_image/Group 2232..svg" />
+                                    <p class="remind_me">Bạn có chắc chắn muốn xuất dữ liệu?</p>
+                                </div>
+                                <div class="footer-modal footer_madal_delete">
+                                    <button modal-show="close" class="close__btn red__btn cancel" type="button">Hủy bỏ</button>
+                                    <button modal-show="close" class="close__btn red__btn agree" type="button">Đồng ý</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- view detail 2 tab-->
+                    <div class="bs-modal" id="detail">
+                        <div class="modal-frame">
+                            <div class="content-modal">
+                                <div class="header-modal">
+                                    <h3 class="modal__title">thông tin chi tiết</h3>
+                                    <span title="close" modal-show="close" class="close__modal">
+                                        <img src="/Assets/SA/images/layout/close-modal.svg" />
+                                    </span>
+                                </div>
+
+                                <div class="body-modal">
+                                    <div class="bs-tab detail tab_in_modal">
+                                        <div class="tab-container">
+                                            <div class="tab-control">
+                                                <span class="control__show">Thông tin chung</span>
+                                                <ul class="control-list">
+                                                    <li class="control-list__item active" tab-show="#detail_tab1">
+                                                        Thông tin chung
+                                                    </li>
+                                                    <li class="control-list__item" tab-show="#detail_tab2">
+                                                        Follow
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tab-content">
+                                                <!-- tab 1 -->
+                                                <div class="tab-item active" id="detail_tab1">
+                                                    <!-- button -->
+                                                    <div class="button_first">
+                                                        <button class="button_lit sing_show_up button_lit_1">
+                                                            <img src="/Assets/SA/images/list_client/control_point_24px.svg" alt="" />
+                                                            <p>Đăng ký show up</p>
+                                                        </button>
+                                                        <button class="button_lit sing_show_up">
+                                                            <img src="/Assets/SA/images/list_client/Group 2248.svg" alt="" />
+                                                            <p>Tạo hợp đồng</p>
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- content -->
+                                                    <div class="select">
+                                                        <div class="bs-row row-lg-5 row-md-5 row-sm-15 row-xs10 row-tn-10">
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail add_detail_right">
+                                                                    <form class="form-inline">
+                                                                        <label>Ngày sự kiện</label>
+                                                                        <div class="date-select">
+                                                                            <input type="text" class="search__input form_datetime">
+                                                                            <img src="/Assets/SA/images/layout/date.svg" alt="">
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail">
+                                                                    <label>Phân loại</label>
+                                                                    <select class="select_product">
+                                                                        <option>Tiềm năng</option>
+                                                                        <option>scss</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail add_detail_right">
+                                                                    <form class="form-inline">
+                                                                        <label>Tên khách hàng</label>
+                                                                        <input value="Nguyễn văn a">
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail">
+                                                                    <form class="form-inline">
+                                                                        <label>Số điện thoại</label>
+                                                                        <input value="(+84) 123 456 789">
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail add_detail_right">
+                                                                    <label>Người tiếp nhận</label>
+                                                                    <select class="select_man">
+                                                                        <option disabled></option>
+                                                                        <option>Nhân viên</option>
+                                                                        <option>Giám đốc</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail">
+                                                                    <form class="form-inline">
+                                                                        <label>Khẩu vị đầu tư</label>
+                                                                        <input>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail add_detail_right">
+                                                                    <form class="form-inline">
+                                                                        <label>Nghề nghiệp</label>
+                                                                        <input placeholder="">
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail">
+                                                                    <form class="form-inline">
+                                                                        <label>Tài chính</label>
+                                                                        <input placeholder="">
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bs-col lg-50-5 md-50-5 sm-50-15 xs-100-10 tn-100-5">
+                                                                <div class="add_detail add_detail_right">
+                                                                    <form class="form-inline">
+                                                                        <label>Loại sản phẩm</label>
+                                                                        <input placeholder="">
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- buttons -->
+                                                    <div class="group-button">
+                                                        <button class="btn-gray">Hủy bỏ</button>
+                                                        <button class="btn-green">Tiếp theo</button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- tab 2 -->
+                                                <div class="tab-item" id="detail_tab2">
+                                                    <div class="add-customer-follow">
+                                                        <!-- field -->
+                                                        <div class="add-customer-follow_field">
+                                                            <span class="title">Thông tin chi tiết</span>
+                                                            <input />
+                                                        </div>
+
+                                                        <div class="add-customer-follow_field">
+                                                            <span class="title">Follow 1</span>
+                                                            <input />
+                                                        </div>
+
+                                                        <div class="add-customer-follow_field">
+                                                            <span class="title">Follow 2</span>
+                                                            <input />
+                                                        </div>
+
+                                                        <div class="add-customer-follow_field">
+                                                            <span class="title">Follow 3</span>
+                                                            <input />
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- buttons -->
+                                                    <div class="group-button">
+                                                        <button class="btn-gray">Quay lại</button>
+                                                        <button class="btn-gray">Hủy bỏ</button>
+                                                        <button class="btn-green">Tiếp theo</button>
+                                                    </div>
+
+                                                    <!-- comments -->
+                                                    <div class="customer-comments">
+                                                        <h3>Thảo luận</h3>
+
+                                                        <div class="comment-section">
+                                                            <!-- a comment block -->
+                                                            <div class="comment-block">
+                                                                <!-- main comment -->
+                                                                <div class="comment-element">
+                                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                                    <div class="comment-detail">
+                                                                        <div class="comment-text">
+                                                                            <span>Nguyễn Văn A</span>
+                                                                            <span>
+                                                                                Lorem Ipsum available, but the majority have
+                                                                                suffered
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="comment-action">
+                                                                            <button>Trả lời</button>
+                                                                            <div class="dot"></div>
+                                                                            <span class="timestamp">10 phút trước</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- reply block -->
+                                                                <div class="reply-block">
+                                                                    <div class="comment-element">
+                                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                                        <div class="comment-detail">
+                                                                            <div class="comment-text">
+                                                                                <span>Nguyễn Văn A</span>
+                                                                                <span>
+                                                                                    Lorem Ipsum available, but the majority have
+                                                                                    suffered
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="comment-action">
+                                                                                <button>Trả lời</button>
+                                                                                <div class="dot"></div>
+                                                                                <span class="timestamp">10 phút trước</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="comment-block">
+                                                                <!-- main comment -->
+                                                                <div class="comment-element">
+                                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                                    <div class="comment-detail">
+                                                                        <div class="comment-text">
+                                                                            <span>Nguyễn Văn A</span>
+                                                                            <span>
+                                                                                Lorem Ipsum available, but the majority have
+                                                                                suffered
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="comment-action">
+                                                                            <button>Trả lời</button>
+                                                                            <div class="dot"></div>
+                                                                            <span class="timestamp">10 phút trước</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- reply block -->
+                                                                <div class="reply-block">
+                                                                    <div class="comment-element">
+                                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                                        <div class="comment-detail">
+                                                                            <div class="comment-text">
+                                                                                <span>Nguyễn Văn A</span>
+                                                                                <span>
+                                                                                    Lorem Ipsum available, but the majority have
+                                                                                    suffered
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="comment-action">
+                                                                                <button>Trả lời</button>
+                                                                                <div class="dot"></div>
+                                                                                <span class="timestamp">10 phút trước</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="comment-block">
+                                                                <!-- main comment -->
+                                                                <div class="comment-element">
+                                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                                    <div class="comment-detail">
+                                                                        <div class="comment-text">
+                                                                            <span>Nguyễn Văn A</span>
+                                                                            <span>
+                                                                                Lorem Ipsum available, but the majority have
+                                                                                suffered
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="comment-action">
+                                                                            <button>Trả lời</button>
+                                                                            <div class="dot"></div>
+                                                                            <span class="timestamp">10 phút trước</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- reply block -->
+                                                                <div class="reply-block">
+                                                                    <div class="comment-element">
+                                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                                        <div class="comment-detail">
+                                                                            <div class="comment-text">
+                                                                                <span>Nguyễn Văn A</span>
+                                                                                <span>
+                                                                                    Lorem Ipsum available, but the majority have
+                                                                                    suffered
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="comment-action">
+                                                                                <button>Trả lời</button>
+                                                                                <div class="dot"></div>
+                                                                                <span class="timestamp">10 phút trước</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="comment-block">
+                                                                <!-- main comment -->
+                                                                <div class="comment-element">
+                                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                                    <div class="comment-detail">
+                                                                        <div class="comment-text">
+                                                                            <span>Nguyễn Văn A</span>
+                                                                            <span>
+                                                                                Lorem Ipsum available, but the majority have
+                                                                                suffered
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="comment-action">
+                                                                            <button>Trả lời</button>
+                                                                            <div class="dot"></div>
+                                                                            <span class="timestamp">10 phút trước</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- reply block -->
+                                                                <div class="reply-block">
+                                                                    <div class="comment-element">
+                                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                                        <div class="comment-detail">
+                                                                            <div class="comment-text">
+                                                                                <span>Nguyễn Văn A</span>
+                                                                                <span>
+                                                                                    Lorem Ipsum available, but the majority have
+                                                                                    suffered
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="comment-action">
+                                                                                <button>Trả lời</button>
+                                                                                <div class="dot"></div>
+                                                                                <span class="timestamp">10 phút trước</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-section">
+                                                            <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                            <div class="input">
+                                                                <div class="reply-to">
+                                                                    <span>Trả lời:</span><span>Nguyễn Văn B</span>
+                                                                </div>
+                                                                <input />
+                                                            </div>
+                                                            <div style="display: flex; margin-left: auto">
+                                                                <img src="/Assets/SA/images/list_client/Group 2260.svg" alt="" class="img_link"
+                                                                     style="margin-right: 5px ;" />
+                                                                <img src="/Assets/SA/images/list_client/Group 2261.svg" alt="" class="img_icon" />
+                                                                <img src="/Assets/SA/images/list-customer-lookingup/more-actions.svg" alt=""
+                                                                     class="more-actions" />
+                                                                <img src="/Assets/SA/images/list-customer-lookingup/send.svg" alt="" class="send" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- detail but with 3 tabs -->
+                    <div class="bs-modal" id="client_detail">
+                        <div class="modal-frame">
+                            <div class="content-modal">
+                                <div class="header-modal">
+                                    <h3 class="modal__title">Xem thông tin khách hàng</h3>
+                                    <span title="close" modal-show="close" class="close__modal">
+                                        <img src="/Assets/SA/images/layout/close-modal.svg" />
+                                    </span>
+                                </div>
+
+                                <div class="body-modal">
+                                    <div class="bs-tab customer-lookingup-tab tab_in_modal">
+                                        <div class="tab-container">
+                                            <div class="tab-control">
+                                                <span class="control__show">Thông tin chung</span>
+                                                <ul class="control-list">
+                                                    <li class="control-list__item active" tab-show="#tab1">
+                                                        Thông tin chung
+                                                    </li>
+                                                    <li class="control-list__item" tab-show="#tab2">
+                                                        Follow
+                                                    </li>
+                                                    <li class="control-list__item" tab-show="#tab4">
+                                                        Hợp đồng
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tab-content">
+                                                <!-- tab 1 -->
+                                                <div class="tab-item active" id="tab1">
+                                                    <!-- detail -->
+                                                    <div class="customer-detail">
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Ngày sự kiện </span>
+                                                            <span class="detail"> 20/02/2021 </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Loại sản phẩm </span>
+                                                            <span class="detail"> Lorem Ipsum available </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Phân loại </span>
+                                                            <span class="detail"> Tiềm năng </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Tên khách hàng </span>
+                                                            <span class="detail"> Nguyễn Văn A </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Số điện thoại </span>
+                                                            <span class="detail"> (+84) 123 456 789 </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Khẩu vị đầu tư </span>
+                                                            <span class="detail"> Lorem Ipsum available </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Nghề nghiệp </span>
+                                                            <span class="detail"> Kỹ thuật viên </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Người tiếp nhận </span>
+                                                            <span class="detail"> Phạm Văn B </span>
+                                                        </div>
+                                                        <!-- field -->
+                                                        <div class="customer-detail_field">
+                                                            <span class="title"> Tài chính </span>
+                                                            <span class="detail"> 100.000.000 </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- tab 2 -->
+                                                <div class="tab-item" id="tab2">
+                                                    <div class="input-group">
+                                                        <label for="">Thông tin chi tiết</label>
+                                                        <input disabled />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <label for="">Follow 1</label>
+                                                        <input disabled />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <label for="">Follow 2</label>
+                                                        <input disabled />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <label for="">Follow 3</label>
+                                                        <input disabled />
+                                                    </div>
+                                                </div>
+
+                                                <!-- tab 4 -->
+                                                <div class="tab-item" id="tab4">
+                                                    <div class="data-table tr-bordered">
+                                                        <table>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th>Stt</th>
+                                                                <th>Mã hợp đồng</th>
+                                                                <th>Kiểu hợp đồng</th>
+                                                                <th>Giá trị hợp đồng</th>
+                                                                <th>Ngày bắt đầu</th>
+                                                                <th>Ngày kết thúc</th>
+                                                                <th>Trạng thái</th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>1</td>
+                                                                <td>Mã hợp đồng 1</td>
+                                                                <td>Kiểu 1</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2022</td>
+                                                                <td>Trạng thái 1</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>2</td>
+                                                                <td>Mã hợp đồng 2</td>
+                                                                <td>Kiểu 2</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2022</td>
+                                                                <td>Trạng thái 2</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>3</td>
+                                                                <td>Mã hợp đồng 3</td>
+                                                                <td>Kiểu 3</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2022</td>
+                                                                <td>Trạng thái 3</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>4</td>
+                                                                <td>Mã hợp đồng 4</td>
+                                                                <td>Kiểu 4</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2022</td>
+                                                                <td>Trạng thái 4</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>5</td>
+                                                                <td>Mã hợp đồng 5</td>
+                                                                <td>Kiểu 5</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2021</td>
+                                                                <td>20/12/2022</td>
+                                                                <td>Trạng thái 5</td>
+                                                            </tr>
+
+                                                        </table>
+                                                    </div>
+                                                    <!-- paging -->
+                                                    <div class="select_pagination">
+                                                        <div class="select">
+                                                            <p>Hiển thị từ 1 đến 30 trong tổng số 999 bản ghi</p>
+                                                            <select>
+
+                                                                <option>1</option>
+
+                                                                <option>2</option>
+
+                                                                <option>3</option>
+
+                                                                <option>4</option>
+
+                                                                <option>5</option>
+
+                                                                <option>6</option>
+
+                                                                <option>7</option>
+
+                                                                <option>8</option>
+
+                                                                <option>9</option>
+
+                                                                <option>10</option>
+
+                                                                <option>11</option>
+
+                                                                <option>12</option>
+
+                                                                <option>13</option>
+
+                                                                <option>14</option>
+
+                                                                <option>15</option>
+
+                                                                <option>16</option>
+
+                                                                <option>17</option>
+
+                                                                <option>18</option>
+
+                                                                <option>19</option>
+
+                                                                <option>20</option>
+
+                                                                <option>21</option>
+
+                                                                <option>22</option>
+
+                                                                <option>23</option>
+
+                                                                <option>24</option>
+
+                                                                <option>25</option>
+
+                                                                <option>26</option>
+
+                                                                <option>27</option>
+
+                                                                <option>28</option>
+
+                                                                <option>29</option>
+
+                                                                <option>30</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="pagination">
+                                                            <button class="active" id="id1">1</button>
+                                                            <button id="id2">2</button>
+                                                            <button id="id3">3</button>
+                                                            <button id="id4">
+                                                                <img src="/Assets/SA/images/layout/chev-left.svg" alt="" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- comments -->
+                                    <div class="customer-comments">
+                                        <h3>Thảo luận</h3>
+
+                                        <div class="comment-section">
+                                            <!-- a comment block -->
+                                            <div class="comment-block">
+                                                <!-- main comment -->
+                                                <div class="comment-element">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                    <div class="comment-detail">
+                                                        <div class="comment-text">
+                                                            <span>Nguyễn Văn A</span>
+                                                            <span>
+                                                                Lorem Ipsum available, but the majority have
+                                                                suffered
+                                                            </span>
+                                                        </div>
+                                                        <div class="comment-action">
+                                                            <button>Trả lời</button>
+                                                            <div class="dot"></div>
+                                                            <span class="timestamp">10 phút trước</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- reply block -->
+                                                <div class="reply-block">
+                                                    <div class="comment-element">
+                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                        <div class="comment-detail">
+                                                            <div class="comment-text">
+                                                                <span>Nguyễn Văn A</span>
+                                                                <span>
+                                                                    Lorem Ipsum available, but the majority have
+                                                                    suffered
+                                                                </span>
+                                                            </div>
+                                                            <div class="comment-action">
+                                                                <button>Trả lời</button>
+                                                                <div class="dot"></div>
+                                                                <span class="timestamp">10 phút trước</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="comment-block">
+                                                <!-- main comment -->
+                                                <div class="comment-element">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                    <div class="comment-detail">
+                                                        <div class="comment-text">
+                                                            <span>Nguyễn Văn A</span>
+                                                            <span>
+                                                                Lorem Ipsum available, but the majority have
+                                                                suffered
+                                                            </span>
+                                                        </div>
+                                                        <div class="comment-action">
+                                                            <button>Trả lời</button>
+                                                            <div class="dot"></div>
+                                                            <span class="timestamp">10 phút trước</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- reply block -->
+                                                <div class="reply-block">
+                                                    <div class="comment-element">
+                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                        <div class="comment-detail">
+                                                            <div class="comment-text">
+                                                                <span>Nguyễn Văn A</span>
+                                                                <span>
+                                                                    Lorem Ipsum available, but the majority have
+                                                                    suffered
+                                                                </span>
+                                                            </div>
+                                                            <div class="comment-action">
+                                                                <button>Trả lời</button>
+                                                                <div class="dot"></div>
+                                                                <span class="timestamp">10 phút trước</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="comment-block">
+                                                <!-- main comment -->
+                                                <div class="comment-element">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                    <div class="comment-detail">
+                                                        <div class="comment-text">
+                                                            <span>Nguyễn Văn A</span>
+                                                            <span>
+                                                                Lorem Ipsum available, but the majority have
+                                                                suffered
+                                                            </span>
+                                                        </div>
+                                                        <div class="comment-action">
+                                                            <button>Trả lời</button>
+                                                            <div class="dot"></div>
+                                                            <span class="timestamp">10 phút trước</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- reply block -->
+                                                <div class="reply-block">
+                                                    <div class="comment-element">
+                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                        <div class="comment-detail">
+                                                            <div class="comment-text">
+                                                                <span>Nguyễn Văn A</span>
+                                                                <span>
+                                                                    Lorem Ipsum available, but the majority have
+                                                                    suffered
+                                                                </span>
+                                                            </div>
+                                                            <div class="comment-action">
+                                                                <button>Trả lời</button>
+                                                                <div class="dot"></div>
+                                                                <span class="timestamp">10 phút trước</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="comment-block">
+                                                <!-- main comment -->
+                                                <div class="comment-element">
+                                                    <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                                    <div class="comment-detail">
+                                                        <div class="comment-text">
+                                                            <span>Nguyễn Văn A</span>
+                                                            <span>
+                                                                Lorem Ipsum available, but the majority have
+                                                                suffered
+                                                            </span>
+                                                        </div>
+                                                        <div class="comment-action">
+                                                            <button>Trả lời</button>
+                                                            <div class="dot"></div>
+                                                            <span class="timestamp">10 phút trước</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- reply block -->
+                                                <div class="reply-block">
+                                                    <div class="comment-element">
+                                                        <img src="/Assets/SA/images/list-customer-lookingup/avt-2.svg" alt="" class="avt" />
+                                                        <div class="comment-detail">
+                                                            <div class="comment-text">
+                                                                <span>Nguyễn Văn A</span>
+                                                                <span>
+                                                                    Lorem Ipsum available, but the majority have
+                                                                    suffered
+                                                                </span>
+                                                            </div>
+                                                            <div class="comment-action">
+                                                                <button>Trả lời</button>
+                                                                <div class="dot"></div>
+                                                                <span class="timestamp">10 phút trước</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-section">
+                                            <img src="/Assets/SA/images/list-customer-lookingup/avt-1.svg" alt="" class="avt" />
+                                            <div class="input">
+                                                <div class="reply-to">
+                                                    <span>Trả lời:</span><span>Nguyễn Văn B</span>
+                                                </div>
+                                                <input />
+                                            </div>
+                                            <div style="display: flex; margin-left: auto">
+                                                <img src="/Assets/SA/images/list-customer-lookingup/more-actions.svg" alt=""
+                                                     class="more-actions" />
+                                                <img src="/Assets/SA/images/list-customer-lookingup/send.svg" alt="" class="send" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal ban giao -->
+                    <div class="bs-modal" id="myModal_ban_giao">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small">
+                                <div class="header-modal">
+                                    <h3 class="modal__title">Bàn giao khách hàng</h3>
+                                    <span title="close" modal-show="close" class="close__modal">
+                                        <img src="/Assets/SA/images/list_data_image/close_24px.svg" />
+                                    </span>
+                                </div>
+                                <div class="body-modal body_modal_delete">
+                                    <div class="bs-row row-lg-15 row-md-5 row-sm-10 row-xs10 row-tn-10">
+                                        <div class="bs-col lg-50-15 md-50-5 sm-50-10 xs-100-10 tn-100-5">
+                                            <div class="select_lit select_lit_right">
+                                                <form class="form-inline">
+                                                    <label>Mã hợp đồng</label>
+                                                    <input disabled style="background: #E3E8F0;" value="HD-12345">
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="bs-col lg-50-15 md-20-5 sm-50-10 xs-100-10 tn-100-5">
+                                            <div class="select_lit">
+                                                <form class="form-inline">
+                                                    <label>Ngày bàn giao</label>
+                                                    <div class="date-select">
+                                                        <input type="text" class="search__input form_datetime">
+                                                        <img src="/Assets/SA/images/layout/date.svg" alt="">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="bs-col lg-50-15 md-50-5 sm-50-10 xs-100-10 tn-100-5">
+                                            <div class="select_lit select_lit_right">
+                                                <form class="form-inline">
+                                                    <label>Người bàn giao</label>
+                                                    <input disabled style="background: #E3E8F0;" value="Nguyễn Văn A">
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="bs-col lg-50-15 md-50-5 sm-50-10 xs-100-10 tn-100-5">
+                                            <div class="select_lit">
+                                                <form class="form-inline">
+                                                    <label>Người nhận bàn giao</label>
+                                                    <input>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer-modal footer_madal_delete">
+                                    <button modal-show="close" class="close__btn red__btn cancel" type="button">Hủy bỏ</button>
+                                    <button modal-show="close" class="close__btn red__btn agree" type="button">Cập nhật</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrap_table">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 20px;"></th>
+                                <th style="min-width: 140px;">Ngày tham gia</th>
+                                <th style="min-width: 150px;">Loại sản phẩm</th>
+                                <th style="min-width: 140px;">Phân loại</th>
+                                <th style="min-width: 160px;">Tên khách hàng</th>
+                                <th style="min-width: 160px;">Số điện thoại</th>
+                                <th style="min-width: 160px;">Người tiếp nhận</th>
+                                <th style="min-width: 180px;">Thông tin chi tiết</th>
+                                <th style="min-width: 180px;">Lần follow gần nhất</th>
+                                <th style="min-width: 180px;">Trạng thái hợp đồng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*<form>
+
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'>20/02/2021</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'>Tiềm năng</label>
+                                        </div>
+                                    </td>
+                                    <td class="name" type="button" modal-show="show" modal-data="#client_detail">
+                                        <div class="radiotext">
+                                            <label for='regular'>Nguyễn Văn A</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'>(+84) 123 456 789</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'>Phạm Văn B</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'>Đã gọi nhắc khách hàng</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'></label>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </form>*@
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="select_pagination">
+                    <div class="select">
+                        <p>Hiển thị từ 1 đến 30 trong tổng số 999 bản ghi</p>
+                        <select>
+
+                            <option>1</option>
+
+                            <option>2</option>
+
+                            <option>3</option>
+
+                            <option>4</option>
+
+                            <option>5</option>
+
+                            <option>6</option>
+
+                            <option>7</option>
+
+                            <option>8</option>
+
+                            <option>9</option>
+
+                            <option>10</option>
+
+                            <option>11</option>
+
+                            <option>12</option>
+
+                            <option>13</option>
+
+                            <option>14</option>
+
+                            <option>15</option>
+
+                            <option>16</option>
+
+                            <option>17</option>
+
+                            <option>18</option>
+
+                            <option>19</option>
+
+                            <option>20</option>
+
+                            <option>21</option>
+
+                            <option>22</option>
+
+                            <option>23</option>
+
+                            <option>24</option>
+
+                            <option>25</option>
+
+                            <option>26</option>
+
+                            <option>27</option>
+
+                            <option>28</option>
+
+                            <option>29</option>
+
+                            <option>30</option>
+
+                        </select>
+                    </div>
+                    <div class="pagination">
+                        <a href="#" class="active" id="id1">1</a>
+                        <a href="#" id="id2">2</a>
+                        <a href="#" id="id3">3</a>
+                        <a href="#" id="id4">
+                            <img src="/Assets/SA/images/list_data_image/Vector.svg" alt="" />
+                        </a>
+                    </div>
+                </div>
+    </section>
+</div>

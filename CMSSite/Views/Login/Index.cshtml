@@ -1,0 +1,110 @@
+﻿@model CRMSite.ViewModels.LoginAccount
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>PHẦN MỀM CRM SAILFISH</title>
+    @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">*@
+    @*<link rel="icon" href="/Assets/office/images/icon/fav_icon.png" type="image/png">*@
+    <link rel="stylesheet" type="text/css" href="/Assets/office/css/tool.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Assets/office/css/main.min.css" />
+    <link rel="stylesheet" href="~/Content/css/toastr.min.css" />
+    <link href="~/css/update.css" rel="stylesheet" />
+</head>
+<body class="index">
+    <div class="loading-wrapper" style="display: none;">
+        <div id="loading">
+            <div id="loading-dot"></div>
+            <div id="loading-dot"></div>
+            <div id="loading-dot"></div>
+        </div>
+    </div>
+    <main id="main">
+        <div class="auth">
+            <div class="auth-wrapped">
+                @*<div class="back-home"  data-aos="fade-left"><a href="/dashboad" class="back-link"><i class="icofont-rounded-left"></i> Back to home</a></div>*@
+                <div class="auth-base login" data-aos="zoom-out" data-aos-delay="300">
+                    <div class="auth-logo">
+                        <a href="http://bytesoft.vn" target="__blank"><img src="/Assets/office/images/logo_green.png" alt=""></a>
+                        <div class="auth-website">www.bytesoft.vn</div>
+                    </div>
+                    <div class="base-wrapped login-wrapped">
+                        <div class="base-header login-header">
+                            <div class="header-title">Đăng nhập</div>
+                        </div>
+                        <div class="base-content login-content">
+                            <div class="content-wrapped">
+                                <div class="base-form login-form">
+                                    <form method="post" asp-controller="Login" asp-action="LoginAccount" data-ajax="true"
+                                          data-ajax-failure="LoginFailure" data-ajax-success="LoginAccount" class="form" onsubmit="$('.loading-wrapper').show(); $('.btn-create').attr('disabled', true);">
+                                        <div class="form-box form-full">
+                                            <div class="form-item">
+                                                <p class="item-label">Tên đăng nhập*</p>
+                                                @Html.TextBoxFor(m => m.UserName, new { @class = "item-val", placeholder = "Tên đăng nhập" })
+                                            </div>
+                                            <div class="form-item">
+                                                <p class="item-label">Mật khẩu*</p>
+                                                @Html.PasswordFor(m => m.Pass, new { @class = "item-val", placeholder = "Mật khẩu" })
+                                            </div>
+                                        </div>
+                                        <div class="form-func"><button type="submit" class="btn btn-func btn-create">Đăng nhập</button></div>
+                                    </form>
+                                </div>
+                                @*<div class="base-question login-question">
+                                        <div class="question-item"><span>Người dùng mới? </span><a href="/register">Tạo một tài khoản</a></div>
+                                        <div class="question-item"><span>Quên mật khẩu? </span><a href="/reset-password">Đổi mật khẩu</a></div>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="/Assets/office/js/tool.min.js"></script>
+    <script src="/Assets/office/js/main.min.js"></script>
+    <script src="/js/jquery-ajax-unobtrusive.min.js"></script>
+    <script src="~/lib/toarst/toastr.js"></script>
+    <script>
+        $(function () {
+            $('.btn-create').attr('disabled', false);
+        });
+
+        function LoginAccount(res) {
+            if (res.status == 200) {
+                //if (typeof (Storage) !== "undefined") {
+                //    // Store
+                //    localStorage.setItem("CurrentUser", "");
+                //    localStorage.setItem("CurrentPhone", "");
+                //    // Retrieve
+                //    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+                //}
+                window.location.href = res.url;
+            }
+            else {
+                let message = Array.isArray(res.errors) ? res.errors.join(' <br /> ') : res.errors;
+                toastr.error(message);
+                $('.btn-create').attr('disabled', false);
+            }
+            $('.loading-wrapper').hide();
+        }
+
+        function LoginFailure(res) {
+            toastr.error("Xảy ra lỗi khi thực hiện đăng nhập vào hệ thống");
+            $('.loading-wrapper').hide();
+        }
+
+        function ForgetPasswordModal() {
+            //alert('success', 'forget');
+        };
+    </script>
+</body>
+</html>

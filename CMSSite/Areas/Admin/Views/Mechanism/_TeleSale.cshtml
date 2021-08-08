@@ -1,0 +1,237 @@
+﻿<div class="telesale" id="tele-sale">
+    <form>
+        <h4 class="tab-title">TeleSale</h4>
+        <!-- form -->
+        <div class="telesale-form">
+            <!-- row -->
+            <div class="bs-row">
+                <!-- col -->
+                <div class="bs-col lg-50">
+                    <div class="input-wrapper">
+                        <label for="">Lương cứng</label>
+                        <div class="input">
+                            <input type="text" name="Salary" class="isNumber" value="" />
+                            <div class="unit">VND</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="bs-col lg-50">
+                    <div class="input-wrapper">
+                        <label for="">KPI</label>
+                        <div class="input">
+                            <input type="text" name="TotalShowUp" class="isOneDecimalNumber" value="" />
+                            <div class="unit">/Ngày</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+            <div class="bs-row">
+                <!-- col -->
+                <div class="bs-col lg-50">
+                    <div class="input-wrapper">
+                        <label for="">Thời gian thử việc</label>
+                        <div class="input">
+                            <input type="number" name="ProbationaryTime" value="" />
+                            <div class="unit">Tháng</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="bs-col lg-50">
+                    <div class="input-wrapper">
+                        <label for="">Lương thử việc</label>
+                        <div class="input">
+                            <input type="text" name="ProbationarySalary" class="isNumber" value="" />
+                            <div class="unit">VND</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="Id" value="" />
+            <input type="hidden" name="CodeKpi" value="" />
+
+        </div>
+        <!-- table -->
+        <div class="telesale-table">
+            <div class="handle">
+                <span>Trong thời gian thử việc nếu không đạt</span>
+                <span>
+                    <input type="number" class="isPercent" name="RatioKpiMax" value="" />
+                    <span>% KPI, hưởng</span>
+                </span>
+                <span>
+                    <input type="number" class="isPercent" name="PercentSalary" value="" />
+                    <span>% lương thử việc</span>
+                    @*<input type="hidden" name="ProbationaryId" value="@Model.SetupTeleSaleSalary.Probationary.Id" />*@
+                </span>
+            </div>
+            <div class="handle">
+                <span>Trong thời gian chính thức nếu không đạt 50%, hưởng 80% lương chính thức</span>
+            </div>
+            <!-- table -->
+            <div class="table">
+                <!-- thead -->
+                <div class="thead">
+                    <div class="table-item">
+                        <div class="table-item_row first_row">
+                            <label>Tele theo KPI (%)</label>
+                        </div>
+                        <div class="table-item_row">
+                            <label>HH/show</label>
+                        </div>
+                        <div class="table-item_row">
+                            <label>HH hợp đồng</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- tbody -->
+                <div class="tbody">
+                    <!-- item -->
+                    <div class="table-item">
+                        <img onclick="RemoveLevelForTele(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                             alt="" />
+                        <div class="table-item_row first_row">
+                            <input type="text" name="PercentKpiRange" value="" placeholder="Min-Max" />
+                        </div>
+                        <div class="table-item_row">
+                            <input type="text" name="AmountShowupTele" class="isNumber" value="" />
+                        </div>
+                        <div class="table-item_row">
+                            <input type="text" name="AmountContractTele" class="isNumber" value="" />
+                            @*<input type="hidden" name="RemunerationId" value="@item.Id" />*@
+                        </div>
+                    </div>
+
+                    <!-- add item -->
+                    <div class="add-item" onclick="AddLevelForTele(this)">
+                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- leader telesale -->
+<div class="leader-telesale" id="leader-tele">
+    <form>
+        <h4 class="tab-title">Leader Telesale</h4>
+        <!-- form -->
+        <div class="leader-telesale-form">
+            <!-- row -->
+            <div class="bs-row">
+                <!-- col -->
+                <div class="bs-col lg-50">
+                    <div class="input-wrapper">
+                        <label for="">Lương cứng</label>
+                        <div class="input">
+                            <input type="text" name="Salary" class="isNumber" value="" />
+                            <div class="unit">VND</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- col -->
+                @*<div class="bs-col lg-50">
+            <div class="input-wrapper">
+                <label for="">KPI</label>
+                <div class="input">
+                    <input type="number" name="TotalShowUp" value="" />
+                    <div class="unit">/Tháng</div>
+                </div>
+            </div>
+        </div>*@
+                <input type="hidden" name="TotalShowUp" value="" />
+            </div>
+            <!-- row -->
+            <div class="bs-row">
+                <!-- col -->
+                <div class="bs-col lg-50">
+                    <div class="input-wrapper">
+                        <label for="">Thời gian thử việc</label>
+                        <div class="input">
+                            <input type="number" name="ProbationaryTime" value="" />
+                            <div class="unit">Tháng</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="bs-col lg-50">
+                    <div class="input-wrapper">
+                        <label for="">Lương thử việc</label>
+                        <div class="input">
+                            <input type="text" name="ProbationarySalary" class="isNumber" value="" />
+                            <div class="unit">VND</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="Id" value="" />
+            <input type="hidden" name="CodeKpi" value="" />
+
+        </div>
+        <!-- table -->
+        <div class="telesale-table">
+            <div class="handle">
+                <span>Trong thời gian thử việc nếu không đạt</span>
+                <span>
+                    <input type="number" class="isPercent" name="RatioKpiMax" value="" />
+                    <span>% KPI, hưởng</span>
+                </span>
+                <span>
+                    <input type="number" class="isPercent" name="PercentSalary" value="" />
+                    <span>% lương thử việc</span>
+                    @*<input type="hidden" name="ProbationaryId" value="@(Model.SetupTeleSaleLeaderSalary.Probationary.Id)" />*@
+                </span>
+            </div>
+            <div class="handle">
+                <span>Trong thời gian chính thức nếu không đạt 50%, hưởng 80% lương chính thức</span>
+            </div>
+            <!-- table -->
+            <div class="table">
+                <!-- thead -->
+                <div class="thead">
+                    <div class="table-item">
+                        <div class="table-item_row first_row">
+                            <label>Leader Tele theo KPI (%)</label>
+                        </div>
+                        <div class="table-item_row">
+                            <label>HH/show</label>
+                        </div>
+                        <div class="table-item_row">
+                            <label>HH hợp đồng</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- tbody -->
+                <div class="tbody">
+                    <!-- item -->
+                    <div class="table-item">
+                        <img onclick="RemoveLevelForTele(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                             alt="" />
+                        <div class="table-item_row first_row">
+                            <input type="text" name="PercentKpiRange" placeholder="Min-Max" value="" />
+                        </div>
+                        <div class="table-item_row">
+                            <input type="text" name="AmountShowupTele" class="isNumber" value="" />
+                        </div>
+                        <div class="table-item_row">
+                            <input type="text" name="AmountContractTele" class="isNumber" value="" />
+                            @*<input type="hidden" name="RemunerationId" value="@item.Id" />*@
+                        </div>
+                    </div>
+                    <!-- add item -->
+                    <div class="add-item" onclick="AddLevelForTele(this)">
+                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- buttons -->
+<div class="group-buttons">
+    <button class="btn-gray" onclick="Cancel()">Hủy bỏ</button>
+    <button class="btn-green" onclick="SetupMechanismForTele()">Cập nhật</button>
+</div>

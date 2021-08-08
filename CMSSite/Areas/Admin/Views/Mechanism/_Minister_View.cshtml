@@ -1,0 +1,201 @@
+﻿@using CRMSite.ViewModels
+@model CRMBussiness.ViewModel.MechanismForMinister
+<!-- sale -->
+<div class="sale" id="sale">
+    <h4 class="tab-title">Trưởng khối</h4>
+    <input type="hidden" name="Id" value="@Model.MinisterMechanism?.Id" class="sale-id" />
+    <input type="hidden" name="CodeKpi" value="@Model.MinisterMechanism?.CodeKpi" class="sale-kpi-code" />
+    <!-- table -->
+    <div class="table" style="overflow-x: auto">
+        <form class="remunerations">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Hoa hồng</th>
+                    <th>Cổ phần</th>
+                    <th>Lương cứng</th>
+                    <th>Doanh số khối</th>
+                    <th></th>
+                </tr>
+
+                @if (Model.MinisterMechanism?.Remunerations != null)
+                {
+                    int j = 1;
+                    foreach (var item in Model.MinisterMechanism.Remunerations)
+                    {
+                        <tr class="value">
+                            <td class="label-level">Level @j</td>
+                            <td>
+                                <input type="number" class="isPercent" name="PercentRemuneration" value="@item.PercentRemuneration" min="0" />
+                            </td>
+                            <td>
+                                <input type="number" class="isPercent" name="CalculatingSharePercent" value="@item.CalculatingSharePercent" min="0" />
+                            </td>
+                            <td>
+                                <input type="text" class="isNumber" name="Salary" value="@String.Format("{0:#,0}", item.Salary)" />
+                            </td>
+                            <td class="resize">
+                                <input type="text" class="revenue-range" name="RevenueRange" value="@String.Format("{0:#,0}", item.RevenueRange)" />
+                            </td>
+                            <td>
+                                <img onclick="RemoveSalaryForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                     alt="" />
+                            </td>
+                        </tr>
+                        j++;
+                    }
+                }
+
+                <!-- row -->
+                <tr class="row_add">
+                    <td colspan="5">
+                        <div class="add-item" onclick="AddSalaryForSale(this)">
+                            <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!-- kpi -->
+    <div class="kpi">
+        <div class="kpi_left">
+            <div class="title">
+                <h4>KPI 6 tháng đầu</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" value="@Model.MinisterMechanism?.FirstMonthsCondition.KpiPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" value="@Model.MinisterMechanism?.FirstMonthsCondition.SalaryPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            <!-- row -->
+                            @{
+                                var firstKpiSalaryList = Model.MinisterMechanism?.FirstMonthsSalary;
+                            }
+                            @if (firstKpiSalaryList != null)
+                            {
+                                foreach (var item in firstKpiSalaryList)
+                                {
+                                    <tr class="value">
+                                        <td>
+                                            <input type="text" class="isPercent" name="MinKpiPercent" value="@item.MinKpiPercent" placeholder="Min" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="isPercent" name="MaxKpiPercent" value="@item.MaxKpiPercent" placeholder="Max" />
+                                        </td>
+                                        <td>
+                                            <input type="number" class="isPercent" name="SalaryPercent" value="@item.SalaryPercent" min="0" />
+                                        </td>
+                                        <td>
+                                            <img onclick="RemoveKpiForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                                 alt="" />
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="kpi_right">
+            <div class="title">
+                <h4>KPI 6 tháng sau</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" value="@Model.MinisterMechanism?.LaterMonthsCondition.KpiPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" value="@Model.MinisterMechanism?.LaterMonthsCondition.SalaryPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            @{
+                                var laterKpiSalaryList = Model.MinisterMechanism?.LaterMonthsSalary;
+                            }
+                            @if (laterKpiSalaryList != null)
+                            {
+                                foreach (var item in laterKpiSalaryList)
+                                {
+                                    <tr class="value">
+                                        <td>
+                                            <input type="text" class="isPercent" name="MinKpiPercent" value="@item.MinKpiPercent" placeholder="Min" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="isPercent" name="MaxKpiPercent" value="@item.MaxKpiPercent" placeholder="Max" />
+                                        </td>
+                                        <td>
+                                            <input type="number" class="isPercent" name="SalaryPercent" value="@item.SalaryPercent" min="0" />
+                                        </td>
+                                        <td>
+                                            <img onclick="RemoveKpiForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                                 alt="" />
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- buttons -->
+<div class="group-buttons">
+    <button class="btn-gray" onclick="Cancel()">Hủy bỏ</button>
+    <button class="btn-green" onclick="SetupMechanismForMinister()">Cập nhật</button>
+</div>

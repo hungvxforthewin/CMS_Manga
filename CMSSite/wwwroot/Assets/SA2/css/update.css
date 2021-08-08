@@ -1,0 +1,19 @@
+﻿.input_select {
+    display: flex;
+    select{
+        border: 1px solid #e3e8f0;
+        background-color: #e3e8f0;
+        border-radius: 2px 0 0 2px;
+    }
+
+    input {
+        border-radius: 0 2px 2px 0;
+    }
+}
+.id-address .address-select{
+        display: none;
+    }
+.id-address .active {
+    display: block;
+}
+

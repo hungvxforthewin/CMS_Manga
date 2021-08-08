@@ -1,0 +1,29 @@
+﻿@model CRMBussiness.ViewModel.FileUploadViewModel
+
+<div class="header-modal">
+    <h3 class="modal__title"></h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                alt="" />
+    </span>
+</div>
+<div class="body-modal add-employee_body-modal">
+    <input type="hidden" value="@Model.Id" id="hidden-id" />
+    <img src="/Assets/crm/images/employee-manage/delete-modal.png"
+            alt="" />
+    <p>
+        Bạn có chắc chắn muốn xóa
+        <span>file hệ thống</span> không?
+    </p>
+</div>
+<div class="footer-modal">
+    <button id="delete-file"
+            type="button">
+        Đồng ý
+    </button>
+    <button modal-show="close"
+            class="close__btn btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+</div>

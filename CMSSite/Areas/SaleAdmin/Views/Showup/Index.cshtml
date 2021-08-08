@@ -1,0 +1,199 @@
+﻿@model CRMBussiness.ViewModel.EventViewModel
+
+<div class="list-showup">
+    <section class="section_list_showup">
+        <div class="module module_list_showup">
+            <div class="module-header">
+                <p class="title">
+                    <img src="/Assets/SA/images/accountant-image/arrow_back_24px_rounded.svg" />
+                    Danh sách sự kiện
+                </p>
+            </div>
+
+            <div class="module-content">
+                <form id="search-form" >
+                    <div class="select">
+                        <div class="bs-row row-lg-5 row-md-5 row-sm-15 row-xs10 row-tn-10">
+                            <div class="bs-col lg-50-5 md-50-5 sm-100-15 xs-100-10 tn-100-5">
+                                <div class="select_lit special">
+                                    <div class="form-inline date">
+                                        <label>Thời gian bắt đầu</label>
+                                        <div class="bs-row row-lg-5 row-md-5 row-sm-10 row-xs10 row-tn-5">
+                                            <div class="bs-col lg-30-5 md-30-5 sm-30-10 xs-30-10 tn-30-5">
+                                                <div class="wrap_timepicker special">
+                                                    <input type="text" name="StartTimeString" class="search__input form_time timepicker">
+                                                </div>
+                                            </div>
+                                            <div class="bs-col lg-70-5 md-70-5 sm-700-10 xs-700-10 tn-70-5">
+                                                <div class="datepicker">
+                                                    <input type="text" name="StartDateString" class="search__input form_datetime">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-50-5 md-50-5 sm-100-15 xs-100-10 tn-100-5">
+                                <div class="select_lit">
+                                    <div class="form-inline date">
+                                        <label>Thời gian kết thúc</label>
+                                        <div class="bs-row row-lg-5 row-md-5 row-sm-10 row-xs10 row-tn-5">
+                                            <div class="bs-col lg-30-5 md-30-5 sm-30-10 xs-30-10 tn-30-5">
+                                                <div class="wrap_timepicker special">
+                                                    <input type="text" name="EndTimeString" class="search__input form_time timepicker">
+                                                </div>
+                                            </div>
+                                            <div class="bs-col lg-70-5 md-70-5 sm-700-10 xs-700-10 tn-70-5">
+                                                <div class="datepicker">
+                                                    <input type="text" name="EndDateString" class="search__input form_datetime">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-50-5 md-50-5 sm-100-15 xs-100-10 tn-100-5">
+                                <div class="select_lit special">
+                                    <label>Trạng thái</label>
+                                    <select class="select_status" name="Status">
+                                        <option value="">--</option>
+                                        <option value="1">Mở khóa</option>
+                                        <option value="0">Khóa</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-35-5 md-35-5 sm-100-15 xs-100-10 tn-100-5">
+                                <div class="select_lit special">
+                                    <div class="form-inline">
+                                        <label>Từ khóa</label>
+                                        <input placeholder="Tên sự kiện, mã sự kiện, tên sản phẩm" name="Key" id="search-key">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bs-col lg-15-5 md-15-5 sm-100-15 xs-100-10 tn-100-5">
+                                <div class="button_search">
+                                    <button type="button" id="search-show-up">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="list_button">
+                    <div class="flex2">
+                        <button class="button_lit button1 add_new" type="button" modal-show="show" modal-data="#myModal_add_new" onclick="$('#myModal_add_new select').select2();">
+                            <img src="/Assets/SA/images/list_data_image/control_point_24px.svg" alt="" />
+                            <p>Thêm mới</p>
+                        </button>
+
+                        <button class="button_lit button1 add_new" type="button" modal-show="show" modal-data="#myModal_add_new_for_cc" onclick="$('#myModal_add_new_for_cc select').select2();">
+                            <img src="/Assets/SA/images/list_data_image/control_point_24px.svg" alt="" />
+                            <p>Thêm mới cho CC</p>
+                        </button>
+                        @*<button class="button_lit button6" type="button" modal-show="show" modal-data="#myModal_export">
+                <img src="/Assets/SA/images/accountant-image/reply_24px.svg" alt="" />
+                <p>Xuất file Excel</p>
+            </button>*@
+                        <div class="handle-button action more-options" style="cursor: pointer; user-select: none">
+                            Tác vụ
+                            <img src="/Assets/SA/images/employee-attendance/more-options.svg" alt="" />
+                            <!-- options -->
+                            <div class="options">
+                                <!-- option -->
+                                <button class="option-item" type="button" id="View-Show-Up">
+                                    <div class="icon">
+                                        <img src="/Assets/SA/images/layout/view-detail.svg" alt="" />
+                                        <img src="/Assets/SA/images/layout/view-detail-active.svg" alt="" />
+                                    </div>
+                                    <span>Xem thông tin</span>
+                                </button>
+                                <!-- option -->
+                                <button class="option-item" type="button" id="Edit-Show-Up">
+                                    <div class="icon">
+                                        <img src="/Assets/SA/images/layout/edit.svg" alt="" />
+                                        <img src="/Assets/SA/images/layout/edit-active.svg" alt="" />
+                                    </div>
+                                    <span>Chỉnh sửa</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal-them -->
+                    <div class="bs-modal" id="myModal_add_new">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small">
+                                <partial name="_Create.cshtml" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal-them -->
+                    <div class="bs-modal" id="myModal_add_new_for_cc">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small">
+                                <partial name="_Create.cshtml" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal chỉnh sửa data -->
+                    <div class="bs-modal" id="myModal_fix_data">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal export -->
+                    <div class="bs-modal" id="myModal_detail">
+                        <div class="modal-frame">
+                            <div class="content-modal modal-small">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrap_table">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 20px;"></th>
+                                <th style="min-width: 60px;">Mã sự kiện</th>
+                                <th style="min-width: 130px;">Tên sự kiện</th>
+                                <th style="min-width: 120px;">Sản phẩm</th>
+                                <th style="min-width: 130px;">Ngày bắt đầu</th>
+                                <th style="min-width: 130px;">Ngày kết thúc</th>
+                                <th style="min-width: 110px;">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from">1</span> đến <span class="to">6</span> trong tổng số <span class="total">6</span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts{
+    <script src="~/js/controllers/showUp.js"></script>
+}

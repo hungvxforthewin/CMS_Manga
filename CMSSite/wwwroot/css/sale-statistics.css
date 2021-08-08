@@ -1,0 +1,69 @@
+﻿.section_dashboard .target_modal .body-container .modal-bottom,
+.section_dashboard .target_modal .body-container .modal-top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+#main .main-content .input-group .checkbox-label {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#main .main-content .custom-checkbox {
+    position: relative;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+}
+
+#main .main-content .input-group .checkbox-label > span {
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .section_dashboard .target_modal .body-container .modal-top .modal-item {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1
+    }
+
+    .section_dashboard .target_modal .body-container .modal-bottom .modal-item {
+        width: 33.33%
+    }
+
+@media (max-width:767px) {
+    .section_dashboard .target_modal .body-container .modal-bottom .modal-item {
+        width: 50%
+    }
+}
+
+@media (max-width:575px) {
+    .section_dashboard .target_modal .body-container .modal-bottom .modal-item {
+        width: 100%
+    }
+}
+.section_dashboard .horizontal_bar-container .horizontal_bar {
+    min-height: 200px
+}
+
+.section_dashboard .donut-container .donut {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start
+}

@@ -1,0 +1,59 @@
+﻿@model CRMBussiness.ViewModel.AllowanceOrDeductViewModel
+
+<div class="header-modal">
+    <h3 class="modal__title">thêm mới mức thâm niên</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/crm/images/layout/close-modal.svg" alt="" />
+    </span>
+</div>
+
+<!-- body -->
+<div class="body-modal">
+    <form id="create-form">
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col sm-50">
+                <div class="modal-item">
+                    <label>Tên</label>
+                    @Html.EditorFor(model => model.AllowanceName, new { htmlAttributes = new { @class = "" } })
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col sm-50">
+                <div class="modal-item">
+                    <label>Thời gian làm việc</label>
+                    @Html.DropDownListFor(model => model.Note,
+               new List<SelectListItem>
+               {
+                    new SelectListItem { Value = "1 Năm", Text = "1 Năm" },
+                    new SelectListItem { Value = "2 Năm", Text = "2 Năm" },
+                    new SelectListItem { Value = "3 Năm", Text = "3 Năm" },
+                    new SelectListItem { Value = "5 Năm", Text = "5 Năm" },
+                    new SelectListItem { Value = "10 Năm", Text = "10 Năm" },
+                }, new { @class = "" })
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col sm-50">
+                <div class="modal-item">
+                    <label>Số tiền được hưởng</label>
+                    @Html.EditorFor(model => model.AllowanceAmount, new { htmlAttributes = new { @class = "isNumber" } })
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- footer -->
+<div class="footer-modal">
+    <button class="close__btn btn-green"
+            id="create-seniority"
+            type="button">
+        Lưu
+    </button>
+    <button modal-show="close"
+            class="close__btn btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+</div>

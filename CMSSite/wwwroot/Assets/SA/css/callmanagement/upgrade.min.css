@@ -1,0 +1,237 @@
+.section_call-management .module-wrapper {
+  padding: 40px 44px !important;
+}
+.section_call-management .module-title h2 {
+  text-transform: unset !important;
+  font-weight: 700 !important;
+}
+.section_call-management .module-content .search {
+  margin-top: 30px !important;
+}
+.section_call-management .module-content .search .search-item {
+  margin-top: 2px;
+}
+.section_call-management .module-content .search .search-button button {
+  width: 100% !important;
+}
+.section_call-management .module-content .handle {
+  margin-bottom: 2px !important;
+}
+.section_call-management .module-content .handle .handle-button {
+  margin-left: 12px !important;
+}
+.section_call-management .module-content .data-table .white-table tr th {
+  color: #333 !important;
+}
+.section_call-management
+  .module-content
+  .data-table
+  .white-table
+  tr
+  td:first-child {
+  padding-left: 16px;
+}
+.section_call-management
+  .module-content
+  .data-table
+  .white-table
+  tr
+  td:first-child:before {
+  content: unset !important;
+}
+.section_call-management .modal-item {
+  margin-bottom: 18px !important;
+}
+.section_call-management .add-modal button,
+.section_call-management .delete-modal button,
+.section_call-management .detail-modal button {
+  height: 36px !important;
+}
+.section_call-management .detail-modal .content-modal {
+  padding-bottom: 0 !important;
+}
+.section_call-management .detail-modal .body-container {
+  margin: 0 134px;
+}
+.section_call-management .detail-modal .body-detail {
+  margin-top: 12px;
+  background-color: #f8f8f9;
+  padding: 32px 72px 56px;
+  border-top: 2px solid #e3e8f0;
+}
+.section_call-management .detail-modal .body-detail .white-table thead tr {
+  height: auto !important;
+  background-color: transparent !important;
+}
+.section_call-management .detail-modal .body-detail .white-table thead tr th {
+  padding-bottom: 16px;
+  color: #4f4f4f;
+  border: none !important;
+}
+.section_call-management
+  .detail-modal
+  .body-detail
+  .white-table
+  tbody
+  tr:last-child {
+  background-color: transparent;
+}
+.section_call-management
+  .detail-modal
+  .body-detail
+  .white-table
+  tbody
+  tr
+  td
+  > span {
+  background-color: #e3e8f0;
+  padding: 5px 13px;
+  color: #4f4f4f;
+}
+.section_call-management
+  .detail-modal
+  .body-detail
+  .white-table
+  tbody
+  tr
+  td
+  > input {
+  width: 100px;
+  height: 32px;
+}
+.section_call-management
+  .detail-modal
+  .body-detail
+  .white-table
+  tbody
+  tr
+  td
+  .note {
+  width: 180px;
+}
+.section_call-management
+  .detail-modal
+  .body-detail
+  .white-table
+  tbody
+  tr
+  td:last-child {
+  position: relative;
+}
+.section_call-management
+  .detail-modal
+  .body-detail
+  .white-table
+  tbody
+  tr
+  td:last-child
+  .delete-button {
+  position: absolute;
+  top: 20px;
+  right: -25px;
+}
+.section_call-management .detail-modal .body-detail .add-button {
+  cursor: pointer;
+  height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #e3e8f0;
+  border: 1px dashed #93a9c7;
+  width: 100%;
+  margin-top: 16px;
+}
+.section_call-management .detail-modal .footer-modal {
+  padding-top: 44px !important;
+  padding-bottom: 57px !important;
+}
+@media (max-width: 991px) {
+  .section_call-management .detail-modal .body-container {
+    margin: 0 8px;
+  }
+  .section_call-management .detail-modal .footer-modal {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  .section_call-management .detail-modal .body-detail {
+    padding: 20px;
+  }
+  .section_call-management .module-wrapper {
+    padding: 20px 15px !important;
+  }
+}
+#main .main-content .required {
+  color: #ff5959;
+}
+#main .main-content .custom-radio {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  padding-left: 16px;
+  margin-bottom: 0;
+}
+#main .main-content .custom-radio .checkmark {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #dadada;
+  position: absolute;
+  top: -8px;
+  left: 0;
+}
+#main .main-content .custom-radio .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  border-width: 0;
+  border-style: solid;
+  border-radius: 50%;
+}
+#main .main-content .custom-radio .radio {
+  display: none;
+  margin: 0;
+}
+#main .main-content .custom-radio .radio:checked ~ .checkmark {
+  border-color: #17ca89;
+}
+#main .main-content .custom-radio .radio:checked ~ .checkmark:after {
+  background-color: #17ca89;
+}
+#main .main-content .white-table {
+  border-collapse: separate;
+}
+#main .main-content .white-table tr {
+  height: 56px;
+  background-color: #fff;
+}
+#main .main-content .white-table tr td,
+#main .main-content .white-table tr th {
+  text-align: center;
+  border: solid #e3e8f0;
+  border-width: 1px 0;
+}
+#main .main-content .white-table tr td:first-child,
+#main .main-content .white-table tr th:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-left-width: 1px;
+}
+#main .main-content .white-table tr td:last-child,
+#main .main-content .white-table tr th:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-right-width: 1px;
+}
+#main .main-content table {
+    width: 100%
+}

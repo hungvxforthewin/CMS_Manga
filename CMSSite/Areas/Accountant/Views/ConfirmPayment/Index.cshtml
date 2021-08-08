@@ -1,0 +1,1020 @@
+﻿<style>
+    .accept-contract {
+        padding: 0 !important;
+        height: auto;
+        background-color: transparent;
+        font-weight: inherit;
+        color: inherit;
+    }
+
+    /* .accept-contract :hover {
+            padding: 0 !important;
+            height: auto;
+            background-color: red !important;
+            font-weight: inherit;
+        }*/
+    .dropzone, .dropzone * {
+        box-sizing: border-box;
+    }
+
+    .dropzone {
+        min-height: 150px;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        background: white;
+        padding: 20px 20px;
+    }
+
+        .dropzone.dz-clickable {
+            cursor: pointer;
+        }
+
+            .dropzone.dz-clickable * {
+                cursor: default;
+            }
+
+            .dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+                cursor: pointer;
+            }
+
+        .dropzone.dz-started .dz-message {
+            display: none;
+        }
+
+        .dropzone.dz-drag-hover {
+            border-style: solid;
+        }
+
+            .dropzone.dz-drag-hover .dz-message {
+                opacity: 0.5;
+            }
+
+        .dropzone .dz-message {
+            text-align: center;
+            margin: 2em 0;
+        }
+
+        .dropzone .dz-preview {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            margin: 16px;
+            min-height: 100px;
+        }
+
+            .dropzone .dz-preview:hover {
+                z-index: 1000;
+            }
+
+                .dropzone .dz-preview:hover .dz-details {
+                    opacity: 1;
+                }
+
+            .dropzone .dz-preview.dz-file-preview .dz-image {
+                border-radius: 20px;
+                background: #999;
+                background: linear-gradient(to bottom, #eee, #ddd);
+            }
+
+            .dropzone .dz-preview.dz-file-preview .dz-details {
+                opacity: 1;
+            }
+
+            .dropzone .dz-preview.dz-image-preview {
+                background: white;
+            }
+
+                .dropzone .dz-preview.dz-image-preview .dz-details {
+                    -webkit-transition: opacity 0.2s linear;
+                    -moz-transition: opacity 0.2s linear;
+                    -ms-transition: opacity 0.2s linear;
+                    -o-transition: opacity 0.2s linear;
+                    transition: opacity 0.2s linear;
+                }
+
+            .dropzone .dz-preview .dz-remove {
+                font-size: 14px;
+                text-align: center;
+                display: block;
+                cursor: pointer;
+                border: none;
+            }
+
+                .dropzone .dz-preview .dz-remove:hover {
+                    text-decoration: underline;
+                }
+
+            .dropzone .dz-preview:hover .dz-details {
+                opacity: 1;
+            }
+
+            .dropzone .dz-preview .dz-details {
+                z-index: 20;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                font-size: 13px;
+                min-width: 100%;
+                max-width: 100%;
+                padding: 2em 1em;
+                text-align: center;
+                color: rgba(0, 0, 0, 0.9);
+                line-height: 150%;
+            }
+
+                .dropzone .dz-preview .dz-details .dz-size {
+                    margin-bottom: 1em;
+                    font-size: 16px;
+                }
+
+                .dropzone .dz-preview .dz-details .dz-filename {
+                    white-space: nowrap;
+                }
+
+                    .dropzone .dz-preview .dz-details .dz-filename:hover span {
+                        border: 1px solid rgba(200, 200, 200, 0.8);
+                        background-color: rgba(255, 255, 255, 0.8);
+                    }
+
+                    .dropzone .dz-preview .dz-details .dz-filename:not(:hover) {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                        .dropzone .dz-preview .dz-details .dz-filename:not(:hover) span {
+                            border: 1px solid transparent;
+                        }
+
+                    .dropzone .dz-preview .dz-details .dz-filename span, .dropzone .dz-preview .dz-details .dz-size span {
+                        background-color: rgba(255, 255, 255, 0.4);
+                        padding: 0 0.4em;
+                        border-radius: 3px;
+                    }
+
+            .dropzone .dz-preview:hover .dz-image img {
+                -webkit-transform: scale(1.05, 1.05);
+                -moz-transform: scale(1.05, 1.05);
+                -ms-transform: scale(1.05, 1.05);
+                -o-transform: scale(1.05, 1.05);
+                transform: scale(1.05, 1.05);
+                -webkit-filter: blur(8px);
+                filter: blur(8px);
+            }
+
+            .dropzone .dz-preview .dz-image {
+                border-radius: 20px;
+                overflow: hidden;
+                width: 120px;
+                height: 120px;
+                position: relative;
+                display: block;
+                z-index: 10;
+            }
+
+                .dropzone .dz-preview .dz-image img {
+                    display: block;
+                }
+
+            .dropzone .dz-preview.dz-success .dz-success-mark {
+                -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+                -moz-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+                -ms-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+                -o-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+                animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+            .dropzone .dz-preview.dz-error .dz-error-mark {
+                opacity: 1;
+                -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+                -moz-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+                -ms-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+                -o-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+                animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+            .dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark {
+                pointer-events: none;
+                opacity: 0;
+                z-index: 500;
+                position: absolute;
+                display: block;
+                top: 50%;
+                left: 50%;
+                margin-left: -27px;
+                margin-top: -27px;
+            }
+
+                .dropzone .dz-preview .dz-success-mark svg, .dropzone .dz-preview .dz-error-mark svg {
+                    display: block;
+                    width: 54px;
+                    height: 54px;
+                }
+
+            .dropzone .dz-preview.dz-processing .dz-progress {
+                opacity: 1;
+                -webkit-transition: all 0.2s linear;
+                -moz-transition: all 0.2s linear;
+                -ms-transition: all 0.2s linear;
+                -o-transition: all 0.2s linear;
+                transition: all 0.2s linear;
+            }
+
+            .dropzone .dz-preview.dz-complete .dz-progress {
+                opacity: 0;
+                -webkit-transition: opacity 0.4s ease-in;
+                -moz-transition: opacity 0.4s ease-in;
+                -ms-transition: opacity 0.4s ease-in;
+                -o-transition: opacity 0.4s ease-in;
+                transition: opacity 0.4s ease-in;
+            }
+
+            .dropzone .dz-preview:not(.dz-processing) .dz-progress {
+                -webkit-animation: pulse 6s ease infinite;
+                -moz-animation: pulse 6s ease infinite;
+                -ms-animation: pulse 6s ease infinite;
+                -o-animation: pulse 6s ease infinite;
+                animation: pulse 6s ease infinite;
+            }
+
+            .dropzone .dz-preview .dz-progress {
+                opacity: 1;
+                z-index: 1000;
+                pointer-events: none;
+                position: absolute;
+                height: 16px;
+                left: 50%;
+                top: 50%;
+                margin-top: -8px;
+                width: 80px;
+                margin-left: -40px;
+                background: rgba(255, 255, 255, 0.9);
+                -webkit-transform: scale(1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+                .dropzone .dz-preview .dz-progress .dz-upload {
+                    background: #333;
+                    background: linear-gradient(to bottom, #666, #444);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    -webkit-transition: width 300ms ease-in-out;
+                    -moz-transition: width 300ms ease-in-out;
+                    -ms-transition: width 300ms ease-in-out;
+                    -o-transition: width 300ms ease-in-out;
+                    transition: width 300ms ease-in-out;
+                }
+
+            .dropzone .dz-preview.dz-error .dz-error-message {
+                display: block;
+            }
+
+            .dropzone .dz-preview.dz-error:hover .dz-error-message {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .dropzone .dz-preview .dz-error-message {
+                pointer-events: none;
+                z-index: 1000;
+                position: absolute;
+                display: block;
+                display: none;
+                opacity: 0;
+                -webkit-transition: opacity 0.3s ease;
+                -moz-transition: opacity 0.3s ease;
+                -ms-transition: opacity 0.3s ease;
+                -o-transition: opacity 0.3s ease;
+                transition: opacity 0.3s ease;
+                border-radius: 8px;
+                font-size: 13px;
+                top: 130px;
+                left: -10px;
+                width: 140px;
+                background: #be2626;
+                background: linear-gradient(to bottom, #be2626, #a92222);
+                padding: 0.5em 1.2em;
+                color: white;
+            }
+
+                .dropzone .dz-preview .dz-error-message:after {
+                    content: '';
+                    position: absolute;
+                    top: -6px;
+                    left: 64px;
+                    width: 0;
+                    height: 0;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    border-bottom: 6px solid #be2626;
+                }
+</style>
+<div class="accountant_contact-manage">
+    <section class="section_accountant_contact-manage">
+        <div class="bs-row">
+            <div class="bs-col">
+                <div class="module module_accountant">
+
+                    <div class="module-header">
+                        <p class="title">
+                            <img src="/Assets/crm/images/accountant_contact-manage/arrow_back_24px_rounded.svg" />
+                            DANH SÁCH DUYỆT THANH TOÁN HỢP ĐỒNG
+                        </p>
+                    </div>
+
+                    <div class="module-content">
+                        <form id="search-form">
+                            <div class="search" id="search-contract">
+
+                                <div class="select_search">
+                                    <div class="bs-row row-lg-10 row-md-5 row-sm-15 row-xs-5 row-tn-5">
+                                        <div class="bs-col lg-25-10 md-25-5 sm-50-15 xs-50-5 tn-100-5">
+                                            <div class="select_lit">
+                                                <label>Telesale</label>
+                                                <select class="select2 select-telesale" name="TeleSale">
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="bs-col lg-25-10 md-25-5 sm-50-15 xs-50-5 tn-100-5">
+                                            <div class="select_lit">
+                                                <label>Sale</label>
+                                                <select class="select2 select-sale" name="Sale">
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="bs-col lg-25-10 md-25-5 sm-50-15 xs-50-5 tn-100-5">
+                                            <div class="select_lit">
+
+                                                <label>Từ khóa</label>
+                                                <input placeholder="Mã hợp đồng, SĐT(Tên, CMT) khách hàng" name="Key">
+
+                                            </div>
+                                        </div>
+                                        <div class="bs-col lg-25-10 md-25-5 sm-50-15 xs-50-5 tn-100-5">
+                                            <div class="select_lit">
+                                                <label for="">Trạng thái</label>
+                                                <select class="select2" name="Status">
+                                                    <option value="">--Trạng thái--</option>
+                                                    <option value="WaitPayDone">Chờ duyệt</option>
+                                                    <option value="PayDone">Đã duyệt</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="bs-col lg-25-10 md-25-5 sm-50-15 xs-50-5 tn-100-5">
+                                            <div class="select_lit">
+                                                <label for="">Amber</label>
+                                                <select class="select2" name="Amber">
+                                                    <option value="">--Qũy--</option>
+                                                    <option value="Amber">Amber</option>
+                                                    <option value="">Tất cả</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="bs-col lg-25-10 md-25-5 sm-50-15 xs-50-5 tn-100-5">
+                                            <div class="select_lit">
+                                                <label for="">&ensp;</label>
+                                                    <button type="button" class="btn-green" id="btn-search-contract-imp">Tìm kiếm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+
+                            </div>
+                        </form>
+                        <div class="list_button">
+                            @*<button class="button_lit button1">
+                                    <img src="/Assets/crm/images/accountant_contact-manage/edit_24px.svg" alt="" />
+                                    <p>Chỉnh sửa</p>
+                                </button>*@
+                            @*<button class="button_lit button2" id="btn-access">
+                                    <img src="/Assets/crm/images/accountant_contact-manage/done_all_24px_rounded.svg" alt="" />
+                                    <p>Duyệt</p>
+                                </button>
+                                <button class="button_lit button3" id="myBtn">
+                                    <img src="/Assets/crm/images/accountant_contact-manage/cancel_24px_rounded.svg" alt="" />
+                                    <p>Không duyệt</p>
+                                </button>
+                                <button class="button_lit button4">
+                                    <img src="/Assets/crm/images/accountant_contact-manage/reply_24px.svg" alt="" />
+                                    <p>Xuất file Excel</p>
+                                </button>*@
+
+                            <!--The modal 1-->
+                            <div id="myModal1" class="modal">
+                                <div class="modal-content1">
+                                    <div class="title">
+                                        <span class="close1" id="close-confirm">
+                                            <img src="/Assets/crm/images/accountant_contact-manage/close_24px.svg" />
+                                        </span>
+                                        <p>Thông tin hợp đồng</p>
+                                    </div>
+                                    <div>
+                                        <div class="bs-row row-lg-10 row-md-10 row-sm-15 row-xs10 row-tn-10">
+                                            <div class="bs-col lg-50-10 md-150-10 sm-50-15 xs-100-10 tn-100-5">
+                                                <div class="right">
+                                                    <label for="fname">Giá trị hợp đồng:</label><br>
+                                                    <input type="text" disabled id="" name="fname" class="f-amountContract"><br><br>
+                                                </div>
+
+                                                <div class="right">
+                                                    <label for="fname">Đã thanh toán lần 1(Đặt cọc)</label><br>
+                                                    <input type="text" disabled id="" name="fname" class="f-depositAmount"><br><br>
+                                                </div>
+                                                <div id="list-bill-amount">
+
+                                                </div>
+
+                                                <div class="right">
+                                                    <label for="fname">Còn lại</label><br>
+                                                    <input type="text" disabled id="" name="fname" class="f-remainAmount"><br><br>
+                                                </div>
+                                            </div>
+                                            <div class="bs-col lg-50-10 md-50-10 sm-50-15 xs-100-10 tn-100-5">
+                                                <div class="right">
+                                                    <label for="fname">Tên khách hàng:</label><br>
+                                                    <input type="text" disabled id="" class="f-nameInvestor"><br><br>
+                                                </div>
+
+                                                <div class="right">
+                                                    <label for="fname">Số cổ phần:</label><br>
+                                                    <input type="text" disabled id="" class="f-stock"><br><br>
+                                                </div>
+
+                                                <div class="right">
+                                                    <label for="fname">SĐT</label><br>
+                                                    <input type="text" disabled id="" class="f-phone"><br><br>
+                                                </div>
+
+                                                <div class="right">
+                                                    <label for="fname">CMT</label><br>
+                                                    <input type="text" disabled id="" class="f-cmt"><br><br>
+                                                </div>
+
+                                            </div>
+                                            <div class="bs-col lg-50-10 md-150-10 sm-50-15 xs-100-10 tn-100-5">
+                                                <div class="item">
+                                                    <label for="fname">Tải file hợp đồng</label><br>
+                                                    <form action="/Accountant/ConfirmPayment/UploadFile/" method="post" class="dropzone" id="uploader">
+                                                        <input type="text" hidden id="id-contract" name="IdContractInvestor" />
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br />
+                                        <label for="fname">Tài khoản lưu ý</label><br>
+                                        <input type="text" id="" name="AccountBank2">
+                                        <label for="fname">Ngày vào HĐ(sửa ngày trong mã HĐ)</label><br>
+                                        <div class="date-select">
+                                            <input type="text" class="form_datetime" name="CreateDateContract" />
+                                            <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                        </div>
+                                        <br />
+                                        <label for="fname">Mã hợp đồng quản lý danh mục đầu tư(001/ddMM/yyyy)</label>
+                                        <br>
+                                        <input type="text" id="" name="CodeManagementCatalog">
+                                        <br><br>
+                                        <label for="fname">Mã hợp đồng thỏa thuận bổ sung</label>
+                                        <br>
+                                        <input type="text" id="" name="CodeSupplementAgreement">
+                                        <br><br>
+                                        <label for="fname">Mã hợp đồng chuyển nhượng</label>
+                                        <br>
+                                        <input type="text" id="" name="CodeTransferAgreement">
+                                        <br><br>
+                                        <label for="fname">Ngày duyệt</label><br>
+                                        <div class="date-select">
+                                            <input type="text" class="form_datetime" name="PayDoneDate" />
+                                            <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                        </div>
+
+                                        <br />
+                                        <label for="fname">Ghi chú</label><br>
+                                        <input type="text" id="fname" name="fname"><br><br>
+                                        <input type="text" hidden id="id-contract-confirm" />
+
+                                    </div>
+
+                                    <div class="two_button">
+                                        <button class="bt button_cancel1">Hủy bỏ</button>
+                                        <button class="bt button_update" type="button" id="btn-update-confirm">Cập nhật</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="myBtn1" hidden></button>
+                            <!--The modal 1-->
+                            <div id="UploadFilesModal" class="bs-modal">
+                                <div class="modal-frame">
+                                    <div class="content-modal">
+                                        @*<div class="title">
+                                                <span class="close1" id="close-confirm">
+                                                    <img src="/Assets/crm/images/accountant_contact-manage/close_24px.svg" />
+                                                </span>
+                                                <p>Thông tin Thu/Chi</p>
+                                            </div>*@
+                                        <div class="header-modal">
+                                            <h3 class="modal__title">Cập nhật hợp đồng</h3>
+                                            <span title="close" modal-show="close" class="close__modal">
+                                                <img src="/Assets/SA/images/list_data_image/close_24px.svg" />
+                                            </span>
+                                        </div>
+
+                                        <div class="body-modal">
+                                            <form id="files-form" enctype="multipart/form-data">
+                                                <div class="bs-row row-lg-10 row-md-10 row-sm-15 row-xs10 row-tn-10">
+                                                    <div class="bs-col lg-100-10 md-100-10 sm-100-15 xs-100-10 tn-100-5">
+                                                        <div class="right">
+                                                            <label for="fname">Chọn tệp tin</label><br>
+                                                            <input type="file" multiple name="files" accept="image/*"><br><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <div class="two_button">
+                                                @*<button class="bt button_cancel2">Hủy bỏ</button>*@
+                                                <button modal-show="close" class="close__btn red__btn cancel" type="button">Hủy bỏ</button>
+                                                <button class="bt button_update" type="button" id="btn-upload-files">Cập nhật</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- The Modal 2-->
+                            <div id="myModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="title">
+                                        <span class="close">
+                                            <img src="/Assets/crm/images/accountant_contact-manage/close_24px.svg" />
+                                        </span>
+                                        <p>KHÔNG DUYỆT</p>
+                                    </div>
+
+                                    <form>
+                                        <label>Lý do từ chối:</label>
+                                        <input placeholder="" />
+                                    </form>
+
+                                    <div class="two_button">
+                                        <button class="bt button_cancel">Hủy bỏ</button>
+                                        <button class="bt button_update">Cập nhật</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="wrap_table">
+                            <table class="table table-responsive">
+                                <thead>
+
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã hợp đồng</th>
+                                        <th>Tên khách hàng</th>
+                                        <th>Giá trị hợp đồng</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Căn cước CD</th>
+                                        <th>Sale</th>
+                                        <th>Tele sale </th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody id="table-body">
+                                    <tr>
+                                        <td>
+                                            <div class="custom-checkbox">
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <label for='regular'>1</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <button type="button" modal-show="show" modal-data="#detail-contract-show">HD-7238</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <label for='regular'>Phạm Văn Tuấn</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <label for='regular'>184022092</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <label for='regular'>0987878787</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <label for='regular'>142668825</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <label for='regular'>Nguyễn A</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext">
+                                                <label for='regular'>Nguyễn B</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radiotext status">
+
+                                                <button class="button_lit button2" type="button">
+                                                    <img src="~/Assets/SA/images/accountant_contact-manage/done_all_24px_rounded.svg" alt="" />
+                                                    <p>Duyệt</p>
+                                                </button>
+                                                <button class="button_lit button3" modal-show="show" modal-data="#modal-degree" type="button">
+                                                    <img src="~/Assets/SA/images/accountant_contact-manage/cancel_24px_rounded.svg" alt="" />
+                                                    <p>Không duyệt</p>
+                                                </button>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- paging -->
+                        <div class="select_pagination">
+                            <div class="select" id="size-page">
+                                <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                                <select>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                </select>
+                                <p>&nbsp;bản ghi trên trang.</p>
+                            </div>
+                            <div class="pagination" id="pagination">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="bs-modal" id="detail-customer-contract_modal" data-id="contract-detail">
+    <div class="modal-frame">
+        <div class="content-modal">
+
+        </div>
+    </div>
+</div>
+
+<!--The modal 1-->
+<div id="modal-agree" class="bs-modal">
+    <div class="modal-frame">
+        <div class="content-modal">
+            <div class="header-modal">
+                <h3 class="modal__title">Duyệt hợp đồng</h3>
+                <span title="close" modal-show="close" class="close__modal">
+                    <img src="~/Assets/SA/images/layout/close-modal.svg" />
+                </span>
+            </div>
+
+            <div class="body-modal">
+                <div class="accept-contract">
+                    <div class="bs-row row-lg-10 row-md-10 row-sm-15 row-xs10 row-tn-10">
+                        <div class="bs-col lg-50-10 md-50-10 sm-50-15 xs-100-10 tn-100-5">
+                            <div class="item left">
+                                <label for="fname">Mã phiếu <span style="color: red;">*</span></label>
+                                <input type="text">
+                            </div>
+
+                            <div class="item left">
+                                <label for="fname">Loại phiếu <span style="color: red;">*</span></label>
+                                <select class="select_modal1">
+                                    <option>Phiếu thu</option>
+                                    <option>Saab</option>
+                                </select>
+                            </div>
+
+                            <div class="item left date">
+                                <label for="fname">Ngày lập phiếu <span style="color: red;">*</span></label><br>
+                                <input type="text" class="search__input form_datetime" placeholder="Chọn thời gian">
+                            </div>
+
+                            <div class="item left">
+                                <label for="fname">Số tiền <span style="color: red;">*</span></label>
+                                <input type="text">
+                            </div>
+
+                            <div class="item left">
+                                <label for="fname">Hình thức <span style="color: red;">*</span></label>
+                                <select class="select_modal2">
+                                    <option>Chuyển khoản</option>
+                                    <option>Tiền mặt</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bs-col lg-50-10 md-50-10 sm-50-15 xs-100-10 tn-100-5">
+                            <div class="item right">
+                                <label for="fname">Giá trị hợp đồng:</label>
+                                <input type="text" disabled>
+                            </div>
+
+                            <div class="item right">
+                                <label for="fname">Đã thanh toán lần 1</label>
+                                <input type="text" disabled>
+                            </div>
+
+                            <div class="item right">
+                                <label for="fname">Đã thanh toán lần 2</label>
+                                <input type="text" disabled>
+                            </div>
+
+                            <div class="item right">
+                                <label for="fname">Đã thanh toán lần 3</label>
+                                <input type="text" disabled>
+                            </div>
+
+                            <div class="item right">
+                                <label for="fname">Còn lại</label><br>
+                                <input type="text" disabled>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="group-button contract-detail_buttons" data-id="1" style="text-align: right;">
+                    <button class="btn-gray">Hủy bỏ</button>
+                    <button class="btn-green next">Duyệt</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- preview -->
+<div class="bs-modal" id="select-contract-type_modal">
+    <div class="modal-frame">
+        <div class="content-modal">
+        </div>
+    </div>
+</div>
+
+<!--contract-details-->
+<div class="bs-modal" id="detail-contract-show" data-id="detail-contract-show">
+    <div class="modal-frame">
+        <div class="content-modal" style="max-width: 900px">
+            <div class="header-modal">
+                <h3 class="modal__title">Chi tiết hợp đồng</h3>
+                <span title="close" modal-show="close" class="close__modal">
+                    <img src="~/Assets/SA/images/layout/close-modal.svg" />
+                </span>
+            </div>
+
+            <div class="body-modal">
+                <div class="contact-content" style="overflow: auto; max-height: 500px; border: 1px solid #ccc; padding: 20px; margin-bottom: 30px">
+
+                </div>
+                <div class="group-button contract-detail_buttons" data-id="1" style="text-align: right;">
+                    <button modal-show="close" class="btn-gray">Hủy bỏ</button>
+                    <button class="btn-green next" onClick="print()">In hợp đồng</button>
+                    <button class="btn-green next" onClick="Export2Doc('print', 'hợp đồng')">Tải xuống</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Content/js/app.js"></script>
+    <script src="~/Content/js/extend/method.js"></script>
+    <script src="~/js/system.js"></script>
+    <script>
+        function print() {
+            var w = window.open();
+            w.document.write(document.getElementById("print").innerHTML);
+            w.document.close();
+            w.focus();
+            w.print();
+            w.onafterprint = () => w.close();
+        }
+        //function Export2Doc(element, filename = '') {
+        //    //var preHtml =
+        //    //    "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+        //    //var postHtml = '</body></html>';
+        //    //var html = preHtml + document.getElementById(element).innerHTML + postHtml;
+
+        //    //  _html_ will be replace with custom html
+        //    var meta = "Mime-Version: 1.0\nContent-Base: " + location.href + "\nContent-Type: Multipart/related; boundary=\"NEXT.ITEM-BOUNDARY\";type=\"text/html\"\n\n--NEXT.ITEM-BOUNDARY\nContent-Type: text/html; charset=\"utf-8\"\nContent-Location: " + location.href + "\n\n<!DOCTYPE html>\n<html>\n_html_</html>";
+        //    //  _styles_ will be replaced with custome css
+        //    var head = "<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n<style>\n_styles_\n</style>\n</head>\n";
+
+        //    var html = document.getElementById(element).innerHTML;
+
+        //    var blob = new Blob(['\ufeff', html], {
+        //        type: 'application/msword',
+        //    });
+
+        //    var css = (
+        //        '<style>' +
+        //        'img {width:300px;}table {border-collapse: collapse; border-spacing: 0;}td{padding: 6px;}' +
+        //        '</style>'
+        //    );
+        //    //  Image Area %%%%
+        //    var options = { maxWidth: 624 };
+        //    var images = Array();
+        //    var img = $("#" + element).find("img");
+        //    for (var i = 0; i < img.length; i++) {
+        //        // Calculate dimensions of output image
+        //        var w = Math.min(img[i].width, options.maxWidth);
+        //        var h = img[i].height * (w / img[i].width);
+        //        // Create canvas for converting image to data URL
+        //        var canvas = document.createElement("CANVAS");
+        //        canvas.width = w;
+        //        canvas.height = h;
+        //        // Draw image to canvas
+        //        var context = canvas.getContext('2d');
+        //        context.drawImage(img[i], 0, 0, w, h);
+        //        // Get data URL encoding of image
+        //        var uri = canvas.toDataURL("image/png");
+        //        $(img[i]).attr("src", img[i].src);
+        //        img[i].width = w;
+        //        img[i].height = h;
+        //        // Save encoded image to array
+        //        images[i] = {
+        //            type: uri.substring(uri.indexOf(":") + 1, uri.indexOf(";")),
+        //            encoding: uri.substring(uri.indexOf(";") + 1, uri.indexOf(",")),
+        //            location: $(img[i]).attr("src"),
+        //            data: uri.substring(uri.indexOf(",") + 1)
+        //        };
+        //    }
+
+        //    // Prepare bottom of mhtml file with image data
+        //    var imgMetaData = "\n";
+        //    for (var i = 0; i < images.length; i++) {
+        //        imgMetaData += "--NEXT.ITEM-BOUNDARY\n";
+        //        imgMetaData += "Content-Location: " + images[i].location + "\n";
+        //        imgMetaData += "Content-Type: " + images[i].type + "\n";
+        //        imgMetaData += "Content-Transfer-Encoding: " + images[i].encoding + "\n\n";
+        //        imgMetaData += images[i].data + "\n\n";
+
+        //    }
+        //    imgMetaData += "--NEXT.ITEM-BOUNDARY--";
+        //    // end Image Area %%
+
+        //    var output = meta.replace("_html_", head.replace("_styles_", css) + html) + imgMetaData;
+
+        //    // Specify link url
+        //    var url =
+        //        'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(output);
+        //    // Specify file name
+        //    filename = filename ? filename + '.doc' : 'document.doc';
+        //    // Create download link element
+        //    var downloadLink = document.createElement('a');
+        //    document.body.appendChild(downloadLink);
+        //    if (navigator.msSaveOrOpenBlob) {
+        //        navigator.msSaveOrOpenBlob(blob, filename);
+        //    } else {
+        //        // Create a link to the file
+        //        downloadLink.href = url;
+        //        // Setting the file name
+        //        downloadLink.download = filename;
+        //        //triggering the function
+        //        downloadLink.click();
+        //    }
+        //    document.body.removeChild(downloadLink);
+        //}
+        $(document).ready(function () {
+            //$('.select_customer').select2();
+            //$('.select_staff').select2();
+            //$('.select_sale').select2();
+            //$('.select_modal1').select2();
+            //$('.select_modal2').select2();
+
+            $('#id1, #id2, #id3, #id4').click(function () {
+                $('#id1, #id2, #id3, #id4').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            $(".form_datetime").datetimepicker({
+                container: ".date"
+            });
+
+        });
+        Dropzone.options.uploader = {
+            paramName: 'Files',
+            maxFilesize: 5,
+            addRemoveLinks: true,
+            dictResponseError: 'Server not Configured',
+            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+            init: function () {
+                var self = this;
+                // config
+                self.options.addRemoveLinks = true;
+                self.options.dictRemoveFile = "Xóa image";
+                //New file added
+                self.on("addedfile", function (file) {
+                    console.log('new file added ', file);
+                });
+                // Send file starts
+                self.on("sending", function (file) {
+                    console.log('upload started', file);
+                    $('.meter').show();
+                });
+
+                // File upload Progress
+                self.on("totaluploadprogress", function (progress) {
+                    console.log("progress ", progress);
+                    $('.roller').width(progress + '%');
+                });
+
+                self.on("queuecomplete", function (progress) {
+                    $('.meter').delay(999).slideUp(999);
+                });
+
+                // On removing file
+                self.on("removedfile", function (file) {
+                    console.log(file);
+                    let name = file.previewElement.querySelector('[data-dz-name]').innerHTML;
+                    let id = file.previewElement.querySelector('[data-dz-name]').getAttribute('data-idimage');
+                    console.log(name);
+                    $.ajax({
+                        method: 'POST',
+                        url: '/Accountant/ConfirmPayment/DeleteImage',
+                        data: {
+                            filePath: name,
+                            id: id
+                        },
+                        success: function (res) {
+
+                        }
+                    })
+                });
+            },
+            success: function (file, res) {
+                console.log(res);
+                var fileuploded = file.previewElement.querySelector("[data-dz-name]");
+                fileuploded.innerHTML = res.data;
+                fileuploded.setAttribute('data-idimage', res.idImage);
+            },
+        };
+        var modal1 = document.getElementById("myModal1");
+        var btn1 = document.getElementById("myBtn1");
+        var span1 = document.getElementsByClassName("close1")[0];
+        var span11 = document.getElementsByClassName("button_cancel1")[0];
+        btn1.onclick = function () {
+            modal1.style.display = "block";
+        }
+        span1.onclick = function () {
+            modal1.style.display = "none";
+        }
+        span11.onclick = function () {
+            modal1.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+        }
+        var modal = document.getElementById("myModal");
+        /* var btn = document.getElementById("myBtn");*/
+        var span = document.getElementsByClassName("close")[0];
+        var span1 = document.getElementsByClassName("button_cancel")[0];
+        //btn.onclick = function () {
+        //    modal.style.display = "block";
+        //}
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        span1.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script src="~/js/controllers/confirm-payment.js"></script>
+}

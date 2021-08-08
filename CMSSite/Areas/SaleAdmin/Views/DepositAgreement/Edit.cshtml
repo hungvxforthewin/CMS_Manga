@@ -1,0 +1,389 @@
+﻿@model CRMBussiness.ViewModel.DepositAgreementViewModel
+<div class="header-modal">
+    <h3 class="modal__title">Thêm mới</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/layout/close-modal.svg" />
+    </span>
+</div>
+
+<div class="body-modal">
+    <!-- steps -->
+    <div class="module-steps deposit-agreement_steps">
+        <!-- step 1 -->
+        <div class="deposit-agreement_edit_step-1 step active">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/first-step.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step1.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin đặt cọc</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 2 -->
+        <div class="deposit-agreement_edit_step-2 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step2.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step2-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin sản phẩm</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 3 -->
+        <div class="deposit-agreement_edit_step-3 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step3.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step3-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Chính sách ưu đãi</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 4 -->
+        <div class="deposit-agreement_edit_step-4 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step4.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step4-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Tiến độ thanh toán</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 5 -->
+        <div class="deposit-agreement_edit_step-5 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step5.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step5-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin chung</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ** -->
+    <!-- ** -->
+    <form id="edit-deposit-investor">
+        <!-- step detail 1 -->
+        <div class="module-info add-contract-info"
+             id="deposit-agreement_edit_step-1">
+            <div class="module-title">
+                <h4>Thông tin đặt cọc</h4>
+            </div>
+            <div class="module-content">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số điện thoại</label>
+                            <input type="text" value="@Model.Phone" name="phone" data-required="true" id="checkPhoneEdit" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Tên khách hàng</label>
+                            <input type="text" name="name" data-required="true" value="@Model.Name" />
+                            @Html.AntiForgeryToken()
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Email tài khoản</label>
+                            <input type="text" value="@Model.Email" name="email" />
+                            <input type="text" hidden name="idInvestor" value="@Model.IdInvestor" id="idInvestor" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số CMND</label>
+                            <input type="text" value="@Model.IdCard" name="idCard" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngày cấp</label>
+                            <input type="text" class="search__input form_datetime" value="@Model.DateOfIssuance" name="dateOfIssuance" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Nơi cấp</label>
+                            <input type="text" value="@Model.AddressIssuance" name="addressIssuance" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số tài khoản</label>
+                            <input type="text" value="@Model.AccountBank" name="accountBank" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngân hàng</label>
+                            <input type="text" value="@Model.Bank" name="bank" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col">
+                        <div class="content-item input-group">
+                            <label for="">Địa chỉ</label>
+                            <input type="text" value="@Model.Address" name="address" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- step detail 2 -->
+        <div class="module-info add-contract-info hide"
+             id="deposit-agreement_edit_step-2">
+            <div class="module-title">
+                <h4>Thông tin sản phẩm</h4>
+            </div>
+            <div class="module-content">
+                <div class="product_info">
+                    <p class="product_info-company">
+                        Hợp đồng chuyển nhượng cổ phần của Công ty Cổ phần Tập
+                        đoàn Sailfish.
+                    </p>
+                    <p class="product_info-tax">Mã số thuế: 0109635086</p>
+                    <p class="product_info-address">
+                        Địa chỉ: Số 492 đường Thuỵ Khuê, Phường Bưởi, Quận Hồ Tây,
+                        Thành phố Hà Nội
+                    </p>
+                </div>
+                <div class="bs-row">
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Mã hợp đồng</label>
+                            <div class="contract-number">
+                                <input type="text" name="contractCode" id="checkContractEdit" value="@Model.ContractCode" />
+                                <span class="icon">
+                                    <img src="/Assets/SA/images/deposit-agreement/reload.svg"
+                                         alt="" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Giá trị hợp đồng</label>
+                            <div class="input_currency">
+                                <input type="text" value="@String.Format("{0:#,0}", Model.InvestmentAmount != null ? float.Parse(Model.InvestmentAmount) : 0)" readonly name="currencyContract" />
+                                <input type="text" hidden name="idContractInvestor" />
+                                <span class="currency">VND</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- step detail 3 -->
+        <div class="module-info add-contract-info hide"
+             id="deposit-agreement_edit_step-3">
+            <div class="module-title">
+                <h4>Chính sách ưu đãi của khách hàng tại hợp đồng</h4>
+            </div>
+            <div class="module-content">
+                <div class="bs-row">
+                    <div class="bs-col">
+                        <div class="content-item input-group">
+                            <textarea name="description">@Model.Description</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- step detail 4 -->
+        <div class="module-info add-contract-info hide"
+             id="deposit-agreement_edit_step-4">
+            <div class="module-title">
+                <h4>Tiến độ đặt cọc</h4>
+            </div>
+            <div class="module-content">
+                @{
+                    int stt = 1;
+                }
+                @foreach (var item in Model.ListInforDepositBill)
+                {
+
+                    <div class="pay-item1">
+                        <div class="bs-row">
+                            <!-- item -->
+                            <div class="bs-col sm-50">
+                                <div class="content-item input-group">
+                                    <label for="">Đặt cọc lần @stt</label>
+                                    @{
+                                        stt = stt + 1;
+                                    }
+                                    <div class="">
+                                        <input type="text" value="@String.Format("{0:#,0}", item.BillMoney)" data-required="true" name="billMoney" class="isNumberF" />
+                                        <input type="text" hidden value="@item.IdBill" name="idBill" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="bs-col sm-50">
+                                <div class="content-item input-group">
+                                    <label for="">Ngày thanh toán</label>
+                                    <div class="">
+                                        <input type="text"
+                                               class="search__input form_datetime" value="@item.DateBill" name="dateBill" data-required="true" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="bs-col sm-50">
+                                <div class="content-item input-group">
+                                    <label for="">Ghi chú</label>
+                                    <input type="text" name="descriptionDeposit" value="@item.DescriptionBill" />
+                                </div>
+                            </div>
+                            <!-- item -->
+                            <div class="bs-col sm-50">
+                                <div class="content-item input-group">
+                                    <label for="" style="color:white">Tương ứng</label>
+                                    <div class="input_currency">
+                                        @*<input />
+                                        <span class="currency"> % giá trị hợp đồng </span>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="delete-icon"
+                             onclick="RemoveBill(this)"
+                             src="/Assets/SA/images/layout/delete.svg"
+                             alt="delete"
+                             width="25"
+                             height="25" />
+                    </div>
+
+                }
+                <!-- item -->
+                <img id="add-bill-edit-deposit" src="/Assets/SA/images/deposit-agreement/add-button.svg"
+                     width="25"
+                     height="25"
+                     alt="" />
+            </div>
+        </div>
+
+        <!-- step detail 5 -->
+        <div class="module-info add-contract-info hide"
+             id="deposit-agreement_edit_step-5">
+            <div class="module-title">
+                <h4>Thông tin chung</h4>
+            </div>
+            <div class="module-content">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số hợp đồng</label>
+                            <div class="contract-number">
+                                <input />
+                                <span class="icon">
+                                    <img src="/Assets/SA/images/deposit-agreement/reload.svg"
+                                         alt="" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngày</label>
+                            <div class="date-select">
+                                <input type="text"
+                                       class="search__input form_datetime" />
+                                <img src="/Assets/SA/images/layout/date.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col">
+                        <div class="content-item input-group">
+                            <label for="">Tại</label>
+                            <input />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <input type="text" hidden value="@Model.Id" name="Id" />
+    </form>
+    <div class="group-button deposit-agreement_edit_buttons" data-id="1">
+        <button class="btn-gray prev hide">Quay lại</button>
+        <button class="btn-gray">Hủy bỏ</button>
+        <button class="btn-green next-update">
+            Tiếp tục
+        </button>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@*@using CRMSite.ViewModels
+@model IEnumerable<SaleManagerViewModel>
+<div class="sale-admin-container">
+    <div id="sale-admin">
+        <div class="border-div header">
+            <label class="font-weight-bold">Sale Manager</label>
+        </div>
+        <div class="border-div">
+            <div class="row salary-table">
+                <div class="col-md-8 col-sm-12 revenue-table-content">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Hoa hồng nhóm SM</th>
+                                <th>Lương cứng<br /></th>
+                                <th>Doanh số cá nhân tối thiểu<br /></th>
+                                <th>Doanh số nhóm SM<br /></th>
+                            </tr>
+                        </thead>
+                        <tbody class="body-table">
+                            @if (Model != null)
+                            {
+                                var stt = 0;
+                                foreach (var item in Model)
+                                {
+                                    stt = stt + 1;
+                                    <tr class="managerSaleAdd">
+                                        <td><label>Level @stt</label></td>
+                                        <td>
+                                            <input hidden value="@item.Id" name="Id" />
+                                            <input hidden value="@item.RemunerationId" name="RemunerationId" />
+                                            <input hidden value="@item.CodeRemuneration" name="CodeRemuneration" />
+                                            <input hidden />
+                                            <div>
+                                                <input type="number" value="@item.Percent" name="" class="Remuneration_Admin_Manager" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="number" value="@item.Salary" name="" class="Salary_Admin_Manager" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" value="@item.AmountMinMaxInMonth" name="MinMaxOwn" class="isMinMax" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" value="@item.MinMaxRevenueSM" name="MinMaxGroup" class="isMinMax" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tools-box">
+                                                <button type="button" onclick="RemoveSalaryForSaleManager(this)" class="remove-level">-</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <div class="">
+                        <button type="button" onclick="AddSalaryForSaleManager(this)" class="add-level">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="note-text">
+            Hoa hồng của SM = Hoa hồng cá nhân + Hoa hồng các nhóm + Hoa hồng cá nhân = Doanh số cá nhân * mức hoa hồng cá nhân đã set up (tính như doanh số 1 sale)
+            Hoa hồng các nhóm = Doanh số nhóm 1 * mức hoa hồng  + Doanh số nhóm 2 * mức hoa hồng +.....(tính như một leader sale nhưng không tính hoa hồng cá nhân cho nhóm làm leader)
+            Doanh số nhóm SM là doanh số của tất cả nhóm mà SM quản lý
+        </label>
+    </div>
+</div>
+
+
+<div style="text-align: center; margin-top: 10px;">
+    <button class="btn btn-danger">Hủy bỏ</button>
+    <button class="btn btn-primary" id="btnSaleManagerUpdate">Cập nhật</button>
+</div>*@

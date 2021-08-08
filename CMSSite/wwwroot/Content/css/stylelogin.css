@@ -1,0 +1,123 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    background-color: #73879C;
+    background-image: url('../img/20200501.jpg');
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+    /*body::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(93,84,240,.5);
+        background: -webkit-linear-gradient(left,rgba(0,168,255,0.5),rgba(185,0,255,0.5));
+        background: -o-linear-gradient(left,rgba(0,168,255,0.5),rgba(185,0,255,0.5));
+        background: -moz-linear-gradient(left,rgba(0,168,255,0.5),rgba(185,0,255,0.5));
+        background: linear-gradient(left,rgba(0,168,255,0.5),rgba(185,0,255,0.5));
+        pointer-events: none;
+    }*/
+.login {
+    position: fixed;
+    left: 49%;
+    margin-left: -180px;
+    border-radius: 25px;
+    top: 20%;
+    background-color: #fff;
+    padding: 8px;
+    padding-bottom: 22px;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.img-logo {
+    position: fixed;
+    left: 15%;
+    margin-left: -180px;
+    top: 3%;
+    padding-bottom: 22px;
+}
+img.logo-d7 {
+    height: 98px;
+}
+
+.frmLogin {
+    width: 350px;
+}
+
+    .frmLogin .title {
+        text-align: center;
+        padding: 19px 0;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .frmLogin .hr {
+        border-bottom: 1px solid #dadada;
+        text-align: center;
+        line-height: 0px;
+        margin: 15px 0 20px 0;
+        font-weight: 600;
+    }
+
+        .frmLogin .hr span {
+            background-color: #fff;
+            padding: 5px;
+        }
+
+.body fieldset {
+    position: relative;
+}
+
+    .body fieldset i {
+        position: absolute;
+        width: 40px;
+        left: 0;
+        line-height: 44px;
+        text-align: center;
+    }
+
+    .body fieldset input {
+        height: 44px;
+        padding: 14px 14px 14px 40px;
+        font-size: 16px;
+        border-radius: 25px;
+    }
+
+.body .btn {
+    width: 100%;
+    height: 45px;
+    background-color: #FF6275;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 25px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: #1c3148;
+    color: #fff;
+}
+
+    footer a {
+        color: #008c8f;
+    }

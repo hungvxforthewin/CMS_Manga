@@ -1,0 +1,28 @@
+﻿@using CRMBussiness.ViewModel
+@model RatingSaleViewModel
+<div class="header-modal">
+    <h3 class="modal__title"></h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+             alt="" />
+    </span>
+</div>
+<div class="body-modal add-employee_body-modal">
+    <img src="/Assets/crm/images/employee-manage/delete-modal.png"
+         alt="" />
+    <p id="txt-del-emp">
+        Bạn có chắc chắn muốn xóa nhân sự <span>xxxxxxxxxxx</span> không?
+    </p>
+</div>
+<div class="footer-modal">
+    <button data-id="@Model.Id" id="delete-empl-sale"
+            class="close__btn btn-green"
+            type="button">
+        Đồng ý
+    </button>
+    <button modal-show="close"
+            class="close__btn btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+</div>

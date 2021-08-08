@@ -1,0 +1,152 @@
+﻿@section Styles{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Assets/SA/css/upgrade.min.css" rel="stylesheet" />
+    <style>
+        .wrapper {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin: 0 auto;
+        }
+
+        .signature-pad {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400px;
+            height: 200px;
+            background-color: white;
+            border: 1px dotted blue;
+        }
+
+        #customer-sign_modal .sign-tools {
+            margin-top: 10px;
+        }
+
+            #customer-sign_modal .sign-tools button {
+                width: 130px;
+                background-color: white;
+                border: 1px solid blue;
+                color: blue;
+                font-size: 18px;
+            }
+
+            #customer-sign_modal .sign-tools button:hover {
+                background-color: Highlight;
+                color: white;
+            }
+    </style>
+}
+
+<section class="section_list-contract">
+    <div class="module-wrapper">
+        <div class="module-title">
+            <img src="/Assets/SA/images/layout/left-arrow.svg" alt="" />
+            <h2>Danh sách hợp đồng</h2>
+        </div>
+        <div class="module-content">
+            <!-- search -->
+            <div class="search">
+                <form id="search-form" style="width: 100%">
+                    <div class="bs-row">
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-item input-group">
+                                <label>Từ khóa</label>
+                                <input name="Key" placeholder="Mã hợp đồng, tên khách hàng, ..." />
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-33 xs-50">
+                            <div class="search-button search-item input-group">
+                                <button class="btn-green" type="button" id="btn-search-contract">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- handle -->
+            <div class="handle">
+                <!-- button -->
+                <button class="add handle-button"
+                        type="button"
+                        id="sign-contract"
+                        @*modal-show="show"
+                        modal-data="#customer-sign_modal"*@>
+                    @*<img src="/Assets/SA/images/layout/add.svg" alt="" />*@
+                    <i class="fa fa-pencil" style="padding-right: 10px;"></i>
+                    Ký hợp đồng
+                </button>
+            </div>
+            <!-- table -->
+            <div class="data-table tr-bordered tr_left-border">
+                <table>
+                    <tr>
+                        <th>Mã hợp đồng</th>
+                        <th>Tên khách hàng</th>
+                        <th>Giá trị hợp đồng</th>
+                        <th>Số điện thoại</th>
+                        <th>Số cổ phiếu</th>
+                        <th>Telesale</th>
+                        <th>Trạng thái hợp đồng</th>
+                    </tr>
+
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- paging -->
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from">1</span> đến <span class="to">6</span> trong tổng số <span class="total">6</span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+
+            <!-- modals -->
+            <!-- view detail -->
+            <div class="bs-modal" id="customer-sign_modal">
+                <div class="modal-frame">
+                    <div class="content-modal">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- view detail -->
+            <div class="bs-modal" id="customer-confirm_modal">
+                <div class="modal-frame">
+                    <div class="content-modal">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- preview -->
+            <div class="bs-modal" id="select-contract-type_modal">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="~/js/controllers/sign-contract.js"></script>
+}

@@ -1,0 +1,115 @@
+﻿<section class="section_admin_showup-concern-level-manage">
+    <div class="module-title">
+        <img src="/Assets/crm/images/layout/left-arrow.svg" alt="" />
+        <h2>Quản lý mức độ quan tâm show up</h2>
+    </div>
+
+    <div class="module-content">
+        <div class="search">
+            <div class="search-item input-group">
+                <label>Từ khóa</label>
+                <input placeholder="Tên showup, mã showup" id="search-key" />
+            </div>
+            <button class="btn-green mb-16" id="search-concern">Tìm kiếm</button>
+        </div>
+
+        <div class="handle">
+            <button class="add handle-button"
+                    id="Add-Concern"
+                    type="button"
+                    modal-show="show"
+                    modal-data="#admin_showup-concern-level-manage_add-modal">
+                <img src="/Assets/crm/images/employee-manage/add.svg" alt="" /> Thêm mới
+            </button>
+            <button class="edit handle-button"
+                    type="button"
+                    id="Edit-Concern">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/edit.svg" alt="" />
+                </div>
+                Chỉnh sửa
+            </button>
+            <button class="delete handle-button"
+                    type="button"
+                    id="Delete-Concern">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="" />
+                </div>
+                Xóa
+            </button>
+            @*<button class="delete-all handle-button"
+                    type="button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="" />
+                </div>
+                Xóa tất cả
+            </button>
+            <button class="export handle-button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/export.svg" alt="" />
+                </div>
+                Xuất file Excel
+            </button>*@
+        </div>
+
+        <div class="data-table tr-bordered">
+            <table>
+                <tbody id="table-body">
+                    <tr>
+                        <th>
+                            <div class="custom-checkbox">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </div>
+                        </th>
+                        <th>ID</th>
+                        <th>Mức độ quan tâm show up</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+        </div>
+
+        <!-- modals -->
+        <div class="bs-modal" id="admin_showup-concern-level-manage_add-modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <partial name="_Create.cshtml" />
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-modal" id="admin_showup-concern-level-manage_edit-modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-modal delete-modal" id="admin_showup-concern-level-manage_delete-modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/js/controllers/level-concern.js"></script>
+}

@@ -1,0 +1,640 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@using CRMBussiness.ViewModel
+@section Styles{
+<link rel="stylesheet" href="~/Content/css/style.css" />
+
+<style>
+    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table {
+        padding: 12px;
+        margin-bottom: 72px;
+        background: #f1f5fa;
+        max-width: 100%;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content
+    }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table {
+            border-spacing: 0 8px;
+            border-collapse: separate;
+            min-width: 600px;
+            width: 100%
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table tr td, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table tr th {
+                color: #828282;
+                font-weight: 400
+            }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table tr th {
+                font-size: 12px;
+                text-align: center;
+                border-bottom: 4px solid transparent
+            }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table tr td {
+                font-size: 14px;
+                padding: 8px 16px;
+                background: #fff
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table tr td input {
+                    height: 28px;
+                    border: 1px solid #e3e8f0
+                }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table tr td:last-child {
+                    background: 0 0;
+                    padding-left: 10px;
+                    padding-right: 0
+                }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table .row_add td {
+                padding: 0 !important
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table .row_add td .add-item {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    background: #f8f8f9;
+                    border: 1px dashed #93a9c7;
+                    padding: 2px
+                }
+
+    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 {
+        padding-top: 56px
+    }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table .row_add td .add-item img {
+            margin: auto;
+            cursor: pointer
+        }
+
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 56px;
+            max-width: 800px
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table {
+                min-width: 700px
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table table tr td input {
+                    max-width: 150px
+                }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi {
+            margin: 0 -16px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right {
+                max-width: calc(50% - 32px);
+                margin: 0 16px
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left .title h4, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right .title h4 {
+                    margin: 0 0 24px;
+                    color: #4f4f4f;
+                    line-height: 21px
+                }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left .title .handle, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right .title .handle {
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    margin-bottom: 20px
+                }
+
+                    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left .title .handle span, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right .title .handle span {
+                        color: #4f4f4f;
+                        line-height: 16px;
+                        font-size: 12px
+                    }
+
+                    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left .title .handle input, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right .title .handle input {
+                        width: 64px;
+                        height: 28px;
+                        margin: 0 16px
+                    }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left .table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right .table {
+                    margin-bottom: calc(72px - 40px);
+                    min-width: 100%;
+                    width: auto;
+                    overflow-x: auto
+                }
+
+                    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left .table table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right .table table {
+                        min-width: 0
+                    }
+
+    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 {
+        padding-top: 0
+    }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .leader-sale, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale {
+            padding-top: 56px
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale {
+            border-bottom: 1px solid #e3e8f0;
+            padding-bottom: calc(56px - 32px)
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .group-buttons {
+            padding-top: 72px
+        }
+
+    @@media (max-width:1199px) {
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .table {
+            max-width: 100%
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .handle {
+            margin-left: 0
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .leader-sale .leader-sale-table .table-wrapper .table_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .leader-sale .leader-sale-table .table-wrapper .table_right, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale .sale-table .table-wrapper .table_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale .sale-table .table-wrapper .table_right {
+            width: 100%;
+            margin: 20px 0
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale .sale-table .table-wrapper {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale .sale-table .table-wrapper .table_left .bottom table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale .sale-table .table-wrapper .table_left .bottom table tr td input, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale .sale-table .table-wrapper .table_right .bottom table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale .sale-table .table-wrapper .table_right .bottom table tr td input {
+                width: 100%
+            }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .leader-sale .leader-sale-table .table-wrapper {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column
+        }
+    }
+
+    @@media (max-width:1023px) {
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .title .handle {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center
+            }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right {
+                max-width: 100%;
+                margin: 20px 0 0
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_left .table table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi .kpi_right .table table {
+                    min-width: 500px
+                }
+    }
+
+    @@media (max-width:991px) {
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .kpi {
+            margin-left: 0;
+            margin-right: 0
+        }
+    }
+
+    @@media (max-width:767px) {
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .leader-sale, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab7 .sale {
+            padding: 20px 0
+        }
+    }
+
+    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table {
+        padding: 12px;
+        margin-bottom: 72px;
+        background: #f1f5fa;
+        max-width: 100%;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content
+    }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table {
+            border-spacing: 0 8px;
+            border-collapse: separate;
+            min-width: 600px;
+            width: 100%
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table tr td, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table tr th {
+                color: #828282;
+                font-weight: 400
+            }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table tr th {
+                font-size: 12px;
+                text-align: center;
+                border-bottom: 4px solid transparent
+            }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table tr td {
+                font-size: 14px;
+                padding: 8px 16px;
+                background: #fff
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table tr td input {
+                    height: 28px;
+                    border: 1px solid #e3e8f0
+                }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table tr td:last-child {
+                    background: 0 0;
+                    padding-left: 10px;
+                    padding-right: 0
+                }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table .row_add td {
+                padding: 0 !important
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table .row_add td .add-item {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    background: #f8f8f9;
+                    border: 1px dashed #93a9c7;
+                    padding: 2px
+                }
+
+    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 {
+        padding-top: 56px
+    }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table .row_add td .add-item img {
+            margin: auto;
+            cursor: pointer
+        }
+
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 56px;
+            max-width: 800px
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table {
+                min-width: 700px
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table table tr td input {
+                    max-width: 150px
+                }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi {
+            margin: 0 -16px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right {
+                max-width: calc(50% - 32px);
+                margin: 0 16px
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left .title h4, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right .title h4 {
+                    margin: 0 0 24px;
+                    color: #4f4f4f;
+                    line-height: 21px
+                }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left .title .handle, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right .title .handle {
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    margin-bottom: 20px
+                }
+
+                    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left .title .handle span, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right .title .handle span {
+                        color: #4f4f4f;
+                        line-height: 16px;
+                        font-size: 12px
+                    }
+
+                    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left .title .handle input, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right .title .handle input {
+                        width: 64px;
+                        height: 28px;
+                        margin: 0 16px
+                    }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left .table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right .table {
+                    margin-bottom: calc(72px - 40px);
+                    min-width: 100%;
+                    width: auto;
+                    overflow-x: auto
+                }
+
+                    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left .table table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right .table table {
+                        min-width: 0
+                    }
+
+    .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 {
+        padding-top: 0
+    }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .leader-sale, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale {
+            padding-top: 56px
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale {
+            border-bottom: 1px solid #e3e8f0;
+            padding-bottom: calc(56px - 32px)
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .group-buttons {
+            padding-top: 72px
+        }
+
+    @@media (max-width:1199px) {
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .table {
+            max-width: 100%
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .handle {
+            margin-left: 0
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .leader-sale .leader-sale-table .table-wrapper .table_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .leader-sale .leader-sale-table .table-wrapper .table_right, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale .sale-table .table-wrapper .table_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale .sale-table .table-wrapper .table_right {
+            width: 100%;
+            margin: 20px 0
+        }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale .sale-table .table-wrapper {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale .sale-table .table-wrapper .table_left .bottom table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale .sale-table .table-wrapper .table_left .bottom table tr td input, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale .sale-table .table-wrapper .table_right .bottom table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale .sale-table .table-wrapper .table_right .bottom table tr td input {
+                width: 100%
+            }
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .leader-sale .leader-sale-table .table-wrapper {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column
+        }
+    }
+
+    @@media (max-width:1023px) {
+
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column
+        }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .title .handle {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center
+            }
+
+            .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right {
+                max-width: 100%;
+                margin: 20px 0 0
+            }
+
+                .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_left .table table, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi .kpi_right .table table {
+                    min-width: 500px
+                }
+    }
+
+    @@media (max-width:991px) {
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .kpi {
+            margin-left: 0;
+            margin-right: 0
+        }
+    }
+
+    @@media (max-width:767px) {
+        .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .leader-sale, .section_admin_mechanism .section-tab .bs-tab .tab-container .tab-content #tab6 .sale {
+            padding: 20px 0
+        }
+    }
+</style>
+}
+<div class="section_admin_mechanism">
+    <div class="module-title">
+        <img src="/Assets/crm/images/layout/left-arrow.svg" alt="" />
+        <h2>Cơ chế</h2>
+    </div>
+    <div class="section-tab">
+        <div class="bs-tab">
+            <div class="tab-container">
+                <div class="tab-control">
+                    <span class="control__show">Telesale/Leader tele</span>
+                    <ul class="control-list">
+                        <li class="control-list__item active" tab-show="#tab1">
+                            Telesale/Leader tele
+                        </li>
+                        <li class="control-list__item" tab-show="#tab6">
+                            Collabrator
+                        </li>
+                        <li class="control-list__item" tab-show="#tab3">
+                            Capital Consultant/Capital Leader
+                        </li>
+                        <li class="control-list__item" tab-show="#tab4">
+                            Capital Manager
+                        </li>
+                        <li class="control-list__item" tab-show="#tab7">
+                            Capital Director
+                        </li>
+                        <li class="control-list__item" tab-show="#tab2">
+                            Admin
+                        </li>
+                        <!--<li class="control-list__item" tab-show="#tab5">
+                            Hủy hợp đồng
+                        </li>-->
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <!-- tab 1 -->
+                    <div class="tab-item active" id="tab1">
+                        @await Html.PartialAsync("_TeleSale_View", new MechanismForTele())
+                    </div>
+
+                    <!-- tab 2 -->
+                    <div class="tab-item" id="tab2">
+                        @await Component.InvokeAsync("SaleAdmin")
+                    </div>
+
+                    <!-- tab-3 -->
+                    <div class="tab-item" id="tab3">
+                        @await Html.PartialAsync("_Sale_View", new MechanismForSale())
+                    </div>
+
+                    <!-- tab-4 -->
+                    <div class="tab-item" id="tab4">
+                        @await Component.InvokeAsync("SaleManager")
+                    </div>
+
+                    <!-- tab-6 -->
+                    <div class="tab-item" id="tab6">
+                        @await Html.PartialAsync("_CTV_View", new MechanismForSale())
+                    </div>
+
+                    <!-- tab-7 -->
+                    <div class="tab-item" id="tab7">
+                        @await Html.PartialAsync("_Minister_View", new MechanismForMinister())
+                    </div>
+
+                    <!-- tab-5 -->
+                    <!--<div class="tab-item" id="tab5">
+                        <h4 class="tab-title">Hủy hợp đồng</h4>
+                        <div class="table" style="overflow-x: auto">
+                            <table>
+
+                                <tr>
+                                    <td>Hủy hợp đồng đã ký từ</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Đến</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Tháng hủy</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>% hoa hồng của hợp đồng</td>
+                                    <td>
+                                        <img src="/Assets/crm/images/mechanism/delete.svg" alt="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Hủy hợp đồng đã ký từ</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Đến</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Tháng hủy</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>% hoa hồng của hợp đồng</td>
+                                    <td>
+                                        <img src="/Assets/crm/images/mechanism/delete.svg" alt="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Hủy hợp đồng đã ký từ</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Đến</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Tháng hủy</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>% hoa hồng của hợp đồng</td>
+                                    <td>
+                                        <img src="/Assets/crm/images/mechanism/delete.svg" alt="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Hủy hợp đồng đã ký từ</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Đến</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>Tháng hủy</td>
+                                    <td>
+                                        <input />
+                                    </td>
+                                    <td>% hoa hồng của hợp đồng</td>
+                                    <td>
+                                        <img src="/Assets/crm/images/mechanism/delete.svg" alt="" />
+                                    </td>
+                                </tr>
+
+                                <tr class="row_add">
+                                    <td colspan="7">
+                                        <div class="add-item">
+                                            <img src="/Assets/crm/images/mechanism/add.svg" alt="" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="group-buttons">
+                            <button class="btn-gray">Hủy bỏ</button>
+                            <button class="btn-green">Cập nhật</button>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script src="~/js/controllers/tele_SaleMechanism.js"></script>
+<script src="~/Content/js/app.js"></script>
+<script src="~/js/controllers/saleAdmin.js"></script>
+<script src="~/js/controllers/saleManager.js"></script>
+}

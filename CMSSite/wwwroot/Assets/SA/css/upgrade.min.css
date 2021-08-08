@@ -1,0 +1,344 @@
+.main-left .menu .menu-list .menu-list__item .dropdown-list .dropdown-list__item .dot.active {
+    background: #17ca89;
+}
+
+    .main-left .menu .menu-list .menu-list__item .dropdown-list .dropdown-list__item .dot.active::after {
+        -webkit-transform: translate(-50%,-50%) scale(1);
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.section_accountant_salary {
+    padding: 56px 44px 0
+}
+
+    .section_accountant_salary .module_accountant_salary .module-header {
+        padding-bottom: 56px
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-header .title {
+            font-family: K2D;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 31.2px;
+            text-transform: uppercase;
+            color: #4f4f4f;
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex
+        }
+
+            .section_accountant_salary .module_accountant_salary .module-header .title img {
+                padding-right: 20.21px
+            }
+
+    .section_accountant_salary .module_accountant_salary .module-content .select .select_lit {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-bottom: 16px
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-content .select .select_lit label {
+            font-family: K2D;
+            font-size: 16px;
+            line-height: 21px;
+            color: #828282;
+            margin-bottom: 2px;
+            font-weight: unset
+        }
+
+        .section_accountant_salary .module_accountant_salary .module-content .select .select_lit .select2 {
+            width: 100% !important
+        }
+
+            .section_accountant_salary .module_accountant_salary .module-content .select .select_lit .select2 .select2-selection {
+                background: #fff;
+                border: 1px solid #e3e8f0;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                border-radius: 2px;
+                width: 100% !important;
+                height: 41px
+            }
+
+                .section_accountant_salary .module_accountant_salary .module-content .select .select_lit .select2 .select2-selection .select2-selection__arrow {
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%)
+                }
+
+                .section_accountant_salary .module_accountant_salary .module-content .select .select_lit .select2 .select2-selection .select2-selection__rendered {
+                    color: #444;
+                    line-height: 40px
+                }
+
+        .section_accountant_salary .module_accountant_salary .module-content .select .select_lit select {
+            outline: 0;
+            height: 41px;
+            background: #fff;
+            border: 1px solid #e3e8f0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 2px;
+            padding: 10px 0 10px 16px;
+            font-family: K2D;
+            font-size: 14px;
+            line-height: 18px;
+            color: #4f4f4f
+        }
+
+        .section_accountant_salary .module_accountant_salary .module-content .select .select_lit input {
+            height: 41px
+        }
+
+        .section_accountant_salary .module_accountant_salary .module-content .select .select_lit .date {
+            position: relative
+        }
+
+            .section_accountant_salary .module_accountant_salary .module-content .select .select_lit .date::after {
+                content: "";
+                position: absolute;
+                background-image: url(../images/accountant_contact-manage/date_range_24px.svg);
+                background-repeat: no-repeat;
+                width: 20px;
+                height: 20px;
+                top: 56%;
+                right: 5px
+            }
+
+            .section_accountant_salary .module_accountant_salary .module-content .select .select_lit .date .dropdown-menu {
+                width: 100%
+            }
+
+    .section_accountant_salary .module_accountant_salary .module-content .select .button_search {
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding-bottom: 16px;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-content .select .button_search button {
+            width: 100%;
+            height: 40px;
+            background: #17ca89;
+            border-radius: 2px;
+            font-family: K2D;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 21px;
+            text-align: center;
+            color: #f8f8f9
+        }
+
+    .section_accountant_salary .module_accountant_salary .module-content .export {
+        border: none !important;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        margin-top: 16px;
+        margin-bottom: 20px
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-content .export .button_lit {
+            background: #fff;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 4px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 6px 12px 6px 6px;
+            height: 32px !important
+        }
+
+            .section_accountant_salary .module_accountant_salary .module-content .export .button_lit img {
+                margin-right: 12px
+            }
+
+            .section_accountant_salary .module_accountant_salary .module-content .export .button_lit p {
+                margin: unset;
+                font-family: K2D;
+                font-style: normal;
+                font-size: 14px;
+                line-height: 18px;
+                color: #828282;
+                font-weight: unset
+            }
+
+    .section_accountant_salary .module_accountant_salary .module-content .wrap_table {
+        overflow: auto
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table {
+            border-collapse: unset;
+            border-spacing: 0 10px
+        }
+
+            .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table thead tr th {
+                padding: 15px 0 16px 15px;
+                font-family: K2D;
+                font-size: 16px;
+                line-height: 21px;
+                color: #828282;
+                text-align: center;
+                font-weight: unset;
+                border: unset
+            }
+
+                .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table thead tr th label {
+                    margin: unset
+                }
+
+            .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table tbody tr {
+                border: 1px solid #ddd;
+                margin-bottom: 10px;
+                background: #fff;
+                border-bottom: 8px solid #e5e5e5;
+                border-radius: 4px;
+                height: 56px
+            }
+
+                .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table tbody tr td {
+                    padding: 15px 0 16px 15px;
+                    font-family: K2D;
+                    font-size: 16px;
+                    line-height: 21px;
+                    color: #4f4f4f;
+                    text-align: center;
+                    font-weight: unset;
+                    border-bottom: 1px solid #e3e8f0
+                }
+
+                    .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table tbody tr td label {
+                        font-weight: unset
+                    }
+
+                    .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table tbody tr td:nth-last-child(1) {
+                        border-right: 1px solid #e3e8f0
+                    }
+
+                    .section_accountant_salary .module_accountant_salary .module-content .wrap_table .table tbody tr td:first-child {
+                        border-left: 1px solid #e3e8f0
+                    }
+
+@media screen and (max-width:991px) {
+    .section_accountant_salary {
+        padding: 40px 20px
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-header {
+            padding-bottom: 40px
+        }
+
+            .section_accountant_salary .module_accountant_salary .module-header .title {
+                font-size: 20px
+            }
+}
+
+@media screen and (max-width:767px) {
+    .section_accountant_salary {
+        padding: 20px 15px 0
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-header {
+            padding-bottom: 20px
+        }
+}
+
+@media screen and (max-width:479px) {
+    .section_accountant_salary .module_accountant_salary .module-header .title {
+        font-size: 12px
+    }
+
+        .section_accountant_salary .module_accountant_salary .module-header .title img {
+            padding-right: 3.21px;
+            width: 16px
+        }
+}
+
+
+#main .main-content .select_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+    #main .main-content .select_pagination .select {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+        #main .main-content .select_pagination .select p {
+            font-family: K2D;
+            font-size: 14px;
+            line-height: 21px;
+            color: #6e7b97;
+            margin-right: 12px
+        }
+
+        #main .main-content .select_pagination .select select {
+            width: 48px;
+            height: 24px;
+            background: #fff;
+            border: 1px solid #e3e8f0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 2px
+        }
+
+    #main .main-content .select_pagination .pagination button, #main .main-content .select_pagination .pagination li a {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 28px;
+        height: 28px;
+        font-family: K2D;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: #828282;
+        padding: 7px 12px;
+        margin-left: 12px;
+        border-radius: 25px;
+        background: rgba(255,255,255,.5);
+        border: 1px solid #e3e8f0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+    #main .main-content .select_pagination .pagination li.active a {
+        border: unset;
+        background: #20cb8d;
+        color: #fff
+    }

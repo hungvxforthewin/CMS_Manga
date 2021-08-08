@@ -1,0 +1,164 @@
+﻿<section class="section_admin_total-sale">
+    <div class="module-title">
+        <div class="title-wrapper">
+            <!-- left -->
+            <div class="title_left">
+                <div class="image">
+                    <img src="/Assets/crm/images/admin_total-sale/admin_total-sale.png"
+                         alt="" />
+                </div>
+                <div class="detail">
+                    <h4 style=""><b id="total-revenue">0</b> Tỷ</h4>
+                    <div class="divider"></div>
+                    <span>Tổng doanh số khối</span>
+                </div>
+            </div>
+            <!-- right -->
+            <div class="title_right">
+                <div class="detail">
+                    <h4 id="total-remuneration">0</h4>
+                    <div class="divider"></div>
+                    <span>Tổng hoa hồng khối</span>
+                </div>
+                <div class="image">
+                    <img src="/Assets/crm/images/admin_total-sale/admin_total-sale-2.png"
+                         alt="" />
+                    <span>%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module-content">
+        <!-- search -->
+        <div class="search">
+            <div class="search-item input-group">
+                <label for="">Khối</label>
+                <select class="select2 office-select">
+                    <option>--</option>
+                </select>
+            </div>
+            <div class="search-item input-group">
+                <label for="">Thời gian</label>
+                <div class="date-select">
+                    <input id="selected-month" type="text" class="search__input only-month" />
+                    <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                </div>
+            </div>
+            <input type="hidden" id="hidden-branch" value="@ViewBag.Branch"/>
+            <button class="btn-green" id="search-office-statistic">Tìm kiếm</button>
+        </div>
+        <!-- handle -->
+        @*<div class="handle">
+            <button class="export handle-button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/export.svg" alt="" />
+                </div>
+                Xuất file Excel
+            </button>
+        </div>*@
+        <!-- table -->
+        <div class="data-table tr-bordered tr_left-border">
+            <table>
+                <tbody id="table-body">
+                    <tr>
+                        <th>ID</th>
+                        <th>Khối</th>
+                        <th>Chi nhánh</th>
+                        <th>Doanh số khối</th>
+                        <th>Hoa hồng khối</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+@section Scripts{ 
+    <script>
+        let baseUrl = '/Admin/OfficeStatistics/';
+        let selectUrl = '/SelectionData/';
+        let branch = $('#hidden-branch').val();
+
+        $(function () {
+            LoadOfficesToForm('.office-select');
+            $('.loading-wrapper').show();
+            GetOfficeData(branch);
+
+            $('#search-office-statistic').on('click', function () {
+                $('.loading-wrapper').show();
+                let office = $('.office-select').val();
+                let month = $('#selected-month').val();
+                let selectedMonth;
+                if (month) {
+                    selectedMonth = month.split("-").reverse().join('/');
+                }
+                GetOfficeData(branch, selectedMonth, office);
+            });
+        });
+
+        var GetOfficeData = function (branch, month = null, office = null) {
+            $.get(baseUrl + 'GetStatisticalDataForOffice', { month: month, branch: branch, office: office }, function (res) {
+                //console.log(res);
+                $('#table-body').html(`
+                        <tr>
+                            <th>ID</th>
+                            <th>Khối</th>
+                            <th>Chi nhánh</th>
+                            <th>Doanh số khối</th>
+                            <th>Hoa hồng khối</th>
+                        </tr>
+                    `);
+                if (res.result == 200) {
+                    $.each(res.data.listData, function (index, item) {
+                        $('#table-body').append(
+                            `
+                                <tr>
+                                    <td>
+                                        <a href="/Admin/DepartmentStatistics/Index?branch=${branch}&office=${item.officeCode}">
+                                            ${item.officeCode}
+                                        </a>
+                                    </td>
+                                    <td>${item.officeName}</td>
+                                    <td>${item.branchName}</td>
+                                    <td>${commaSeparateNumber(item.officeRevenue)}</td>
+                                    <td>${commaSeparateNumber(item.officeRemuneration)}</td>
+                                </tr>
+                            `
+                        )
+                    });
+
+                    if (!office) {
+                        $('#total-revenue').text(res.data.totalRevenue / 1000000000);
+                        $('#total-remuneration').text(commaSeparateNumber(res.data.totalRemuneration));
+                    }
+                    $('.loading-wrapper').hide();
+                }
+                else {
+                    toastr.error(res.errors);
+                    $('.loading-wrapper').hide();
+                }
+            });
+        }
+
+        var LoadOfficesToForm = function (target, selected = null) {
+            $.get(selectUrl + "GetAllOffice?branch=" + $('#hidden-branch').val(), function (res) {
+                if (res.result == 400) {
+                    var el = $(target);
+                    el.html('');
+                    el.append(`<option value="">--</option>`);
+                }
+                else {
+                    var el = $(target);
+                    el.html('');
+                    el.append(`<option value="">Chọn khối</option>`);
+                    $.each(res.data, function (index, item) {
+                        el.append(`<option value="${item.officeCode}">${item.officeName}</option>`);
+                    });
+                    if (selected) {
+                        $(el).val(selected);
+                    }
+                }
+            });
+        }
+    </script>
+}

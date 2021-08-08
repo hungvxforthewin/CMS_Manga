@@ -1,0 +1,84 @@
+﻿@using CRMBussiness.ViewModel
+@model RankingSaleViewModel
+@{
+    SaleTop10 st01_month = Model.LstSaleTop10ByMonth.Count > 0 ? Model.LstSaleTop10ByMonth[0] : new SaleTop10();
+    SaleTop10 st02_month = Model.LstSaleTop10ByMonth.Count > 1 ? Model.LstSaleTop10ByMonth[1] : new SaleTop10();
+    SaleTop10 st03_month = Model.LstSaleTop10ByMonth.Count > 2 ? Model.LstSaleTop10ByMonth[2] : new SaleTop10();
+}
+<div class="ranks">
+    @if (Model.LstSaleTop10ByMonth.Count > 0)
+    {
+        <!-- 2nd -->
+        <div class="rank-item _2nd" data-aos="fade-right" data-aos-delay="500">
+            <!-- avt -->
+            <div class="avt" data-rank="2">
+                <div class="avt-container">
+                    <img src="~/Uploads/Files/@( string.IsNullOrEmpty(st02_month.Avatar) ? "no_photo_avatar.png" : st02_month.Avatar)" alt="avt" />
+                </div>
+            </div>
+            <!-- detail -->
+            <div class="info">
+                <img src="~/RankingSale/images/index/detail-to_right.png" alt="info" />
+                <div class="detail">
+                    <p class="name">@st02_month.FullName</p>
+                    <p class="address">@st02_month.DepartmentName</p>
+                    <span class="rank">2nd</span>
+                </div>
+            </div>
+        </div>
+    }
+    @if (Model.LstSaleTop10ByMonth.Count > 0)
+    {
+        <!-- 1st -->
+        <div class="rank-item _1st" data-aos="zoom-in" data-aos-delay="200">
+            <!-- avt -->
+            <div class="avt" data-rank="1">
+                <div class="avt-container">
+                    <img src="~/Uploads/Files/@( string.IsNullOrEmpty(st01_month.Avatar) ? "no_photo_avatar.png" : st01_month.Avatar)" alt="avt" />
+                </div>
+            </div>
+            <!-- detail -->
+            <div class="info">
+                <img src="~/RankingSale/images/index/detail-center.png" alt="info" />
+                <div class="detail">
+                    <p class="name">@st01_month.FullName</p>
+                    <p class="address">@st01_month.DepartmentName</p>
+                    <span class="rank">WINNER</span>
+                </div>
+            </div>
+            <img src="~/RankingSale/images/index/vs-2.png"
+                 alt="vs"
+                 class="vs _1"
+                 width="88"
+                 height="50" />
+            <img src="~/RankingSale/images/index/vs-2.png"
+                 alt="vs"
+                 class="vs _2"
+                 width="88"
+                 height="50" />
+        </div>
+    }
+
+
+    @if (Model.LstSaleTop10ByMonth.Count > 0)
+    {
+        <!-- 3rd -->
+        <div class="rank-item _3rd" data-aos="fade-left" data-aos-delay="500">
+            <!-- avt -->
+            <div class="avt" data-rank="3">
+                <div class="avt-container">
+                    <img src="~/Uploads/Files/@( string.IsNullOrEmpty(st03_month.Avatar) ? "no_photo_avatar.png" : st03_month.Avatar)" alt="avt" />
+                </div>
+            </div>
+            <!-- detail -->
+            <div class="info">
+                <img src="~/RankingSale/images/index/detail-to_left.png" alt="info" />
+                <div class="detail">
+                    <p class="name">@st03_month.FullName</p>
+                    <p class="address">@st03_month.DepartmentName</p>
+                    <span class="rank">3rd</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>

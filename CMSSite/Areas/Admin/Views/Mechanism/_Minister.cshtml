@@ -1,0 +1,119 @@
+﻿<!-- sale -->
+<div class="sale minister" id="sale">
+    <h4 class="tab-title">Trưởng khối</h4>
+    <input type="hidden" name="Id" class="sale-id" />
+    <input type="hidden" name="CodeKpi" class="sale-kpi-code" />
+    <!-- table -->
+    <div class="table" style="overflow-x: auto">
+        <form class="remunerations">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Hoa hồng</th>
+                    <th>Cổ phần</th>
+                    <th>Lương cứng</th>
+                    <th>Doanh số khối</th>
+                    <th></th>
+                </tr>
+
+                <!-- row -->
+                <tr class="row_add">
+                    <td colspan="5">
+                        <div class="add-item" onclick="AddSalaryForSale(this)">
+                            <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!-- kpi -->
+    <div class="kpi">
+        <div class="kpi_left">
+            <div class="title">
+                <h4>KPI 6 tháng đầu</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="kpi_right">
+            <div class="title">
+                <h4>KPI 6 tháng sau</h4>
+
+                <div class="handle">
+                    <form class="condition">
+                        <span>
+                            Nếu đạt KPI nhỏ hơn
+                            <input type="number" class="isPercent" name="KpiPercent" min="0" />
+                        </span>
+                        <span>
+                            % level 1 thì nhận
+                            <input type="number" class="isPercent" name="SalaryPercent" min="0" />
+                        </span>
+                        <span>% lương level 1</span>
+                    </form>
+                </div>
+
+                <div class="table" style="overflow-x: auto">
+                    <form class="kpi-salary-rules">
+                        <table>
+                            <tr>
+                                <th>% KPI nhỏ nhất</th>
+                                <th>%KPI lớn nhất</th>
+                                <th>% lương</th>
+                            </tr>
+
+                            <!-- row -->
+                            <tr class="row_add">
+                                <td colspan="3">
+                                    <div class="add-item" onclick="AddKpiForSale(this)">
+                                        <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- buttons -->
+<div class="group-buttons">
+    <button class="btn-gray" onclick="Cancel()">Hủy bỏ</button>
+    <button class="btn-green" onclick="SetupMechanismForMinister()">Cập nhật</button>
+</div>

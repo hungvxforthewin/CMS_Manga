@@ -1,0 +1,164 @@
+﻿.section_dashboard {
+    padding: 56px 32px;
+}
+
+.section_dashboard .module-header .header {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 500;
+    color: #4f4f4f;
+    margin: 0;
+}
+
+.section_dashboard .module-header .sub-header {
+    font-size: 18px;
+    line-height: 27px;
+    color: #4f4f4f;
+    margin: 0;
+}
+
+.section_dashboard .module-content {
+    overflow-x: auto;
+}
+
+    .section_dashboard .module-content .chart {
+        min-width: 800px;
+        max-width: 100%;
+        position: relative;
+        border: 1px solid #377af4;
+        border-top: none;
+        margin-top: calc(46px + 56px);
+        width: calc(100% - 50px);
+        margin-left: 40px;
+        padding-top: 10px;
+        padding-bottom: 12px;
+    }
+
+        .section_dashboard .module-content .chart .axis_y-title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            position: absolute;
+            bottom: calc(100% + 22px);
+        }
+
+            .section_dashboard .module-content .chart .axis_y-title.left {
+                left: -16px;
+            }
+
+            .section_dashboard .module-content .chart .axis_y-title.right {
+                right: -10px;
+            }
+
+        .section_dashboard .module-content .chart .chart-row {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: calc(100% + 40px);
+            margin-left: -40px;
+            margin-bottom: 20px;
+        }
+
+            .section_dashboard .module-content .chart .chart-row .top {
+                text-align: center;
+                width: 40px;
+                color: #828282;
+                font-size: 14px;
+                line-height: 18px;
+                position: relative;
+            }
+
+                .section_dashboard .module-content .chart .chart-row .top:after {
+                    right: -4px;
+                }
+
+            .section_dashboard .module-content .chart .chart-row .detail {
+                margin-left: 16px;
+                min-width: 160px;
+                max-width: 160px;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+            }
+
+                .section_dashboard .module-content .chart .chart-row .detail .name {
+                    color: #4f4f4f;
+                    font-weight: 500;
+                    margin-left: 12px;
+                }
+
+            .section_dashboard .module-content .chart .chart-row .total-percentage {
+                -webkit-box-flex: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                height: 32px;
+                background-color: #d1def8;
+                margin: 0 32px;
+                position: relative;
+            }
+
+                .section_dashboard
+                .module-content
+                .chart
+                .chart-row
+                .total-percentage
+                .own-percentage {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    background-color: #377af4;
+                    width: 80%;
+                    z-index: 1;
+                }
+
+            .section_dashboard .module-content .chart .chart-row .sale {
+                margin-right: 12px;
+                min-width: 120px;
+                text-align: right;
+                color: #474eff;
+                line-height: 24px;
+                position: relative;
+            }
+
+                .section_dashboard .module-content .chart .chart-row .sale:after {
+                    right: -16px;
+                }
+
+                .section_dashboard .module-content .chart .chart-row .sale:after,
+                .section_dashboard .module-content .chart .chart-row .top:after {
+                    position: absolute;
+                    content: "";
+                    top: calc(50% - 0.5px);
+                    width: 8px;
+                    height: 1px;
+                    background-color: #377af4;
+                }
+
+@media (max-width: 991px) {
+    .section_dashboard {
+        padding: 40px 20px;
+    }
+
+        .section_dashboard .module-content .chart {
+            margin-top: 56px;
+        }
+
+            .section_dashboard .module-content .chart .chart-row .total-percentage {
+                margin: 0 20px;
+            }
+}
+
+@media (max-width: 767px) {
+    .section_dashboard {
+        padding: 20px 15px;
+    }
+}

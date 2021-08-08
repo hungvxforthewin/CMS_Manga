@@ -1,0 +1,342 @@
+﻿@using CRMBussiness.ViewModel
+@model SearchRattingViewModel
+
+<link href="~/RankingSale/css/SA/SA-update.css" rel="stylesheet" />
+<style>
+    .modal-item .label {
+        color: #828282;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        text-align: left;
+    }
+
+    .modal-item .detail {
+        text-align: right;
+        color: #4f4f4f;
+        line-height: 24px;
+    }
+</style>
+<section class="section_list-contract section_sales-management-2">
+    <div class="module-wrapper">
+        <div class="module-title">
+            <img src="/Assets/crm/images/layout/left-arrow.svg" alt="" />
+            <h2>Quản lý doanh số Sale</h2>
+        </div>
+        <div class="module-content">
+            <div class="search" id="search-sale" style="margin: 56px 51px 0;">
+                <form id="search-sale-form">
+                    <div class="bs-row" style="width: 100%;">
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Chi nhánh</label>
+                                <select class="select2 select-branch" name="Branch">
+                                    <option value="">-Chọn chi nhánh-</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Khối</label>
+                                <select class="select2 select-office" name="Office">
+                                    <option value="">-Chọn khối-</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Phòng ban</label>
+                                <select class="select2 select-department" name="Department">
+                                    <option value="">-Chọn phòng ban-</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Nhóm</label>
+                                <select class="select2 select-team" name="Team">
+                                    <option value="">-Chọn team-</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Nhân viên</label>
+                                <select class="select2 select-staff" name="Sale">
+                                    <option value="">-Nhân viên-</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Tìm kiếm theo tên</label>
+                                <input type="text" placeholder="Tên nhân viên" name="Key" />
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50">
+                            <div class="search-item input-group">
+                                <label>Ngày</label>
+                                <div class="date-select">
+                                    <input type="text" class="search__input autofill_today" name="DateRevenue">
+                                    <img src="/Assets/SA/images/layout/date.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col -->
+                        <div class="bs-col md-25 xs-50" style="padding-top: 19px;">
+                            <div class="button-search-sale" style="width: 110%;">
+                                <button style="width: 111px" type="button" id="btn-search-sale" class="btn-green">Tìm kiếm</button>
+                                <button style="width: 111px" type="button" class="btn-green" modal-show="show"
+                                        modal-data="#employee-sales-add">
+                                    Thêm mới
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="data-table tr-bordered tr_left-border" style="overflow-x: auto">
+                <table style="min-width: 1500px;">
+                    <tbody id="table-body">
+                        <tr>
+                            <th>Tên nhân viên</th>
+                            <th>Mã nhân viên</th>
+                            <th>Chi nhánh</th>
+                            <th>Khối</th>
+                            <th>Phòng ban</th>
+                            <th>Nhóm</th>
+                            <th>Doanh số</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="select_pagination">
+                    <div class="select" id="size-page">
+                        <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                        <select>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                        </select>
+                        <p>&nbsp;bản ghi trên trang.</p>
+                    </div>
+                    <div class="pagination" id="pagination">
+                    </div>
+                </div>
+                <!--Modal Add-->
+                <div class="bs-modal employee-sales" id="employee-sales-add">
+                    <div class="modal-frame">
+                        <div class="content-modal">
+                            <div class="header-modal">
+                                <h3 class="modal__title">Thêm mới doanh số</h3>
+                                <span title="close" modal-show="close" class="close__modal">
+                                    <img src="/Assets/SA/images/layout/close-modal.svg" />
+                                </span>
+                            </div>
+                            <form id="frm-employee-sales-add">
+                                @Html.AntiForgeryToken()
+                                <div class="body-modal">
+                                    <div class="bs-row">
+                                        <!-- modal item -->
+                                        <div class="bs-col md-33">
+                                            <div class="modal-item">
+                                                <label>Chi nhánh</label>
+                                                <select class="select2 select-branch" name="Branch">
+                                                    <option value="">-Chọn chi nhánh-</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- modal item -->
+                                        <div class="bs-col md-33">
+                                            <div class="modal-item">
+                                                <label>Khối</label>
+                                                <select class="select2 select-office" name="Office">
+                                                    <option value="">-Chọn khối-</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- modal item -->
+                                        <div class="bs-col md-33">
+                                            <div class="modal-item">
+                                                <label>Phòng ban</label>
+                                                <select class="select2 select-department" name="Department">
+                                                    <option value="">-Chọn phòng ban-</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- modal item -->
+                                        <div class="bs-col md-33">
+                                            <div class="modal-item">
+                                                <label>Team</label>
+                                                <select class="select2 select-team" name="Team">
+                                                    <option value="">-Chọn team-</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- modal item -->
+                                        <div class="bs-col md-33">
+                                            <div class="modal-item">
+                                                <label>Nhân viên Sale</label>
+                                                <select class="select2 select-staff" name="Sale">
+                                                    <option value="">-Chọn nhân viên-</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="bs-row">
+                                        <!-- modal item -->
+                                        <div class="bs-col md-33">
+                                            <div class="modal-item">
+                                                <label>Ngày</label>
+                                                <div class="date-select">
+                                                    <input type="text" class="search__input autofill_today" name="RevenueDate">
+                                                    <img src="/Assets/SA/images/layout/date.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- modal item -->
+                                        <div class="bs-col md-66">
+                                            <div class="modal-item">
+                                                <label>Doanh số</label>
+                                                <input type="text" name="RevenueSale" class="isNumberF" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="footer-modal">
+                                    <div class="group-button">
+                                        <button type="button" class="btn-gray">Hủy bỏ</button>
+                                        <button type="button" class="btn-green btn-add-rating">Thêm mới</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Modal Edit-->
+                <div class="bs-modal employee-sales" id="employee-sales-edit">
+                    <div class="modal-frame">
+                        <div class="content-modal">
+
+                        </div>
+                    </div>
+                    @*<div class="modal-frame">
+                            <div class="content-modal">
+                                <div class="header-modal">
+                                    <h3 class="modal__title">Doanh số nhân viên</h3>
+                                    <span title="close" modal-show="close" class="close__modal">
+                                        <img src="/Assets/SA/images/layout/close-modal.svg" />
+                                    </span>
+                                </div>
+
+                                <div class="body-modal">
+                                    <div class="modal-item">
+                                        <p class="label">Tên nhân viên</p>
+                                        <p class="detail">Nguyễn văn A</p>
+                                    </div>
+                                    <div class="modal-item">
+                                        <p class="label">Phòng ban</p>
+                                        <p class="detail">Phòng ban 1</p>
+                                    </div>
+                                    <div class="modal-item">
+                                        <p class="label">Nhóm</p>
+                                        <p class="detail">Nhóm 2</p>
+                                    </div>
+                                    <div class="modal-item">
+                                        <p class="label">Doanh số</p>
+                                        <p class="detail sale">
+                                            <input />
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="footer-modal">
+                                    <div class="group-button">
+                                        <button class="btn-gray">Hủy bỏ</button>
+                                        <button class="btn-green">Cập nhật</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>*@
+                </div>
+                <div class="bs-modal delete-modal" id="employee-sales-delete">
+                    <div class="modal-frame">
+                        <div class="content-modal">
+                            <div class="header-modal">
+                                <h3 class="modal__title"></h3>
+                                <span title="close" modal-show="close" class="close__modal">
+                                    <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                         alt="" />
+                                </span>
+                            </div>
+                            <div class="body-modal add-employee_body-modal">
+                                <img src="/Assets/crm/images/employee-manage/delete-modal.png"
+                                     alt="" />
+                                <p id="txt-del-sale">
+                                    Bạn có chắc chắn muốn xóa nhân sự <span>xxxxxxxxxxx</span> không?
+                                </p>
+                            </div>
+                            <div class="footer-modal">
+                                <button id="delete-empl-sale"
+                                        class="close__btn btn-green"
+                                        type="button">
+                                    Đồng ý
+                                </button>
+                                <button modal-show="close"
+                                        class="close__btn btn-gray"
+                                        type="button">
+                                    Hủy bỏ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+@section Scripts{
+    <script>
+        //$('.form_datetime').datetimepicker('update', new Date());
+
+        $(".autofill_today").datetimepicker({
+            setDate: new Date(),
+            format: "dd-mm-yyyy",
+            startView: 2,
+            minView: 2,
+            autoclose: true,
+        }).datetimepicker('setDate', new Date());
+
+    </script>
+    <script src="~/Content/js/app.js"></script>
+    <script src="~/Content/js/extend/method.js"></script>
+    <script src="~/js/system.js"></script>
+    <script src="~/js/controllers/ratingSale-sa.js"></script>
+}

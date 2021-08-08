@@ -1,0 +1,201 @@
+﻿@model CRMBussiness.ViewModel.ContractInvesterViewModel
+
+<div class="header-modal">
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/layout/close-modal.svg" />
+    </span>
+</div>
+<div class="body-modal">
+    <!-- module -->
+    <div class="module_customer-info module">
+        <div class="module-title">
+            <h4>Thông tin khách hàng</h4>
+        </div>
+        <div class="module-content">
+            <div class="bs-row">
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Tên khách hàng</label>
+                        <input value="@Model.Name" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Email tài khoản</label>
+                        <input value="@Model.Email" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Ngày sinh</label>
+                        <input type="text" class="search__input form_datetime" value="@Model.Birthday" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Số CMND</label>
+                        <input type="text" value="@Model.IdCard" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Ngày cấp</label>
+                        <input type="text" class="search__input form_datetime" value="@Model.DateOfIssuance" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Nơi cấp</label>
+                        <input type="text" value="@Model.AddressIssuance" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Số điện thoại</label>
+                        <input type="text" value="@Model.Phone" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Email</label>
+                        <input type="text" value="@Model.EmailAccount" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- module -->
+    <div class="module_deposit-info module">
+        <div class="module-title">
+            <h4>Thông tin đặt cọc</h4>
+        </div>
+        <div class="module-content">
+            <div class="bs-row">
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Số phiếu đặt cọc</label>
+                        <input type="text" value="@Model.CodeDeposit" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Số tiền đặt cọc</label>
+                        <input type="text" value="@String.Format("{0:#,0}", Model.DepositAmount)" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Ngày đặt cọc</label>
+                        <input type="text" class="search__input form_datetime" value="@Model.DepositDate" />
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Hình thức đặt cọc</label>
+                        @if (Model.DepositForm == 0)
+                        {
+                            <input type="text" value="Chuyển khoản" />
+                        }
+                        else
+                        {
+                            <input type="text" value="Tiền mặt" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- module -->
+    <div class="module_pay-info module">
+        <div class="module-title">
+            <h4>Thông tin thanh toán</h4>
+        </div>
+        <div class="data-table tr-bordered" style="margin-bottom: 12px">
+            <table>
+                <tr>
+                    <th>Lần thanh toán</th>
+                    <th>Số tiền</th>
+                    <th>Thời gian</th>
+                    <th>Hình thức</th>
+                </tr>
+                @{
+                    int sxt = 2;
+                }
+                @foreach (var item in Model.ListInforBill)
+                {
+                    <tr>
+                        <td>Lần @sxt</td>
+                        @{
+                            sxt = sxt + 1;
+                        }
+                        <td>
+                            @String.Format("{0:#,0}", item.BillMoney)
+                        </td>
+                        <td>@item.DateBill</td>
+                        @if (item.FormBill == 0)
+                        {
+                            <td>Chuyển khoản</td>
+                        }
+                        else
+                        {
+                            <td>Tiền mặt</td>
+                        }
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+
+    <!-- module -->
+    <div class="module_performer-info module">
+        <div class="module-title">
+            <h4>Thông tin người thực hiện</h4>
+        </div>
+        <div class="module-content">
+            <div class="bs-row">
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Sale</label>
+                        <input type="hidden" class="hidden-sale" value="@Model.Sale" />
+                        <select class="select2 select-sale" name="sale" data-required="true">
+                        </select>
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">SM T.O</label>
+                        <input type="hidden" class="hidden-saleRep" value="@Model.SaleRep" />
+                        <select class="select2 select-saleref" name="saleRep" data-required="true">
+                        </select>
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="bs-col sm-50">
+                    <div class="content-item input-group">
+                        <label for="">Tele</label>
+                        <input type="hidden" class="hidden-telesale" value="@Model.TeleSale" />
+                        <select class="select2 select-telesale" name="teleSale" data-required="true">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

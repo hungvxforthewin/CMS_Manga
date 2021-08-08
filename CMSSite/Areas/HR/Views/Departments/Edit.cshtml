@@ -1,0 +1,92 @@
+﻿@using CRMBussiness.ViewModel
+@model DepartmentViewModel
+<div class="header-modal">
+    <h3 class="modal__title">chỉnh sửa phòng ban</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+             alt="" />
+    </span>
+</div>
+<form id="form-model-edit">
+    <div class="body-modal add-employee_body-modal">
+        <input hidden name="Id" value="@Model.Id" />
+        <input hidden class="departmentCode-value" name="DepartmentCode" value="@Model.DepartmentCode" />
+        <input type="hidden" class="hidden-branch" value="@Model.BranchCode" />
+        <input type="hidden" class="hidden-office" value="@Model.OfficeCode" />
+        <input type="hidden" class="hidden-staff" value="@Model.CodeStaffSaleManage" />
+        <!-- row 1 -->
+        <div class="bs-row">
+            <!-- item -->
+            <div class="bs-col lg-50 xs-50">
+                <div class="modal-item">
+                    <label for="">Chi nhánh</label>
+                    <select class="empleyee-manage_select select-branch" id="select-branch" name="BranchCode">
+                        <option value="">--Chi nhánh--</option>
+                    </select>
+                </div>
+            </div>
+            <!-- item -->
+            <div class="bs-col lg-50 xs-50">
+                <div class="modal-item">
+                    <label for="">Khối</label>
+                    <select class="select2 select-office" id="" name="OfficeCode">
+                        <option value="">--Khối--</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- row 2 -->
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Tên phòng ban</label>
+                    <input placeholder="Nhập tên phòng ban" value="@Model.DepartmentName" name="DepartmentName" />
+                </div>
+            </div>
+            <!-- item -->
+            <div class="bs-col lg-50 xs-50">
+                <div class="modal-item">
+                    <label for="">Trưởng phòng</label>
+                    <select class="select2 select-staff" id="" name="CodeStaffSaleManage">
+                        <option value="">--Trưởng phòng--</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- row 3 -->
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Tình trạng</label>
+                    <select class="select2" name="StatusDepartment">
+                        @if (Model.Status)
+                        {
+                            <option value="1" selected="selected">Hoạt động</option>
+                            <option value="0">Không hoạt động</option>
+                        }
+                        else
+                        {
+                            <option value="1">Hoạt động</option>
+                            <option value="0" selected="selected">Không hoạt động</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="footer-modal">
+    <button class="close__btn btn-green btn-update-depart"
+            type="button">
+        Cập nhật
+    </button>
+    <button modal-show="close"
+            class="close__btn btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+</div>

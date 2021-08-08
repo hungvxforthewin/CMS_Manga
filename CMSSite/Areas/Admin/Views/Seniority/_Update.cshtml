@@ -1,0 +1,63 @@
+﻿@model CRMBussiness.ViewModel.AllowanceOrDeductViewModel
+    <!-- header -->
+    <div class="header-modal">
+        <h3 class="modal__title">chỉnh sửa mức thưởng thâm niên</h3>
+        <span title="close" modal-show="close" class="close__modal">
+            <img src="/Assets/crm/images/layout/close-modal.svg" alt="" />
+        </span>
+    </div>
+
+    <!-- body -->
+    <div class="body-modal">
+        <form id="update-form">
+            <div class="bs-row">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="AllowanceCode" value="@Model.AllowanceCode" />
+
+                <!-- modal item -->
+                <div class="bs-col sm-50">
+                    <div class="modal-item">
+                        <label>Tên</label>
+                        @Html.EditorFor(model => model.AllowanceName, new { htmlAttributes = new { @class = "" } })
+                    </div>
+                </div>
+                <!-- modal item -->
+                <div class="bs-col sm-50">
+                    <div class="modal-item">
+                        <label>Thời gian làm việc</label>
+                        <input type="hidden" value="@Model.Note" />
+                        @Html.DropDownListFor(model => model.Note,
+                   new List<SelectListItem>
+                   {
+                        new SelectListItem { Value = "1 Năm", Text = "1 Năm" },
+                        new SelectListItem { Value = "2 Năm", Text = "2 Năm" },
+                        new SelectListItem { Value = "3 Năm", Text = "3 Năm" },
+                        new SelectListItem { Value = "5 Năm", Text = "5 Năm" },
+                        new SelectListItem { Value = "10 Năm", Text = "10 Năm" },
+                    }, new { @class = "" })
+                    </div>
+                </div>
+                <!-- modal item -->
+                <div class="bs-col sm-50">
+                    <div class="modal-item">
+                        <label>Số tiền được hưởng</label>
+                        <input type="text" name="AllowanceAmount" class="isNumber" value="@String.Format("{0:#,0}", Model.AllowanceAmount)" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-modal">
+        <button id="update-seniority"
+                class="close__btn btn-green"
+                type="button">
+            Cập nhật
+        </button>
+        <button modal-show="close"
+                class="close__btn btn-gray"
+                type="button">
+            Hủy bỏ
+        </button>
+    </div>

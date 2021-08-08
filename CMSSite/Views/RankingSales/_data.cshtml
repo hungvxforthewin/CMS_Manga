@@ -1,0 +1,108 @@
+﻿@using CRMBussiness.ViewModel
+@model RankingSaleViewModel
+@{
+    SaleTop10 st01_day = Model.LstSaleTop10ByDay.Count > 0 ? Model.LstSaleTop10ByDay[0] : new SaleTop10();
+    SaleTop10 st02_day = Model.LstSaleTop10ByDay.Count > 1 ? Model.LstSaleTop10ByDay[1] : new SaleTop10();
+    SaleTop10 st03_day = Model.LstSaleTop10ByDay.Count > 2 ? Model.LstSaleTop10ByDay[2] : new SaleTop10();
+
+    SaleTop10 st01_week = Model.LstSaleTop10ByWeek.Count > 0 ? Model.LstSaleTop10ByWeek[0] : new SaleTop10();
+    SaleTop10 st02_week = Model.LstSaleTop10ByWeek.Count > 1 ? Model.LstSaleTop10ByWeek[1] : new SaleTop10();
+    SaleTop10 st03_week = Model.LstSaleTop10ByWeek.Count > 2 ? Model.LstSaleTop10ByWeek[2] : new SaleTop10();
+
+    SaleTop10 st01_month = Model.LstSaleTop10ByMonth.Count > 0 ? Model.LstSaleTop10ByMonth[0] : new SaleTop10();
+    SaleTop10 st02_month = Model.LstSaleTop10ByMonth.Count > 1 ? Model.LstSaleTop10ByMonth[1] : new SaleTop10();
+    SaleTop10 st03_month = Model.LstSaleTop10ByMonth.Count > 2 ? Model.LstSaleTop10ByMonth[2] : new SaleTop10();
+}
+<div class="ranks">
+    <!-- 2nd -->
+    @if (Model.LstSaleTop10ByDay.Count > 0)
+    {
+        <div class="_2nd rank-item" data-aos="fade-right" data-aos-delay="500">
+            <!-- avt -->
+            <div class="avt" data-rank="2">
+                <div class="avt-container">
+                    <img src="~/Uploads/Files/@( string.IsNullOrEmpty(st02_day.Avatar) ? "no_photo_avatar.png" : st02_day.Avatar)" alt="avatar" />
+                </div>
+
+                <div class="honor">
+                    <img src="~/RankingSale/images/index/honor_2nd.png" alt="honor" />
+                </div>
+            </div>
+            <!-- detail -->
+            <div class="info">
+                <img src="~/RankingSale/images/index/detail-to_right.png" alt="info" />
+                <div class="detail">
+                    <p class="name">@st02_day.FullName</p>
+                    <p class="address">@st02_day.DepartmentName</p>
+                    <span class="rank">2nd</span>
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <!-- 1st -->
+    @if (Model.LstSaleTop10ByDay.Count > 0)
+    {
+        <div class="_1st rank-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="avt" data-rank="1">
+                <div class="avt-container">
+                    <img src="~/Uploads/Files/@( string.IsNullOrEmpty(st01_day.Avatar) ? "no_photo_avatar.png" : st01_day.Avatar)" alt="avatar" />
+                </div>
+                <div class="honor">
+                    <img src="~/RankingSale/images/index/honor_1st.png"
+                         alt="honor"
+                         width="273"
+                         height="220" />
+                </div>
+                <div class="crown">
+                    <img src="~/RankingSale/images/index/crown.png" alt="crowm" />
+                </div>
+            </div>
+            <!-- detail -->
+            <div class="info">
+                <img src="~/RankingSale/images/index/detail-center.png" alt="info" />
+                <div class="detail">
+                    <p class="name">@st01_day.FullName</p>
+                    <p class="address">@st01_day.DepartmentName</p>
+                    <span class="rank">WINNER</span>
+                </div>
+            </div>
+
+            <img src="~/RankingSale/images/index/vs.png"
+                 alt="vs"
+                 class="vs _1"
+                 width="50"
+                 height="24" />
+            <img src="~/RankingSale/images/index/vs.png"
+                 alt="vs"
+                 class="vs _2"
+                 width="50"
+                 height="24" />
+        </div>
+    }
+
+    <!-- 3rd -->
+    @if (Model.LstSaleTop10ByDay.Count > 0)
+    {
+        <div class="_3rd rank-item" data-aos="fade-left" data-aos-delay="500">
+            <div class="avt" data-rank="3">
+                <div class="avt-container">
+                    <img src="~/Uploads/Files/@( string.IsNullOrEmpty(st03_day.Avatar) ? "no_photo_avatar.png" : st03_day.Avatar)" alt="avatar" />
+                </div>
+                <div class="honor">
+                    <img src="~/RankingSale/images/index/honor_2nd.png" alt="honor" />
+                </div>
+            </div>
+            <!-- detail -->
+            <div class="info">
+                <img src="~/RankingSale/images/index/detail-to_left.png" alt="info" />
+                <div class="detail">
+                    <p class="name">@st03_day.FullName</p>
+                    <p class="address">@st03_day.DepartmentName</p>
+                    <span class="rank">3rd</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>

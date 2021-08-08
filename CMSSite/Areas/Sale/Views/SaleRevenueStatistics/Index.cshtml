@@ -1,0 +1,333 @@
+﻿@section Styles{
+    <link href="~/css/sale-statistics.css" rel="stylesheet" />
+}
+
+<section class="section_dashboard">
+    <div class="module-header">
+        <h3 class="header">Dashboard</h3>
+
+        <div class="handle">
+            <div class="toggle-handle">
+                <img src="/Assets/crm/images/dashboard/filter-purple.svg"
+                     alt="filter"
+                     width="14"
+                     height="14" />
+                <span>Tìm kiếm nâng cao</span>
+                <img src="/Assets/crm/images/dashboard/chevdown-purple.svg"
+                     alt="filter"
+                     width="8"
+                     height="5"
+                     class="chev" />
+            </div>
+
+            <div class="handle-container hide">
+                <div class="input-group handle-item">
+                    <label>Chi nhánh</label>
+                    <select class="select2" data-branch="@ViewBag.BranchCode" id="branch-select">
+                        <option value="">--</option>
+                    </select>
+                </div>
+
+                <div class="input-group handle-item">
+                    <label>Khối</label>
+                    <select class="select2" data-office="@ViewBag.OfficeCode" id="office-select">
+                        <option value="">--</option>
+                    </select>
+                </div>
+
+                <div class="input-group handle-item">
+                    <label>Phòng</label>
+                    <select class="select2" data-department="@ViewBag.DepartmentCode" id="depart-select">
+                        <option value="">--</option>
+                    </select>
+                </div>
+
+                <div class="input-group handle-item">
+                    <label>Nhóm</label>
+                    <select class="select2" data-team="@ViewBag.TeamCode" id="team-select">
+                        <option value="">--</option>
+                    </select>
+                </div>
+
+                <div class="input-group handle-item">
+                    <label>Nhân viên</label>
+                    <select class="select2" data-staff="@ViewBag.StaffCode" id="staff-select">
+                        <option value="">--</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module-content">
+        <div class="search">
+            <div class="search-item input-group">
+                <label>Lựa chọn</label>
+                <select class="select2" id="time-option">
+                    <option value="0">Ngày</option>
+                    <option value="1">Tuần</option>
+                    <option value="2">Tháng</option>
+                </select>
+            </div>
+            <div class="search-item input-group">
+                <label>Thời gian</label>
+                <div class="date-select">
+                    <input autocomplete="new-password"
+                           id="date-picker"
+                           type="text"
+                           class="search__input form_datetime" />
+                    <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                </div>
+            </div>
+            <div class="search-item search-button">
+                <button class="btn-green mb-8" id="statis-revenue" data-role="@ViewBag.Role" >Tìm kiếm</button>
+            </div>
+        </div>
+
+        <div class="charts">
+            <!-- statistic -->
+            <div class="statistic">
+                <!-- item -->
+                <!-- data-number 20% sẽ thêm class warning với animation nhấp nháy -->
+                <div class="statistic-item chart-container target" data-number="0">
+                    <div class="item-title">
+                        <div class="icon">
+                            <img src="/Assets/crm/images/dashboard/target-white.svg"
+                                 alt="target"
+                                 width="36"
+                                 height="36"
+                                 class="inactive" />
+                            <img src="/Assets/crm/images/dashboard/target-red.svg"
+                                 alt="target"
+                                 width="36"
+                                 height="36"
+                                 class="active" />
+                        </div>
+                        <span class="title">Chỉ tiêu</span>
+                    </div>
+
+                    <div class="item-detail">
+                        <img class="detail-bg"
+                             width="110"
+                             height="110"
+                             alt="target"
+                             src="/Assets/crm/images/dashboard/target-bg.png" />
+                        <div class="detail-number">
+                            <span class="number counting"
+                                  id="target-counting"
+                                  data-number="0"></span>
+                            <span class="unit">%</span>
+                        </div>
+                        @*@if (ViewBag.Role != 4 && ViewBag.Role != 11)
+                        {*@
+                        <div class="detail-button"
+                             modal-show="show"
+                             modal-data="#target_modal">
+                            <span>Thiết lập</span>
+                            <img src="/Assets/crm/images/dashboard/arrow_right-white.svg"
+                                 width="12"
+                                 height="8"
+                                 alt="arrow" />
+                        </div>
+                        @*}*@
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="statistic-item chart-container show_up">
+                    <div class="item-title">
+                        <div class="icon">
+                            <img src="/Assets/crm/images/dashboard/sale-white.svg"
+                                 alt="show_up"
+                                 width="36"
+                                 height="36"
+                                 class="inactive" />
+                        </div>
+                        <span class="title">Doanh số</span>
+                    </div>
+
+                    <div class="item-detail">
+                        <img class="detail-bg"
+                             width="110"
+                             height="110"
+                             alt="target"
+                             src="/Assets/crm/images/dashboard/sale-bg.png" />
+                        <div class="detail-number">
+                            <span class="number counting"
+                                  id="revenue-counting"
+                                  data-number="0"></span>
+                            <span class="unit">M</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <div class="statistic-item chart-container grow">
+                    <div class="item-title">
+                        <div class="icon">
+                            <img src="/Assets/crm/images/dashboard/grow-white.svg"
+                                 alt="grow"
+                                 width="36"
+                                 height="36"
+                                 class="inactive" />
+                        </div>
+                        <span class="title">Tăng trưởng</span>
+                    </div>
+
+                    <div class="item-detail">
+                        <img class="detail-bg"
+                             width="110"
+                             height="110"
+                             alt="target"
+                             src="/Assets/crm/images/dashboard/grow-bg.png" />
+                        <div class="detail-number">
+                            <span class="number counting"
+                                  id="grow-counting"
+                                  data-number="0"></span>
+                            <span class="unit">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="donut-container _2 chart-container">
+                <div class="chart-title">
+                    <h4 class="title">Tỷ trọng doanh số sản phẩm</h4>
+                    @*<div class="icon" modal-show="show" modal-data="#donut_modal">
+                        <img src="/Assets/crm/images/dashboard/settings-gray.svg"
+                             alt="settings"
+                             width="16"
+                             height="16" />
+                    </div>*@
+                </div>
+
+                <div class="donut">
+                    <div id="donut-legend"></div>
+                    <div class="donut-chart">
+                        <p id="donut-tooltip"></p>
+                        <canvas id="donut" width="160" height="160"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mixed-container _1 chart-container">
+                <div class="chart-title">
+                    <h4 class="title">Biểu đồ thống kê doanh số</h4>
+                </div>
+                <div id="mixed-legend"></div>
+                <canvas id="mixed"></canvas>
+            </div>
+
+            <div class="horizontal_bar-container _2 chart-container">
+                <div class="chart-title">
+                    <h4 class="title">Doanh thu của từng đơn vị</h4>
+                </div>
+                <div class="horizontal_bar">
+                    <span class="scale x">Chi nhánh</span>
+                    <span class="scale y">Tỷ</span>
+                    <canvas id="horizontal_bar"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modals -->
+    <div class="bs-modal donut_modal" id="donut_modal">
+        <div class="modal-frame">
+            <div class="content-modal">
+                <div class="header-modal">
+                    <h3 class="modal__title">tỷ trọng doanh số sản phẩm</h3>
+                    <span title="close" modal-show="close" class="close__modal">
+                        <img src="/Assets/crm/images/layout/close-modal.svg" />
+                    </span>
+                </div>
+
+                <div class="body-modal">
+                    <div class="body-container">
+                        <div class="modal-item">
+                            <div class="input-group">
+                                <label>Tên sản phẩm 1</label>
+                                <input />
+                            </div>
+                            <div class="input-group">
+                                <label>Tên sản phẩm 1</label>
+                                <input />
+                            </div>
+                        </div>
+
+                        <div class="add-button">
+                            <img src="/Assets/crm/images/layout/add-button-purple.svg"
+                                 alt="add"
+                                 width="46"
+                                 height="46" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-modal">
+                    <button modal-show="close" class="close__btn btn-gray" type="button">
+                        Hủy bỏ
+                    </button>
+                    <button modal-show="close" class="close__btn btn-green" type="button">
+                        Cập nhật
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bs-modal target_modal" id="target_modal">
+        <div class="modal-frame">
+            <div class="content-modal">
+                <div class="header-modal">
+                    <h3 class="modal__title">thiết lập chỉ tiêu</h3>
+                    <span title="close" modal-show="close" class="close__modal">
+                        <img src="/Assets/crm/images/layout/close-modal.svg" />
+                    </span>
+                </div>
+
+                <div class="body-modal">
+                    <div class="body-container">
+
+                        <!-- update -->
+                        <div class="modal-top">
+                            <div class="modal-item input-group">
+                                <label>Tổng (Tỷ)</label>
+                                <input type="number" id="total-revenue" max="9999"/>
+                            </div>
+                            <div class="modal-item input-group">
+                                <label>Còn lại (Tỷ)</label>
+                                <input disabled id="remain-target" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="modal-bottom level-children">
+                        </div>
+                        <!-- end update -->
+                    </div>
+                </div>
+
+                <div class="footer-modal">
+                    <button modal-show="close" class="close__btn btn-gray" type="button" id="cancel-set-target">
+                        Hủy bỏ
+                    </button>
+                    @if (ViewBag.Role != 4 && ViewBag.Role != 11)
+                    {
+                        <button class="close__btn btn-green" id="setup-revenue" type="button">
+                            Cập nhật
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/countUp.js"></script>
+    <script src="~/js/controllers/dashboard-chart.js"></script>
+    <script>
+        let baseUrl = "/Sale/SaleRevenueStatistics/";
+    </script>
+    <script src="~/js/controllers/revenue-statistics.js"></script>
+}   

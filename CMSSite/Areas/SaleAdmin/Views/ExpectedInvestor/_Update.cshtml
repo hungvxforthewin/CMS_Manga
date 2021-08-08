@@ -1,0 +1,238 @@
+﻿@model CRMBussiness.ViewModel.ShowUpHistoryCreateViewModel
+
+<div class="header-modal">
+    <h3 class="modal__title">chỉnh sửa</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/list_data_image/close_24px.svg" />
+    </span>
+</div>
+<div class="body-modal">
+    <form id="checkin-form">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="CodeShow" value="@Model.CodeShow" />
+        <div class="bs-row row-lg-5 row-md-10 row-sm-15 row-xs10 row-tn-10">
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_select left_right">
+                    <input type="hidden" class="hidden-event" value="@Model.CodeEvent" />
+                    <label for="fname">Tên sự kiện</label><br>
+                    @Html.DropDownListFor(model => model.CodeEvent, new List<SelectListItem> {
+                       new SelectListItem { Value = "", Text="--" }
+                       }, new { @class = "select_show_up", onchange = "ChangeShowUp(this)" })
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <input type="hidden" class="hidden-product" value="@Model.ProductCode" />
+                <div class="left left_select">
+                    <label for="fname">Sản phẩm</label><br>
+                    @Html.DropDownListFor(model => model.ProductCode, new List<SelectListItem> {
+                       new SelectListItem { Value = "", Text="--" }
+                       }, new { @class = "select_product" })
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <input type="hidden" name="CodeInvestor" value="@Model.CodeInvestor" />
+                <div class="left left_right">
+                    <label for="fname">Họ tên khách</label><br>
+                    @Html.EditorFor(model => model.InvestorName, new { htmlAttributes = new { } })
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_select">
+                    <input type="hidden" class="hidden-resource" value="@Model.InvestorResourceCode" />
+                    <label for="fname">Tên nguồn</label><br>
+                    @Html.DropDownListFor(model => model.InvestorResourceCode, new List<SelectListItem> {
+                       new SelectListItem { Value = "", Text="--" }
+                       }, new { @class = "select_resource" })
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_right">
+                    <label for="fname">Số cmnd</label><br>
+                    @Html.EditorFor(model => model.IdCard, new { htmlAttributes = new { } })
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left">
+                    <label for="fname">Số điện thoại</label><br>
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { } })
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_select left_right">
+                    <input type="hidden" class="hidden-object" value="@Model.JoinedObject" />
+                    <label for="fname">Tình trạng tham dự</label><br>
+                    @Html.DropDownListFor(model => model.JoinedObject, new List<SelectListItem> {
+                       new SelectListItem { Value = "", Text="--" },
+                       new SelectListItem { Value = "0", Text="Single nam" },
+                       new SelectListItem { Value = "1", Text="Single nữ" },
+                       new SelectListItem { Value = "2", Text="Couple" },
+                       new SelectListItem { Value = "3", Text="Group" },
+                       }, new { @class = "select_status" })
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left">
+                    <label for="fname">Năm sinh</label><br>
+                    @*@Html.EditorFor(model => model.BirthdayString, new { htmlAttributes = new { } })*@
+                    <div class="datepicker">
+                        @Html.EditorFor(model => model.BirthdayString, new { htmlAttributes = new { @class = "search__input form_datetime" } })
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_select left_right">
+                    <input type="hidden" class="hidden-sale-to" value="@Model.SaleTO" />
+                    <label for="fname">Capital Leader T.O (người chốt hộ)</label><br>
+                    @Html.DropDownListFor(model => model.SaleTO, new List<SelectListItem> {
+                       new SelectListItem { Value = "", Text="--" }
+                       }, new { @class = "select_sale_to" })
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left">
+                    <label for="fname">Bàn</label><br>
+                    @Html.EditorFor(model => model.Table, new { htmlAttributes = new { } })
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_select left_right">
+                    <input type="hidden" class="hidden-sale" value="@Model.Sale" />
+                    <label for="fname">Capital Consultant</label><br>
+                    @Html.DropDownListFor(model => model.Sale, new List<SelectListItem> {
+                       new SelectListItem { Value = "", Text="--" }
+                       }, new { @class = "select_sale" })
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_select left_right">
+                    <input type="hidden" class="hidden-tele" value="@Model.TeleSale" />
+                    <label for="fname">Telesale</label><br>
+                    @Html.DropDownListFor(model => model.TeleSale, new List<SelectListItem> {
+                       new SelectListItem { Value = "", Text="--" }
+                       }, new { @class = "select_tele" })
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left">
+                    <label for="fname">Giá trị hợp đồng</label><br>
+                    @*@Html.EditorFor(model => model.ContractValue, new { htmlAttributes = new { @class = "isNumber" } })*@
+                    <input class="isNumber" name="ContractValue" type="text" value="@(string.Format("{0:#,0}", Model.ContractValue))" />
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left left_right">
+                    <label for="fname">Đặt cọc</label><br>
+                    @*@Html.EditorFor(model => model.Deposit, new { htmlAttributes = new { @class = "isNumber" } })*@
+                    <input class="isNumber" name="Deposit" type="text" value="@(string.Format("{0:#,0}", Model.Deposit))
+                           " />
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="bs-col lg-50-5 md-50-10 sm-100-15 xs-100-10 tn-100-5">
+                <div class="left">
+                    <label for="fname">Quà tặng</label><br>
+                    @Html.EditorFor(model => model.Gift, new { htmlAttributes = new { } })
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="table_add">
+        <div class="go_team">
+            <label class="containerr">
+                <input type="checkbox" id="allow-go-with" onchange="AllowAddGoWith(this)" />
+                <span class="checkmark"></span>
+                Đi theo nhóm
+            </label>
+        </div>
+
+        <div class="wrap_table1">
+            <form id="attached-form">
+                <table class="table table-responsive" id="add_row_table1">
+                    <thead>
+                        <tr>
+                            <th style="min-width: 20px;"></th>
+                            <th style="min-width: 60px;">Stt</th>
+                            <th style="min-width: 140px;">Họ và tên khách</th>
+                            <th style="min-width: 140px;">Số điện thoại</th>
+                            <th style="min-width: 140px;">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Group != null)
+                        {
+                            for (int i = 1; i <= Model.Group.Count; i++)
+                            {
+                                var item = Model.Group[i - 1];
+                                <tr>
+                                    <td></td>
+                                    <td class="stt">@i</td>
+                                    <td>
+                                        <div class="radiotext">
+                                            @*<input type="hidden" name="CodeInvestor" value="@item.CodeInvestor" />*@
+                                            <input type="text" value="@item.Name" name="Name" placeholder="Nhập tên khách" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <input type="text" value="@item.PhoneNumber" name="PhoneNumber" placeholder="Nhập số điện thoại" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radiotext">
+                                            <label for='regular'>
+                                                <div class="div_noti deletes_div">
+                                                    <img class="deletes" onclick="DeleteGoWithPerson(this)" src="/Assets/SA/images/list_check_io/Group 2245.svg" alt="" />
+                                                    <div class="notifi deletes_noti" style="color: #FF5959;">
+                                                        Xóa
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div class="button_add_row">
+        <button class="button_lit button1 add_new add_row add_row1" id="add-new-person" onclick="$(this).unbind('click');AddGoWithPerson(this)" type="button">
+            <img src="/Assets/SA/images/list_data_image/control_point_24px.svg" alt="" />
+            <p>Thêm mới</p>
+        </button>
+    </div>
+
+    <div class="note">
+        <label>Ghi chú</label>
+        @Html.TextAreaFor(model => model.Note, new { rows = "4", cols = "50" })
+    </div>
+</div>
+<div class="footer-modal">
+    <button modal-show="close" class="close__btn red__btn cancel" type="button">Hủy bỏ</button>
+    <button class="close__btn red__btn agree" type="button" id="edit-checkin" >Cập nhật</button>
+</div>

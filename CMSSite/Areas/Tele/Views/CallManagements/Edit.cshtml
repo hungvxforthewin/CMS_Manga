@@ -1,0 +1,150 @@
+﻿@using CRMBussiness.ViewModel
+@model InvestorsCareHistoryViewModel
+
+<div class="header-modal">
+    <h3 class="modal__title">chỉnh sửa data</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/layout/close-modal.svg" />
+    </span>
+</div>
+
+<div class="body-modal">
+    <div class="body-container">
+        <form id="edit-call-sale">
+            <input type="text" hidden name="Id" value="@Model.Id" />
+            <div class="bs-row">
+                <div class="bs-col md-50">
+                    <div class="modal-item input-group">
+                        <label>Họ và tên khách hàng <span class="required">*</span></label>
+                        <input type="text" value="@Model.NameInvestor" name="NameInvestor" />
+                        @Html.AntiForgeryToken()
+                    </div>
+                </div>
+
+                <div class="bs-col md-50">
+                    <div class="modal-item input-group">
+                        <label>Số điện thoại <span class="required">*</span></label>
+                        <input type="text" value="@Model.PhoneInvestor" name="PhoneInvestor" />
+                    </div>
+                </div>
+
+                <div class="bs-col md-50">
+                    <div class="modal-item input-group">
+                        <label>Sản phẩm <span class="required">*</span></label>
+                        <input type="text" hidden class="hidden-productCode" value="@Model.ProductCode" />
+                        <select class="select2 select-product" name="ProductCode">
+                            <option value="">--</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bs-col md-50">
+                    <div class="modal-item input-group">
+                        <label>Show up <span class="required">*</span></label>
+                        <input type="text" hidden class="hidden-eventCode" value="@Model.EventCode" />
+                        <select class="select2 select-event" name="EventCode">
+                            <option value="">--</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="bs-col md-50">
+                    <div class="modal-item input-group">
+                        <label>Mức độ quan tâm <span class="required">*</span></label>
+                        <input type="text" hidden class="hidden-levelConcernCode" value="@Model.LevelConcernCode" />
+                        <select class="select2 select-level" name="LevelConcernCode">
+                            <option value="">--</option>
+
+                        </select>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="bs-col md-50">
+                    <div class="modal-item input-group">
+                        <label>Trạng thái data <span class="required">*</span></label>
+                        <input type="text" hidden class="hidden-statusCode" value="@Model.StatusCode" />
+                        <select class="select2 select-status" name="StatusCode">
+                            <option value="">--</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="body-detail">
+    <div class="data-table">
+        <table class="white-table" style="min-width: 700px">
+            <thead>
+                <tr>
+                    <th>Lần gọi</th>
+                    <th>Ngày gọi</th>
+                    <th>Thời gian</th>
+                    <th>Mức độ</th>
+                    <th>Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody id="table-detail">
+                @if (Model.detailCallCareHistories.Count > 0)
+                {
+                    int stt = 1;
+                    foreach (var item in Model.detailCallCareHistories)
+                    {
+                        <tr>
+                            <td>
+                                <input name="billCall" class="text-show" placeholder="Lần @stt" />
+                            </td>
+                            <td>
+                                <input class="autofill_today" value="@item.DateCallString" name="DateCallString" />
+                            </td>
+                            <td>
+                                <input type="text" value="@item.SupportTime" name="SupportTime" />
+                            </td>
+                            <td>
+                                <input hidden class="hidden-statusFollowCode" value="@item.StatusFollow" />
+                                <select class="select2 select-level-detail" name="StatusFollow">
+                                    <option value="">--</option>
+
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="note" name="Note" value="@item.Note" />
+                                <img src="/Assets/SA/images/layout/delete.svg"
+                                     alt="delete"
+                                     width="16"
+                                     height="16"
+                                     class="delete-button btn-del-remove-sale-detail" />
+                            </td>
+                            @{stt = stt + 1;
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="add-button">
+        <img src="/Assets/SA/images/layout/add-button-purple.svg"
+             alt="add"
+             width="32"
+             height="32"
+             id="btn-add-sale-detail" />
+    </div>
+</div>
+
+<div class="footer-modal">
+    <button modal-show="close"
+            class="close__btn close__btn_fix btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+    <button modal-show="close"
+            class="btn-green"
+            type="button"
+            id="btn-update-call-sale">
+        Cập nhật
+    </button>
+</div>

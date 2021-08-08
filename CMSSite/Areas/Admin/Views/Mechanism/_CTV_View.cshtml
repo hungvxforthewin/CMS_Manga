@@ -1,0 +1,48 @@
+﻿@model CRMBussiness.ViewModel.MechanismForSale
+<!-- ctv -->
+<div class="sale" id="sale">
+    <h4 class="tab-title">Cộng tác viên</h4>
+    <!-- table -->
+    <div class="table" style="overflow-x: auto">
+        <form class="remunerations">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Mức hoa hồng</th>
+                    <th>Cổ phần</th>
+                    <th>Lương cứng</th>
+                    <th>Doanh số cá nhân</th>
+                    <th></th>
+                </tr>
+
+                @if (Model != null && Model.SaleMechanism != null && Model.SaleMechanism.Remunerations != null)
+                {
+                    int j = 1;
+                    foreach (var item in Model.SaleMechanism.Remunerations)
+                    {
+                        <tr class="value">
+                            <td class="label-level">Level @j</td>
+                            <td>
+                                <input type="number" class="isPercent" name="PercentRemuneration" value="@item.PercentRemuneration" min="0" />
+                            </td>
+                            <td>
+                                <input type="number" class="isPercent" name="CalculatingSharePercent" value="@item.CalculatingSharePercent" min="0" />
+                            </td>
+                            <td>
+                                <input type="text" class="isNumber" name="Salary" value="0" />
+                            </td>
+                            <td class="resize">
+                                <input type="text" class="revenue-range" name="RevenueRange" value="@String.Format("{0:#,0}", item.RevenueRange)" />
+                            </td>
+                            <td style="display: none;">
+                                @*<img onclick="RemoveSalaryForSale(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                     alt="" />*@
+                            </td>
+                        </tr>
+                        j++;
+                    }
+                }
+            </table>
+        </form>
+    </div>
+</div>

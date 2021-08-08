@@ -1,0 +1,160 @@
+﻿<section class="section_admin_total-sale">
+    <div class="module-title">
+        <div class="title-wrapper">
+            <!-- left -->
+            <div class="title_left">
+                <div class="image">
+                    <img src="/Assets/crm/images/admin_total-sale/admin_total-sale.png"
+                         alt="" />
+                </div>
+                <div class="detail">
+                    <h4 style=""><b id="total-revenue">0</b> Tỷ</h4>
+                    <div class="divider"></div>
+                    <span>Tổng doanh số</span>
+                </div>
+            </div>
+            <!-- right -->
+            <div class="title_right">
+                <div class="detail">
+                    <h4 id="total-remuneration">0</h4>
+                    <div class="divider"></div>
+                    <span>Tổng hoa hồng</span>
+                </div>
+                <div class="image">
+                    <img src="/Assets/crm/images/admin_total-sale/admin_total-sale-2.png"
+                         alt="" />
+                    <span>%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module-content">
+        <!-- search -->
+        <div class="search">
+            <div class="search-item input-group">
+                <label for="">Chi nhánh</label>
+                <select class="select2 branch-select">
+                    <option>--</option>
+                </select>
+            </div>
+            <div class="search-item input-group">
+                <label for="">Thời gian</label>
+                <div class="date-select">
+                    <input id="selected-month" type="text" class="search__input only-month" />
+                    <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                </div>
+            </div>
+            <button class="btn-green" id="search-statistic">Tìm kiếm</button>
+        </div>
+        <!-- handle -->
+        @*<div class="handle">
+            <button class="export handle-button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/export.svg" alt="" />
+                </div>
+                Xuất file Excel
+            </button>
+        </div>*@
+        <!-- table -->
+        <div class="data-table tr-bordered tr_left-border">
+            <table>
+                <tbody id="table-body">
+                    <tr>
+                        <th>ID</th>
+                        <th>Chi nhánh</th>
+                        <th>Doanh số chi nhánh</th>
+                        <th>Hoa hồng chi nhánh</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+@section Scripts{ 
+    <script>
+        let baseUrl = '/Admin/BranchStatistics/';
+        let selectUrl = '/SelectionData/';
+
+        $(function () {
+            LoadBranchesToForm('.branch-select');
+            $('.loading-wrapper').show();
+            GetData();
+
+            $('#search-statistic').on('click', function () {
+                $('.loading-wrapper').show();
+                let branch = $('.branch-select').val();
+                let month = $('#selected-month').val();
+                let selectedMonth;
+                if (month) {
+                    selectedMonth = month.split("-").reverse().join('/');
+                }
+                GetData(selectedMonth, branch);
+            });
+        });
+
+        var GetData = function (month = null, branch = null) {
+            $.get(baseUrl + 'GetList', { month: month, branch: branch }, function (res) {
+                //console.log(res);
+                $('#table-body').html(`
+                        <tr>
+                            <th>ID</th>
+                            <th>Chi nhánh</th>
+                            <th>Doanh số chi nhánh</th>
+                            <th>Hoa hồng chi nhánh</th>
+                        </tr>
+                    `);
+                if (res.result == 200) {
+                    $.each(res.data.listData, function (index, item) {
+                        $('#table-body').append(
+                            `
+                                <tr>
+                                    <td>
+                                        <a href="/Admin/OfficeStatistics/Index?branch=${item.branchCode}">
+                                            ${item.branchCode}
+                                        </a>
+                                    </td>
+                                    <td>${item.branchName}</td>
+                                    <td>${commaSeparateNumber(item.branchRevenue)}</td>
+                                    <td>${commaSeparateNumber(item.branchRemuneration)}</td>
+                                </tr>
+                            `
+                        )
+                    });
+
+                    if (!branch) {
+                        $('#total-revenue').text(res.data.totalRevenue / 1000000000);
+                        $('#total-remuneration').text(commaSeparateNumber(res.data.totalRemuneration));
+                    }
+                    $('.loading-wrapper').hide();
+                }
+                else {
+                    toastr.error(res.errors);
+                    $('.loading-wrapper').hide();
+                }
+            });
+        }
+
+        var LoadBranchesToForm = function (target, selected = null) {
+            $.get(selectUrl + "GetAllBranches?", function (res) {
+                if (res.result == 400) {
+                    var el = $(target);
+                    el.html('');
+                    el.append(`<option value="">--</option>`);
+                }
+                else {
+                    var el = $(target);
+                    el.html('');
+                    el.append(`<option value="">Chọn chi nhánh</option>`);
+                    $.each(res.data, function (index, item) {
+                        //console.log(item);
+                        el.append(`<option value="${item.branchCode}">${item.branchName}</option>`);
+                    });
+                    if (selected) {
+                        $(el).val(selected);
+                    }
+                }
+            });
+        }
+    </script>
+}

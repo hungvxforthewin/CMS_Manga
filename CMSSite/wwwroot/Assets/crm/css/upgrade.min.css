@@ -1,0 +1,8 @@
+.main-left .menu .menu-list .menu-list__item .dropdown-list .dropdown-list__item .dot.active {
+    background: #17ca89;
+}
+
+    .main-left .menu .menu-list .menu-list__item .dropdown-list .dropdown-list__item .dot.active::after {
+        -webkit-transform: translate(-50%,-50%) scale(1);
+        transform: translate(-50%,-50%) scale(1);
+    }

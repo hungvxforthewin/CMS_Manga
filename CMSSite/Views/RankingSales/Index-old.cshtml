@@ -1,0 +1,99 @@
+﻿@{
+    Layout = null;
+}
+@using CRMBussiness.ViewModel
+@model RankingSaleViewModel
+<p>RANKING SALES</p>
+<p style="color: red">Xếp hạng ngày @DateTime.Now.ToString("dd-MM-yyyy")</p>
+<div class="container">
+    <h2>SALE</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Ảnh đại diện</th>
+                <th>Phòng</th>
+                <th>Doanh số</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.LstSaleTop10ByDay.Count > 0)
+            {
+                foreach (var item in Model.LstSaleTop10ByDay)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td><img width="134" height="134" src="~/Uploads/Files/@( string.IsNullOrEmpty(item.Avatar) ? "no_photo_avatar.png" : item.Avatar)" /></td>
+                        <td>@item.DepartmentName</td>
+                        <td>@String.Format("{0:#,0}", item.RevenueSale)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<p style="color: green">Xếp hạng tuần @Model.Week, tháng @Model.Month, năm 2021</p>
+<div class="container">
+    <h2>SALE</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Ảnh đại diện</th>
+                <th>Phòng</th>
+                <th>Doanh số</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.LstSaleTop10ByWeek.Count > 0)
+            {
+                foreach (var item in Model.LstSaleTop10ByWeek)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td><img width="134" height="134" src="~/Uploads/Files/@(string.IsNullOrEmpty(item.Avatar) ? "no_photo_avatar.png" : item.Avatar)" /></td>
+                        <td>@item.DepartmentName</td>
+                        <td>@String.Format("{0:#,0}", item.RevenueSale)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<p style="color: orangered">Xếp hạng tháng @Model.Month, năm 2021</p>
+<div class="container">
+    <h2>SALE</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Ảnh đại diện</th>
+                <th>Phòng</th>
+                <th>Doanh số</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.LstSaleTop10ByMonth.Count > 0)
+            {
+                foreach (var item in Model.LstSaleTop10ByMonth)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td><img width="134" height="134" src="~/Uploads/Files/@(string.IsNullOrEmpty(item.Avatar) ? "no_photo_avatar.png" : item.Avatar)" /></td>
+                        <td>@item.DepartmentName</td>
+                        <td>@String.Format("{0:#,0}", item.RevenueSale)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

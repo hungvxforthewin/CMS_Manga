@@ -1,0 +1,511 @@
+﻿@model CRMBussiness.ViewModel.ContractInvesterViewModel
+
+
+<div class="header-modal">
+    <h3 class="modal__title">Chỉnh sửa</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/layout/close-modal.svg" />
+    </span>
+</div>
+
+<div class="body-modal">
+    <!-- steps -->
+    <div class="module-steps edit-contract_steps">
+        <!-- step 1 -->
+        <div class="edit-contract_step-1 step active">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/first-step.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step1.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin khách hàng</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 2 -->
+        <div class="edit-contract_step-2 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step2.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step2-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin đặt cọc</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 3 -->
+        <div class="edit-contract_step-3 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step3.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step3-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin hợp đồng</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 4 -->
+        <div class="edit-contract_step-4 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step4.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step4-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin thanh toán</div>
+                </div>
+            </div>
+        </div>
+        <!-- step 5 -->
+        <div class="edit-contract_step-5 step">
+            <div class="step-border">
+                <img src="/Assets/SA/images/list-customer-lookingup/step.svg"
+                     alt="" />
+                <img src="/Assets/SA/images/list-customer-lookingup/step-active.svg"
+                     alt="" />
+            </div>
+            <div class="step-content">
+                <div class="content-wrapper">
+                    <div class="icon-wrapper">
+                        <div class="icon">
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step5.svg"
+                                 alt="" />
+                            <img src="/Assets/SA/images/list-customer-lookingup/contract-step5-active.svg"
+                                 alt="" />
+                        </div>
+                    </div>
+                    <div class="content">Thông tin người thực hiện</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="edit-contract-investor">
+        <!-- step detail -->
+        <div class="module-info add-contract-info"
+             id="edit-contract_step-1">
+            <div class="module-title">
+                <h4>Thông tin khách hàng</h4>
+            </div>
+            <div class="module-content">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số điện thoại</label>
+                            <input type="text" value="@Model.Phone" name="phone" data-required="true" id="checkPhoneEdit" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Tên khách hàng</label>
+                            <input type="text" name="name" data-required="true" value="@Model.Name" />
+                            @Html.AntiForgeryToken()
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Email tài khoản</label>
+                            <input type="text" value="@Model.Email" name="email" />
+                            <input type="text" hidden name="idInvestor" value="@Model.IdInvestor" id="idInvestor" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngày sinh</label>
+                            <input type="text" class="search__input form_datetime" value="@Model.Birthday" name="birthday" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số CMND</label>
+                            <div class="input_select">
+                                <select class="select2 id-type" name="IsCMT">
+                                    @if (Model.IsCMT.ToLower() == "True".ToLower())
+                                    {
+                                        <option data-id="0" selected="selected" value="0">CMND</option>
+                                        <option data-id="1" value="1">CCCD</option>
+                                    }
+                                    else
+                                    {
+                                        <option data-id="0" value="0">CMND</option>
+                                        <option data-id="1" selected="selected" value="1">CCCD</option>
+                                    }
+
+                                </select>
+                                <input type="text" value="@Model.IdCard" name="idCard" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    @*<div class="bs-col sm-50">
+        <div class="content-item input-group">
+        <label for="">Số CMND</label>
+        <input type="text" value="@Model.IdCard" name="idCard" />
+        </div>
+        </div>*@
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngày cấp</label>
+                            <input type="text" class="search__input form_datetime" value="@Model.DateOfIssuance" name="dateOfIssuance" />
+                        </div>
+                    </div>
+                    <!-- item ID Address -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group id-address">
+                            <label for="">Nơi cấp</label>
+                            <input type="text" value="@Model.AddressIssuance" name="addressIssuance" data-id="0" class="address-select active" />
+                            <div class="address-select" data-id="1">
+                                <select class="select2" name="AddressIssuanceCC">
+                                    @if (Model.IsCMT.ToLower() == "False".ToLower() && Model.AddressIssuance == "0")
+                                    {
+                                        <option value="0" selected="selected">Cục cảnh sát đăng ký quản lý cư trú và dữ liệu quốc gia về dân cư </option>
+                                        <option value="1">Cục Cảnh sát quản lý hành chính về trật tự xã hội</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="0">Cục cảnh sát đăng ký quản lý cư trú và dữ liệu quốc gia về dân cư </option>
+                                        <option value="1" selected="selected">Cục Cảnh sát quản lý hành chính về trật tự xã hội</option>
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    @*<div class="bs-col sm-50">
+        <div class="content-item input-group">
+        <label for="">Nơi cấp</label>
+        <input type="text" value="@Model.AddressIssuance" name="addressIssuance" />
+        </div>
+        </div>*@
+
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Email</label>
+                            <input type="text" value="@Model.EmailAccount" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Mã số thuế cá nhân</label>
+                            <input type="text" value="@Model.PersonalTaxCode" name="personalTaxCode" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số tài khoản</label>
+                            <input type="text" value="@Model.AccountBank" name="accountBank" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Tại ngân hàng</label>
+                            <input type="text" value="@Model.Bank" name="bank" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Địa chỉ</label>
+                            <input type="text" value="@Model.Address" name="address" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Mã số thuế qũy Amber</label>
+                            <input type="number" value="@Model.TaxCodeIntermediaries" name="taxCodeIntermediaries" id="taxCodeIntermediariesEdit" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số điện thoại quỹ Amber</label>
+                            <input type="number" value="@Model.PhoneIntermediaries" name="phoneIntermediaries" id="phoneIntermediariesEdit" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Mã quỹ Amber</label>
+                            <input type="text" value="@Model.CodeIntermediaries" name="codeIntermediaries" />
+                            <input type="text" hidden value="@Model.IdIntermediaries" name="idIntermediaries" id="idIntermediaries" />
+
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Tên Qũy Amber</label>
+                            <input type="text" value="@Model.NameIntermediaries" name="nameIntermediaries" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Địa chỉ quỹ Amber</label>
+                            <input type="text" value="@Model.AddressIntermediaries" name="addressIntermediaries" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- step detail -->
+        <div class="module-info add-contract-info hide"
+             id="edit-contract_step-2">
+            <div class="module-title">
+                <h4>Thông tin đặt cọc</h4>
+            </div>
+            <div class="module-content">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số phiếu đặt cọc</label>
+                            <input type="text" readonly value="@Model.CodeDeposit" name="codeDeposit" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Số tiền đặt cọc</label>
+                            <input type="text" readonly value="@String.Format("{0:#,0}", Model.DepositAmount)" name="depositAmount" class="isNumberF" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngày đặt cọc</label>
+                            <input type="text" class="search__input form_datetime" value="@Model.DepositDate" name="depositDate" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Hình thức đặt cọc</label>
+                            <select class="select2" name="depositForm" data-ignore-reset="true">
+                                @if (Model.DepositForm == 0)
+                                {
+                                    <option value="0" selected>Chuyển khoản</option>
+                                    <option value="1">Tiền mặt</option>
+                                }
+                                else
+                                {
+                                    <option value="0">Chuyển khoản</option>
+                                    <option value="1" selected>Tiền mặt</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- step detail -->
+        <div class="module-info add-contract-info hide"
+             id="edit-contract_step-3">
+            <div class="module-title">
+                <h4>Thông tin hợp đồng</h4>
+            </div>
+            <div class="module-content">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Giá trị hợp đồng</label>
+                            <input type="text" value="@String.Format("{0:#,0}", Model.InvestmentAmount)" name="investmentAmount" data-required="true" class="isNumberF" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngày vào hợp đồng</label>
+                            <input type="text" class="search__input form_datetime" value="@Model.CreateDate" name="createDate" data-required="true" />
+                        </div>
+                    </div>                   
+                    <!-- item -->
+                    @*<div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Mã hợp đồng quản lý danh mục đầu tư</label>
+                            <input type="text" placeholder="HÐQLDM/AFM/C3" value="@Model.CodeManagementCatalog" name="codeManagementCatalog" data-required="true" />
+                        </div>
+                    </div>*@
+                    <!-- item -->
+                    @*<div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Mã hợp đồng thỏa thuận bổ sung</label>
+                            <input type="text" placeholder="FSFG/SFI" value="@Model.CodeSupplementAgreement" name="codeSupplementAgreement" data-required="true" />
+                        </div>
+                    </div>*@
+                    <!-- item -->
+                    @*<div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Mã hợp đồng chuyển nhượng</label>
+                            <input type="text" placeholder="FSFG/SFI" value="@Model.CodeTransferAgreement" name="codeTransferAgreement" data-required="true" />
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+        <!-- step detail -->
+        <div class="module-info add-contract-info hide"
+             id="edit-contract_step-4">
+            <div class="module-title">
+                <h4>Thông tin thanh toán</h4>
+            </div>
+
+            @{
+                int stt = 2;
+            }
+            @foreach (var item in Model.ListInforBill)
+            {
+                <div class="bs-row">
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label class="txtBill">Thanh toán lần @stt</label>
+                            @{
+                                stt = stt + 1;
+                            }
+                            <input type="text" value="@String.Format("{0:#,0}", item.BillMoney)" data-required="true" name="billMoney" class="isNumberF" />
+                            <input type="text" hidden value="@item.IdBill" name="idBill" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Ngày</label>
+                            <input type="text"
+                               class="search__input form_datetime" value="@item.DateBill" name="dateBill" data-required="true" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                <div class="bs-col">
+                        <div class="content-item input-group">
+                            <label for="">Hình thức</label>
+                            <select class="select2" name="formBill" data-required="true" data-ignore-reset="true">
+                                @if (item.FormBill == 0)
+                                {
+                                    <option value="0" selected>Chuyển khoản</option>
+                                    <option value="1">Tiền mặt</option>
+                                }
+                                else
+                                {
+                                    <option value="0">Chuyển khoản</option>
+                                    <option value="1" selected>Tiền mặt</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="module-content" id="info-bill-edit">
+                <div class="bs-col">
+                    <div class="bs-col sm-10">
+                        <div class="content-item input-group">
+                            <img id="add-bill-edit" src="/Assets/crm/images/mechanism/add.svg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- step detail -->
+        <div class="module-info add-contract-info hide"
+             id="edit-contract_step-5">
+            <div class="module-title">
+                <h4>Thông tin người thực hiện</h4>
+            </div>
+            <div class="module-content">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Sale</label>
+                            <input type="hidden" class="hidden-sale" value="@Model.Sale" />
+                            <select class="select2 select-sale" name="sale" data-required="true">
+                            </select>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Nguời chốt hộ</label>
+                            <input type="hidden" class="hidden-saleRep" value="@Model.SaleRep" />
+                            <select class="select2 select-saleref" name="saleRep" data-required="true">
+                            </select>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col sm-50">
+                        <div class="content-item input-group">
+                            <label for="">Tele</label>
+                            <input type="hidden" class="hidden-telesale" value="@Model.TeleSale" />
+                            <select class="select2 select-telesale" name="teleSale">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="text" hidden value="@Model.Id" name="Id" />
+        <input type="text" hidden value="@Model.DepositId" name="depositId" />
+        @*<input type="text" hidden value="@Model.IdIntermediaries" name="IdIntermediaries" />*@
+    </form>
+    <div class="group-button edit-contract_buttons" data-id="1">
+        <button class="btn-gray prev hide">Quay lại</button>
+        <button class="btn-gray">Hủy bỏ</button>
+        <button class="btn-green next-update">
+            Tiếp tục
+        </button>
+    </div>
+</div>

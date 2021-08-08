@@ -1,0 +1,1067 @@
+﻿@model CRMSite.Models.Pagination<CRMBussiness.ViewModel.DisplayPersonalTableViewModel>
+@section Styles{
+    <style>
+        #main .main-content .tr_left-border table tr:hover td {
+            color: #5f6fff;
+        }
+    </style>
+}
+
+<section class="section_employee-manage">
+    <div class="module module-title">
+        <img src="/Assets/crm/images/layout/left-arrow.svg" alt="" />
+        <h2>Quản lý nhân sự</h2>
+    </div>
+    <div class="module module-content">
+        <div class="search search-box">
+            <form id="search-form">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-50">
+                        <div class="search-item">
+                            <label for="">Chức vụ</label>
+                            <select class="empleyee-manage_select select-position" name="Position">
+                                <option value="">--Chức vụ--</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Kế toán</option>
+                                <option value="3">Hr</option>
+                                <option value="4">Sale trong công ty</option>
+                                <option value="5">Leader Sale</option>
+                                <option value="6">Sale Manager</option>
+                                <option value="7">Sale Admin</option>
+                                <option value="8">Tele Sale</option>
+                                <option value="9">Leader Tele</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-50">
+                        <div class="search-item">
+                            <label for="">Chi nhánh</label>
+                            <select class="empleyee-manage_select select-branch" id="select-branch" name="Branch">
+                                <option value="">--Chi nhánh--</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-50">
+                        <div class="search-item">
+                            <label for="">Phòng ban</label>
+                            <select class="empleyee-manage_select select-dept" name="Department">
+                                <option value="">--Phòng--</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-50">
+                        <div class="search-item">
+                            <label for="">Nhóm</label>
+                            <select class="empleyee-manage_select select-team" name="Team">
+                                <option value="">--Nhóm--</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-50">
+                        <div class="search-item">
+                            <label for="">Trạng thái</label>
+                            <select class="empleyee-manage_select select-status" name="Status">
+                                <option value="">--Trạng thái--</option>
+                                <option value="1">Đang làm việc</option>
+                                <option value="0">Nghỉ việc</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-50">
+                        <div class="search-item">
+                            <label for="">Từ khóa</label>
+                            <input type="text" placeholder="Tên nhân sự, ID" name="Key" />
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-50">
+                        <div class="search-item search-button">
+                            <button type="button" class="btn-green" id="search-personal">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="handle">
+            <button class="add handle-button"
+                    type="button"
+                    modal-show="show"
+                    modal-data="#add-employee_modal">
+                <img src="/Assets/crm/images/employee-manage/add.svg" alt="" /> Thêm mới
+            </button>
+            <button class="edit handle-button"
+                    id="Edit-Employ"
+                    type="button"
+                    @*modal-show="show"
+                    modal-data="#edit-employee_modal"*@>
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/edit.svg" alt="" />
+                </div>
+                Chỉnh sửa
+            </button>
+            <button class="delete handle-button"
+                    id="Del-Employ"
+                    type="button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="" />
+                </div>
+                Xóa
+            </button>
+            <button class="delete-all handle-button"
+                    id="Del-All-Employ"
+                    type="button"
+                    modal-show="show"
+                    modal-data="#delete_all-employee_modal">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="" />
+                </div>
+                Xóa tất cả
+            </button>
+            <button class="export handle-button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/export.svg" alt="" />
+                </div>
+                Xuất file Excel
+            </button>
+        </div>
+        @* Table *@
+        <div class="data-table tr-bordered">
+            <table>
+                <tbody id="table-body">
+                    <tr>
+                        <th>
+                            <div class="custom-checkbox check_all">
+                                <input type="checkbox" />
+                                <span class="checkmark"></span>
+                            </div>
+                        </th>
+                        <th>ID</th>
+                        <th>Tên tài khoản</th>
+                        <th>Họ và tên</th>
+                        <th>Số điện thoại</th>
+                        <th>Chức vụ</th>
+                        <th>Team</th>
+                        <th>Phòng</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+        </div>
+        <!-- add modal -->
+        <div class="bs-modal" id="add-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title">thêm mới thông tin nhân sự</h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <form id="form-model-add">
+                        <div class="body-modal add-employee_body-modal">
+                            <input hidden name="Id" />
+                            <!-- row 1 -->
+                            <div class="bs-row">
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Họ và tên</label>
+                                        <input placeholder="Nhập họ và tên" name="FullName" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Giới tính</label>
+                                        <select class="select2" name="Gender">
+                                            <option value="1">Nam</option>
+                                            <option value="0">Nữ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Ngày sinh</label>
+                                        <div class="date-select">
+                                            <input type="text"
+                                                   class="search__input form_datetime" name="Birthday" />
+                                            <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Nơi sinh</label>
+                                        <input placeholder="Nhập nơi sinh" name="BirthPlace" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Quốc gia</label>
+                                        <input placeholder="Nhập quốc gia" name="Nationality" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Tôn giáo</label>
+                                        <input placeholder="Nhập tôn giáo" name="Religion" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row 2 -->
+                            <div class="bs-row">
+                                <div class="bs-col">
+                                    <div class="modal-item">
+                                        <label for="">Địa chỉ hiện tại</label>
+                                        <input placeholder="Nhập địa chỉ" name="CurrentAddress" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row 3 -->
+                            <div class="bs-row">
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Số CMND/CCCD</label>
+                                        <input placeholder="Nhập CMND/CCCD" name="IdCard" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Ngày cấp CMND/CCCD</label>
+                                        <div class="date-select">
+                                            <input type="text"
+                                                   class="search__input form_datetime" name="IdCardIssuedDate" />
+                                            <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Nơi cấp CMND/CCCD </label>
+                                        <input placeholder="Nhập nơi cấp" name="IdCardIssuedPlace" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Số điện thoại</label>
+                                        <input placeholder="Nhập SĐT" name="Phone" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Email công ty</label>
+                                        <input placeholder="Nhập email" name="Email" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Tài khoản</label>
+                                        <input placeholder="Nhập tài khoản" name="UserName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row 4 -->
+                            <div class="bs-row">
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Mật khẩu</label>
+                                        <input type="password" placeholder="Nhập mật khẩu" name="Pass" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Ngày bắt đầu thử việc</label>
+                                        <div class="date-select">
+                                            <input type="text"
+                                                   class="search__input form_datetime" name="StartDateOfProbation" />
+                                            <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Ngày bắt đầu chính thức</label>
+                                        <div class="date-select">
+                                            <input type="text"
+                                                   class="search__input form_datetime" name="StartDateOffical" />
+                                            <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Ngày nghỉ việc</label>
+                                        <div class="date-select">
+                                            <input type="text"
+                                                   class="search__input form_datetime" name="EndDate" />
+                                            <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Chi nhánh</label>
+                                        <select class="select2 select-branch" name="BranchCode">
+                                            <option value="">--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Phòng</label>
+                                        <select class="select2 select-dept" name="DepartmentCode">
+                                            <option value="">--</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- row 5 -->
+                            <div class="bs-row">
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Nhóm</label>
+                                        <select class="select2 select-team" name="TeamCode">
+                                            <option value="">--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                @*<div class="bs-col md-33">
+                                        <div class="modal-item">
+                                            <label>Lương cơ bản</label>
+                                            <input placeholder="Nhập từ khóa" />
+                                        </div>
+                                    </div>*@
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Chức vụ</label>
+                                        <select class="select2" name="PositionCode">
+                                            <option value="">--</option>
+                                            <option value="1">Admin</option>
+                                            <option value="2">Kế toán</option>
+                                            <option value="3">Hr</option>
+                                            <option value="4">Sale trong công ty</option>
+                                            <option value="5">Leader Sale</option>
+                                            <option value="6">Sale Manager</option>
+                                            <option value="7">Sale Admin</option>
+                                            <option value="8">Tele Sale</option>
+                                            <option value="9">Leader Tele</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                @*<div class="bs-col md-33">
+                                        <div class="modal-item">
+                                            <label>Mức thâm niên</label>
+                                            <select class="select2">
+                                                <option value="">--</option>
+                                                <option value="">Mức 1</option>
+                                                <option value="">Mức 2</option>
+                                            </select>
+                                        </div>
+                                    </div>*@
+                                <!-- modal item -->
+                                @*<div class="bs-col md-33">
+                                        <div class="modal-item">
+                                            <label>Lương theo năng lực</label>
+                                            <input placeholder="Nhập từ khóa" />
+                                        </div>
+                                    </div>*@
+                                <!-- modal item -->
+                                @*<div class="bs-col md-33">
+                                        <div class="modal-item">
+                                            <label>Thuế TNCN</label>
+                                            <input placeholder="Nhập từ khóa" />
+                                        </div>
+                                    </div>*@
+                            </div>
+                            <!-- row 6 -->
+                            <!--<div class="bs-row">-->
+                            <!-- modal item -->
+                            <!--<div class="bs-col md-33">
+                                        <div class="modal-item">
+                                            <label>Trạng thái</label>
+                                            <select class="select2">
+                                                <option value="">--</option>
+                                                <option value="">BHO2</option>
+                                                <option value="">BHO3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>-->
+                        </div>
+
+                    </form>
+                    <div class="footer-modal">
+                        <button class="close__btn btn-green btn-add-person"
+                                type="button">
+                            Thêm mới
+                        </button>
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- edit modal -->
+        <div class="bs-modal" id="edit-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title">Chỉnh sửa thông tin nhân sự</h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <div class="body-modal add-employee_body-modal">
+                        <!-- row 1 -->
+                        <div class="bs-row">
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Họ và tên</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Giới tính</label>
+                                    <select class="select2">
+                                        <option value="">Nam</option>
+                                        <option value="">Nữ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Ngày sinh</label>
+                                    <div class="date-select">
+                                        <input type="text"
+                                               class="search__input form_datetime" />
+                                        <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Nơi sinh</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Quốc gia</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Tôn giáo</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row 2 -->
+                        <div class="bs-row">
+                            <div class="bs-col">
+                                <div class="modal-item">
+                                    <label for="">Địa chỉ hiện tại</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row 3 -->
+                        <div class="bs-row">
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Số CMND/CCCD</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Ngày cấp CMND/CCCD</label>
+                                    <div class="date-select">
+                                        <input type="text"
+                                               class="search__input form_datetime" />
+                                        <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Nơi cấp CMND/CCCD </label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Số điện thoại</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Email công ty</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Tài khoản</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row 4 -->
+                        <div class="bs-row">
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Mật khẩu</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Ngày bắt đầu thử việc</label>
+                                    <div class="date-select">
+                                        <input type="text"
+                                               class="search__input form_datetime" />
+                                        <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Ngày bắt đầu chính thức</label>
+                                    <div class="date-select">
+                                        <input type="text"
+                                               class="search__input form_datetime" />
+                                        <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Ngày nghỉ việc</label>
+                                    <div class="date-select">
+                                        <input type="text"
+                                               class="search__input form_datetime" />
+                                        <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Chi nhánh</label>
+                                    <select class="select2">
+                                        <option value="">--</option>
+                                        <option value="">Chi nhánh 1</option>
+                                        <option value="">Chi nhánh 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Nhóm</label>
+                                    <select class="select2">
+                                        <option value="">--</option>
+                                        <option value="">Nhóm 1</option>
+                                        <option value="">Nhóm 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row 5 -->
+                        <div class="bs-row">
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Phòng</label>
+                                    <select class="select2">
+                                        <option value="">--</option>
+                                        <option value="">Lê Đức Thọ</option>
+                                        <option value="">Phòng nào đó</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Lương cơ bản</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Chức vụ</label>
+                                    <select class="select2">
+                                        <option value="">--</option>
+                                        <option value="">Leader</option>
+                                        <option value="">Dev</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Mức thâm niên</label>
+                                    <select class="select2">
+                                        <option value="">--</option>
+                                        <option value="">Mức 1</option>
+                                        <option value="">Mức 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Lương theo năng lực</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Thuế TNCN</label>
+                                    <input placeholder="Nhập từ khóa" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row 6 -->
+                        <div class="bs-row">
+                            <!-- modal item -->
+                            <div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Trạng thái</label>
+                                    <select class="select2">
+                                        <option value="">--</option>
+                                        <option value="">BHO2</option>
+                                        <option value="">BHO3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-modal">
+                        <button modal-show="close"
+                                class="close__btn btn-green"
+                                type="button">
+                            Thêm mới
+                        </button>
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- detail modal -->
+        <div class="bs-modal" id="detail-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <!--<div class="header-modal">
+                        <h3 class="modal__title">Xem thông tin nhân sự</h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <div class="body-modal add-employee_body-modal">-->
+                    <!-- row 1 -->
+                    <!--<div class="bs-row">-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Họ và tên</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Giới tính</label>
+                            <select disabled class="select2">
+                                <option value="">Nam</option>
+                                <option value="">Nữ</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Ngày sinh</label>
+                            <div class="date-select">
+                                <input type="text"
+                                       class="search__input form_datetime"
+                                       disabled />
+                                <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Nơi sinh</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Quốc gia</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                            <div class="modal-item">
+                                <label>Tôn giáo</label>
+                                <input disabled placeholder="Nhập từ khóa" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- row 2 -->
+                    <!--<div class="bs-row">
+                        <div class="bs-col">
+                            <div class="modal-item">
+                                <label for="">Địa chỉ hiện tại</label>
+                                <input disabled placeholder="Nhập từ khóa" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- row 3 -->
+                    <!--<div class="bs-row">-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Số CMND/CCCD</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Ngày cấp CMND/CCCD</label>
+                            <div class="date-select">
+                                <input disabled
+                                       type="text"
+                                       class="search__input form_datetime" />
+                                <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Nơi cấp CMND/CCCD </label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Số điện thoại</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Email công ty</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                            <div class="modal-item">
+                                <label>Tài khoản</label>
+                                <input disabled placeholder="Nhập từ khóa" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- row 4 -->
+                    <!--<div class="bs-row">-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Mật khẩu</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Ngày bắt đầu thử việc</label>
+                            <div class="date-select">
+                                <input type="text" disabled
+                                       class="search__input form_datetime" />
+                                <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Ngày bắt đầu chính thức</label>
+                            <div class="date-select">
+                                <input type="text" disabled
+                                       class="search__input form_datetime" />
+                                <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Ngày nghỉ việc</label>
+                            <div class="date-select">
+                                <input type="text" disabled
+                                       class="search__input form_datetime" />
+                                <img src="/Assets/crm/images/layout/date.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Chi nhánh</label>
+                            <select disabled class="select2">
+                                <option value="">--</option>
+                                <option value="">Chi nhánh 1</option>
+                                <option value="">Chi nhánh 2</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                            <div class="modal-item">
+                                <label>Nhóm</label>
+                                <select disabled class="select2">
+                                    <option value="">--</option>
+                                    <option value="">Nhóm 1</option>
+                                    <option value="">Nhóm 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- row 5 -->
+                    <!--<div class="bs-row">-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Phòng</label>
+                            <select disabled class="select2">
+                                <option value="">--</option>
+                                <option value="">Lê Đức Thọ</option>
+                                <option value="">Phòng nào đó</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Lương cơ bản</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Chức vụ</label>
+                            <select disabled class="select2">
+                                <option value="">--</option>
+                                <option value="">Leader</option>
+                                <option value="">Dev</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Mức thâm niên</label>
+                            <select disabled class="select2">
+                                <option value="">--</option>
+                                <option value="">Mức 1</option>
+                                <option value="">Mức 2</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                        <div class="modal-item">
+                            <label>Lương theo năng lực</label>
+                            <input disabled placeholder="Nhập từ khóa" />
+                        </div>
+                    </div>-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                            <div class="modal-item">
+                                <label>Thuế TNCN</label>
+                                <input disabled placeholder="Nhập từ khóa" />
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- row 6 -->
+                    <!--<div class="bs-row">-->
+                    <!-- modal item -->
+                    <!--<div class="bs-col md-33">
+                                <div class="modal-item">
+                                    <label>Trạng thái</label>
+                                    <select disabled class="select2">
+                                        <option value="">--</option>
+                                        <option value="">BHO2</option>
+                                        <option value="">BHO3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <!-- delete modal -->
+        <div class="bs-modal delete-modal" id="delete-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title"></h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <div class="body-modal add-employee_body-modal">
+                        <img src="/Assets/crm/images/employee-manage/delete-modal.png"
+                             alt="" />
+                        <p id="txt-del-emp">
+                            Bạn có chắc chắn muốn xóa nhân sự <span>xxxxxxxxxxx</span> không?
+                        </p>
+                    </div>
+                    <div class="footer-modal">
+                        <button id="delete-empl"
+                                class="close__btn btn-green"
+                                type="button">
+                            Đồng ý
+                        </button>
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- delete all modal -->
+        <div class="bs-modal delete-modal" id="delete_all-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title"></h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <div class="body-modal add-employee_body-modal">
+                        <img src="/Assets/crm/images/employee-manage/delete-modal.png"
+                             alt="" />
+                        <p>Bạn có chắc chắn muốn xóa tất cả nhân sự không?</p>
+                    </div>
+                    <div class="footer-modal">
+                        <button modal-show="close"
+                                class="close__btn btn-green"
+                                type="button">
+                            Đồng ý
+                        </button>
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/js/controllers/personal.js"></script>
+}

@@ -1,0 +1,158 @@
+﻿<section class="section_admin_showup-concern-level-manage">
+    <div class="module-title">
+        <img src="/Assets/crm/images/layout/left-arrow.svg" alt="" />
+        <h2>Quản lý danh sách cổ phần</h2>
+    </div>
+
+    <div class="module-content">
+        <div class="search">
+            <div class="search-item input-group">
+                <label>Từ khóa</label>
+                <input placeholder="Nhập họ tên, số điện thoại, mã nhân viên" id="search-key" />
+            </div>
+            <button class="btn-green mb-16" id="search-share">Tìm kiếm</button>
+        </div>
+
+        <div class="data-table tr-bordered" style="margin: 0 50px; overflow: auto;">
+            <table style="min-width: 1500px;">
+                <tbody id="table-body">
+                    <tr>
+                        <th>Mã nhân viên</th>
+                        <th>Họ tên</th>
+                        <th>Vị trí</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Cổ phần</th>
+                        <th>Nhóm</th>
+                        <th>Phòng ban</th>
+                        <th>Chi nhánh</th>
+                    </tr>               
+                </tbody>
+            </table>
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        let baseUrl = '/Admin/ShareList/';
+        let positionList = {
+            4: 'Capital Consultant',
+            5: 'Capital Leader',
+            6: 'Capital Manager',
+            7: 'Admin',
+            8: 'Telesale',
+            9: 'Telesale Leader',
+            10: 'Capital Director',
+            11: 'Collabrator',
+        }
+
+        $(function () {
+            // search
+            $('#search-share').on('click', function () {
+                $('.loading-wrapper').show();
+                SetupPagination();
+            });
+
+            $('.module-content .search input').keypress(function (e) {
+                var key = e.which;
+                if (key == 13)  // the enter key code
+                {
+                    $('#search-share').trigger('click');
+                }
+            });
+
+            // update table data by size page
+            $('#size-page select').on('change', function () {
+                $('.loading-wrapper').show();
+                SetupPagination();
+            });
+            $('.loading-wrapper').show();
+            // first loading
+            SetupPagination();
+        });
+
+        // setup pagination
+        var SetupPagination = function () {
+            //console.log('load');
+            $('#pagination').pagination({
+                ajax: function (options, refresh, $target) {
+                    $.ajax({
+                        url: baseUrl + "GetList",
+                        data: {
+                            page: options.current,
+                            size: $('#size-page select').val(),
+                            key: $('#search-key').val(),
+                        },
+                        method: 'GET',
+                        dataType: 'json'
+                    }).done(function (res) {
+                        //console.log(res);
+                        let div = $('#table-body');
+                        div.html(`
+                    <tr>
+                        <th>Mã nhân viên</th>
+                        <th>Họ tên</th>
+                        <th>Vị trí</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Cổ phần</th>
+                        <th>Nhóm</th>
+                        <th>Phòng ban</th>
+                        <th>Chi nhánh</th>
+                    </tr>
+                `);
+                        if (res.result != 400) {
+                            $.each(res.data, function (index, item) {
+                                div.append(`
+                                    <tr>
+                                        <td>${item.codeStaff}</td>
+                                        <td style="text-align: left;">${item.fullName}</td>
+                                        <td>${positionList[item.role]}</td>
+                                        <td>${item.phone}</td>
+                                        <td style="max-width: 150px; word-break: break-all; text-align: left;">${item.email}</td>
+                                        <td>${item.share ?? 0}</td>
+                                        <td style="max-width: 120px; word-break: break-all; text-align: left;">${item.teamName ?? ''}</td>
+                                        <td style="max-width: 120px; word-break: break-all; text-align: left;">${item.departmentName ?? ''}</td>
+                                        <td>${item.branchName}</td>
+                                    </tr>
+                                `);
+                            });
+                            refresh({
+                                total: res.total, // optional
+                                length: $('#size-page select').val()// optional
+                            });
+
+                            $('#size-page .from').text($('#size-page select').val() * (options.current - 1) + 1);
+                            $('#size-page .to').text($('#size-page select').val() * (options.current - 1) + res.data.length);
+                            $('#size-page .total').text(res.total);
+                        }
+                        else {
+                            toastr.error(res.errors.join('<br />'));
+                            $('#size-page .from').text(0);
+                            $('#size-page .to').text(0);
+                            $('#size-page .total').text(0);
+                        }
+                        $('.loading-wrapper').hide();
+                    }).fail(function (error) {
+                        $('.loading-wrapper').hide();
+                    });
+                }
+            });
+        }
+    </script>
+}

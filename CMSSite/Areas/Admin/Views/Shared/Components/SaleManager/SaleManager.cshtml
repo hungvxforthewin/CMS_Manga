@@ -1,0 +1,233 @@
+﻿@using CRMSite.ViewModels
+@model SaleManagerViewModel
+@{ 
+    decimal remurationLevel0 = 0;
+    string salaryLevel0 = "";
+    string minMaxRevenueSM = "";
+    if (Model.SaleManagerRemunerations.Count > 0)
+    {
+         remurationLevel0 = Model.SaleManagerRemunerations.FirstOrDefault().Percent;
+         salaryLevel0 = string.Format("{0:#,0}", Model.SaleManagerRemunerations.FirstOrDefault().Salary);
+         minMaxRevenueSM = string.Concat(0, "-", string.Format("{0:#,0}", Model.SaleManagerRemunerations.FirstOrDefault().MinMaxRevenueSM.Split('-')[0]));
+    }
+}
+
+<h4 class="tab-title">Sale Manager</h4>
+<div class="table" style="overflow-x: auto">
+    <table>
+        <tr>
+            <th></th>
+            <th>Mức hoa hồng phòng</th>
+            <th>Cổ phần</th>
+            <th>Lương cứng</th>
+            <th>Doanh số phòng</th>
+            <th></th>
+        </tr>
+        <!-- row -->
+        @if (Model != null)
+        {
+            var stt = 0;
+            @*<tr class="">
+                <td><label>Level 0</label></td>
+                <td>
+                    <div>
+                        <input type="text" value="@remurationLevel0" name="" class="" readonly />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="text" value="@salaryLevel0" name="" class="" readonly />
+                    </div>
+                </td>
+                <td class="resize">
+                    <div>
+                        <input type="text" value="@minMaxRevenueSM" name="" class="" readonly />
+                    </div>
+                </td>
+            </tr>*@
+                @*<td>
+                    <img onclick="RemoveSalaryForSaleManager(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                         alt="" />
+                </td>*@
+            foreach (var item in Model.SaleManagerRemunerations)
+            {
+    <tr class="managerSaleAdd">
+        <td><label class="label-level">Level @stt</label></td>
+        <td>
+            <input hidden value="@item.Id" name="Id" />
+            <input hidden value="" name="RemunerationId" />
+            <input hidden value="" name="CodeRemuneration" />
+            <input hidden />
+            <div>
+                <input type="text" value="@item.Percent" name="" class="Remuneration_Admin_Manager" />
+            </div>
+        </td>
+        <td>
+            <div>
+                <input type="text" value="@item.SharePercent" name="" class="SharePercent_Admin_Manager" />
+            </div>
+        </td>
+        <td>
+            <div>
+                <input type="text" value="@string.Format("{0:#,0}",item.Salary)" name="" class="Salary_Admin_Manager" />
+            </div>
+        </td>
+        <td class="resize">
+            <div>
+                <input type="text" value="@item.MinMaxRevenueSM" name="MinMaxGroup" class="isMinMax" />
+            </div>
+        </td>
+        <td>
+            <img onclick="RemoveSalaryForSaleManager(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                 alt="" />
+        </td>
+    </tr>
+                stt = stt + 1;
+            }
+        }
+        <!-- row -->
+        <tr class="row_add" onclick="AddSalaryForSaleManager(this)">
+            <td colspan="5">
+                <div class="add-item">
+                    <img src="/Assets/crm/images/mechanism/add.svg" alt="" />
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="kpi">
+    <div class="kpi_left">
+        <div class="title">
+            <h4>KPI 6 tháng đầu</h4>
+
+            <div class="handle">
+                <form class="condition">
+                    <span>
+                        Nếu đạt KPI nhỏ hơn
+                        <input type="number" class="isPercent" value="@Model.PercentKpiRoot6F" name="PercentKpiRoot6F" />
+                    </span>
+                    <span>
+                        % level 1 thì nhận
+                        <input type="number" class="isPercent" value="@Model.SalaryPercentRoot6F" name="SalaryPercentRoot6F" />
+                    </span>
+                    <span>% lương level 1</span>
+                </form>
+            </div>
+
+            <div class="table" style="overflow-x: auto">
+                <form class="kpi-salary-rules">
+                    <table>
+                        <tr>
+                            <th>% KPI nhỏ nhất</th>
+                            <th>%KPI lớn nhất</th>
+                            <th>% lương</th>
+                        </tr>
+
+                        <!-- row -->
+                        @{
+                            var firstKpiSalaryList = "";
+                        }
+                        @if (Model.SaleManagerKpi6Firsts != null)
+                        {
+                            foreach (var item in Model.SaleManagerKpi6Firsts)
+                            {
+                                <tr class="managerSale6F">
+                                    <td>
+                                        <input type="text" class="isPercentSM" name="PercentKpiMin6F" value="@item.PercentKpiMin6F" placeholder="Min" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="isPercentSM" name="PercentKpiMax6F" value="@item.PercentKpiMax6F" placeholder="Max" />
+                                    </td>
+                                    <td>
+                                        <input type="number" class="isPercentSM" name="SalaryPercentLv16F" value="@item.SalaryPercentLv16F" />
+                                    </td>
+                                    <td>
+                                        <img onclick="RemoveKpiForSaleManager(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                             alt="" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        <!-- row -->
+                        <tr class="row_add">
+                            <td colspan="3">
+                                <div class="add-item" onclick="AddKpiForSaleManager6F(this)">
+                                    <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="kpi_right">
+        <div class="title">
+            <h4>KPI 6 tháng sau</h4>
+
+            <div class="handle">
+                <form class="condition">
+                    <span>
+                        Nếu đạt KPI nhỏ hơn
+                        <input type="number" class="isPercent" value="@Model.PercentKpiRoot6L" name="PercentKpiRoot6L" />
+                    </span>
+                    <span>
+                        % level 1 thì nhận
+                        <input type="number" class="isPercent" value="@Model.SalaryPercentRoot6L" name="SalaryPercentRoot6L" />
+                    </span>
+                    <span>% lương level 1</span>
+                </form>
+            </div>
+
+            <div class="table" style="overflow-x: auto">
+                <form class="kpi-salary-rules">
+                    <table>
+                        <tr>
+                            <th>% KPI nhỏ nhất</th>
+                            <th>%KPI lớn nhất</th>
+                            <th>% lương</th>
+                        </tr>
+
+                        @{
+                            var laterKpiSalaryList = "";
+                        }
+                        @if (Model.SaleManagerKpi6Lasts != null)
+                        {
+                            foreach (var item in Model.SaleManagerKpi6Lasts)
+                            {
+                                <tr class="managerSale6L">
+                                    <td>
+                                        <input type="text" class="isPercentSM" name="PercentKpiMin6L" value="@item.PercentKpiMin6L" placeholder="Min" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="isPercentSM" name="PercentKpiMax6L" value="@item.PercentKpiMax6L" placeholder="Max" />
+                                    </td>
+                                    <td>
+                                        <input type="number" class="isPercentSM" name="SalaryPercentLv16L" value="@item.SalaryPercentLv16L" />
+                                    </td>
+                                    <td>
+                                        <img onclick="RemoveKpiForSaleManager(this)" src="/Assets/crm/images/mechanism/delete.svg"
+                                             alt="" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        <!-- row -->
+                        <tr class="row_add">
+                            <td colspan="3">
+                                <div class="add-item" onclick="AddKpiForSaleManager6L(this)">
+                                    <img src="/Assets/crm/images/mechanism/add.svg" alt="" style="cursor: pointer;" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- buttons -->
+<div class="group-buttons">
+    <button class="btn-gray" onclick="Cancel()">Hủy bỏ</button>
+    <button class="btn-green" id="btnSaleManagerUpdate">Cập nhật</button>
+</div>
