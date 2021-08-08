@@ -231,23 +231,11 @@ namespace CRMSite.Controllers
                 {
                     var account = new Account()
                     {
-                        UserName = item.Email.Split('\n')[0].Split('@')[0],
-                        Pass = "abc123",
-                        CodeStaff = item.EmployeeID,
-                        FullName = item.FullName,
-                        Role = (byte)item.Role,
-                        CompanyCode = "",
-                        Birthday = (item.DateOfBirth != null) ? DateTime.ParseExact(item.DateOfBirth, "dd/MM/yyyy", null) : valueDate,
-                        Email = item.Email.Replace('\n', ','),
-                        Phone = item.Phone,
-                        PositionCode = "",
-                        BranchCode = "Branch1",
-                        ImgUrlAvartar = "",
-                        ImgUrlCover = "",
-                        Status = 1,
-                        BirthPlace = item.PermanentAddress,
-                        TeamCode = item.TeamCode,
-                        DepartmentCode = "nvdn"
+                        AccountName = item.Email.Split('\n')[0].Split('@')[0],
+                        AccountPassword = "abc123",
+                        AccountFullName = item.FullName,
+                        isEnable = true,
+                        CreateDate = DateTime.Now
                     };
                     _accountService.Raw_Insert(account);
                     var contractStaff = new ContractStaff()

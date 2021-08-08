@@ -609,7 +609,7 @@ namespace CRMSite.Areas.Sale.Controllers
                                 LogModel.Action = ActionType.GetInfo;
                                 var getSaleResult = _iAc.GetByCodeStaff(item.SetTargetFor);
 
-                                if (getSaleResult == null || string.IsNullOrEmpty(getSaleResult?.FullName))
+                                if (getSaleResult == null || string.IsNullOrEmpty(getSaleResult?.AccountFullName))
                                 {
                                     //write trace log
                                     LogModel.Data = new { StaffCode = item.SetTargetFor }.ToDataString();

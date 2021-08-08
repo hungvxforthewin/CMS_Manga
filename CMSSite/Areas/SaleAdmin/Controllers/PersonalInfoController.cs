@@ -530,40 +530,14 @@ namespace CRMSite.Areas.SaleAdmin.Controllers
                 {
                     DateTime? valueDate = null;
                     string codeStaff = string.Empty;
-                    try
-                    {
-                        codeStaff = "SFI" + (int.Parse(_accountService.GetAccountLast().CodeStaff.Split('I')[1]) + 1).ToString();
-                    }
-                    catch (Exception ex)
-                    {
-                        //write trace log 
-                        LogModel.Result = ActionResultValue.CreateFailed;
-                        LogModel.Message = "Lỗi tạo mã nhân viên";
-                        Logger.LogError(ex, LogModel.ToString());
-
-                        Errors.Add(new ErrorResult() { Field = "Ex", ErrorMessage = "Có lỗi xảy ra !" });
-                        return Json(new { success = false, lst = Errors });
-                    }
+                  
                     var account = new Account()
                     {
-                        UserName = model.UserName,
-                        Pass = model.Pass != null ? _eCode.EncodeMD5(model.Pass) : _eCode.EncodeMD5("abc123"),
-                        CodeStaff = codeStaff,
-                        FullName = model.FullName,
-                        Role = byte.Parse(model.PositionCode),
-                        CompanyCode = "",
-                        Birthday = DateTime.ParseExact(model.Birthday, SiteConst.Format.DateFormat, null),
-                        Email = model.Email,
-                        Phone = model.Phone,
-                        PositionCode = "",
-                        BranchCode = model.BranchCode,
-                        OfficeCode = model.OfficeCode,
-                        ImgUrlAvartar = model.Avatar,
-                        ImgUrlCover = "",
-                        Status = 1,
-                        BirthPlace = model.BirthPlace,
-                        DepartmentCode = model.DepartmentCode,
-                        TeamCode = model.TeamCode
+                        AccountName = model.UserName,
+                        AccountPassword = model.Pass != null ? _eCode.EncodeMD5(model.Pass) : _eCode.EncodeMD5("abc123"),
+                        AccountFullName = model.FullName,
+                        isEnable = true,
+                        CreateDate = DateTime.Now,
                     };
                     var account_result = new Account();
                     try
@@ -580,42 +554,7 @@ namespace CRMSite.Areas.SaleAdmin.Controllers
                         Errors.Add(new ErrorResult() { Field = "Ex", ErrorMessage = "Tài khoản đã được sử dụng" });
                         return Json(new { success = false, lst = Errors });
                     }
-                    var contractStaff = new ContractStaff()
-                    {
-                        LaborContractCode = Guid.NewGuid().ToString(),
-                        LaborContractName = "Hợp đồng thử việc",
-                        AllowanceCode = "",
-                        Duration = 1,
-                        CreateDate = DateTime.Now,
-                        StartDate = DateTime.ParseExact(model.StartDateOffical, SiteConst.Format.DateFormat, null),
-                        EndDate = (string.IsNullOrEmpty(model.EndDate) != true) ? DateTime.ParseExact(model.EndDate, SiteConst.Format.DateFormat, null) : valueDate,
-                        LaborContractType = "Toan Thoi Gian",
-                        IdCard = model.IdCard,
-                        CodeStaff = account_result.CodeStaff, //NULL
-                        NameStaff = model.FullName,
-                        Status = 1,
-                        Nationality = "Việt Nam",
-                        Religion = "Không",
-                        IdCardIssuedDate = DateTime.ParseExact(model.IdCardIssuedDate, SiteConst.Format.DateFormat, null),
-                        IdCardIssuedPlace = (model.IdCardIssuedPlace != null) ? model.IdCardIssuedPlace : "Hà Nội",
-                        SalaryStartDate = (string.IsNullOrEmpty(model.StartDateOfProbation) != true) ? DateTime.ParseExact(model.StartDateOfProbation, SiteConst.Format.DateFormat, null) : valueDate,
-                        DepartmentCode = model.DepartmentCode,
-                        CurrentAddress = model.CurrentAddress
-                    };
-                    try
-                    {
-                        _contractStaff.Raw_Insert(contractStaff);
-                    }
-                    catch (Exception ex)
-                    {
-                        //write trace log 
-                        LogModel.Result = ActionResultValue.CreateFailed;
-                        LogModel.Message = "Thêm hợp đồng nhân viên không thành công";
-                        Logger.LogError(ex, LogModel.ToString());
-
-                        Errors.Add(new ErrorResult() { Field = "Ex", ErrorMessage = "Có lỗi xảy ra !" });
-                        return Json(new { success = false, lst = Errors });
-                    }
+                    
 
                     //write trace log 
                     LogModel.Result = ActionResultValue.CreateSuccess;
@@ -628,25 +567,10 @@ namespace CRMSite.Areas.SaleAdmin.Controllers
                     //UPDATE ACCOUNT
                     var account = new Account()
                     {
-                        Id = model.Id,
-                        UserName = model.UserName,
-                        Pass = model.Pass != null ? _eCode.EncodeMD5(model.Pass) : _eCode.EncodeMD5("abc123"),
-                        CodeStaff = model.CodeStaff,
-                        FullName = model.FullName,
-                        Role = byte.Parse(model.PositionCode),
-                        CompanyCode = "",
-                        Birthday = DateTime.ParseExact(model.Birthday, SiteConst.Format.DateFormat, null),
-                        Email = model.Email,
-                        Phone = model.Phone,
-                        PositionCode = "",
-                        BranchCode = model.BranchCode,
-                        OfficeCode = model.OfficeCode,
-                        ImgUrlAvartar = string.IsNullOrEmpty(model.Avatar) ? accountOld.ImgUrlAvartar : model.Avatar,
-                        ImgUrlCover = "",
-                        Status = accountOld.Status,
-                        BirthPlace = model.BirthPlace,
-                        DepartmentCode = model.DepartmentCode,
-                        TeamCode = model.TeamCode
+                        AccountID = model.Id,
+                        AccountName = model.UserName,
+                        AccountPassword = model.Pass != null ? _eCode.EncodeMD5(model.Pass) : _eCode.EncodeMD5("abc123"),
+                        AccountFullName = model.FullName,
                     };
                     var account_result = new Account();
                     try
@@ -666,43 +590,7 @@ namespace CRMSite.Areas.SaleAdmin.Controllers
                     DateTime? valueDate = null;
                     var contractStaffOld = _contractStaff.Raw_Get(model.IdConstracStaff);
                     //UPDATE CONTRACT STAFF
-                    var contractStaff = new ContractStaff()
-                    {
-                        Id = model.IdConstracStaff,
-                        LaborContractCode = contractStaffOld.LaborContractCode,
-                        LaborContractName = "Hợp đồng thử việc",
-                        AllowanceCode = "",
-                        Duration = 1,
-                        CreateDate = contractStaffOld.CreateDate ?? DateTime.Now,
-                        StartDate = (string.IsNullOrEmpty(model.StartDateOffical) != true) ? DateTime.ParseExact(model.StartDateOffical, SiteConst.Format.DateFormat, null) : valueDate,
-                        EndDate = (string.IsNullOrEmpty(model.EndDate) != true) ? DateTime.ParseExact(model.EndDate, SiteConst.Format.DateFormat, null) : valueDate,
-                        LaborContractType = "Toan Thoi Gian",
-                        IdCard = model.IdCard,
-                        CodeStaff = account_result.CodeStaff, //NULL
-                        NameStaff = model.FullName,
-                        Status = contractStaffOld.Status,
-                        Nationality = "Việt Nam",
-                        Religion = "Không",
-                        IdCardIssuedDate = (string.IsNullOrEmpty(model.IdCardIssuedDate) != true) ? DateTime.ParseExact(model.IdCardIssuedDate, SiteConst.Format.DateFormat, null) : valueDate,
-                        IdCardIssuedPlace = (model.IdCardIssuedPlace != null) ? model.IdCardIssuedPlace : "Hà Nội",
-                        SalaryStartDate = (string.IsNullOrEmpty(model.StartDateOfProbation) != true) ? DateTime.ParseExact(model.StartDateOfProbation, SiteConst.Format.DateFormat, null) : valueDate,
-                        DepartmentCode = model.DepartmentCode,
-                        CurrentAddress = model.CurrentAddress
-                    };
-                    try
-                    {
-                        _contractStaff.Raw_Update(contractStaff);
-                    }
-                    catch (Exception ex)
-                    {
-                        //write trace log 
-                        LogModel.Result = ActionResultValue.UpdateFailed;
-                        LogModel.Message = "Cập nhật hợp đồng nhân viên không thành công";
-                        Logger.LogError(ex, LogModel.ToString());
-
-                        Errors.Add(new ErrorResult() { Field = "Ex", ErrorMessage = "Có lỗi xảy ra !" });
-                        return Json(new { success = false, lst = Errors });
-                    }
+                   
 
                     //write trace log 
                     LogModel.Result = ActionResultValue.UpdateSuccess;
@@ -737,46 +625,46 @@ namespace CRMSite.Areas.SaleAdmin.Controllers
                 LogModel.Message = "Xóa nhân viên thành công";
                 Logger.LogInformation(LogModel.ToString());
 
-                return Json(new { status = true, name = data.FullName });
+                return Json(new { status = true, name = data.AccountFullName });
             }
         }
 
-        public IActionResult ConfirmDelete(int id)
-        {
-            //trace log
-            LogModel.Action = ActionType.Delete;
-            LogModel.Data = (new { id = id }).ToDataString();
+        //public IActionResult ConfirmDelete(int id)
+        //{
+        //    //trace log
+        //    LogModel.Action = ActionType.Delete;
+        //    LogModel.Data = (new { id = id }).ToDataString();
 
-            var data = _accountService.Raw_Get(id);
-            if (data != null)
-            {
-                var createResult = _contractStaff.DeleteAnEmployee(data.CodeStaff);
-                if (!createResult.Error)
-                {
-                    //write trace log
-                    LogModel.Result = ActionResultValue.DeleteSuccess;
-                    LogModel.Message = "Xóa nhân sự thành công";
-                    Logger.LogInformation(LogModel.ToString());
+        //    var data = _accountService.Raw_Get(id);
+        //    if (data != null)
+        //    {
+        //        var createResult = _contractStaff.DeleteAnEmployee(data.CodeStaff);
+        //        if (!createResult.Error)
+        //        {
+        //            //write trace log
+        //            LogModel.Result = ActionResultValue.DeleteSuccess;
+        //            LogModel.Message = "Xóa nhân sự thành công";
+        //            Logger.LogInformation(LogModel.ToString());
 
-                    return Json(new { status = true, Message = "Xóa nhân sự thành công!" });
-                }
-                else
-                {
-                    //write trace log
-                    LogModel.Result = ActionResultValue.DeleteFailed;
-                    LogModel.Message = "Xóa nhân sự không thành công";
-                    Logger.LogError(LogModel.ToString());
+        //            return Json(new { status = true, Message = "Xóa nhân sự thành công!" });
+        //        }
+        //        else
+        //        {
+        //            //write trace log
+        //            LogModel.Result = ActionResultValue.DeleteFailed;
+        //            LogModel.Message = "Xóa nhân sự không thành công";
+        //            Logger.LogError(LogModel.ToString());
 
-                    return Json(new { status = false, Message = "Xóa nhân sự không thành công!" });
-                }
-            }
-            //write trace log
-            LogModel.Result = ActionResultValue.NotFoundData;
-            LogModel.Message = "Không tìm thấy thông tin nhân viên trên hệ thống";
-            Logger.LogWarning(LogModel.ToString());
+        //            return Json(new { status = false, Message = "Xóa nhân sự không thành công!" });
+        //        }
+        //    }
+        //    //write trace log
+        //    LogModel.Result = ActionResultValue.NotFoundData;
+        //    LogModel.Message = "Không tìm thấy thông tin nhân viên trên hệ thống";
+        //    Logger.LogWarning(LogModel.ToString());
 
-            return Json(new { status = false, Message = "Không tìm thấy thông tin nhân viên trên hệ thống!" });
-        }
+        //    return Json(new { status = false, Message = "Không tìm thấy thông tin nhân viên trên hệ thống!" });
+        //}
         #endregion
     }
 }
