@@ -5,19 +5,21 @@ namespace CRMBussiness.ViewModel
 {
     public class AccountViewModel
     {
-        public virtual long Id { get; set; }
+        public virtual long AccountId { get; set; }
 
         [StringLength(50)]
-        public virtual string UserName { get; set; }
+        public virtual string AccountName { get; set; }
 
         [StringLength(50)]
-        public virtual string Pass { get; set; }
+        public virtual string AccountPassword { get; set; }
 
         [StringLength(10)]
         public virtual string CodeStaff { get; set; }
 
         [StringLength(100)]
-        public virtual string FullName { get; set; }
+        public virtual string AccountFullName { get; set; }
+        public virtual bool isEnable { get; set; }
+        public virtual DateTime? CreateDate { get; set; }
 
         /// <summary>
         ///Role = 1 – Admin

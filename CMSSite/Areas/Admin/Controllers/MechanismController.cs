@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace CRMSite.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    //[Area("Admin")]
     public class MechanismController : BaseController
     {
         private Regex Regex = new Regex(SiteConst.RangeTemplate);

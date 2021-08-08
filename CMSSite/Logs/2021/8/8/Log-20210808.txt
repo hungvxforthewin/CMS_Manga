@@ -2,3 +2,128 @@
 2021-08-08T14:57:23.7851514+07:00  [INF] Hosting environment: "Development" (c3307c92)
 2021-08-08T14:57:23.7896939+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
 2021-08-08T14:57:24.2630213+07:00 80000003-0007-ff00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T20:51:57.9840365+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T20:51:58.0049267+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T20:51:58.0090593+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T20:51:58.3154140+07:00 80000004-0003-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T20:52:09.9028480+07:00 80000006-0003-fd00-b63f-84710c7967bb [ERR] Anyone[Undefined] has accessed the "/Login/LoginAccount" link to login the system account with
+    data({"UserName":"admin","Pass":"123456"}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (ceca6c50)
+2021-08-08T20:53:01.1309155+07:00 80000008-0001-ff00-b63f-84710c7967bb [ERR] Anyone[Undefined] has accessed the "/Login/LoginAccount" link to login the system account with
+    data({"UserName":"admin","Pass":"123456"}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (ceca6c50)
+2021-08-08T21:03:29.9398245+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:03:29.9526945+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:03:29.9577400+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:03:30.1473715+07:00 80000004-0007-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:04:37.0688167+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:04:37.0823178+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:04:37.0852599+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:04:37.2668966+07:00 80000006-0007-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:10:46.3758703+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:10:46.3895276+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:10:46.3927717+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:10:46.5754173+07:00 80000005-0002-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:16:32.2006984+07:00 80000004-0006-fa00-b63f-84710c7967bb [ERR] Anyone[Undefined] has accessed the "/Login/LoginAccount" link to login the system account with
+    data({"UserName":"admin","Pass":"123456"}(if any)),
+    thus action result: Login the system failed,
+    message: [Invalid username or password] (2c0b5524)
+2021-08-08T21:17:36.3356680+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:17:36.3500081+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:17:36.3535118+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:17:36.5629899+07:00 80000008-0006-fa00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:17:43.6910109+07:00 80000007-0002-fe00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Controllers\LoginController.cs:line 161
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-08T21:17:55.1624869+07:00 8000000a-0006-fa00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:18:23.9199074+07:00 80000008-0007-fc00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Controllers\LoginController.cs:line 161
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-08T21:19:39.6951529+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:19:39.7116566+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:19:39.7209930+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:19:39.9227457+07:00 80000005-0005-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:20:27.6845514+07:00 80000004-0007-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-08T21:20:27.7982717+07:00 80000004-0004-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:21:20.9918188+07:00 80000006-0007-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-08T21:23:56.6111481+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:23:56.6230530+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:23:56.6271048+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:23:56.8204098+07:00 80000008-0007-ff00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:25:11.1822788+07:00 8000000b-0002-fe00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-08T21:34:25.9927344+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-08T21:34:26.0102324+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-08T21:34:26.0150504+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-08T21:34:26.2447863+07:00 80000008-0005-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:37:44.3667681+07:00 80000005-0004-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:41:13.8782404+07:00 8000000a-0005-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:42:54.7342178+07:00 80000004-0000-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:46:45.5392691+07:00 8000000b-0007-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-08T21:47:18.5068298+07:00 8000000e-0001-ff00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
