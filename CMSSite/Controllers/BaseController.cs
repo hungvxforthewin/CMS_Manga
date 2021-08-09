@@ -41,13 +41,8 @@ namespace CRMSite.Controllers
                 var claims = _httpContextAccessor.HttpContext.User.Claims;
                 if (claims != null)
                 {
-                    tokenModel.Role = byte.Parse(claims.First(x => x.Type == ClaimTypes.Role).Value);
+                    tokenModel.Role = 1;
                     tokenModel.FullName = claims.First(x => x.Type == SiteConst.TokenKey.FULLNAME).Value;
-                    tokenModel.BranchCode = claims.First(x => x.Type == SiteConst.TokenKey.BRANCHCODE).Value;
-                    tokenModel.OfficeCode = claims.First(x => x.Type == SiteConst.TokenKey.OFFICECODE).Value;
-                    tokenModel.DepartmentCode = claims.First(x => x.Type == SiteConst.TokenKey.DEPARTMENTCODE).Value;
-                    tokenModel.TeamCode = claims.First(x => x.Type == SiteConst.TokenKey.TEAMCODE).Value;
-                    tokenModel.StaffCode = claims.First(x => x.Type == ClaimTypes.Authentication).Value;
                     tokenModel.Username = claims.First(x => x.Type == SiteConst.TokenKey.USERNAME).Value;
                 }
             }

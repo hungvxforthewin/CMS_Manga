@@ -1,0 +1,421 @@
+2021-08-09T22:36:44.4100398+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T22:36:44.4274199+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T22:36:44.4311021+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T22:36:44.9289638+07:00 800001e8-0002-ec00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:37:47.5174196+07:00 800001ea-0002-ec00-b63f-84710c7967bb [ERR] Anyone[Undefined] has accessed the "/Login/LoginAccount" link to login the system account with
+    data({"UserName":"admin","Pass":"abc123"}(if any)),
+    thus action result: Login the system failed,
+    message: [Invalid username or password] (1127f02a)
+2021-08-09T22:48:07.0297032+07:00 800000a6-0000-dd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:48:27.0515833+07:00 800000a8-0000-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:49:48.5125829+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T22:49:48.5314694+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T22:49:48.5341537+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T22:49:48.7371247+07:00 800001ec-0002-ec00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:49:57.9363686+07:00 80000078-0003-dd00-b63f-84710c7967bb [ERR] Anyone[Undefined] has accessed the "/Login/LoginAccount" link to login the system account with
+    data({"UserName":"namnp","Pass":"abc123"}(if any)),
+    thus action result: Login the system failed,
+    message: [Invalid username or password] (9f3be894)
+2021-08-09T22:50:05.8113998+07:00 8000007a-0003-dd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:51:04.5679322+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T22:51:04.5813578+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T22:51:04.5854158+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T22:51:04.9851828+07:00 8000020d-0000-e800-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:51:19.1028132+07:00 800000f3-0002-eb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:51:19.2462286+07:00 8000007e-0003-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:51:25.8786047+07:00 800000b0-0000-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:51:30.9240427+07:00 800001d8-0001-ea00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:51:31.0112369+07:00 80000082-0003-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:52:53.1794128+07:00 800001da-0001-ea00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:53:03.7774308+07:00 800001dc-0001-ea00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:53:03.8692430+07:00 800000b2-0000-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:53:52.3678498+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T22:53:52.3853012+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T22:53:52.3890180+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T22:53:52.6089330+07:00 800002e5-0001-ee00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:53:59.0871706+07:00 80000086-0003-dd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:53:59.1845068+07:00 8000028f-0002-f100-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:54:23.0790676+07:00 800002e9-0001-ee00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:54:24.6779381+07:00 80000088-0003-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:54:32.2767715+07:00 800002eb-0001-ee00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:54:32.3318600+07:00 800002ef-0001-ee00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:54:34.1877227+07:00 8000008a-0003-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:55:30.9968625+07:00 80000293-0002-f100-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T22:55:38.8531812+07:00 800002f1-0001-ee00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:56:26.7626751+07:00 800002cf-0000-d800-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:56:38.4111799+07:00 800002d5-0000-d800-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T22:59:54.8243738+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T22:59:54.8502150+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T22:59:54.8635666+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T22:59:55.4137822+07:00 8000008e-0003-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:00:08.4999803+07:00 80000297-0002-f100-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T23:07:39.9531137+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:07:39.9847581+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:07:39.9951095+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:07:40.7457218+07:00 800002d7-0000-d800-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:07:50.7153389+07:00 800001e2-0001-ea00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T23:07:50.8475586+07:00 800001f2-0002-ec00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:08:13.4369034+07:00 800001e4-0001-ea00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:09:46.8031380+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:09:46.8222859+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:09:46.8271058+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:09:47.3274335+07:00 800000f7-0002-eb00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:10:19.4004962+07:00 800000f9-0002-eb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T23:10:19.5615989+07:00 800002db-0000-d800-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:12:46.7625859+07:00 800000b6-0000-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:13:43.0305813+07:00 800000b8-0000-dd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T23:13:43.1337363+07:00 800001e7-0003-e100-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:18:06.3585266+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:18:06.3747251+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:18:06.3803428+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:18:06.7549352+07:00 800001f5-0002-ec00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:18:19.0062663+07:00 800001f7-0002-ec00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\CODE GIT\CMS_Manga\CMSSite\Controllers\LoginController.cs:line 156
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-09T23:18:28.1051289+07:00 800001f9-0002-ec00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:18:47.5753246+07:00 800001e8-0001-ea00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\CODE GIT\CMS_Manga\CMSSite\Controllers\LoginController.cs:line 156
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-09T23:20:06.9348424+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:20:06.9528864+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:20:06.9566917+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:20:07.3925971+07:00 800001fb-0002-ec00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:20:46.4153640+07:00 800002e0-0000-d800-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\CODE GIT\CMS_Manga\CMSSite\Controllers\LoginController.cs:line 157
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-09T23:23:47.1122760+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:23:47.1331819+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:23:47.1371331+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:23:47.5215661+07:00 8000034a-0002-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:24:08.6400770+07:00 800002fc-0001-ee00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\CODE GIT\CMS_Manga\CMSSite\Controllers\LoginController.cs:line 161
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-09T23:24:23.2932260+07:00 800002fe-0001-ee00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:24:38.2096747+07:00 8000020f-0000-e800-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\CODE GIT\CMS_Manga\CMSSite\Controllers\LoginController.cs:line 161
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-09T23:26:46.3869655+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:26:46.4291553+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:26:46.4325036+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:26:46.8349204+07:00 800000bb-0000-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:26:59.6881832+07:00 80000215-0000-e800-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.ArgumentNullException: Value cannot be null. (Parameter 'value')
+   at System.Security.Claims.Claim..ctor(String type, String value, String valueType, String issuer, String originalIssuer, ClaimsIdentity subject, String propertyKey, String propertyValue)
+   at System.Security.Claims.Claim..ctor(String type, String value)
+   at CRMSite.Controllers.LoginController.LoginAccount(LoginAccount model) in D:\CODE GIT\CMS_Manga\CMSSite\Controllers\LoginController.cs:line 161
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-09T23:28:07.3317941+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:28:07.3532220+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:28:07.3575620+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:28:07.8099718+07:00 800000bd-0000-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:29:15.8729197+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:29:15.8870753+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:29:15.8897518+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:29:16.3297202+07:00 8000022f-0001-e500-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:29:50.6731890+07:00 80000093-0003-dd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T23:31:07.9557679+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:31:07.9691405+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:31:07.9744696+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:31:08.2089870+07:00 80000200-0002-ec00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:31:24.5670649+07:00 80000202-0002-ec00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T23:31:26.8400721+07:00 80000204-0002-ec00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Mechanism/Index" link to get information about mechanisms with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (a06b15f1)
+2021-08-09T23:31:31.6842460+07:00 80000204-0002-ec00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.ThrowHelper.ThrowNoMatchException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at CRMSite.Areas.Admin.Components.SaleAdminViewComponent.Invoke() in D:\CODE GIT\CMS_Manga\CMSSite\Areas\Admin\Components\SaleAdminViewComponent.cs:line 57
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeSyncCore(ObjectMethodExecutor executor, ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.InvokeCoreAsync(ViewComponentDescriptor descriptor, Object arguments)
+   at AspNetCore.Areas_Admin_Views_Mechanism_Index.ExecuteAsync() in D:\CODE GIT\CMS_Manga\CMSSite\Areas\Admin\Views\Mechanism\Index.cshtml:line 510
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-08-09T23:32:27.5546954+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-09T23:32:27.5715418+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-09T23:32:27.5765610+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-09T23:32:27.9925841+07:00 800000bf-0000-dd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-09T23:32:38.1807827+07:00 80000237-0001-e500-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-09T23:33:29.4068048+07:00 8000005f-0001-fa00-b63f-84710c7967bb [INF] admin[] has accessed the "/AllowanceOrDeducts/Index" link to get information about punish level(s) with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (7ba90aea)
+2021-08-09T23:33:36.7295573+07:00 80000063-0001-fa00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'sp_AllowanceOrDeducts_GetData'.
+   at CRMBussiness.LIB.BaseService`2.Procedure[K](String procedure, Object oParams, Boolean useCache) in D:\CODE GIT\CMS_Manga\CMSBussiness\LIB\BaseService.cs:line 317
+   at CRMBussiness.AllowanceOrDeductImp.GetDatas(BootstrapTableParam obj, Int32& totalRow) in D:\CODE GIT\CMS_Manga\CMSBussiness\ServiceImp\AllowanceOrDeductImp.cs:line 27
+   at CRMSite.Controllers.AllowanceOrDeductsController.GetData(BootstrapTableParam obj) in D:\CODE GIT\CMS_Manga\CMSSite\Controllers\AllowanceOrDeductsController.cs:line 60
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at CRMSite.Startup.<>c.<<Configure>b__8_2>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 199
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_1>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 188
+--- End of stack trace from previous location where exception was thrown ---
+   at CRMSite.Startup.<>c.<<Configure>b__8_0>d.MoveNext() in D:\CODE GIT\CMS_Manga\CMSSite\Startup.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:cee6d270-fba7-458b-a697-9563984123fb
+Error Number:2812,State:62,Class:16
