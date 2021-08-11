@@ -19,6 +19,8 @@ using CRMSite.Models;
 using CRMSite.Providers;
 using Microsoft.Extensions.Logging;
 using Hangfire;
+using CMSBussiness.IService;
+using CMSBussiness.ServiceImp;
 
 namespace CRMSite
 {
@@ -106,6 +108,7 @@ namespace CRMSite
             services.AddTransient<ILevelConcern, LevelConcernImp>();
             services.AddTransient<IInvestorsCareHistory, InvestorsCareHistoryImp>();
             services.AddTransient<IInvestorsCareHistoryDetail, InvestorsCareHistoryDetailImp>();
+            services.AddTransient<IBook, BookImp>();
 
             services.AddTransient<IProduct, ProductIpm>();
             services.AddTransient<IEvent, EventImp>();
