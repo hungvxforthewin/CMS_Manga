@@ -16,5 +16,6 @@ namespace CMSModel.Models.Data
         public byte imgId { get; set; }
 
         public string imgUrl { get; set; }
+        public bool IsBanner { get; set; }
     }
 }

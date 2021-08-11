@@ -1,0 +1,297 @@
+2021-08-10T21:11:24.1744986+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T21:11:24.1891178+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T21:11:24.1923014+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T21:11:24.6443372+07:00 80000027-0006-f900-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T21:11:52.2109258+07:00 80000028-0001-fc00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T21:12:07.3469667+07:00 80000006-0005-f300-b63f-84710c7967bb [INF] admin[] has accessed the "/Home/Logout" link to logout the system account with
+    data((if any)),
+    thus action result: LOGOUT SYSTEM SUCCESSFULLY,
+    message: [] (43259a98)
+2021-08-10T21:12:07.3670047+07:00 8000006f-0000-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T21:12:08.8890186+07:00 8000005a-0006-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T21:12:18.1661943+07:00 80000058-0002-fe00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-10T21:12:19.1095849+07:00 8000004d-0003-fe00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-10T21:15:09.3597876+07:00 8000005e-0004-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:09.7273973+07:00 80000010-0007-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:10.6035425+07:00 80000012-0007-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:10.6135990+07:00 8000002e-0001-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"10-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (cba33061)
+2021-08-10T21:15:11.8910673+07:00 80000014-0007-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-10T21:15:12.5685766+07:00 80000016-0007-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-10T21:15:14.9407958+07:00 80000018-0007-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:15.2888682+07:00 80000060-0004-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"10-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (cba33061)
+2021-08-10T21:15:15.5944948+07:00 8000001a-0006-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:15.9371941+07:00 80000071-0000-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:19.3491182+07:00 80000062-0004-fc00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/SaleRevenueStatistics/Index" link to get information about revenue statistics with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (d2dc4c79)
+2021-08-10T21:15:21.4452862+07:00 80000075-0000-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/SelectionData/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (9b64adb1)
+2021-08-10T21:15:21.8484274+07:00 8000001c-0006-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/SaleRevenueStatistics/GetStatisticsData/10-08-2021/0" link to get information about revenue statistics with
+    data({"Time":"10-08-2021","TimeOption":0}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (e17d496d)
+2021-08-10T21:15:27.2198650+07:00 80000079-0005-f700-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:27.9112559+07:00 80000066-0004-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"10-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (cba33061)
+2021-08-10T21:15:27.9117362+07:00 80000052-0003-fe00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:15:28.3177984+07:00 80000068-0004-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:17:32.6718197+07:00 8000006a-0004-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:17:33.0324295+07:00 8000001c-0001-fa00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"10-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (cba33061)
+2021-08-10T21:17:33.3284413+07:00 8000001d-0007-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T21:17:33.6419190+07:00 80000020-0006-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:22:38.1050957+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:22:38.1351310+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:22:38.1423680+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:22:38.4618450+07:00 80000095-0004-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:24:18.8682311+07:00 80000077-0000-fc00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:24:24.6188102+07:00 80000055-0003-fe00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:24:24.7292332+07:00 8000003a-0007-fc00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":null,"Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (f198f91a)
+2021-08-10T23:24:25.2331835+07:00 80000097-0004-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:24:25.6830123+07:00 80000016-0006-fa00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:07.3567549+07:00 8000000f-0000-fb00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:07.5090977+07:00 80000053-0001-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:07.7036111+07:00 8000001b-0006-fa00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:07.9560736+07:00 8000002d-0006-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":null,"Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (f198f91a)
+2021-08-10T23:26:29.5964812+07:00 80000074-0005-fa00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:29.8591964+07:00 800000a5-0004-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:30.0751657+07:00 8000000a-0005-f400-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:30.0815133+07:00 80000023-0004-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":null,"Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (f198f91a)
+2021-08-10T23:26:58.1765876+07:00 80000026-0005-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:58.3533895+07:00 80000014-0000-fb00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:58.4682135+07:00 80000027-0004-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:26:58.6321496+07:00 800000a7-0004-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":null,"Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (f198f91a)
+2021-08-10T23:27:48.0163428+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:27:48.0339192+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:27:48.0400224+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:27:48.2618996+07:00 80000018-0002-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:27:51.6421180+07:00 80000025-0006-fc00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:29:05.2498651+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:29:05.2681602+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:29:05.2750358+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:29:05.5604344+07:00 8000005a-0003-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:29:08.6228363+07:00 80000007-0007-ef00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:30:46.2996567+07:00 8000001a-0000-fb00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:30:46.2996567+07:00 8000005c-0003-fe00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"10-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (cba33061)
+2021-08-10T23:30:47.1112466+07:00 80000063-0006-ff00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:30:47.6453220+07:00 80000008-0005-ec00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:30:48.2286601+07:00 80000048-0002-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-10T23:30:49.7742526+07:00 8000000b-0007-ef00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-10T23:34:35.8602208+07:00 800000bc-0004-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:34:36.9751276+07:00 80000015-0007-ef00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"10-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (cba33061)
+2021-08-10T23:34:37.3326167+07:00 80000069-0006-ff00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:34:37.9831150+07:00 8000002d-0001-fa00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-10T23:36:27.7715800+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:36:27.7938036+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:36:27.7973358+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:36:28.0824367+07:00 80000048-0007-fc00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:36:31.7924797+07:00 80000035-0006-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:37:55.0351001+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:37:55.0478549+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:37:55.0523766+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:37:55.3270011+07:00 80000006-0002-fa00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:37:57.8205263+07:00 80000021-0000-fb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:40:15.1686190+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:40:15.1954754+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:40:15.1992766+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:40:15.5578828+07:00 8000000a-0005-ee00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:44:31.7209005+07:00 80000017-0004-fa00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:47:23.3092380+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:47:23.3219838+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:47:23.3253873+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:47:23.5327422+07:00 8000003d-0006-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:48:20.8200681+07:00 80000010-0006-f700-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:49:35.1974727+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:49:35.2178909+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:49:35.2219867+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:49:35.6162212+07:00 8000001f-0004-fa00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:49:39.0115201+07:00 80000041-0006-fe00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:50:40.9573314+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:50:40.9734956+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:50:40.9767602+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:50:41.2594625+07:00 80000020-0005-f600-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:50:51.4488780+07:00 80000045-0006-fe00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:55:25.2328014+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:55:25.2583424+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:55:25.3001959+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:55:25.6223890+07:00 80000037-0006-fa00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-10T23:56:31.6020715+07:00 80000039-0006-fa00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-10T23:57:56.5469516+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-10T23:57:56.5687602+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-10T23:57:56.5729895+07:00  [INF] Content root path: "D:\DuAn\DOAN-Thue\ProjectTruyenTranh\SourceCode\CMSSite" (b5d60022)
+2021-08-10T23:57:56.8857847+07:00 8000000e-0007-ed00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
