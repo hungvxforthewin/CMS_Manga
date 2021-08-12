@@ -19,14 +19,34 @@ namespace CMSSite.Areas.Admin.Controllers
     [Area("Admin")]
     public class AccountsController : BaseController
     {
-        public AccountsController(IConfiguration configuration, IHttpContextAccessor httpContextAccessor, ILogger<BaseController> logger)
+        private readonly IAccount _account;
+        public AccountsController(IConfiguration configuration, IAccount account, IHttpContextAccessor httpContextAccessor, ILogger<BaseController> logger)
            : base(httpContextAccessor, logger)
         {
-            
+            _account = account;
         }
         public IActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult GetList(SearchAccountViewModel model)
+        {
+            // trace log
+            LogModel.Data = model.ToDataString();
+            LogModel.Action = ActionType.GetInfo;
+
+            int total;
+            var data = _account.GetList(model, out total);
+            var handleResult = HandleGetResult(data);
+            if (handleResult != null) return handleResult;
+
+            //write trace log
+            LogModel.Result = ActionResultValue.GetInfoSuccess;
+            LogModel.Data = data.Result.ToDataString();
+            Logger.LogInformation(LogModel.ToString());
+
+            return Json(new { Data = data.Result, Total = total });
         }
     }
 }

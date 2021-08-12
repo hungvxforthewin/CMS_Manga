@@ -6,3 +6,27 @@
     data((if any)),
     thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
     message: [] (b8c9a129)
+2021-08-13T00:24:05.2156211+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-13T00:24:05.2334716+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-13T00:24:05.2364378+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-13T00:24:05.6916739+07:00 80000004-0001-eb00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-13T00:24:14.8400183+07:00 80000006-0001-eb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-13T00:25:51.3706760+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-13T00:25:51.3906730+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-13T00:25:51.3946137+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-13T00:25:51.8086782+07:00 80000005-0001-ee00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-13T00:26:04.9452330+07:00 80000014-0000-fb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-13T00:26:07.6323403+07:00 80000002-0003-fa00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Accounts/GetList" link to get information about  with
+    data([{"AccountID":1,"AccountName":"admin","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"npnam","NameUserCreate":null,"isEnable":null,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"21-07-2021","Role":0}](if any)),
+    thus action result: Get information successfully,
+    message: [] (a5a04909)
+2021-08-13T00:26:10.3499848+07:00 80000018-0001-f600-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Accounts/GetList" link to get information about  with
+    data([{"AccountID":1,"AccountName":"admin","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"npnam","NameUserCreate":null,"isEnable":null,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"21-07-2021","Role":0}](if any)),
+    thus action result: Get information successfully,
+    message: [] (a5a04909)
