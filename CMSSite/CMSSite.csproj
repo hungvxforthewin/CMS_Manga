@@ -5,67 +5,46 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\Accountant\Views\UploadFile\**" />
     <Compile Remove="Areas\Admin\Data\**" />
     <Compile Remove="Areas\Admin\Views\BranchStatistics\**" />
     <Compile Remove="Areas\Admin\Views\DepartmentStatistics\**" />
     <Compile Remove="Areas\Admin\Views\Home\**" />
     <Compile Remove="Areas\Admin\Views\OfficeStatistics\**" />
-    <Compile Remove="Areas\HR\Data\**" />
-    <Compile Remove="Areas\HR\Models\**" />
-    <Compile Remove="Areas\Tele\Views\CheckInOut\**" />
     <Compile Remove="wwwroot\Assets\office\**" />
-    <Content Remove="Areas\Accountant\Views\UploadFile\**" />
     <Content Remove="Areas\Admin\Data\**" />
     <Content Remove="Areas\Admin\Views\BranchStatistics\**" />
     <Content Remove="Areas\Admin\Views\DepartmentStatistics\**" />
     <Content Remove="Areas\Admin\Views\Home\**" />
     <Content Remove="Areas\Admin\Views\OfficeStatistics\**" />
-    <Content Remove="Areas\HR\Data\**" />
-    <Content Remove="Areas\HR\Models\**" />
-    <Content Remove="Areas\Tele\Views\CheckInOut\**" />
     <Content Remove="wwwroot\Assets\office\**" />
-    <EmbeddedResource Remove="Areas\Accountant\Views\UploadFile\**" />
     <EmbeddedResource Remove="Areas\Admin\Data\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\BranchStatistics\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\DepartmentStatistics\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\Home\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\OfficeStatistics\**" />
-    <EmbeddedResource Remove="Areas\HR\Data\**" />
-    <EmbeddedResource Remove="Areas\HR\Models\**" />
-    <EmbeddedResource Remove="Areas\Tele\Views\CheckInOut\**" />
     <EmbeddedResource Remove="wwwroot\Assets\office\**" />
-    <None Remove="Areas\Accountant\Views\UploadFile\**" />
     <None Remove="Areas\Admin\Data\**" />
     <None Remove="Areas\Admin\Views\BranchStatistics\**" />
     <None Remove="Areas\Admin\Views\DepartmentStatistics\**" />
     <None Remove="Areas\Admin\Views\Home\**" />
     <None Remove="Areas\Admin\Views\OfficeStatistics\**" />
-    <None Remove="Areas\HR\Data\**" />
-    <None Remove="Areas\HR\Models\**" />
-    <None Remove="Areas\Tele\Views\CheckInOut\**" />
     <None Remove="wwwroot\Assets\office\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\Accountant\Controllers\UploadFileController.cs" />
     <Compile Remove="Areas\Admin\Controllers\BranchStatisticsController.cs" />
     <Compile Remove="Areas\Admin\Controllers\DepartmentStatisticsController.cs" />
     <Compile Remove="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Remove="Areas\Admin\Controllers\OfficeStatisticsController.cs" />
-    <Compile Remove="Areas\HR\Controllers\HomeController.cs" />
-    <Compile Remove="Areas\Tele\Controllers\CheckInOutController.cs" />
     <Compile Remove="Providers\RequiredRequest.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Accountant\Views\ConfirmPayment\Preview.cshtml" />
     <Content Remove="Areas\Admin\Views\Mechanism\_Minister.cshtml" />
     <Content Remove="Areas\Admin\Views\Mechanism\_Sale.cshtml" />
     <Content Remove="Areas\Admin\Views\Mechanism\_SaleManager.cshtml" />
     <Content Remove="Areas\Admin\Views\Mechanism\_TeleSale.cshtml" />
     <Content Remove="Areas\SaleAdmin\Views\ContractStaffs\Print.cshtml" />
-    <Content Remove="Areas\Sale\Views\InvestorContract\Print.cshtml" />
     <Content Remove="wwwroot\Assets\crm\js-v2\main.js" />
     <Content Remove="wwwroot\Assets\crm\js-v2\main.min.js" />
     <Content Remove="wwwroot\js\controllers\checkinForTele.js" />
@@ -90,13 +69,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Accountant\Data\" />
-    <Folder Include="Areas\Accountant\Models\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\SaleAdmin\Data\" />
     <Folder Include="Areas\SaleAdmin\Models\" />
-    <Folder Include="Areas\Sale\Data\" />
-    <Folder Include="Areas\Sale\Models\" />
     <Folder Include="FileUpload\Import\" />
     <Folder Include="wwwroot\Uploads\Files\2021\5\26\" />
   </ItemGroup>
@@ -506,13 +481,6 @@
     <Reference Include="EncodeByMd5">
       <HintPath>..\library\EncodeByMd5.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\PrintContract\Print.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>
