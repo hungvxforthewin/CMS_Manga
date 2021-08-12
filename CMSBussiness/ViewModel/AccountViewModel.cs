@@ -5,80 +5,33 @@ namespace CRMBussiness.ViewModel
 {
     public class AccountViewModel
     {
-        public virtual long AccountId { get; set; }
+        public int AccountID { get; set; }
 
-        [StringLength(50)]
-        public virtual string AccountName { get; set; }
+        [Required(ErrorMessage = "Tên không được trống")]
+        public string AccountName { get; set; }
 
-        [StringLength(50)]
-        public virtual string AccountPassword { get; set; }
+        [Required(ErrorMessage = "Password không được trống")]
+        public string AccountPassword { get; set; }
 
-        [StringLength(10)]
-        public virtual string CodeStaff { get; set; }
+        public string AccountFullName { get; set; }
 
-        [StringLength(100)]
-        public virtual string AccountFullName { get; set; }
-        public virtual bool isEnable { get; set; }
-        public virtual DateTime? CreateDate { get; set; }
+        public string NameUserCreate { get; set; }
 
-        /// <summary>
-        ///Role = 1 – Admin
-        ///2: Kế toán
-        ///3: Hr
-        ///Role = 4 – SaleAdmin
-        ///Role = 5 – Sale trong công ty.
-        ///Role = 6 – Sale manage
-        ///7 – Sale admin
-        ///Role = 8 – TeleSale
-        ///9 – Leader tele
-        /// </summary>
-        public virtual byte Role { get; set; }
+        public bool? isEnable { get; set; }
 
-        [StringLength(50)]
-        public virtual string CompanyCode { get; set; }
+        public string Status { get; set; }
 
-        public virtual DateTime? Birthday { get; set; }
+        public DateTime? CreateDate { get; set; }
+        public string CreateDateString { get; set; }
+        public int Role { get; set; }
+    }
+    public class SearchAccountViewModel
+    {
+      
+        public string Key { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        [StringLength(50)]
-        public virtual string Email { get; set; }
+        public int Size { get; set; } = 10;
 
-        //[Required(AllowEmptyStrings = false, ErrorMessage = "ACCOUNT_REQUIRED_PHONE")]
-        [StringLength(20)]
-        public virtual string Phone { get; set; }
-
-        [StringLength(50)]
-        public virtual string PositionCode { get; set; }
-
-        [StringLength(50)]
-        public virtual string DepartmentCode { get; set; }
-
-        [StringLength(1000)]
-        public virtual string ImgUrlAvartar { get; set; }
-
-        [StringLength(1000)]
-        public virtual string ImgUrlCover { get; set; }
-
-        /// <summary>
-        /// 0 : Đã nghỉ việc ,
-        /// 1 : Đang làm việc/Công ty đã thanh toán,
-        /// 2 : Tạm nghỉ không lương(nghỉ sau sinh, nghỉ dài hạn vì lý do nào đó..)
-        /// Mặc định = 1.
-        /// </summary>
-        public virtual byte Status { get; set; }
-
-        [StringLength(250)]
-        public virtual string BirthPlace { get; set; }
-
-        [StringLength(50)]
-        public virtual string TeamCode { get; set; }
-        [Display(Name = "Mã chi nhánh")]
-        public string BranchCode { get; set; }
-
-        public string OfficeCode { get; set; }
-
-        public int? Share { get; set; }
-
-        public string MonthOfHoldingStocks{ get; set; }
+        public int Page { get; set; } = 1;
     }
 }

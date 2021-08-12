@@ -8,11 +8,12 @@ namespace CRMModel.Models.Data
     public class Account // CMS_Account
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
         public int AccountID { get; set; }
 
+        [Required(ErrorMessage = "Tên không được trống")]
         public string AccountName { get; set; }
 
+        [Required(ErrorMessage = "Password không được trống")]
         public string AccountPassword { get; set; }
 
         public string AccountFullName { get; set; }
@@ -21,5 +22,5 @@ namespace CRMModel.Models.Data
 
         public DateTime? CreateDate { get; set; }
 
-    } // class CMS_Account
+    }
 }

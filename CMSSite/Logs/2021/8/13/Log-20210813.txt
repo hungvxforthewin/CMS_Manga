@@ -1,0 +1,8 @@
+2021-08-13T00:00:52.3268206+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-13T00:00:52.3424816+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-13T00:00:52.3472350+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-13T00:00:52.7134341+07:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-13T00:01:23.8878171+07:00 80000035-0003-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)

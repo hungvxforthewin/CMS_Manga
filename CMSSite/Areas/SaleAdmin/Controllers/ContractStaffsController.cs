@@ -130,84 +130,84 @@ namespace CRMSite.Areas.SaleAdmin.Controllers
         #endregion
 
         #region GetSale
-        public IActionResult GetSale()
-        {
-            //trace log
-            LogModel.ItemName = "sale(s)";
-            LogModel.Action = ActionType.GetInfo;
+        //public IActionResult GetSale()
+        //{
+        //    //trace log
+        //    LogModel.ItemName = "sale(s)";
+        //    LogModel.Action = ActionType.GetInfo;
 
-            IAccount iAcc = new AccountImp();
-            var getResult = iAcc.GetEmployeeListByType(false);
-            var handleResult = HandleGetResult(getResult);
-            if (handleResult != null) return handleResult;
+        //    IAccount iAcc = new AccountImp();
+        //    //var getResult = iAcc.GetEmployeeListByType(false);
+        //    var handleResult = HandleGetResult(getResult);
+        //    if (handleResult != null) return handleResult;
 
-            //if (getResult.Error)
-            //{
-            //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.SystemError } });
-            //}
+        //    //if (getResult.Error)
+        //    //{
+        //    //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.SystemError } });
+        //    //}
 
-            //if (getResult.Result == null || getResult.Result.Count == 0)
-            //{
-            //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.NotFoundError } });
-            //}
+        //    //if (getResult.Result == null || getResult.Result.Count == 0)
+        //    //{
+        //    //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.NotFoundError } });
+        //    //}
 
-            //write trace log
-            LogModel.Result = ActionResultValue.GetInfoSuccess;
-            LogModel.Data = getResult.Result.ToDataString();
-            Logger.LogInformation(LogModel.ToString());
+        //    //write trace log
+        //    LogModel.Result = ActionResultValue.GetInfoSuccess;
+        //    LogModel.Data = getResult.Result.ToDataString();
+        //    Logger.LogInformation(LogModel.ToString());
 
-            return Json(new { Result = 200, Data = getResult.Result });
-        }
+        //    return Json(new { Result = 200, Data = getResult.Result });
+        //}
         #endregion
 
         #region GetSaleAndCTV
-        public IActionResult GetSaleAndCTV()
-        {
-            IAccount iAcc = new AccountImp();
-            var getResult = iAcc.GetEmployeeListByType(false);
-            if (getResult.Error)
-            {
-                return Json(new { Result = 400, Errors = new List<string> { SiteConst.SystemError } });
-            }
+        //public IActionResult GetSaleAndCTV()
+        //{
+        //    IAccount iAcc = new AccountImp();
+        //    var getResult = iAcc.GetEmployeeListByType(false);
+        //    if (getResult.Error)
+        //    {
+        //        return Json(new { Result = 400, Errors = new List<string> { SiteConst.SystemError } });
+        //    }
 
-            if (getResult.Result == null || getResult.Result.Count == 0)
-            {
-                return Json(new { Result = 400, Errors = new List<string> { SiteConst.NotFoundError } });
-            }
+        //    if (getResult.Result == null || getResult.Result.Count == 0)
+        //    {
+        //        return Json(new { Result = 400, Errors = new List<string> { SiteConst.NotFoundError } });
+        //    }
 
-            return Json(new { Result = 200, Data = getResult.Result });
-        }
+        //    return Json(new { Result = 200, Data = getResult.Result });
+        //}
         #endregion
 
         #region GetTeleSale
-        public IActionResult GetTeleSale()
-        {
-            //trace log
-            LogModel.ItemName = "telesale(s)";
-            LogModel.Action = ActionType.GetInfo;
+        //public IActionResult GetTeleSale()
+        //{
+        //    //trace log
+        //    LogModel.ItemName = "telesale(s)";
+        //    LogModel.Action = ActionType.GetInfo;
 
-            IAccount iAcc = new AccountImp();
-            var getResult = iAcc.GetEmployeeListByType(true);
-            var handleResult = HandleGetResult(getResult);
-            if (handleResult != null) return handleResult;
+        //    IAccount iAcc = new AccountImp();
+        //    var getResult = iAcc.GetEmployeeListByType(true);
+        //    var handleResult = HandleGetResult(getResult);
+        //    if (handleResult != null) return handleResult;
 
-            //if (getResult.Error)
-            //{
-            //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.SystemError } });
-            //}
+        //    //if (getResult.Error)
+        //    //{
+        //    //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.SystemError } });
+        //    //}
 
-            //if (getResult.Result == null || getResult.Result.Count == 0)
-            //{
-            //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.NotFoundError } });
-            //}
+        //    //if (getResult.Result == null || getResult.Result.Count == 0)
+        //    //{
+        //    //    return Json(new { Result = 400, Errors = new List<string> { SiteConst.NotFoundError } });
+        //    //}
 
-            //write trace log
-            LogModel.Result = ActionResultValue.GetInfoSuccess;
-            LogModel.Data = getResult.Result.ToDataString();
-            Logger.LogInformation(LogModel.ToString());
+        //    //write trace log
+        //    LogModel.Result = ActionResultValue.GetInfoSuccess;
+        //    LogModel.Data = getResult.Result.ToDataString();
+        //    Logger.LogInformation(LogModel.ToString());
 
-            return Json(new { Result = 200, Data = getResult.Result });
-        }
+        //    return Json(new { Result = 200, Data = getResult.Result });
+        //}
         #endregion
 
         #region GetContractStaffStatus
