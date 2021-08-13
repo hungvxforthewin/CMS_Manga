@@ -1,0 +1,196 @@
+2021-08-12T21:56:36.7009146+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-12T21:56:36.7574160+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-12T21:56:36.7604677+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-12T21:56:37.9694918+07:00 80000002-0000-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-12T21:57:04.4246764+07:00 8000001f-0001-f900-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-12T21:57:25.6385348+07:00 80000008-0003-fb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":79,"BookName":"aaa","CategoryName":"Trường học","ImgUrl":null,"Sex":"Truyện dành cho cả Nam và Nữ","Rating":0.0,"isEnable":true},{"BookId":38,"BookName":"Vương gia người thật đê tiện","CategoryName":"","ImgUrl":"cover/CoverCoverVGNTDT.jpg","Sex":"Truyện dành cho Nữ","Rating":4.0,"isEnable":true},{"BookId":37,"BookName":"Thất vương phi báo thù","CategoryName":"","ImgUrl":"cover/CoverTVPBT.jpg","Sex":"Truyện dành cho Nữ","Rating":3.9,"isEnable":true},{"BookId":33,"BookName":"Hoàng thúc cuồng cưng chiều vương phi","CategoryName":"","ImgUrl":"cover/CoverHTCCCVP.jpg","Sex":"Truyện dành cho Nam","Rating":4.6,"isEnable":true},{"BookId":32,"BookName":"Bổn vương phi có Thần Đằng","CategoryName":"","ImgUrl":"cover/CoverBVPCTD.jpg","Sex":"Truyện dành cho Nữ","Rating":4.9,"isEnable":true},{"BookId":31,"BookName":"Thái tử phi hồ ly","CategoryName":"","ImgUrl":"cover/CoverTTPHL.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":30,"BookName":"Tiên Đế Trở Về","CategoryName":"Truyện tranh; Hành Động","ImgUrl":"cover/coverTDTV.jpg","Sex":"Truyện dành cho Nam","Rating":4.9,"isEnable":true},{"BookId":29,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nữ","Rating":4.8,"isEnable":true},{"BookId":28,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true},{"BookId":27,"BookName":"Thăng Cấp Mạnh Nhất","CategoryName":"Huyền huyễn; Hành Động; Mạo Hiểm","ImgUrl":"cover/coverTCMN.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (e5141f88)
+2021-08-12T21:57:32.1936944+07:00 80000018-0002-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":26,"BookName":"Nghịch thiên tà thần","CategoryName":"Huyền huyễn; Hành Động","ImgUrl":"cover/coverNTTT.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true},{"BookId":25,"BookName":"Cổ Tiên Nãi Ba","CategoryName":"Huyền huyễn; Đô thị; Mạo Hiểm; Dị năng","ImgUrl":"cover/coverCTNB.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":23,"BookName":"Cổ Tiên Nãi Ba","CategoryName":"Huyền huyễn; Đô thị; Mạo Hiểm; Dị năng","ImgUrl":"cover/coverCTNB.jpg","Sex":"Truyện dành cho Nam","Rating":4.7,"isEnable":true},{"BookId":22,"BookName":"Vương Gia Không Thể Trêu - Nam","CategoryName":"Huyền huyễn; Xuyên không","ImgUrl":"cover/8.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":3.0,"isEnable":true},{"BookId":21,"BookName":"Vương Gia Không Thể Trêu - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/8.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":3.5,"isEnable":true},{"BookId":20,"BookName":"Nam Thần Thả Thính Lên Hotsearch - Nam","CategoryName":"Huyền huyễn","ImgUrl":"cover/7.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":3.7,"isEnable":true},{"BookId":19,"BookName":"Nam Thần Thả Thính Lên Hotsearch - Nữ","CategoryName":"Trường học; Huyền huyễn","ImgUrl":"cover/7.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":4.2,"isEnable":true},{"BookId":18,"BookName":"Thành phố lúc về đêm - Nam","CategoryName":"Trường học","ImgUrl":"cover/6.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":4.1,"isEnable":true},{"BookId":17,"BookName":"Thành phố lúc về đêm - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/6.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":5.0,"isEnable":true},{"BookId":16,"BookName":"Thiếu Soái, Vợ Anh Sắp Quậy Banh Nóc Rồi - Nam","CategoryName":"Trường học","ImgUrl":"cover/5.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (ea6727b2)
+2021-08-12T21:57:33.0524605+07:00 8000000c-0003-fb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":15,"BookName":"Thiếu Soái, Vợ Anh Sắp Quậy Banh Nóc Rồi - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/5.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":4.5,"isEnable":true},{"BookId":14,"BookName":"Danh Môn Chí Ái - Nam","CategoryName":"Huyền huyễn","ImgUrl":"cover/4.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":1.7,"isEnable":true},{"BookId":13,"BookName":"Danh Môn Chí Ái - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/4.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":2.1,"isEnable":true},{"BookId":12,"BookName":"Trò Chơi Sinh Tồn Yêu Đương Của Cô Béo - Nam","CategoryName":"Trường học","ImgUrl":"cover/3.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":3.8,"isEnable":true},{"BookId":11,"BookName":"Trò Chơi Sinh Tồn Yêu Đương Của Cô Béo - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/3.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":3.5,"isEnable":true},{"BookId":10,"BookName":"Nhập Cốt Noãn Hôn - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/2.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":4.6,"isEnable":true},{"BookId":9,"BookName":"Nhập Cốt Noãn Hôn - Nam","CategoryName":"Trường học","ImgUrl":"cover/2.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":4.2,"isEnable":true},{"BookId":8,"BookName":"Tổng tài tại thượng","CategoryName":"Huyền huyễn","ImgUrl":"cover/1.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":2.1,"isEnable":true},{"BookId":7,"BookName":"Truyện 4","CategoryName":"Truyện tranh; Truyện chữ","ImgUrl":"imgUrl/img1.jpg","Sex":"Truyện dành cho cả Nam và Nữ","Rating":4.3,"isEnable":true},{"BookId":6,"BookName":"Truyện 3","CategoryName":"Truyện tranh; Truyện chữ","ImgUrl":"imgUrl/img1.jpg","Sex":"Truyện dành cho cả Nam và Nữ","Rating":3.6,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (9ac98cb6)
+2021-08-12T21:57:33.9964944+07:00 8000000e-0000-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":79,"BookName":"aaa","CategoryName":"Trường học","ImgUrl":null,"Sex":"Truyện dành cho cả Nam và Nữ","Rating":0.0,"isEnable":true},{"BookId":38,"BookName":"Vương gia người thật đê tiện","CategoryName":"","ImgUrl":"cover/CoverCoverVGNTDT.jpg","Sex":"Truyện dành cho Nữ","Rating":4.0,"isEnable":true},{"BookId":37,"BookName":"Thất vương phi báo thù","CategoryName":"","ImgUrl":"cover/CoverTVPBT.jpg","Sex":"Truyện dành cho Nữ","Rating":3.9,"isEnable":true},{"BookId":33,"BookName":"Hoàng thúc cuồng cưng chiều vương phi","CategoryName":"","ImgUrl":"cover/CoverHTCCCVP.jpg","Sex":"Truyện dành cho Nam","Rating":4.6,"isEnable":true},{"BookId":32,"BookName":"Bổn vương phi có Thần Đằng","CategoryName":"","ImgUrl":"cover/CoverBVPCTD.jpg","Sex":"Truyện dành cho Nữ","Rating":4.9,"isEnable":true},{"BookId":31,"BookName":"Thái tử phi hồ ly","CategoryName":"","ImgUrl":"cover/CoverTTPHL.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":30,"BookName":"Tiên Đế Trở Về","CategoryName":"Truyện tranh; Hành Động","ImgUrl":"cover/coverTDTV.jpg","Sex":"Truyện dành cho Nam","Rating":4.9,"isEnable":true},{"BookId":29,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nữ","Rating":4.8,"isEnable":true},{"BookId":28,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true},{"BookId":27,"BookName":"Thăng Cấp Mạnh Nhất","CategoryName":"Huyền huyễn; Hành Động; Mạo Hiểm","ImgUrl":"cover/coverTCMN.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (e5141f88)
+2021-08-12T21:57:58.7285810+07:00 80000010-0003-fb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":26,"BookName":"Nghịch thiên tà thần","CategoryName":"Huyền huyễn; Hành Động","ImgUrl":"cover/coverNTTT.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true},{"BookId":25,"BookName":"Cổ Tiên Nãi Ba","CategoryName":"Huyền huyễn; Đô thị; Mạo Hiểm; Dị năng","ImgUrl":"cover/coverCTNB.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":23,"BookName":"Cổ Tiên Nãi Ba","CategoryName":"Huyền huyễn; Đô thị; Mạo Hiểm; Dị năng","ImgUrl":"cover/coverCTNB.jpg","Sex":"Truyện dành cho Nam","Rating":4.7,"isEnable":true},{"BookId":22,"BookName":"Vương Gia Không Thể Trêu - Nam","CategoryName":"Huyền huyễn; Xuyên không","ImgUrl":"cover/8.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":3.0,"isEnable":true},{"BookId":21,"BookName":"Vương Gia Không Thể Trêu - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/8.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":3.5,"isEnable":true},{"BookId":20,"BookName":"Nam Thần Thả Thính Lên Hotsearch - Nam","CategoryName":"Huyền huyễn","ImgUrl":"cover/7.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":3.7,"isEnable":true},{"BookId":19,"BookName":"Nam Thần Thả Thính Lên Hotsearch - Nữ","CategoryName":"Trường học; Huyền huyễn","ImgUrl":"cover/7.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":4.2,"isEnable":true},{"BookId":18,"BookName":"Thành phố lúc về đêm - Nam","CategoryName":"Trường học","ImgUrl":"cover/6.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":4.1,"isEnable":true},{"BookId":17,"BookName":"Thành phố lúc về đêm - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/6.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":5.0,"isEnable":true},{"BookId":16,"BookName":"Thiếu Soái, Vợ Anh Sắp Quậy Banh Nóc Rồi - Nam","CategoryName":"Trường học","ImgUrl":"cover/5.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (ea6727b2)
+2021-08-12T21:57:59.7222613+07:00 80000023-0001-f900-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":15,"BookName":"Thiếu Soái, Vợ Anh Sắp Quậy Banh Nóc Rồi - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/5.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":4.5,"isEnable":true},{"BookId":14,"BookName":"Danh Môn Chí Ái - Nam","CategoryName":"Huyền huyễn","ImgUrl":"cover/4.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":1.7,"isEnable":true},{"BookId":13,"BookName":"Danh Môn Chí Ái - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/4.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":2.1,"isEnable":true},{"BookId":12,"BookName":"Trò Chơi Sinh Tồn Yêu Đương Của Cô Béo - Nam","CategoryName":"Trường học","ImgUrl":"cover/3.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":3.8,"isEnable":true},{"BookId":11,"BookName":"Trò Chơi Sinh Tồn Yêu Đương Của Cô Béo - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/3.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":3.5,"isEnable":true},{"BookId":10,"BookName":"Nhập Cốt Noãn Hôn - Nữ","CategoryName":"Huyền huyễn","ImgUrl":"cover/2.cover0.jpg","Sex":"Truyện dành cho Nữ","Rating":4.6,"isEnable":true},{"BookId":9,"BookName":"Nhập Cốt Noãn Hôn - Nam","CategoryName":"Trường học","ImgUrl":"cover/2.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":4.2,"isEnable":true},{"BookId":8,"BookName":"Tổng tài tại thượng","CategoryName":"Huyền huyễn","ImgUrl":"cover/1.cover0.jpg","Sex":"Truyện dành cho Nam","Rating":2.1,"isEnable":true},{"BookId":7,"BookName":"Truyện 4","CategoryName":"Truyện tranh; Truyện chữ","ImgUrl":"imgUrl/img1.jpg","Sex":"Truyện dành cho cả Nam và Nữ","Rating":4.3,"isEnable":true},{"BookId":6,"BookName":"Truyện 3","CategoryName":"Truyện tranh; Truyện chữ","ImgUrl":"imgUrl/img1.jpg","Sex":"Truyện dành cho cả Nam và Nữ","Rating":3.6,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (9ac98cb6)
+2021-08-12T21:58:00.9126800+07:00 8000001e-0002-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":79,"BookName":"aaa","CategoryName":"Trường học","ImgUrl":null,"Sex":"Truyện dành cho cả Nam và Nữ","Rating":0.0,"isEnable":true},{"BookId":38,"BookName":"Vương gia người thật đê tiện","CategoryName":"","ImgUrl":"cover/CoverCoverVGNTDT.jpg","Sex":"Truyện dành cho Nữ","Rating":4.0,"isEnable":true},{"BookId":37,"BookName":"Thất vương phi báo thù","CategoryName":"","ImgUrl":"cover/CoverTVPBT.jpg","Sex":"Truyện dành cho Nữ","Rating":3.9,"isEnable":true},{"BookId":33,"BookName":"Hoàng thúc cuồng cưng chiều vương phi","CategoryName":"","ImgUrl":"cover/CoverHTCCCVP.jpg","Sex":"Truyện dành cho Nam","Rating":4.6,"isEnable":true},{"BookId":32,"BookName":"Bổn vương phi có Thần Đằng","CategoryName":"","ImgUrl":"cover/CoverBVPCTD.jpg","Sex":"Truyện dành cho Nữ","Rating":4.9,"isEnable":true},{"BookId":31,"BookName":"Thái tử phi hồ ly","CategoryName":"","ImgUrl":"cover/CoverTTPHL.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":30,"BookName":"Tiên Đế Trở Về","CategoryName":"Truyện tranh; Hành Động","ImgUrl":"cover/coverTDTV.jpg","Sex":"Truyện dành cho Nam","Rating":4.9,"isEnable":true},{"BookId":29,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nữ","Rating":4.8,"isEnable":true},{"BookId":28,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true},{"BookId":27,"BookName":"Thăng Cấp Mạnh Nhất","CategoryName":"Huyền huyễn; Hành Động; Mạo Hiểm","ImgUrl":"cover/coverTCMN.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (e5141f88)
+2021-08-12T21:58:00.9861454+07:00 80000025-0001-f900-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":79,"BookName":"aaa","CategoryName":"Trường học","ImgUrl":null,"Sex":"Truyện dành cho cả Nam và Nữ","Rating":0.0,"isEnable":true},{"BookId":38,"BookName":"Vương gia người thật đê tiện","CategoryName":"","ImgUrl":"cover/CoverCoverVGNTDT.jpg","Sex":"Truyện dành cho Nữ","Rating":4.0,"isEnable":true},{"BookId":37,"BookName":"Thất vương phi báo thù","CategoryName":"","ImgUrl":"cover/CoverTVPBT.jpg","Sex":"Truyện dành cho Nữ","Rating":3.9,"isEnable":true},{"BookId":33,"BookName":"Hoàng thúc cuồng cưng chiều vương phi","CategoryName":"","ImgUrl":"cover/CoverHTCCCVP.jpg","Sex":"Truyện dành cho Nam","Rating":4.6,"isEnable":true},{"BookId":32,"BookName":"Bổn vương phi có Thần Đằng","CategoryName":"","ImgUrl":"cover/CoverBVPCTD.jpg","Sex":"Truyện dành cho Nữ","Rating":4.9,"isEnable":true},{"BookId":31,"BookName":"Thái tử phi hồ ly","CategoryName":"","ImgUrl":"cover/CoverTTPHL.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":30,"BookName":"Tiên Đế Trở Về","CategoryName":"Truyện tranh; Hành Động","ImgUrl":"cover/coverTDTV.jpg","Sex":"Truyện dành cho Nam","Rating":4.9,"isEnable":true},{"BookId":29,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nữ","Rating":4.8,"isEnable":true},{"BookId":28,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true},{"BookId":27,"BookName":"Thăng Cấp Mạnh Nhất","CategoryName":"Huyền huyễn; Hành Động; Mạo Hiểm","ImgUrl":"cover/coverTCMN.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (e5141f88)
+2021-08-12T22:10:32.6086802+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-12T22:10:32.6243380+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-12T22:10:32.6287954+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-12T22:10:33.0505142+07:00 80000027-0001-f900-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-12T22:10:43.8009829+07:00 80000020-0002-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-12T22:24:41.8261931+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-12T22:24:41.8546042+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-12T22:24:41.8596224+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-12T22:24:42.1356071+07:00 80000005-0000-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-12T22:27:20.8013522+07:00 80000029-0001-f900-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-12T22:27:30.9539858+07:00 80000004-0002-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":79,"BookName":"aaa","CategoryName":"","ImgUrl":null,"Sex":"Truyện dành cho cả Nam và Nữ","Rating":0.0,"isEnable":true},{"BookId":38,"BookName":"Vương gia người thật đê tiện","CategoryName":"","ImgUrl":"cover/CoverCoverVGNTDT.jpg","Sex":"Truyện dành cho Nữ","Rating":4.0,"isEnable":true},{"BookId":37,"BookName":"Thất vương phi báo thù","CategoryName":"","ImgUrl":"cover/CoverTVPBT.jpg","Sex":"Truyện dành cho Nữ","Rating":3.9,"isEnable":true},{"BookId":33,"BookName":"Hoàng thúc cuồng cưng chiều vương phi","CategoryName":"","ImgUrl":"cover/CoverHTCCCVP.jpg","Sex":"Truyện dành cho Nam","Rating":4.6,"isEnable":true},{"BookId":32,"BookName":"Bổn vương phi có Thần Đằng","CategoryName":"","ImgUrl":"cover/CoverBVPCTD.jpg","Sex":"Truyện dành cho Nữ","Rating":4.9,"isEnable":true},{"BookId":31,"BookName":"Thái tử phi hồ ly","CategoryName":"","ImgUrl":"cover/CoverTTPHL.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":30,"BookName":"Tiên Đế Trở Về","CategoryName":"Truyện tranh; Hành Động","ImgUrl":"cover/coverTDTV.jpg","Sex":"Truyện dành cho Nam","Rating":4.9,"isEnable":true},{"BookId":29,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nữ","Rating":4.8,"isEnable":true},{"BookId":28,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true},{"BookId":27,"BookName":"Thăng Cấp Mạnh Nhất","CategoryName":"Huyền huyễn; Hành Động; Mạo Hiểm","ImgUrl":"cover/coverTCMN.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (400427c1)
+2021-08-12T22:27:30.9642057+07:00 80000013-0003-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":79,"BookName":"aaa","CategoryName":"","ImgUrl":null,"Sex":"Truyện dành cho cả Nam và Nữ","Rating":0.0,"isEnable":true},{"BookId":38,"BookName":"Vương gia người thật đê tiện","CategoryName":"","ImgUrl":"cover/CoverCoverVGNTDT.jpg","Sex":"Truyện dành cho Nữ","Rating":4.0,"isEnable":true},{"BookId":37,"BookName":"Thất vương phi báo thù","CategoryName":"","ImgUrl":"cover/CoverTVPBT.jpg","Sex":"Truyện dành cho Nữ","Rating":3.9,"isEnable":true},{"BookId":33,"BookName":"Hoàng thúc cuồng cưng chiều vương phi","CategoryName":"","ImgUrl":"cover/CoverHTCCCVP.jpg","Sex":"Truyện dành cho Nam","Rating":4.6,"isEnable":true},{"BookId":32,"BookName":"Bổn vương phi có Thần Đằng","CategoryName":"","ImgUrl":"cover/CoverBVPCTD.jpg","Sex":"Truyện dành cho Nữ","Rating":4.9,"isEnable":true},{"BookId":31,"BookName":"Thái tử phi hồ ly","CategoryName":"","ImgUrl":"cover/CoverTTPHL.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":30,"BookName":"Tiên Đế Trở Về","CategoryName":"Truyện tranh; Hành Động","ImgUrl":"cover/coverTDTV.jpg","Sex":"Truyện dành cho Nam","Rating":4.9,"isEnable":true},{"BookId":29,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nữ","Rating":4.8,"isEnable":true},{"BookId":28,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true},{"BookId":27,"BookName":"Thăng Cấp Mạnh Nhất","CategoryName":"Huyền huyễn; Hành Động; Mạo Hiểm","ImgUrl":"cover/coverTCMN.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (400427c1)
+2021-08-12T22:27:38.4582544+07:00 8000002c-0000-ff00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"12-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (37ed2dae)
+2021-08-12T22:27:38.4582394+07:00 80000007-0000-fe00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:38.5816215+07:00 8000002e-0000-ff00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:38.7238664+07:00 8000002f-0001-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:41.7919494+07:00 8000000a-0002-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:42.0904779+07:00 80000030-0000-ff00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"12-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (37ed2dae)
+2021-08-12T22:27:42.0945606+07:00 80000031-0001-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:42.6675290+07:00 80000032-0000-ff00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:44.7222885+07:00 80000034-0000-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-12T22:27:45.3030440+07:00 8000000c-0002-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-12T22:27:46.5230790+07:00 80000036-0000-ff00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-12T22:27:47.3231967+07:00 80000038-0000-ff00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-12T22:27:47.9464204+07:00 8000000e-0002-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-12T22:27:48.4243071+07:00 80000033-0001-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-12T22:27:50.8366246+07:00 80000017-0003-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:50.8406964+07:00 80000035-0001-f900-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetList" link to get information about sales with
+    data({"Key":null,"DateRevenue":"12-08-2021","Sale":null,"Branch":null,"Size":10,"Page":1}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (37ed2dae)
+2021-08-12T22:27:50.9874209+07:00 80000019-0003-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:51.1402034+07:00 80000010-0002-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/RatingSale/GetAllBranches" link to get information about branch(es) with
+    data((if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (80accdb5)
+2021-08-12T22:27:51.7595957+07:00 80000012-0002-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Book/GetList" link to get information about book with
+    data([{"BookId":79,"BookName":"aaa","CategoryName":"","ImgUrl":null,"Sex":"Truyện dành cho cả Nam và Nữ","Rating":0.0,"isEnable":true},{"BookId":38,"BookName":"Vương gia người thật đê tiện","CategoryName":"","ImgUrl":"cover/CoverCoverVGNTDT.jpg","Sex":"Truyện dành cho Nữ","Rating":4.0,"isEnable":true},{"BookId":37,"BookName":"Thất vương phi báo thù","CategoryName":"","ImgUrl":"cover/CoverTVPBT.jpg","Sex":"Truyện dành cho Nữ","Rating":3.9,"isEnable":true},{"BookId":33,"BookName":"Hoàng thúc cuồng cưng chiều vương phi","CategoryName":"","ImgUrl":"cover/CoverHTCCCVP.jpg","Sex":"Truyện dành cho Nam","Rating":4.6,"isEnable":true},{"BookId":32,"BookName":"Bổn vương phi có Thần Đằng","CategoryName":"","ImgUrl":"cover/CoverBVPCTD.jpg","Sex":"Truyện dành cho Nữ","Rating":4.9,"isEnable":true},{"BookId":31,"BookName":"Thái tử phi hồ ly","CategoryName":"","ImgUrl":"cover/CoverTTPHL.jpg","Sex":"Truyện dành cho Nữ","Rating":4.7,"isEnable":true},{"BookId":30,"BookName":"Tiên Đế Trở Về","CategoryName":"Truyện tranh; Hành Động","ImgUrl":"cover/coverTDTV.jpg","Sex":"Truyện dành cho Nam","Rating":4.9,"isEnable":true},{"BookId":29,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nữ","Rating":4.8,"isEnable":true},{"BookId":28,"BookName":"Võ Anh 3000 Đạo","CategoryName":"Huyền huyễn; Xuyên không; Mạo Hiểm; Tình yêu","ImgUrl":"cover/coverVA3000D.jpg","Sex":"Truyện dành cho Nam","Rating":4.8,"isEnable":true},{"BookId":27,"BookName":"Thăng Cấp Mạnh Nhất","CategoryName":"Huyền huyễn; Hành Động; Mạo Hiểm","ImgUrl":"cover/coverTCMN.jpg","Sex":"Truyện dành cho Nam","Rating":4.5,"isEnable":true}](if any)),
+    thus action result: Get information successfully,
+    message: [] (400427c1)
+2021-08-12T22:27:52.6982214+07:00 8000001b-0003-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/SaleRevenueStatistics/Index" link to get information about revenue statistics with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (d2dc4c79)
+2021-08-12T22:27:53.5932624+07:00 80000004-0001-f300-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/SaleRevenueStatistics/GetStatisticsData/12-08-2021/0" link to get information about revenue statistics with
+    data({"Time":"12-08-2021","TimeOption":0}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (53b469bd)
+2021-08-12T22:29:32.2542206+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-12T22:29:32.2712780+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-12T22:29:32.2740113+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-12T22:29:32.6935278+07:00 80000006-0001-f300-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-12T22:29:41.6017721+07:00 80000008-0001-f300-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-12T22:31:45.9393727+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-12T22:31:45.9575372+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-12T22:31:45.9604324+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-12T22:31:46.3105781+07:00 80000008-0000-fb00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-12T22:32:19.3948533+07:00 8000000c-0003-fc00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-12T23:53:35.8941195+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-12T23:53:35.9126081+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-12T23:53:35.9167476+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-12T23:53:36.2295534+07:00 8000000e-0001-f600-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-12T23:55:52.7641668+07:00 8000000e-0000-fb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-12T23:55:56.8790753+07:00 80000029-0003-fd00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-12T23:55:57.7758938+07:00 8000002b-0003-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-12T23:56:06.6508644+07:00 80000012-0000-fb00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/ShareList/Index" link to view the detail information of a(an) shares with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (51f798d1)
+2021-08-12T23:56:07.1621125+07:00 8000002d-0003-fd00-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/ShareList/GetList" link to get information about shares with
+    data({"key":null,"page":1,"size":10}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (8ce5de5d)
+2021-08-12T23:57:49.0144474+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-12T23:57:49.0354350+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-12T23:57:49.0407457+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-12T23:57:49.5094141+07:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-12T23:58:17.6423640+07:00 80000004-0001-ef00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)

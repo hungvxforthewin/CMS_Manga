@@ -161,7 +161,6 @@ namespace CRMSite.Controllers
             user.Role = 1;
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
                 new Claim(SiteConst.TokenKey.FULLNAME, user.AccountFullName ?? string.Empty),
                 new Claim(SiteConst.TokenKey.USERNAME, user.AccountName),
             };
@@ -230,7 +229,6 @@ namespace CRMSite.Controllers
             }
 
             HttpContext.Session.Remove(SystemConstants.SessionKey.PreviousScreen);
-            HttpContext.Session.SetInt32(SiteConst.SessionKey.OWN_SHARE, user.Share.GetValueOrDefault());
             var previousView = SessionExtensions.GetString(HttpContext.Session, SystemConstants.SessionKey.PreviousScreen);
             if (!string.IsNullOrEmpty(previousView))
             {
@@ -240,7 +238,7 @@ namespace CRMSite.Controllers
             //write trace log
             _logModel.Data = string.Empty;
             _logModel.Username = user.AccountName;
-            _logModel.Role = Helper.GetRoleName(user.Role);
+            _logModel.Role = Helper.GetRoleName((byte)user.Role);
             _logModel.Result = ActionResultValue.LoginSuccess;
             _logger.LogInformation(_logModel.ToString());
 

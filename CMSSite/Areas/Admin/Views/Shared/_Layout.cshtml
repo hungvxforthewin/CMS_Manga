@@ -3,7 +3,7 @@
 @{
     string currentUrl = Context.Request.Path.Value.ToUpper();
     List<string> categories = new List<string>
-    {
+{
         //khanhkk
         "/ADMIN/TYPECALL",
         "/ADMIN/WHERETOFINDINVESTOR",
@@ -51,89 +51,89 @@
                 <span class="close__menu"><i class="fas fa-times"></i></span>
                 <div class="menu-list">
                     @*<li class="menu-list__item">
-            <a class="menu-list__link">
-                <div class="img">
-                    <img src="/Assets/crm/images/layout/dashboard.svg" alt="" class="icon__cover" />
-                    <img src="/Assets/crm/images/layout/dashboard-active.svg"
-                         alt=""
-                         class="icon__hover" />
-                </div>
-                Dashboard
-            </a>
-        </li>*@
+                            <a class="menu-list__link">
+                                <div class="img">
+                                    <img src="/Assets/crm/images/layout/dashboard.svg" alt="" class="icon__cover" />
+                                    <img src="/Assets/crm/images/layout/dashboard-active.svg"
+                                         alt=""
+                                         class="icon__hover" />
+                                </div>
+                                Dashboard
+                            </a>
+                        </li>*@
+                    @*<li class="menu-list__item">
+                            <a class="menu-list__link @(categories.Where(x => currentUrl.Contains(x)).FirstOrDefault() != null ? "active" : "")">
+                                <div class="img">
+                                    <img src="/Assets/crm/images/layout/category-manage.svg"
+                                         alt=""
+                                         class="icon__cover" />
+                                    <img src="/Assets/crm/images/layout/category-manage-active.svg"
+                                         alt=""
+                                         class="icon__hover" />
+                                </div>
+                                Quản lí danh mục
+                                <ul class="dropdown-list" style="display: @(categories.Where(x => currentUrl.Contains(x)).FirstOrDefault() != null ? "block" : "none")">
+                                    <li class="dropdown-list__item" style="display: none;">
+                                        <div class="dot"></div>
+                                        <a href="#" class="dropdown-list__link">Chi nhánh</a>
+                                    </li>
+                                    <li class="dropdown-list__item hidden">
+                                        <div class="dot"></div>
+                                        <a href="#" class="dropdown-list__link">Chi nhánh</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/ALLOWANCEORDEDUCTS") ? "active" : "")"></div>
+                                        <a href="/AllowanceOrDeducts/Index" class="dropdown-list__link">Phạt</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/INVESTORS") ? "active" : "")"></div>
+                                        <a href="/Investors/Index" class="dropdown-list__link">Khách hàng</a>
+                                    </li>
+                                    <li class="dropdown-list__item hidden">
+                                        <div class="dot"></div>
+                                        <a href="#" class="dropdown-list__link">Đóng bảo hiểm</a>
+                                    </li>
+                                    <li class="dropdown-list__item hidden">
+                                        <div class="dot"></div>
+                                        <a href="#" class="dropdown-list__link">Nhóm</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/PRODUCTS") ? "active" : "")"></div>
+                                        <a href="/Products/Index" class="dropdown-list__link">Sản phẩm</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/ADMIN/TYPECALL") ? "active" : "")"></div>
+                                        <a href="/Admin/TypeCall/Index" class="dropdown-list__link">Phân loại cuộc gọi</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/ADMIN/WHERETOFINDINVESTOR") ? "active" : "")"></div>
+                                        <a href="/Admin/WhereToFindInvestor/Index" class="dropdown-list__link">Nguồn khách hàng</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/ADMIN/TYPECONTRACT") ? "active" : "")"></div>
+                                        <a href="/Admin/TypeContract/Index" class="dropdown-list__link">Loại hợp đồng</a>
+                                    </li>
+                                    <li class="dropdown-list__item hidden">
+                                        <div class="dot"></div>
+                                        <a href="#" class="dropdown-list__link">Trạng thái hợp đồng</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/ADMIN/LEVELCONCERN") ? "active" : "")"></div>
+                                        <a href="/Admin/LevelConcern/Index" class="dropdown-list__link">Mức độ quan tâm show up</a>
+                                    </li>
+                                    <li class="dropdown-list__item hidden">
+                                        <div class="dot"></div>
+                                        <a href="#" class="dropdown-list__link">Trạng thái thanh toán</a>
+                                    </li>
+                                    <li class="dropdown-list__item">
+                                        <div class="dot @(currentUrl.Contains("/ADMIN/SENIORITY") ? "active" : "")"></div>
+                                        <a href="/Admin/Seniority/Index" class="dropdown-list__link">Mức thâm niên</a>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>*@
                     <li class="menu-list__item">
-                        <a class="menu-list__link @(categories.Where(x => currentUrl.Contains(x)).FirstOrDefault() != null ? "active" : "")">
-                            <div class="img">
-                                <img src="/Assets/crm/images/layout/category-manage.svg"
-                                     alt=""
-                                     class="icon__cover" />
-                                <img src="/Assets/crm/images/layout/category-manage-active.svg"
-                                     alt=""
-                                     class="icon__hover" />
-                            </div>
-                            Quản lí danh mục
-                            <ul class="dropdown-list" style="display: @(categories.Where(x => currentUrl.Contains(x)).FirstOrDefault() != null ? "block" : "none")">
-                                <li class="dropdown-list__item" style="display: none;">
-                                    <div class="dot"></div>
-                                    <a href="#" class="dropdown-list__link">Chi nhánh</a>
-                                </li>
-                                <li class="dropdown-list__item hidden">
-                                    <div class="dot"></div>
-                                    <a href="#" class="dropdown-list__link">Chi nhánh</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/ALLOWANCEORDEDUCTS") ? "active" : "")"></div>
-                                    <a href="/AllowanceOrDeducts/Index" class="dropdown-list__link">Phạt</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/INVESTORS") ? "active" : "")"></div>
-                                    <a href="/Investors/Index" class="dropdown-list__link">Khách hàng</a>
-                                </li>
-                                <li class="dropdown-list__item hidden">
-                                    <div class="dot"></div>
-                                    <a href="#" class="dropdown-list__link">Đóng bảo hiểm</a>
-                                </li>
-                                <li class="dropdown-list__item hidden">
-                                    <div class="dot"></div>
-                                    <a href="#" class="dropdown-list__link">Nhóm</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/PRODUCTS") ? "active" : "")"></div>
-                                    <a href="/Products/Index" class="dropdown-list__link">Sản phẩm</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/ADMIN/TYPECALL") ? "active" : "")"></div>
-                                    <a href="/Admin/TypeCall/Index" class="dropdown-list__link">Phân loại cuộc gọi</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/ADMIN/WHERETOFINDINVESTOR") ? "active" : "")"></div>
-                                    <a href="/Admin/WhereToFindInvestor/Index" class="dropdown-list__link">Nguồn khách hàng</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/ADMIN/TYPECONTRACT") ? "active" : "")"></div>
-                                    <a href="/Admin/TypeContract/Index" class="dropdown-list__link">Loại hợp đồng</a>
-                                </li>
-                                <li class="dropdown-list__item hidden">
-                                    <div class="dot"></div>
-                                    <a href="#" class="dropdown-list__link">Trạng thái hợp đồng</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/ADMIN/LEVELCONCERN") ? "active" : "")"></div>
-                                    <a href="/Admin/LevelConcern/Index" class="dropdown-list__link">Mức độ quan tâm show up</a>
-                                </li>
-                                <li class="dropdown-list__item hidden">
-                                    <div class="dot"></div>
-                                    <a href="#" class="dropdown-list__link">Trạng thái thanh toán</a>
-                                </li>
-                                <li class="dropdown-list__item">
-                                    <div class="dot @(currentUrl.Contains("/ADMIN/SENIORITY") ? "active" : "")"></div>
-                                    <a href="/Admin/Seniority/Index" class="dropdown-list__link">Mức thâm niên</a>
-                                </li>
-                            </ul>
-                        </a>
-                    </li>
-                    <li class="menu-list__item">
-                        <a href="/Admin/ShareList/Index" class="menu-list__link @(currentUrl.Contains("/ADMIN/SHARELIST") ? "active" : "")">
+                        <a href="/Admin/Accounts/Index" class="menu-list__link @(currentUrl.Contains("/ADMIN/ACCOUNTS") ? "active" : "")">
                             <div class="img">
                                 <img src="/Assets/crm/images/layout/statistic.svg"
                                      alt=""
@@ -142,7 +142,7 @@
                                      alt=""
                                      class="icon__hover" />
                             </div>
-                            Danh sách cổ phần
+                            Quản lý người dùng
                         </a>
                     </li>
                     <li class="menu-list__item">
@@ -155,7 +155,7 @@
                                      alt=""
                                      class="icon__hover" />
                             </div>
-                            Quản lý doanh số Sale
+                            Quản lý danh mục
                         </a>
                     </li>
                     <li class="menu-list__item">
@@ -179,10 +179,10 @@
                                      alt=""
                                      class="icon__hover" />
                             </div>
-                            Báo cáo - thống kê
+                            Quản lý banner
                         </a>
                     </li>
-                    <li class="menu-list__item">
+                    @*<li class="menu-list__item">
                         <a class="menu-list__link @(currentUrl.Contains("/ADMIN/MECHANISM") || currentUrl.Contains("/ALLOWANCE") ? "active" : "")">
                             <div class="img">
                                 <img src="/Assets/crm/images/layout/settings.svg" alt="" class="icon__cover" />
@@ -207,7 +207,7 @@
                                 <a href="" class="dropdown-list__link">Phân quyền</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
                 </div>
                 <div class="right" style="margin-top:" 300px">
                     <img src='/Assets/crm/images/layout/right.png' alt="" />
@@ -227,7 +227,7 @@
                         <img title="Đăng xuất" src="/Assets/crm/images/log out.svg" alt="" />
                     </a>
                     @*<img src="/Assets/crm/images/layout/search.svg" alt="" />
-                    <img src="/Assets/crm/images/layout/notifications.svg" alt="" />*@
+                        <img src="/Assets/crm/images/layout/notifications.svg" alt="" />*@
                     <img src="/Assets/crm/images/layout/avt.png" alt="" />
                     <img src="/Assets/crm/images/layout/dots.svg" alt="" />
                 </div>

@@ -300,24 +300,24 @@ namespace CRMSite.Areas.SaleAdmin.Controllers
         /// <param name="teamCode"></param>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetStaffSale(string teamCode)
-        {
-            // trace log
-            LogModel.Action = ActionType.GetInfo;
-            LogModel.ItemName = "staff(s) in a ";
-            LogModel.Data = (new { team = teamCode }).ToDataString();
+        //public IActionResult GetStaffSale(string teamCode)
+        //{
+        //    // trace log
+        //    LogModel.Action = ActionType.GetInfo;
+        //    LogModel.ItemName = "staff(s) in a ";
+        //    LogModel.Data = (new { team = teamCode }).ToDataString();
 
-            var data = _accountService.GetEmployeeInfoByTeam(teamCode).Result.ToList();
-            //var handleResult = HandleGetResult(data);
-            //if (handleResult != null) return handleResult;
+        //    var data = _accountService.GetEmployeeInfoByTeam(teamCode).Result.ToList();
+        //    //var handleResult = HandleGetResult(data);
+        //    //if (handleResult != null) return handleResult;
 
-            //write trace log
-            LogModel.Result = ActionResultValue.GetInfoSuccess;
-            LogModel.Data = data.ToDataString();
-            Logger.LogInformation(LogModel.ToString());
+        //    //write trace log
+        //    LogModel.Result = ActionResultValue.GetInfoSuccess;
+        //    LogModel.Data = data.ToDataString();
+        //    Logger.LogInformation(LogModel.ToString());
 
-            return Json(new { Result = 200, Data = data });
-        }
+        //    return Json(new { Result = 200, Data = data });
+        //}
         #endregion
 
         #region GetPositions - HungVX

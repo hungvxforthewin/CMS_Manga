@@ -19,17 +19,17 @@ namespace CRMSite.Providers
 
         public void UpdateShare()
         {
-            IAccount iAcc = new AccountImp();
+            //IAccount iAcc = new AccountImp();
 
-            bool result = iAcc.UpdateShareForSale();
-            if (result)
-            {
-                _logger.LogInformation("Update share for sale successfully!");
-            }
-            else
-            {
-                _logger.LogError("Update share for sale failed!");
-            }
+            //bool result = iAcc.UpdateShareForSale();
+            //if (result)
+            //{
+            //    _logger.LogInformation("Update share for sale successfully!");
+            //}
+            //else
+            //{
+            //    _logger.LogError("Update share for sale failed!");
+            //}
         }
     }
 }
