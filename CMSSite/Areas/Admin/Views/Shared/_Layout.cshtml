@@ -159,7 +159,7 @@
                         </a>
                     </li>
                     <li class="menu-list__item">
-                        <a href="/Admin/Book/Index" class="menu-list__link @(currentUrl.Contains("/ADMIN/BOOK") ? "active" : "")">
+                        <a href="/Admin/Book/Index" class="menu-list__link @(currentUrl.Contains("/ADMIN/BOOK/") ? "active" : "")">
                             <div class="img">
                                 <img src="/Assets/crm/images/layout/statistic.svg"
                                      alt=""
@@ -169,6 +169,19 @@
                                      class="icon__hover" />
                             </div>
                             Quản lý truyện
+                        </a>
+                    </li>
+                    <li class="menu-list__item">
+                        <a href="/Admin/BookChapter/Index" class="menu-list__link @(currentUrl.Contains("/ADMIN/BOOKCHAPTER/") ? "active" : "")">
+                            <div class="img">
+                                <img src="/Assets/crm/images/layout/statistic.svg"
+                                     alt=""
+                                     class="icon__cover" />
+                                <img src="/Assets/crm/images/layout/statistic-active.svg"
+                                     alt=""
+                                     class="icon__hover" />
+                            </div>
+                            Quản lý Chapter
                         </a>
                     </li>
                     <li class="menu-list__item">

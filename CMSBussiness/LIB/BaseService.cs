@@ -169,6 +169,26 @@ namespace CRMBussiness.LIB
             var cn = new SqlConnection(OpenDapper.connectionStr);
             return SqlRaw<T>.SaveAll(cn, TableName, PrimaryKey, datas, Columns: allColumns, IgnoreOrSave: false, Action: 2, keyIdentity: keyIdentity).Count > 0;
         }
+        public bool Raw_InsertAllByKeys(List<T> datas, List<string> Columns = null, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null)
+        {
+            datas = datas ?? new List<T>();
+            if (datas.Count <= 0)
+            {
+                return false;
+            }
+            var PrimaryKeys = getPrimaryKeyColumns();
+            Columns = Columns ?? new List<string>();
+
+            List<string> allColumns = DataHelper.GetPropertyOrColumnsAccess(datas[0], CrudFieldType.Create);
+            if (!keyIdentity)
+            {
+                allColumns.AddRange(PrimaryKeys);
+            }
+            allColumns = Raw_GetColumns(allColumns, Columns, IgnoreOrSave).ToList();
+
+            var cn = new SqlConnection(OpenDapper.connectionStr);
+            return SqlRaw<T>.SaveAll(cn, TableName, PrimaryKeys.ToList(), datas, Columns: allColumns, IgnoreOrSave: false, Action: 2, keyIdentity: keyIdentity).Count > 0;
+        }
         public async Task<bool> Raw_InsertAll_Async(List<T> datas, List<string> Columns = null, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null)
         {
             datas = datas ?? new List<T>();

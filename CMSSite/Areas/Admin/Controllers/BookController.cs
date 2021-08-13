@@ -162,6 +162,7 @@ namespace CMSSite.Areas.Admin.Controllers
                             {
                                 _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
                             }
+                            var bookCategories = new List<BookCategory>();
                             foreach (var item in model.CategoryIds)
                             {
                                 var bookCategory = new BookCategory
@@ -173,8 +174,9 @@ namespace CMSSite.Areas.Admin.Controllers
                                 {
                                     bookCategory.isDefaultCate = true;
                                 }
-                                _bookCategoryService.Raw_Insert(bookCategory);
+                                bookCategories.Add(bookCategory);
                             }
+                            _bookCategoryService.Raw_InsertAllByKeys(bookCategories);
                         }
                     }
                 }
@@ -210,6 +212,7 @@ namespace CMSSite.Areas.Admin.Controllers
                                 {
                                     _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
                                 }
+                                var bookCategories = new List<BookCategory>();
                                 foreach (var item in model.CategoryIds)
                                 {
                                     var bookCategory = new BookCategory
@@ -221,8 +224,9 @@ namespace CMSSite.Areas.Admin.Controllers
                                     {
                                         bookCategory.isDefaultCate = true;
                                     }
-                                    _bookCategoryService.Raw_Insert(bookCategory);
+                                    bookCategories.Add(bookCategory);
                                 }
+                                _bookCategoryService.Raw_InsertAllByKeys(bookCategories);
                             }
                         }
                     }
@@ -293,7 +297,8 @@ namespace CMSSite.Areas.Admin.Controllers
             if (data)
             {
                 var bookCategoriesFirst = _bookCategoryService.Raw_GetAll().Where(x => x.BookId == id);
-                _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
+                if(bookCategoriesFirst.Count() > 0)
+                    _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
             }
             //var handleResult = HandleGetResult(data);
             //if (handleResult != null) return handleResult;
