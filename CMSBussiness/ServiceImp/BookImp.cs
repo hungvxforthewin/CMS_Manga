@@ -18,7 +18,18 @@ namespace CMSBussiness.ServiceImp
     {
         public DataResult<BookViewModel> GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                BookViewModel data = new BookViewModel();
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@Id", id);
+                data = this.Procedure<BookViewModel>("SP_Book_GetById", param).SingleOrDefault();
+                return new DataResult<BookViewModel> { DataItem = data ?? new BookViewModel() };
+            }
+            catch (Exception ex)
+            {
+                return new DataResult<BookViewModel> { Error = true };
+            }
         }
 
         public DataResult<DisplayBookViewModel> GetList(SearchBookViewModel model, out int total)
@@ -26,6 +37,11 @@ namespace CMSBussiness.ServiceImp
             List<DisplayBookViewModel> data = new List<DisplayBookViewModel>();
             DynamicParameters param = new DynamicParameters();
             param.Add("@Key", model.Key);
+            param.Add("@CategoryId", model.CategoryId);
+            param.Add("@SexId", model.SexId);
+            param.Add("@DateStart", model.DateStart);
+            param.Add("@DateEnd", model.DateEnd);
+            param.Add("@Status", model.Status);
             param.Add("@Page", model.Page);
             param.Add("@Size", model.Size);
             param.Add("@Total", dbType: DbType.Int32, direction: ParameterDirection.Output);

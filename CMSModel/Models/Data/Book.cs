@@ -15,12 +15,16 @@ namespace CMSModel.Models.Data
 
         public Guid BookUUID { get; set; }
 
+        [Required]
         public string BookName { get; set; }
 
+        [Required]
         public string BookDescription { get; set; }
 
+        [Required]
         public byte adultLimit { get; set; }
 
+        [Required]
         public byte bookSexId { get; set; }
 
         public decimal Rating { get; set; }
@@ -29,10 +33,13 @@ namespace CMSModel.Models.Data
 
         public int FollowNo { get; set; }
 
+        [Required]
         public bool isEnable { get; set; }
 
+        [Required]
         public bool commentAllowed { get; set; }
 
+        [Required]
         public int authorAccountId { get; set; }
 
         public byte updateStatus { get; set; }
