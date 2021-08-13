@@ -38,6 +38,7 @@ namespace CRMBussiness.LIB
         bool Raw_SaveAll(List<T> datas, List<string> Columns, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null);
         Task<bool> Raw_SaveAll_Async(List<T> datas, List<string> Columns, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null);
         bool Raw_InsertAll(List<T> datas, List<string> Columns = null, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null);
+        bool Raw_InsertAllByKeys(List<T> datas, List<string> Columns = null, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null);
         Task<bool> Raw_InsertAll_Async(List<T> datas, List<string> Columns = null, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null);
         bool Raw_UpdateAll(List<T> datas, List<string> Columns = null, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null);
         Task<bool> Raw_UpdateAll_Async(List<T> datas, List<string> Columns = null, bool keyIdentity = true, bool IgnoreOrSave = false, IDbTransaction transaction = null, int? commandTimeout = null);

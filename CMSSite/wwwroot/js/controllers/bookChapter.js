@@ -1,18 +1,12 @@
-﻿let baseUrl = '/Admin/Book/';
+﻿let baseUrl = '/Admin/BookChapter/';
 $(function () {
-    LoadCategoriesToForm('#search-book');
-    LoadSexsToForm('#search-book');
-    LoadStatusToForm('#search-book');
+    LoadStatusToForm('#search-book-chapter');
 
-    LoadCategoriesToForm('#book-add');
-    LoadSexsToForm('#book-add');
     LoadStatusToForm('#book-add');
-    LoadAuthorToForm('#book-add');
-    LoadCommentAllowedToForm('#book-add');
 
-    $('#btn-search-book').on('click', function () {
+    $('#btn-search-book-chapter').on('click', function () {
         app.component.Loading.Show();
-        let data = $('#search-book-form').serializeObject();
+        let data = $('#search-book-chapter-form').serializeObject();
         //console.log(data);
         $('#pagination').pagination({
             ajax: function (options, refresh, $target) {
@@ -31,12 +25,11 @@ $(function () {
                     div.html('');
                     div.html(`
                      <tr>
-                        <th class="text-center">Tên truyện</th>
-                        <th class="text-center">Tác giả</th>
-                        <th class="text-center">Danh mục</th>
-                        <th class="text-center">Hình ảnh</th>
-                        <th class="text-center">Đối tượng</th>
-                        <th class="text-center">Điểm đánh giá</th>
+                        <th class="text-center">Tên sách</th>
+                        <th class="text-center">Tên Chapter</th>
+                        <th class="text-center">Số lượng trang</th>
+                        <th class="text-center">Tuổi giới hạn</th>
+                        <th class="text-center">Ngày đăng</th>
                         <th class="text-center">Trạng thái</th>
                         <th class="text-center">Action</th>
                       
@@ -46,23 +39,22 @@ $(function () {
                     if (res.result != 400) {
                         $.each(res.data, function (index, item) {
                             div.append(`
-                        <tr>
-                            <td>
-                                <button type="button" class="view-info" style="text-align: left" data-id="${item.bookId}">
-                                    ${item.bookName}
-                                </button>
-                            </td>
-                            <td class="text-center">${item.author}</td>
-                            <td>${item.categoryName}</td>
+                            <tr>
+                                <td>${item.bookName}</td>
+                                <td>
+                                    <button type="button" class="view-info" style="text-align: left" data-id="${item.chapterId}">
+                                        ${item.chapterName}
+                                    </button>
+                                </td>
+                                <td class="text-center">${item.numberPages}</td>
 
-                            <td class="text-center"><img height="100" src="${item.imgUrl}" /></td>
-                            <td class="text-center">${item.sex}</td>
-                            <td class="text-center">${item.rating}</td>
-                            <td class="text-center">${item.status}</td>
-                            <td class="text-center">
-                                <button type="button" class="delete-book" data-id="${item.bookId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
-                            </td>
-                        </tr>`);
+                                <td class="text-center">${item.adultLimit}</td>
+                                <td class="text-center">${item.publishDate}</td>
+                                <td class="text-center">${item.chapterStatus}</td>
+                                <td class="text-center">
+                                    <button type="button" class="delete-book-chapter" data-id="${item.chapterId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                                </td>
+                            </tr>`);
                         });
                         refresh({
                             total: res.total, // optional
@@ -125,7 +117,7 @@ $(function () {
         EditBookInfo($(this).data('id'));
     })
 
-    $('body').on('click', 'button.delete-book', function () {
+    $('body').on('click', 'button.delete-book-chapter', function () {
         app.component.Loading.Show();
         let id = $(this).data('id');
         $.get(baseUrl + 'IsDelete?id=' + id, function (res) {
@@ -135,15 +127,15 @@ $(function () {
                 app.component.Loading.Hide();
             }
             else {
-                ShowModal('#book-delete');
-                $('#txt-del-book').html(`Bạn có chắc muốn xóa ?`)
+                ShowModal('#book-chapter-delete');
+                $('#txt-del-book-chapter').html(`Bạn có chắc muốn xóa ?`)
                 app.component.Loading.Hide();
 
-                $('#delete-book').click(function () {
+                $('#delete-book-chapter').click(function () {
                     app.component.Loading.Show();
                     $.get(baseUrl + 'Delete?id=' + id, function (res) {
                         if (res.status) {
-                            CloseModal('#book-delete');
+                            CloseModal('#book-chapter-delete');
                             SetupPagination();
                             app.component.Loading.Hide();
                             toastr.success('xóa thành công', 'Thông báo');
@@ -230,12 +222,11 @@ var SetupPagination = function () {
                 div.html('');
                 div.html(`
                      <tr>
-                        <th class="text-center">Tên truyện</th>
-                        <th class="text-center">Tác giả</th>
-                        <th class="text-center">Danh mục</th>
-                        <th class="text-center">Hình ảnh</th>
-                        <th class="text-center">Đối tượng</th>
-                        <th class="text-center">Điểm đánh giá</th>
+                        <th class="text-center">Tên sách</th>
+                        <th class="text-center">Tên Chapter</th>
+                        <th class="text-center">Số lượng trang</th>
+                        <th class="text-center">Tuổi giới hạn</th>
+                        <th class="text-center">Ngày đăng</th>
                         <th class="text-center">Trạng thái</th>
                         <th class="text-center">Action</th>
                        
@@ -246,20 +237,19 @@ var SetupPagination = function () {
                     $.each(res.data, function (index, item) {
                         div.append(`
                             <tr>
+                                <td>${item.bookName}</td>
                                 <td>
-                                    <button type="button" class="view-info" style="text-align: left" data-id="${item.bookId}">
-                                        ${item.bookName}
+                                    <button type="button" class="view-info" style="text-align: left" data-id="${item.chapterId}">
+                                        ${item.chapterName}
                                     </button>
                                 </td>
-                                <td class="text-center">${item.author}</td>
-                                <td>${item.categoryName}</td>
+                                <td class="text-center">${item.numberPages}</td>
 
-                                <td class="text-center"><img height="100" src="${item.imgUrl}" /></td>
-                                <td class="text-center">${item.sex}</td>
-                                <td class="text-center">${item.rating}</td>
-                                <td class="text-center">${item.status}</td>
+                                <td class="text-center">${item.adultLimit}</td>
+                                <td class="text-center">${item.publishDate}</td>
+                                <td class="text-center">${item.chapterStatus}</td>
                                 <td class="text-center">
-                                    <button type="button" class="delete-book" data-id="${item.bookId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                                    <button type="button" class="delete-book-chapter" data-id="${item.chapterId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
                                 </td>
                             </tr>`);
                     });
@@ -329,84 +319,14 @@ var EditBookInfo = function (id) {
     });
 }
 
-var LoadCategoriesToForm = function (target, selected = null) {
-    $.get(baseUrl + "GetAllCategories", function (res) {
-        if (res.result == 400) {
-            //$('#error-list').append(`<p class="error-message">${res.errors}</p>`);
-        }
-        else {
-            var el = $(target).find('.select-category');
-            el.html('');
-            //el.append(`<option value="">-- Danh mục --</option>`);
-            $.each(res.data, function (index, item) {
-                el.append(`<option value="${item.categoryId}">${item.categoryName}</option>`);
-            });
-            if (selected) {
-                if (selected.split(';').length > 0) {
-                    $(el).val(selected.split(';'));
-                }
-            }
-        }
-    });
-}
-
-var LoadSexsToForm = function (target, selected = null) {
-    $.get(baseUrl + "GetAllSexs", function (res) {
-        if (res.result == 400) {
-            //$('#error-list').append(`<p class="error-message">${res.errors}</p>`);
-        }
-        else {
-            var el = $(target).find('.select-sex');
-            el.html('');
-            el.append(`<option value="">-- Đối tượng --</option>`);
-            $.each(res.data, function (index, item) {
-                el.append(`<option value="${item.bookSexId}">${item.bookSexName}</option>`);
-            });
-            if (selected) {
-                $(el).val(selected);
-                /*$(el).trigger('change');*/
-            }
-        }
-    });
-}
 
 var LoadStatusToForm = function (target, selected = null) {
     var el = $(target).find('.select-status');
     el.html('');
-    el.append(`<option value="">Trạng thái</option>`);
-    el.append(`<option value="false">Khóa</option>`);
-    el.append(`<option value="true">Kích hoạt</option>`);
-    if (selected) {
-        $(el).val(selected);
-        /*$(el).trigger('change');*/
-    }
-}
-
-var LoadAuthorToForm = function (target, selected = null) {
-    $.get(baseUrl + "GetAllAuthors", function (res) {
-        if (res.result == 400) {
-            //$('#error-list').append(`<p class="error-message">${res.errors}</p>`);
-        }
-        else {
-            var el = $(target).find('.select-author');
-            el.html('');
-            el.append(`<option value="">-- Tác giả --</option>`);
-            $.each(res.data, function (index, item) {
-                el.append(`<option value="${item.accountId}">${item.nickname}</option>`);
-            });
-            if (selected) {
-                $(el).val(selected);
-                /*$(el).trigger('change');*/
-            }
-        }
-    });
-}
-
-var LoadCommentAllowedToForm = function (target, selected = null) {
-    var el = $(target).find('.select-commentAllowed');
-    el.html('');
-    el.append(`<option value="false">Không cho phép</option>`);
-    el.append(`<option value="true">Cho phép</option>`);
+    el.append(`<option value="">-- Trạng thái --</option>`);
+    el.append(`<option value="0">Chương đang chờ duyệt</option>`);
+    el.append(`<option value="1">Chương đã được duyệt</option>`);
+    el.append(`<option value="2">Chương truyện bị hạ</option>`);
     if (selected) {
         $(el).val(selected);
         /*$(el).trigger('change');*/

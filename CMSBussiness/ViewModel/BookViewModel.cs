@@ -31,9 +31,6 @@ namespace CMSBussiness.ViewModel
 
         public int authorAccountId { get; set; }
 
-        public byte updateStatus { get; set; }
-
-        public DateTime lastUpdateTime { get; set; }
         public string CategoryIdsStr { get; set; }
     }
     public class SearchBookViewModel

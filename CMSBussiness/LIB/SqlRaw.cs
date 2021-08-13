@@ -673,6 +673,161 @@ namespace CRMBussiness
 
             return select;
         }
+        
+        public static List<T> SaveAll(IDbConnection cn, string tableName, List<string> nameFieldPrimaryKeys, List<T> datas, bool keyIdentity = true, List<string> Columns = null, bool IgnoreOrSave = false, int Action = 1 /*1: AutoInsert/Update   |   2: Only Insert      |   3: OnlyUpdate*/, string _schema = "dbo", IDbTransaction transaction = null, int? commandTimeout = null)
+        {
+            if (keywordSQL.Contains(tableName, StringComparer.OrdinalIgnoreCase))
+            {
+                tableName = "[" + tableName + "]";
+            }
+
+            datas = datas ?? new List<T>();
+
+            var top = datas.Count;
+            var xml = SerializeXML<List<T>>(datas);
+
+            var columnsVariable = Columns.Select(e =>
+            {
+                if (keywordSQL.Contains(tableName, StringComparer.OrdinalIgnoreCase))
+                {
+                    return "[" + e + "]";
+                }
+                return e;
+            }).ToList();
+
+            if (cn.State == ConnectionState.Broken || cn.State == ConnectionState.Closed)
+            {
+                cn.Open();
+            }
+
+            var selectColumns = string.Join(",\n", columnsVariable);
+            var tableTemp = string.Join(" nvarchar(max),\n", columnsVariable) + " nvarchar(max)";
+            var columnSelectXML = string.Join("\n", columnsVariable.Select(e =>
+            {
+                return string.Format(",{0}					=	xmlTable.value('{0}							[1]', 'nvarchar(max)')", e);
+            }));
+            var columnUpdate = string.Join(",\n", columnsVariable.Select(e =>
+            {
+                return string.Format("temp.{0} = allData.{0}", e);
+            }));
+
+            var whereInsert = "";
+            if (nameFieldPrimaryKeys.Count > 0 && (Action == 1 || Action == 2))
+            {
+                List<string> keyStr = new List<string>();
+                foreach(var i in nameFieldPrimaryKeys)
+                {
+                    keyStr.Add(string.Format("temp.{0} = allData.{0}", i));
+                }
+                whereInsert = string.Format(@"
+                    and not exists(
+                        select
+                            1
+                        from {0}.[{1}] temp
+                        where {2}
+                    )
+                    ",
+                    /*{0}*/ _schema,
+                    /*{1}*/ tableName,
+                    /*{2}*/ string.Join(" and ", keyStr)
+                    );
+            }
+
+            var whereUpdate = "";
+            if (nameFieldPrimaryKeys.Count > 0 && (Action == 1 || Action == 3))
+            {
+                List<string> keyStr = new List<string>();
+                foreach (var i in nameFieldPrimaryKeys)
+                {
+                    keyStr.Add(string.Format("temp.{0} = allData.{0}", i));
+                }
+                whereUpdate = string.Format(@"
+                    {0}
+                    ",
+                    /*{0}*/ string.Join(" and ", keyStr)
+                    );
+            }
+
+            var SQL = string.Format(@"
+                    declare @xml xml
+
+                    set @xml = @XML_SET
+
+                    declare @tempTable table(
+	                    {0}
+                    )
+                    ;with allXml as (
+	                    select
+		                    RowIndexReverse					=	ROW_NUMBER() OVER(ORDER BY RowIndex desc),
+		                    *
+	                    from(
+		                    SELECT 
+			                    RowIndex					=	ROW_NUMBER() OVER(ORDER BY (select 1))
+			                    {1}
+		                    FROM @xml.nodes('/*/*') AS XD(xmlTable)
+	                    ) temp
+                    ),
+                    DataDistinct as (
+	                    select
+		                    *
+	                    from(
+		                    select
+			                    *
+		                    from(
+			                    select
+				                    RowDup					=	ROW_NUMBER() OVER(PARTITION BY {2}  ORDER BY (select 1)),
+				                    *
+			                    from allXml
+		                    ) temp
+	                    )temp
+	                    where temp.RowDup = 1
+                    )
+                    insert into @tempTable
+                    select
+	                    top {3}
+	                    {4}
+                    from DataDistinct
+                    order by RowIndexReverse desc
+
+                    update
+                        temp
+                    set
+                        {9}
+                    from {5}.[{6}] temp
+                    inner join @tempTable allData on {8}
+
+                    insert into {5}.[{6}](
+                        {4}
+                    )
+                    select
+                        *
+                    from @tempTable allData
+                    where 1=1 {7}
+
+
+                    select
+                        *
+                    from @tempTable
+                    ",
+                /*{0}*/ tableTemp, //table name
+                /*{1}*/columnSelectXML, //column xml
+                /*{2}*/nameFieldPrimaryKeys.Count > 0 ? "RowIndex" : nameFieldPrimaryKeys.FirstOrDefault(), //sort by key name
+                /*{3}*/top, // top
+                /*{4}*/selectColumns, // column insert/update
+                /*{5}*/_schema,
+                /*{6}*/tableName,
+                /*{7}*/ Action == 3 ? " and 1=2" : whereInsert, // where insert
+                /*{8}*/ nameFieldPrimaryKeys.Count > 0 || Action == 2 ? " 1=2" : whereUpdate, //where update
+                /*{9}*/ columnUpdate // column update
+                );
+            var select = cn.Query<T>(SQL, param: new
+            {
+                XML_SET = xml
+            }).ToList();
+
+
+            return select;
+        }
         public static async Task<List<T>> SaveAll_Async(IDbConnection cn, string tableName, string nameFieldPrimaryKey, List<T> datas, bool keyIdentity = true, List<string> Columns = null, bool IgnoreOrSave = false, int Action = 1 /*1: AutoInsert/Update   |   2: Only Insert      |   3: OnlyUpdate*/, string _schema = "dbo", IDbTransaction transaction = null, int? commandTimeout = null)
         {
             if (keywordSQL.Contains(tableName, StringComparer.OrdinalIgnoreCase))
