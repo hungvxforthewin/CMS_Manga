@@ -9,6 +9,7 @@ namespace CMSBussiness.ViewModel
         public int BookId { get; set; }
 
         public Guid BookUUID { get; set; }
+        public string[] CategoryIds { get; set; }
 
         public string BookName { get; set; }
 
@@ -33,10 +34,16 @@ namespace CMSBussiness.ViewModel
         public byte updateStatus { get; set; }
 
         public DateTime lastUpdateTime { get; set; }
+        public string CategoryIdsStr { get; set; }
     }
     public class SearchBookViewModel
     {
         public string Key { get; set; }
+        public string CategoryId { get; set; }
+        public string SexId { get; set; }
+        public string DateStart { get; set; }
+        public string DateEnd { get; set; }
+        public string Status { get; set; }
 
         public int Size { get; set; } = 10;
 
@@ -50,11 +57,13 @@ namespace CMSBussiness.ViewModel
         public string CategoryName { get; set; }
 
         public string ImgUrl { get; set; }
+        public string Author { get; set; }
 
         public string Sex { get; set; }
 
         public decimal Rating { get; set; }
 
-        public bool isEnable { get; set; }
+        public string Status { get; set; }
+        public string isEnable { get; set; }
     }
 }

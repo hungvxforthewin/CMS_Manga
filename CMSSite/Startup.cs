@@ -109,6 +109,8 @@ namespace CRMSite
             services.AddTransient<IInvestorsCareHistory, InvestorsCareHistoryImp>();
             services.AddTransient<IInvestorsCareHistoryDetail, InvestorsCareHistoryDetailImp>();
             services.AddTransient<IBook, BookImp>();
+            services.AddTransient<ICategory, CategoryImp>();
+            services.AddTransient<IBookCategory, BookCategoryImp>();
 
             services.AddTransient<IProduct, ProductIpm>();
             services.AddTransient<IEvent, EventImp>();
