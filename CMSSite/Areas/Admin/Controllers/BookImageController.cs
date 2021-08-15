@@ -38,7 +38,29 @@ namespace CMSSite.Areas.Admin.Controllers
         {
             return View();
         }
-
+        public IActionResult Edit(int bookId, int imgId)
+        {
+            //trace log
+            LogModel.Action = ActionType.Update;
+            LogModel.Data = (new { id = bookId }).ToDataString();
+            if (bookId <= 0)
+            {
+                return BadRequest();
+            }
+            var data = _bookImageService.GetDetail(bookId, imgId);
+            //var result = new CategoryViewModel()
+            //{
+            //    CategoryId = data.CategoryId,
+            //    CategoryName = data.CategoryName,
+            //    CategoryDescription = data.CategoryDescription,
+            //    isActive = data.isActive,
+            //    OrderNo = data.OrderNo,
+            //    ParentCategoryId = data.ParentCategoryId
+            //};
+            //var handleResult = HandleGetResult(data);
+            //if (handleResult != null) return handleResult;
+            return PartialView("Edit", data.DataItem);
+        }
         [HttpPost]
         public IActionResult GetList(SearchBookImageViewModel model)
         {
@@ -171,6 +193,46 @@ namespace CMSSite.Areas.Admin.Controllers
 
             }
             return Json(new { status = true });
+        }
+
+        public IActionResult IsDelete(int bookId, int imgId)
+        {
+            //trace log
+            LogModel.Action = ActionType.Delete;
+            LogModel.Data = (new { id = bookId }).ToDataString();
+
+            var data = _bookImageService.GetDetail(bookId, imgId).DataItem;
+            if (data == null)
+            {
+                //write trace log
+                LogModel.Result = ActionResultValue.NotFoundData;
+                Logger.LogWarning(LogModel.ToString());
+
+                return Json(new { status = false, mess = "Banner không tồn tại", name = "" });
+            }
+            else
+            {
+                //write trace log
+                LogModel.Result = ActionResultValue.DeleteSuccess;
+                LogModel.Message = "Xóa banner thành công";
+                Logger.LogInformation(LogModel.ToString());
+
+                return Json(new { status = true, name = data.imgUrl });
+            }
+        }
+        public IActionResult Delete(int bookId, int imgId)
+        {
+            //trace log
+            LogModel.Action = ActionType.Delete;
+            LogModel.Data = (new { id = bookId }).ToDataString();
+            if (bookId <= 0)
+            {
+                return BadRequest();
+            }
+            var data = _bookImageService.DeleteById(bookId, imgId);
+            //var handleResult = HandleGetResult(data);
+            //if (handleResult != null) return handleResult;
+            return Ok(new { status = true, mess = "Xóa Banner thành công" });
         }
 
         private List<ErrorResult> validform(BookImageViewModel entity)

@@ -15,6 +15,41 @@ namespace CMSBussiness.ServiceImp
 {
     public class BookImageImp : BaseService<BookImage, int>, IBookImage
     {
+        public bool DeleteById(int bookId, int imgId)
+        {
+            try
+            {
+                this.Raw_Query<DisplayBookImageViewModel>("DELETE BookImage WHERE BookId = @BookId AND imgId = @imgId", new Dictionary<string, object>() {
+                    {"BookId", bookId },
+                    {"imgId", imgId }
+                }).FirstOrDefault();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public DataResult<BookImageViewModel> GetDetail(int bookId, int imgId)
+        {
+            try
+            {
+                BookImageViewModel data = new BookImageViewModel();
+                data = this.Raw_Query<BookImageViewModel>("SELECT * FROM BookImage WHERE BookId = @BookId AND imgId = @imgId", new Dictionary<string, object>() {
+                    {"BookId", bookId },
+                    {"imgId", imgId }
+                }).FirstOrDefault();
+                return new DataResult<BookImageViewModel>() { DataItem = data };
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         //public DataResult<BookImageViewModel> GetById(int id)
         //{
         //    try

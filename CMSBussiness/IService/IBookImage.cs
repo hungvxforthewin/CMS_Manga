@@ -11,6 +11,9 @@ namespace CMSBussiness.IService
     public interface IBookImage : IBaseServices<BookImage, int>
     {
         DataResult<DisplayBookImageViewModel> GetList(SearchBookImageViewModel model, out int total);
+        DataResult<BookImageViewModel> GetDetail(int bookId, int imgId);
+        bool DeleteById(int bookId, int imgId);
         //DataResult<BookImageViewModel> GetById(int id);
+
     }
 }

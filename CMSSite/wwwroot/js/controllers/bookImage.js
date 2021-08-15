@@ -38,7 +38,7 @@ $(function () {
                             div.append(`
                         <tr>
                             <td>
-                                <button type="button" class="view-info" style="text-align: left" data-id="${item.imgId}">
+                                <button type="button" class="view-info" style="text-align: left" data-bookId="${item.bookId}" data-imgId="${item.imgId}">
                                     ${item.bookName}
                                 </button>
                             </td>
@@ -46,7 +46,7 @@ $(function () {
                             <td class="text-center"><img height="100" src="/media/${item.imgUrl}" /></td>
                             <td class="text-center">${item.isBanner}</td>
                             <td class="text-center">
-                                <button type="button" class="delete-book-image" data-id="${item.imgId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                                <button type="button" class="delete-book-image"  data-bookId="${item.bookId}" data-imgId="${item.imgId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
                             </td>
                         </tr>`);
                         });
@@ -108,13 +108,16 @@ $(function () {
     });
 
     $('body').on('click', 'button.view-info', function () {
-        EditBookInfo($(this).data('id'));
+        let bookId = $(this).data('bookid');
+        let imgId = $(this).data('imgid');
+        EditBookInfo(bookId, imgId);
     })
 
-    $('body').on('click', 'button.delete-book', function () {
+    $('body').on('click', 'button.delete-book-image', function () {
         app.component.Loading.Show();
-        let id = $(this).data('id');
-        $.get(baseUrl + 'IsDelete?id=' + id, function (res) {
+        let bookId = $(this).data('bookid');
+        let imgId = $(this).data('imgid');
+        $.get(baseUrl + 'IsDelete?bookId=' + bookId + '&imgId=' + imgId, function (res) {
             //console.log(res);
             if (res.status == false) {
                 toastr.error(res.mess);
@@ -127,7 +130,7 @@ $(function () {
 
                 $('#delete-book').click(function () {
                     app.component.Loading.Show();
-                    $.get(baseUrl + 'Delete?id=' + id, function (res) {
+                    $.get(baseUrl + 'Delete?bookId=' + bookId + '&imgId=' + imgId, function (res) {
                         if (res.status) {
                             CloseModal('#book-delete');
                             SetupPagination();
@@ -277,6 +280,7 @@ $(function () {
             maxView: 4,
             autoclose: true
         });
+
     $('.isNumberF').keyup(delaySystem(function (e) {
         let v = $(this).val();
         v = v.replace(/[^0-9]+/g, '');
@@ -323,7 +327,7 @@ var SetupPagination = function () {
                         div.append(`
                         <tr>
                             <td>
-                                <button type="button" class="view-info" style="text-align: left" data-id="${item.imgId}">
+                                <button type="button" class="view-info" style="text-align: left" data-bookId="${item.bookId}" data-imgId="${item.imgId}">
                                     ${item.bookName}
                                 </button>
                             </td>
@@ -331,7 +335,7 @@ var SetupPagination = function () {
                             <td class="text-center"><img height="100" src="/media/${item.imgUrl}" /></td>
                             <td class="text-center">${item.isBanner}</td>
                             <td class="text-center">
-                                <button type="button" class="delete-book-image" data-id="${item.imgId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                                <button type="button" class="delete-book-image" data-bookId="${item.bookId}" data-imgId="${item.imgId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
                             </td>
                         </tr>`);
                     });
@@ -362,8 +366,8 @@ var SetupPagination = function () {
     });
 }
 
-var EditBookInfo = function (id) {
-    $.get(baseUrl + "Edit?id=" + id, function (res) {
+var EditBookInfo = function (bookid, imgid) {
+    $.get(baseUrl + "Edit?bookId=" + bookid + "&imgId=" + imgid, function (res) {
         if (res.result == 400) {
             toastr.error(res.errors.join('<br />'));
         }
@@ -373,17 +377,10 @@ var EditBookInfo = function (id) {
             $('#book-edit .content-modal').addClass('show-modal');
         }
     }).done(function () {
-        let selectedCategory = $('#book-edit .hidden-category').val();
-        LoadCategoriesToForm('#book-edit', selectedCategory);
-        let selectedAuthorAccountId = $('#book-edit .hidden-authorAccountId').val();
-        LoadAuthorToForm('#book-edit', selectedAuthorAccountId);
-        let selectedBookSexId = $('#book-edit .hidden-bookSexId').val();
-        LoadSexsToForm('#book-edit', selectedBookSexId);
-        let selectedIsEnable = $('#book-edit .hidden-isEnable').val();
-        LoadStatusToForm('#book-edit', selectedIsEnable);
-        let selectedCommentAllowed = $('#book-edit .hidden-commentAllowed').val();
-        LoadCommentAllowedToForm('#book-edit', selectedCommentAllowed);
-
+        let selectedBook = $('#book-edit input[name="selected-bookid"]').val();
+        LoadBooksToForm('#book-edit', selectedBook);
+        let selectedBanner = $('#book-edit input[name="selected-isbanner"]').val();
+        LoadIsBannerToForm('#book-edit', selectedBanner);
 
         $('#book-edit select').select2();
         $(".autofill_today").datetimepicker(
