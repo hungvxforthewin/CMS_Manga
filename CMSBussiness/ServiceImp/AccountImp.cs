@@ -95,5 +95,29 @@ namespace CRMBussiness.ServiceImp
             }
         }
 
+        public bool InsertAccount(AccountViewModel model, out int statusInsert)
+        {
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@AccountName", model.AccountName);
+                param.Add("@AccountPassword", model.AccountPassword);
+                param.Add("@AccountFullName", model.AccountFullName);
+                param.Add("@isEnable", model.isEnable);
+                param.Add("@ResponseStatus", dbType: DbType.Int32, direction: ParameterDirection.Output);
+                statusInsert = 0;
+                using (IDbConnection db = new SqlConnection(OpenDapper.connectionStr))
+                {
+                    db.Open();
+                    this.Procedure<AccountViewModel>("CMS_CreateAccount", param).ToList();
+                    statusInsert = param.Get<int>("ResponseStatus");
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

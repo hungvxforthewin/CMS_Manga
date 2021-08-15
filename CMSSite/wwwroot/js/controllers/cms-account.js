@@ -104,10 +104,9 @@ $(function () {
         }
     });
 
-    $('#btn-search-sale').on('click', function () {
+    $('#search-personal').on('click', function () {
         app.component.Loading.Show();
-        let data = $('#search-sale-form').serializeObject();
-        //console.log(data);
+        let data = $('#search-form').serializeObject();
         $('#pagination').pagination({
             ajax: function (options, refresh, $target) {
                 data.page = options.current;
@@ -125,16 +124,19 @@ $(function () {
                     div.html('');
                     div.html(`
                      <tr>
-                        <th>Action</th>
-                        <th>Thời gian</th>
-                        <th>Tên/Mã nhân viên</th>
-                      
-                        <th>Chi nhánh</th>
-                        <th>Khối</th>
-                        <th>Phòng ban</th>
-                        <th>Nhóm</th>
-                        <th>Doanh số</th>
-                      
+                          <th>
+                                <div class="custom-checkbox check_all">
+                                    <input type="checkbox" />
+                                    <span class="checkmark"></span>
+                                </div>
+                            </th>
+                            <th>Mã ID</th>
+                            <th>UserName</th>
+                            <th>Họ và tên</th>
+                            <th>Trạng thái</th>
+                            <th>Người tạo</th>
+                            <th>Ngày tạo</th>
+                            <th>Action</th>
                     </tr>
                 `);
 
@@ -142,22 +144,27 @@ $(function () {
                         $.each(res.data, function (index, item) {
                             div.append(`
                         <tr>
-                            <td>
-                                <button type="button" class="delete-staff-sale" data-id="${item.id}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                             <td>
+                                <div class="custom-checkbox check_all">
+                                    <input type="checkbox" name="checkAccount" data-id="${item.accountID}" />
+                                    <span class="checkmark"></span>
+                                </div>
                             </td>
-                            <td>${item.dateRevenue}</td>
+                            <td>${item.accountID}</td>
                             <td>
-                                <button type="button" class="view-info" data-id="${item.id}">
-                                    ${item.saleName}/${item.sale}
+                                <button type="button" class="view-info" data-id="${item.accountID}">
+                                    ${item.accountName}
                                 </button>
                             </td>
-                            
-                            <td>${item.branchName}</td>
-                            <td>${item.officeName}</td>
-                            <td>${item.departmentName}</td>
-                            <td>${item.teamName ?? ''}</td>
-                            <td>${item.revenueSale.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
-                           
+                           <td>${item.accountFullName}</td>
+                            <td>${item.status}</td>
+                            <td>${item.nameUserCreate}</td>
+                            <td>${item.createDateString}</td>
+                            <td>
+                                <button type="button" class="delete-cms-account" data-id="${item.accountID}">
+                                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="">
+                                </button>
+                            </td>
                         </tr>`);
                         });
                         refresh({
@@ -185,30 +192,21 @@ $(function () {
                 });
             }
         });
-        //$.post(baseUrl + "GetList", data, function (res) {
-        //    if (res.result == 400) {
-        //        $('div.table-data').html('');
-        //        $('#table-body').html(`<span>Không có dữ liệu</span>`);
-        //        $('.select_pagination').hide();
-        //        toastr.error(res.errors.join('<br />'));
-        //        $('.loading-wrapper').hide();
-        //    }
-        //    else {
-        //        $('#table-body').html('');
-        //        $('div.table-data').html(res);
-        //        $('.loading-wrapper').hide();
-        //        $('.select_pagination').show();
-
-        //    }
-        //});
     });
 
     $('body').on('click', 'button.view-info', function () {
-        EditRatingInfo($(this).data('id'));
+        ViewAccount($(this).data('id'));
     })
-    $('body').on('click', 'button.delete-staff-sale', function () {
+
+    $('body').on('click', 'button#Del-Employ', function () {
         app.component.Loading.Show();
-        let id = $(this).data('id');
+        let selectedRow = $('input[name="checkAccount"]:checked');
+        if (selectedRow.length != 1) {
+            toastr.error('Chọn một nhân viên để xóa');
+            $('.loading-wrapper').hide();
+            return;
+        }
+        let id = selectedRow.data('id');
         $.get(baseUrl + 'IsDelete?id=' + id, function (res) {
             //console.log(res);
             if (res.status == false) {
@@ -216,15 +214,15 @@ $(function () {
                 app.component.Loading.Hide();
             }
             else {
-                ShowModal('#employee-sales-delete');
-                $('#txt-del-sale').html(`Bạn có chắc muốn xóa ?`)
+                ShowModal('#delete-employee_modal');
+                $('#txt-del-account').html(`Bạn có chắc muốn xóa ?`)
                 app.component.Loading.Hide();
 
-                $('#delete-empl-sale').click(function () {
+                $('#delete-empl').click(function () {
                     app.component.Loading.Show();
                     $.get(baseUrl + 'Delete?id=' + id, function (res) {
                         if (res.status) {
-                            CloseModal('#employee-sales-delete');
+                            CloseModal('#delete-employee_modal');
                             SetupPagination();
                             app.component.Loading.Hide();
                             toastr.success('xóa thành công', 'Thông báo');
@@ -237,80 +235,10 @@ $(function () {
                 });
             }
         });
-    })
-    //$('body').on('click', '.delete-staff-sale', function () {
-    //    let id = $(this).data('id');
-    //    $.get(baseUrl + 'Delete?id=' + id, function (res) {
-    //        //console.log(res);
-    //        if (res.status == false) {
-    //            toastr.error(res.mess);
-    //            app.component.Loading.Hide();
-    //        }
-    //        else {
-    //            ShowModal('#delete-employee_modal');
-    //            $('#txt-del-emp').html(`Bạn có chắc muốn xóa nhân sự ${res.name}`)
-    //            app.component.Loading.Hide();
-
-    //            $('#delete-empl').click(function () {
-    //                $('.loading-wrapper').show();
-    //                $.get(baseUrl + 'ConfirmDelete?id=' + id, function (res) {
-    //                    if (res.status == 200) {
-    //                        $('#search-personal').trigger('click');
-    //                        CloseModal('#delete-employee_modal');
-    //                        toastr.success(res.message);
-    //                    }
-    //                    else {
-    //                        toastr.error(res.mess);
-    //                        app.component.Loading.Hide();
-    //                    }
-    //                });
-    //            });
-    //        }
-    //    });
-    //})
-    $('.del-rating').on('click', function () {
-        $('.loading-wrapper').show();
-        let selectedRow = $('input[name="select-row"]:checked');
-        if (selectedRow.length != 1) {
-            toastr.error('Chọn một nhân viên để xóa');
-            $('.loading-wrapper').hide();
-            return;
-        }
-        let id = selectedRow.data('id');
-        //console.log(id);
-
-        if (id) {
-            $.get(baseUrl + 'Delete?id=' + id, function (res) {
-                //console.log(res);
-                if (res.status == false) {
-                    toastr.error(res.mess);
-                    $('.loading-wrapper').hide();
-                }
-                else {
-                    ShowModal('#delete-employee_modal');
-                    $('#txt-del-emp').html(`Bạn có chắc muốn xóa nhân sự ${res.name}`)
-                    $('.loading-wrapper').hide();
-
-                    $('#delete-empl').click(function () {
-                        $('.loading-wrapper').show();
-                        $.get(baseUrl + 'ConfirmDelete?id=' + id, function (res) {
-                            if (res.status == 200) {
-                                SetupPagination();
-                                CloseModal('#delete-employee_modal');
-                                toastr.success('Xóa thành công');
-                            }
-                            else {
-                                toastr.error(res.mess);
-                                $('.loading-wrapper').hide();
-                            }
-                        });
-                    });
-                }
-            });
-        }
-    });
-    $('.btn-add-rating').on('click', function () {
-        let data = $('#frm-employee-sales-add').serializeObject();
+    })   
+   
+    $('.btn-add-person').on('click', function () {
+        let data = $('#form-model-add').serializeObject();
         app.component.Loading.Show();
         $.ajax({
             method: 'POST',
@@ -319,27 +247,40 @@ $(function () {
                 model: data
             },
             success: function (rs) {
-                //console.log(rs);
                 if (rs.status) {
-                    toastr.success('Thêm mới doanh số cá nhân thành công!', 'Thông báo');
-                    ResetValueInForm('#frm-employee-sales-add');
+                    toastr.success('Thêm mới nhân sự thành công!', 'Thông báo');
+                    ResetValueInForm('#form-model-add');
                     $('.close__modal').trigger('click');
                     SetupPagination();
                     app.component.Loading.Hide();
                     /*$('.close__btn').trigger('click');*/
 
                 } else {
-                    //rs.lst.map(function (item) {
-                    //    toastr.error(`${item.field}: ${item.errorMessage}`, 'Thông báo');
-                    //});
+                    const objResult = JSON.parse(rs.data);
+                    objResult.map(function (item) {
+                        toastr.error(`${item.ErrorMessage}`, 'Thông báo');
+                    });
                     toastr.error(`có lỗi xảy ra`, 'Thông báo');
                     app.component.Loading.Hide();
                 }
             }
         });
     });
-    $('body').on('click', '#btn-update-rating', function () {
-        let data = $('#frm-employee-sales-edit').serializeObject();
+
+    $('body').on('click', 'button#Edit-Employ', function () {
+        let selectedRow = $('input[name="checkAccount"]:checked');
+        if (selectedRow.length != 1) {
+            toastr.error('Chọn một tài khoản để chỉnh sửa');
+            $('.loading-wrapper').hide();
+            return;
+        }
+        let id = selectedRow.data('id');
+        EditAccount(id);
+    })
+
+    $('body').on('click', '.btn-edit-account', function () {
+        let data = $('#form-model-edit').serializeObject();
+        data.isEnable = $('#edit-employee_modal input[name="isEnable"]').is(":checked");
         app.component.Loading.Show();
         $.ajax({
             method: 'POST',
@@ -348,25 +289,27 @@ $(function () {
                 model: data
             },
             success: function (rs) {
-                //console.log(rs);
                 if (rs.status) {
-                    toastr.success('Cập nhật doanh số cá nhân thành công!', 'Thông báo');
-                    ResetValueInForm('#frm-employee-sales-edit');
-                    $('#employee-sales-edit').modal('hide');
+                    toastr.success('Cập nhật thông tin thành công!', 'Thông báo');
+                    ResetValueInForm('#form-model-edit');
+                    $('#form-model-edit').modal('hide');
                     SetupPagination();
                     app.component.Loading.Hide();
                     $('.close__modal').trigger('click');
                 } else {
-                    //rs.lst.map(function (item) {
-                    //    toastr.error(`${item.field}: ${item.errorMessage}`, 'Thông báo');
-                    //});
+                    const objResult = JSON.parse(rs.data);
+                    objResult.map(function (item) {
+                        toastr.error(`${item.ErrorMessage}`, 'Thông báo');
+                    });
                     toastr.error(`có lỗi xảy ra`, 'Thông báo');
                     app.component.Loading.Hide();
                 }
             }
         });
     });
+
     SetupPagination();
+
     $('#size-page select').on('change', function () {
         $('.loading-wrapper').show();
         SetupPagination();
@@ -377,50 +320,38 @@ $(function () {
     //khanhkk added
 });
 
-var EditRatingInfo = function (id) {
+var ViewAccount = function (id) {
+    $.get(baseUrl + "View?id=" + id, function (res) {
+        if (res.result == 400) {
+            toastr.error(res.errors.join('<br />'));
+        }
+        else {
+            $('#detail-employee_modal .content-modal').html(res);
+            $('#detail-employee_modal').addClass('show-modal');
+            $('#detail-employee_modal .content-modal').addClass('show-modal');
+        }
+    }).done(function (res) {
+        let checked = $('.isEnable-hidden').val();
+        if (checked) {
+            $('#detail-employee_modal input[name="isEnable"]').prop('checked', true);
+        }
+        $('#detail-employee_modal input').attr('disabled', 'disabled');
+        $('#detail-employee_modal select').attr('disabled', 'disabled');
+    });
+}
+
+var EditAccount = function (id) {
     $.get(baseUrl + "Edit?id=" + id, function (res) {
         if (res.result == 400) {
             toastr.error(res.errors.join('<br />'));
         }
         else {
-            $('#employee-sales-edit .content-modal').html(res);
-            $('#employee-sales-edit').addClass('show-modal');
-            $('#employee-sales-edit .content-modal').addClass('show-modal');
+            $('#edit-employee_modal .content-modal').html(res);
+            $('#edit-employee_modal').addClass('show-modal');
+            $('#edit-employee_modal .content-modal').addClass('show-modal');
         }
     }).done(function () {
-        let selectedBranch = $('#employee-sales-edit .hidden-branch').val();
-        if (selectedBranch) {
-            LoadBranchesToForm('#employee-sales-edit', selectedBranch);
-
-            let selectedOffice = $('#employee-sales-edit .hidden-office').val();
-            LoadOfficesToForm('#employee-sales-edit', selectedBranch, selectedOffice);
-
-            let selectedDept = $('#employee-sales-edit .hidden-dept').val();
-            LoadDeptsToForm('#employee-sales-edit', selectedOffice, selectedDept);
-
-            let selectedTeam = $('#employee-sales-edit .hidden-team').val();
-            LoadTeamsToForm('#employee-sales-edit', selectedDept, selectedTeam);
-
-            let selectedStaff = $('#employee-sales-edit .hidden-staff-sale').val();
-            LoadStaffsToForm('#employee-sales-edit', selectedTeam, selectedStaff);
-        }
-
-        $('#employee-sales-edit select').select2();
-        $(".autofill_today").datetimepicker(
-            {
-                format: 'dd-mm-yyyy',
-                minView: 2,
-                maxView: 4,
-                autoclose: true
-            });
-        $('.isNumberF').keyup(delaySystem(function (e) {
-            let v = $(this).val();
-            v = v.replace(/[^0-9]+/g, '');
-            $(this).val(numberFormartAdmin(v));
-        }, 0));
-        //$('#employee-sales-edit input').attr('disabled', 'disabled');
-        //$('#employee-sales-edit select').attr('disabled', 'disabled');
-        //$('#view-edit').hide();
+        
     });
 }
 
@@ -587,19 +518,21 @@ var SetupPagination = function () {
                 let div = $('#table-body');
                 div.html('');
                 div.html(`
-                      <th>
-                            <div class="custom-checkbox check_all">
-                                <input type="checkbox" />
-                                <span class="checkmark"></span>
-                            </div>
-                        </th>
-                        <th>Mã ID</th>
-                        <th>UserName</th>
-                        <th>Họ và tên</th>
-                        <th>Trạng thái</th>
-                        <th>Người tạo</th>
-                        <th>Ngày tạo</th>
-                        <th>Action</th>
+                    <tr>
+                          <th>
+                                <div class="custom-checkbox check_all">
+                                    <input type="checkbox" />
+                                    <span class="checkmark"></span>
+                                </div>
+                            </th>
+                            <th>Mã ID</th>
+                            <th>UserName</th>
+                            <th>Họ và tên</th>
+                            <th>Trạng thái</th>
+                            <th>Người tạo</th>
+                            <th>Ngày tạo</th>
+                            <th>Action</th>
+                    </tr>
                 `);
 
                 if (res.result != 400) {
@@ -608,7 +541,7 @@ var SetupPagination = function () {
                         <tr>
                             <td>
                                 <div class="custom-checkbox check_all">
-                                    <input type="checkbox" />
+                                    <input type="checkbox" name="checkAccount" data-id="${item.accountID}" />
                                     <span class="checkmark"></span>
                                 </div>
                             </td>
@@ -618,11 +551,14 @@ var SetupPagination = function () {
                                     ${item.accountName}
                                 </button>
                             </td>
-                           
+                           <td>${item.accountFullName}</td>
                             <td>${item.status}</td>
-                            <td>${item.createUser}</td>
+                            <td>${item.nameUserCreate}</td>
                             <td>${item.createDateString}</td>
                             <td>
+                                <button type="button" class="delete-cms-account" data-id="${item.accountID}">
+                                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="">
+                                </button>
                             </td>
                         </tr>`);
                     });

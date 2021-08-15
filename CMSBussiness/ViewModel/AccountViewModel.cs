@@ -17,13 +17,17 @@ namespace CRMBussiness.ViewModel
 
         public string NameUserCreate { get; set; }
 
-        public bool? isEnable { get; set; }
+        public bool? isEnable { get; set; } = true;
 
         public string Status { get; set; }
 
         public DateTime? CreateDate { get; set; }
+
         public string CreateDateString { get; set; }
+
         public int Role { get; set; }
+
+        //public int ResponseStatus { get; set; }
     }
     public class SearchAccountViewModel
     {
