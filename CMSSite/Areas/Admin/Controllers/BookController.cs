@@ -157,11 +157,6 @@ namespace CMSSite.Areas.Admin.Controllers
                     {
                         if (model.CategoryIds.Length > 0)
                         {
-                            var bookCategoriesFirst = _bookCategoryService.Raw_GetAll().Where(x => x.BookId == data.BookId);
-                            if (bookCategoriesFirst.Count() > 0)
-                            {
-                                _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
-                            }
                             var bookCategories = new List<BookCategory>();
                             foreach (var item in model.CategoryIds)
                             {
@@ -203,15 +198,15 @@ namespace CMSSite.Areas.Admin.Controllers
                     try
                     {
                         _bookService.Raw_Update(data);
-                        if(model.CategoryIds != null)
+                        var bookCategoriesFirst = _bookCategoryService.Raw_GetAll().Where(x => x.BookId == data.BookId);
+                        if (bookCategoriesFirst.Count() > 0)
+                        {
+                            _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
+                        }
+                        if (model.CategoryIds != null)
                         {
                             if (model.CategoryIds.Length > 0)
                             {
-                                var bookCategoriesFirst = _bookCategoryService.Raw_GetAll().Where(x => x.BookId == data.BookId);
-                                if (bookCategoriesFirst.Count() > 0)
-                                {
-                                    _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
-                                }
                                 var bookCategories = new List<BookCategory>();
                                 foreach (var item in model.CategoryIds)
                                 {

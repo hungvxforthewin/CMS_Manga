@@ -103,6 +103,17 @@
                         </a>
                     </li>
                     <li class="menu-list__item">
+                        <a class="menu-list__link @(currentUrl.Contains("/ADMIN/BOOKIMAGE/") ? "active" : "")" href="/Admin/BookImage/Index">
+                            <div class="img">
+                                <img src="/Assets/crm/images/layout/statistic.svg" alt="" class="icon__cover" />
+                                <img src="/Assets/crm/images/layout/statistic-active.svg"
+                                     alt=""
+                                     class="icon__hover" />
+                            </div>
+                            Quản lý Banner
+                        </a>
+                    </li>
+                    @*<li class="menu-list__item">
                         <a class="menu-list__link @(currentUrl.Contains("/ADMIN/SALEREVENUESTATISTICS") ? "active" : "")" href="/Admin/SaleRevenueStatistics/Index">
                             <div class="img">
                                 <img src="/Assets/crm/images/layout/statistic.svg" alt="" class="icon__cover" />
@@ -113,6 +124,7 @@
                             Quản lý banner
                         </a>
                     </li>                  
+
                 </div>
                 <div class="right" style="margin-top:" 300px">
                     <img src='/Assets/crm/images/layout/right.png' alt="" />

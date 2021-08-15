@@ -1,6 +1,6 @@
 ﻿let baseUrl = '/Admin/Book/';
 $(function () {
-    LoadCategoriesToForm('#search-book');
+    LoadCategoriesToFormPage('#search-book');
     LoadSexsToForm('#search-book');
     LoadStatusToForm('#search-book');
 
@@ -55,7 +55,7 @@ $(function () {
                             <td class="text-center">${item.author}</td>
                             <td>${item.categoryName}</td>
 
-                            <td class="text-center"><img height="100" src="${item.imgUrl}" /></td>
+                            <td class="text-center"><img height="100" src="/media/${item.imgUrl}" /></td>
                             <td class="text-center">${item.sex}</td>
                             <td class="text-center">${item.rating}</td>
                             <td class="text-center">${item.status}</td>
@@ -93,6 +93,7 @@ $(function () {
 
     $('.btn-add-book').on('click', function () {
         let data = $('#frm-book-add').serializeObject();
+        data.CategoryIds = $(".select-category").select2("val");
         app.component.Loading.Show();
         $.ajax({
             method: 'POST',
@@ -254,7 +255,7 @@ var SetupPagination = function () {
                                 <td class="text-center">${item.author}</td>
                                 <td>${item.categoryName}</td>
 
-                                <td class="text-center"><img height="100" src="${item.imgUrl}" /></td>
+                                <td class="text-center"><img height="100" src="/media/${item.imgUrl}" /></td>
                                 <td class="text-center">${item.sex}</td>
                                 <td class="text-center">${item.rating}</td>
                                 <td class="text-center">${item.status}</td>
@@ -326,6 +327,27 @@ var EditBookInfo = function (id) {
             v = v.replace(/[^0-9]+/g, '');
             $(this).val(numberFormartAdmin(v));
         }, 0));
+    });
+}
+
+var LoadCategoriesToFormPage = function (target, selected = null) {
+    $.get(baseUrl + "GetAllCategories", function (res) {
+        if (res.result == 400) {
+            //$('#error-list').append(`<p class="error-message">${res.errors}</p>`);
+        }
+        else {
+            var el = $(target).find('.select-category');
+            el.html('');
+            el.append(`<option value="">-- Danh mục --</option>`);
+            $.each(res.data, function (index, item) {
+                el.append(`<option value="${item.categoryId}">${item.categoryName}</option>`);
+            });
+            if (selected) {
+                if (selected.split(';').length > 0) {
+                    $(el).val(selected.split(';'));
+                }
+            }
+        }
     });
 }
 

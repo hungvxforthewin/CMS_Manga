@@ -114,6 +114,7 @@ namespace CRMSite
             services.AddTransient<IBookCategory, BookCategoryImp>();
             services.AddTransient<IBookChapter, BookChapterImp>();
             services.AddTransient<IBookChapterDetail, BookChapterDetailImp>();
+            services.AddTransient<IBookImage, BookImageImp>();
 
             services.AddTransient<IProduct, ProductIpm>();
             services.AddTransient<IEvent, EventImp>();

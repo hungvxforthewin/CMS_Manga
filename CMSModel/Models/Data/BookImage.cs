@@ -10,10 +10,9 @@ namespace CMSModel.Models.Data
     public class BookImage
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
         public int BookId { get; set; }
         [Key]
-        public byte imgId { get; set; }
+        public int imgId { get; set; }
 
         public string imgUrl { get; set; }
         public bool IsBanner { get; set; }

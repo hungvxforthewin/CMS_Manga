@@ -11,6 +11,6 @@ namespace CMSBussiness.IService
     public interface IBookChapter : IBaseServices<BookChapter, int>
     {
         DataResult<DisplayBookChapterViewModel> GetList(SearchBookChapterViewModel model, out int total);
-        DataResult<BookChapterViewModel> GetById(int id);
+        DataResult<BookChapterViewModel> GetById(Guid id);
     }
 }

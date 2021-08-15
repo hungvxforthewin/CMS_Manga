@@ -1,13 +1,13 @@
-﻿let baseUrl = '/Admin/BookChapter/';
+﻿let baseUrl = '/Admin/BookImage/';
 $(function () {
-    LoadStatusToForm('#search-book-chapter');
+    LoadIsBannerToForm('#search-book-image');
 
-    LoadStatusToForm('#book-chapter-add');
-    LoadBooksToForm('#book-chapter-add');
+    LoadBooksToForm('#book-image-add');
+    LoadIsBannerToForm('#book-image-add');
 
-    $('#btn-search-book-chapter').on('click', function () {
+    $('#btn-search-book-image').on('click', function () {
         app.component.Loading.Show();
-        let data = $('#search-book-chapter-form').serializeObject();
+        let data = $('#search-book-image-form').serializeObject();
         //console.log(data);
         $('#pagination').pagination({
             ajax: function (options, refresh, $target) {
@@ -26,36 +26,29 @@ $(function () {
                     div.html('');
                     div.html(`
                      <tr>
-                        <th class="text-center">Tên sách</th>
-                        <th class="text-center">Tên Chapter</th>
-                        <th class="text-center">Số lượng trang</th>
-                        <th class="text-center">Tuổi giới hạn</th>
-                        <th class="text-center">Ngày đăng</th>
-                        <th class="text-center">Trạng thái</th>
+                        <th class="text-center">Tên truyện</th>
+                        <th class="text-center">Hình ảnh</th>
+                        <th class="text-center">Loại</th>
                         <th class="text-center">Action</th>
-                      
                     </tr>
                 `);
 
                     if (res.result != 400) {
                         $.each(res.data, function (index, item) {
                             div.append(`
-                            <tr>
-                                <td>${item.bookName}</td>
-                                <td>
-                                    <button type="button" class="view-info" style="text-align: left" data-id="${item.chapterId}">
-                                        ${item.chapterName}
-                                    </button>
-                                </td>
-                                <td class="text-center">${item.numberPages}</td>
+                        <tr>
+                            <td>
+                                <button type="button" class="view-info" style="text-align: left" data-id="${item.imgId}">
+                                    ${item.bookName}
+                                </button>
+                            </td>
 
-                                <td class="text-center">${item.adultLimit}</td>
-                                <td class="text-center">${item.publishDate}</td>
-                                <td class="text-center">${item.chapterStatus}</td>
-                                <td class="text-center">
-                                    <button type="button" class="delete-book-chapter" data-id="${item.chapterId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
-                                </td>
-                            </tr>`);
+                            <td class="text-center"><img height="100" src="/media/${item.imgUrl}" /></td>
+                            <td class="text-center">${item.isBanner}</td>
+                            <td class="text-center">
+                                <button type="button" class="delete-book-image" data-id="${item.imgId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                            </td>
+                        </tr>`);
                         });
                         refresh({
                             total: res.total, // optional
@@ -84,9 +77,8 @@ $(function () {
         });
     });
 
-    $('.btn-add-book-chapter').on('click', function () {
-        let data = $('#frm-book-chapter-add').serializeObject();
-        debugger;
+    $('.btn-add-book-image').on('click', function () {
+        let data = $('#frm-book-image-add').serializeObject();
         app.component.Loading.Show();
         $.ajax({
             method: 'POST',
@@ -97,8 +89,8 @@ $(function () {
             success: function (rs) {
                 //console.log(rs);
                 if (rs.status) {
-                    toastr.success('Thêm mới Chapter thành công!', 'Thông báo');
-                    ResetValueInForm('#frm-book-chapter-add');
+                    toastr.success('Thêm mới Banner thành công!', 'Thông báo');
+                    ResetValueInForm('#frm-book-image-add');
                     $('.close__modal').trigger('click');
                     SetupPagination();
                     app.component.Loading.Hide();
@@ -116,10 +108,10 @@ $(function () {
     });
 
     $('body').on('click', 'button.view-info', function () {
-        EditBookChapterInfo($(this).data('id'));
+        EditBookInfo($(this).data('id'));
     })
 
-    $('body').on('click', 'button.delete-book-chapter', function () {
+    $('body').on('click', 'button.delete-book', function () {
         app.component.Loading.Show();
         let id = $(this).data('id');
         $.get(baseUrl + 'IsDelete?id=' + id, function (res) {
@@ -129,15 +121,15 @@ $(function () {
                 app.component.Loading.Hide();
             }
             else {
-                ShowModal('#book-chapter-delete');
-                $('#txt-del-book-chapter').html(`Bạn có chắc muốn xóa ?`)
+                ShowModal('#book-delete');
+                $('#txt-del-book').html(`Bạn có chắc muốn xóa ?`)
                 app.component.Loading.Hide();
 
-                $('#delete-book-chapter').click(function () {
+                $('#delete-book').click(function () {
                     app.component.Loading.Show();
                     $.get(baseUrl + 'Delete?id=' + id, function (res) {
                         if (res.status) {
-                            CloseModal('#book-chapter-delete');
+                            CloseModal('#book-delete');
                             SetupPagination();
                             app.component.Loading.Hide();
                             toastr.success('xóa thành công', 'Thông báo');
@@ -152,9 +144,9 @@ $(function () {
         });
     });
 
-    $('body').on('click', '#btn-update-book-chapter', function () {
+    $('body').on('click', '#btn-update-book', function () {
         debugger;
-        let data = $('#frm-book-chapter-edit').serializeObject();
+        let data = $('#frm-book-edit').serializeObject();
         data.CategoryIds = $(".select-category").select2("val");
         app.component.Loading.Show();
         $.ajax({
@@ -183,14 +175,10 @@ $(function () {
         });
     });
 
-    $('body').on('change', '.myFile', function () {
-        var files = $(this).prop("files");
+    $('body').on('change', '#myFile', function () {
+        var files = $('#myFile').prop("files");
         formData = new FormData();
         formData.append("file", files[0]);
-
-        var item = $(this).closest('.item-chapter');
-        var indexItem = $(".item-chapter").index(item);
-        var indexCount = $(".item-chapter").length;
         $.ajax({
             method: 'POST',
             url: baseUrl + 'upFile',
@@ -203,21 +191,7 @@ $(function () {
             success: function (rs) {
                 //console.log(rs);
                 if (rs.status) {
-                    var value = $('#myFileName').val();
-
-                    if (indexItem + 1 < indexCount) {
-                        var valueArray = value.split(';');
-                        for (var i = 0; i < valueArray.length; i++) {
-                            if (i == indexItem) {
-                                valueArray[i] = rs.data;
-                            }
-                        }
-                        $('#myFileName').val(valueArray.join(';'));
-                    }
-                    else {
-                        $('#myFileName').val(value == "" ? rs.data : value + ";" + rs.data);
-                    }
-
+                    $('#myFileName').val(rs.data);
                     $('.loading-wrapper').hide();
 
                 } else {
@@ -228,15 +202,9 @@ $(function () {
         })
     })
 
-    $('body').on('change', '.myFile', function () {
+    $('body').on('change', '#myFile', function () {
         if (typeof (FileReader) != "undefined") {
-            var divChapter = $('#div-chapter');
-            var divClosest = $(this).closest('div');
-            var dvPreview = divClosest.find(".divImageMedia");
-            var item = $(this).closest('.item-chapter');
-            var indexItem = $(".item-chapter").index(item);
-            var indexCount = $(".item-chapter").length;
-            //var dvPreview = $(".divImageMedia");
+            var dvPreview = $("#divImageMediaPreview");
             dvPreview.html("");
             $($(this)[0].files).each(function () {
                 var file = $(this);
@@ -246,21 +214,6 @@ $(function () {
                     img.attr("style", "width: 150px; height:100px; padding: 10px");
                     img.attr("src", e.target.result);
                     dvPreview.append(img);
-                    dvPreview.append(`
-                        <span title="close" class="item-chapter-clear">
-                            <img src="/Assets/SA/images/layout/close-modal.svg" width="20"/>
-                        </span>
-                    `);
-                    if (indexItem + 1 == indexCount) {
-                        divChapter.append(`
-                        <div class="bs-col md-25 item-chapter">
-                            <input type="file" class="form-control input-chapter myFile" accept="image/*"/>
-                            <div class="divImageMedia">
-                                <img />
-                            </div>
-                        </div>
-                    `);
-                    }
                 }
                 reader.readAsDataURL(file[0]);
             });
@@ -268,34 +221,11 @@ $(function () {
             alert("This browser does not support HTML5 FileReader.");
         }
     });
-    $('body').on('click', '.item-chapter-clear', function () {
-        var countItem = $('.item-chapter').length;
-        if (countItem > 1) {
-            var item = $(this).closest('.item-chapter');
-            var indexItem = $(".item-chapter").index(item);
 
-            var value = $('#myFileName').val();
-            var valueArray = value.split(';');
-            valueArray.splice(indexItem, 1);
-
-            $('#myFileName').val(valueArray.join(';'));
-            item.remove();
-
-        }
-        else {
-            var itemImage = $(this).closest('.divImageMedia');
-            itemImage.html('');
-        }
-    });
-
-    $('body').on('change', '.myFileEdit', function () {
-        var files = $(this).prop("files");
+    $('body').on('change', '#myFileEdit', function () {
+        var files = $('#myFileEdit').prop("files");
         formData = new FormData();
         formData.append("file", files[0]);
-
-        var item = $(this).closest('.item-chapter-edit');
-        var indexItem = $(".item-chapter-edit").index(item);
-        var indexCount = $(".item-chapter-edit").length;
         $.ajax({
             method: 'POST',
             url: baseUrl + 'upFile',
@@ -308,21 +238,7 @@ $(function () {
             success: function (rs) {
                 //console.log(rs);
                 if (rs.status) {
-                    var value = $('#myFileNameEdit').val();
-
-                    if (indexItem + 1 < indexCount) {
-                        var valueArray = value.split(';');
-                        for (var i = 0; i < valueArray.length; i++) {
-                            if (i == indexItem) {
-                                valueArray[i] = rs.data;
-                            }
-                        }
-                        $('#myFileNameEdit').val(valueArray.join(';'));
-                    }
-                    else {
-                        $('#myFileNameEdit').val(value == "" ? rs.data : value + ";" + rs.data);
-                    }
-
+                    $('#myFileNameEdit').val(rs.data);
                     $('.loading-wrapper').hide();
 
                 } else {
@@ -333,15 +249,10 @@ $(function () {
         })
     })
 
-    $('body').on('change', '.myFileEdit', function () {
+
+    $('body').on('change', '#myFileEdit', function () {
         if (typeof (FileReader) != "undefined") {
-            var divChapter = $('#div-chapter-edit');
-            var divClosest = $(this).closest('div');
-            var dvPreview = divClosest.find(".divImageMediaEdit");
-            var item = $(this).closest('.item-chapter-edit');
-            var indexItem = $(".item-chapter-edit").index(item);
-            var indexCount = $(".item-chapter-edit").length;
-            //var dvPreview = $(".divImageMedia");
+            var dvPreview = $("#divImageMediaPreviewEdit");
             dvPreview.html("");
             $($(this)[0].files).each(function () {
                 var file = $(this);
@@ -351,45 +262,11 @@ $(function () {
                     img.attr("style", "width: 150px; height:100px; padding: 10px");
                     img.attr("src", e.target.result);
                     dvPreview.append(img);
-                    dvPreview.append(`
-                        <span title="close" class="item-chapter-clear-edit">
-                            <img src="/Assets/SA/images/layout/close-modal.svg" width="20"/>
-                        </span>
-                    `);
-                    if (indexItem + 1 == indexCount) {
-                        divChapter.append(`
-                        <div class="bs-col md-25 item-chapter-edit">
-                            <input type="file" class="form-control input-chapter myFileEdit" accept="image/*"/>
-                            <div class="divImageMediaEdit">
-                                <img />
-                            </div>
-                        </div>
-                    `);
-                    }
                 }
                 reader.readAsDataURL(file[0]);
             });
         } else {
             alert("This browser does not support HTML5 FileReader.");
-        }
-    });
-    $('body').on('click', '.item-chapter-clear-edit', function () {
-        var countItem = $('.item-chapter-edit').length;
-        if (countItem > 1) {
-            var item = $(this).closest('.item-chapter-edit');
-            var indexItem = $(".item-chapter-edit").index(item);
-
-            var value = $('#myFileNameEdit').val();
-            var valueArray = value.split(';');
-            valueArray.splice(indexItem, 1);
-
-            $('#myFileNameEdit').val(valueArray.join(';'));
-            item.remove();
-
-        }
-        else {
-            var itemImage = $(this).closest('.divImageMediaEdit');
-            itemImage.html('');
         }
     });
 
@@ -434,36 +311,29 @@ var SetupPagination = function () {
                 div.html('');
                 div.html(`
                      <tr>
-                        <th class="text-center">Tên sách</th>
-                        <th class="text-center">Tên Chapter</th>
-                        <th class="text-center">Số lượng trang</th>
-                        <th class="text-center">Tuổi giới hạn</th>
-                        <th class="text-center">Ngày đăng</th>
-                        <th class="text-center">Trạng thái</th>
+                        <th class="text-center">Tên truyện</th>
+                        <th class="text-center">Hình ảnh</th>
+                        <th class="text-center">Loại</th>
                         <th class="text-center">Action</th>
-                       
                     </tr>
                 `);
 
                 if (res.result != 400) {
                     $.each(res.data, function (index, item) {
                         div.append(`
-                            <tr>
-                                <td>${item.bookName}</td>
-                                <td>
-                                    <button type="button" class="view-info" style="text-align: left" data-id="${item.chapterId}">
-                                        ${item.chapterName}
-                                    </button>
-                                </td>
-                                <td class="text-center">${item.numberPages}</td>
+                        <tr>
+                            <td>
+                                <button type="button" class="view-info" style="text-align: left" data-id="${item.imgId}">
+                                    ${item.bookName}
+                                </button>
+                            </td>
 
-                                <td class="text-center">${item.adultLimit}</td>
-                                <td class="text-center">${item.publishDate}</td>
-                                <td class="text-center">${item.chapterStatus}</td>
-                                <td class="text-center">
-                                    <button type="button" class="delete-book-chapter" data-id="${item.chapterId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
-                                </td>
-                            </tr>`);
+                            <td class="text-center"><img height="100" src="/media/${item.imgUrl}" /></td>
+                            <td class="text-center">${item.isBanner}</td>
+                            <td class="text-center">
+                                <button type="button" class="delete-book-image" data-id="${item.imgId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                            </td>
+                        </tr>`);
                     });
                     refresh({
                         total: res.total, // optional
@@ -492,25 +362,30 @@ var SetupPagination = function () {
     });
 }
 
-var EditBookChapterInfo = function (id) {
-    debugger;
+var EditBookInfo = function (id) {
     $.get(baseUrl + "Edit?id=" + id, function (res) {
         if (res.result == 400) {
             toastr.error(res.errors.join('<br />'));
         }
         else {
-            $('#book-chapter-edit .content-modal').html(res);
-            $('#book-chapter-edit').addClass('show-modal');
-            $('#book-chapter-edit .content-modal').addClass('show-modal');
+            $('#book-edit .content-modal').html(res);
+            $('#book-edit').addClass('show-modal');
+            $('#book-edit .content-modal').addClass('show-modal');
         }
     }).done(function () {
-        let selectedBook = $('#book-chapter-edit .hidden-book').val();
-        LoadBooksToForm('#book-chapter-edit', selectedBook);
-        let selectedStatus = $('#book-chapter-edit .hidden-status').val();
-        LoadStatusToForm('#book-chapter-edit', selectedStatus);
+        let selectedCategory = $('#book-edit .hidden-category').val();
+        LoadCategoriesToForm('#book-edit', selectedCategory);
+        let selectedAuthorAccountId = $('#book-edit .hidden-authorAccountId').val();
+        LoadAuthorToForm('#book-edit', selectedAuthorAccountId);
+        let selectedBookSexId = $('#book-edit .hidden-bookSexId').val();
+        LoadSexsToForm('#book-edit', selectedBookSexId);
+        let selectedIsEnable = $('#book-edit .hidden-isEnable').val();
+        LoadStatusToForm('#book-edit', selectedIsEnable);
+        let selectedCommentAllowed = $('#book-edit .hidden-commentAllowed').val();
+        LoadCommentAllowedToForm('#book-edit', selectedCommentAllowed);
 
 
-        $('#book-chapter-edit select').select2();
+        $('#book-edit select').select2();
         $(".autofill_today").datetimepicker(
             {
                 format: 'dd-mm-yyyy',
@@ -526,22 +401,6 @@ var EditBookChapterInfo = function (id) {
     });
 }
 
-
-var LoadStatusToForm = function (target, selected = null) {
-    var el = $(target).find('.select-status');
-    el.html('');
-    el.append(`<option value="">-- Trạng thái --</option>`);
-    el.append(`<option value="0">Chương đang chờ duyệt</option>`);
-    el.append(`<option value="1">Chương đã được duyệt</option>`);
-    el.append(`<option value="2">Chương truyện bị hạ</option>`);
-    if (selected) {
-        $(el).val(selected);
-        /*$(el).trigger('change');*/
-    }
-}
-
-
-
 var LoadBooksToForm = function (target, selected = null) {
     $.get(baseUrl + "GetAllBooks", function (res) {
         if (res.result == 400) {
@@ -550,14 +409,27 @@ var LoadBooksToForm = function (target, selected = null) {
         else {
             var el = $(target).find('.select-book');
             el.html('');
-            el.append(`<option value="">-- Truyện --</option>`);
+            //el.append(`<option value="">-- Danh mục --</option>`);
             $.each(res.data, function (index, item) {
                 el.append(`<option value="${item.bookId}">${item.bookName}</option>`);
             });
             if (selected) {
-                $(el).val(selected);
-                /*$(el).trigger('change');*/
+                if (selected.split(';').length > 0) {
+                    $(el).val(selected.split(';'));
+                }
             }
         }
     });
+}
+
+var LoadIsBannerToForm = function (target, selected = null) {
+    var el = $(target).find('.select-IsBanner');
+    el.html('');
+    el.append(`<option value="">-- Loại --</option>`);
+    el.append(`<option value="false">Ảnh Thường</option>`);
+    el.append(`<option value="true">Ảnh Banner</option>`);
+    if (selected) {
+        $(el).val(selected);
+        /*$(el).trigger('change');*/
+    }
 }
