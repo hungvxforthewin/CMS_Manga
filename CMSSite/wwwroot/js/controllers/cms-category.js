@@ -1,5 +1,6 @@
 ﻿let baseUrl = '/Admin/Categories/';
 $(function () {
+    LoadCategoriesToForm('#add-employee_modal');
     //search
     $('#search-sale .select-branch').on('change', function () {
         $('#search-sale .select-department').html(`<option value="">Phòng</option>`);
@@ -131,12 +132,11 @@ $(function () {
                                 </div>
                             </th>
                             <th>Mã ID</th>
-                            <th>UserName</th>
-                            <th>Họ và tên</th>
-                            <th>Trạng thái</th>
-                            <th>Người tạo</th>
-                            <th>Ngày tạo</th>
-                            <th>Action</th>
+                            <th>Tên danh mục</th>
+                            <th>Mô tả danh mục</th>
+                            <th>Số thứ tự hiển thị</th>
+                            <th>Trạng thái</th>
+                            <th>Mã danh mục cha</th>
                     </tr>
                 `);
 
@@ -146,25 +146,21 @@ $(function () {
                         <tr>
                              <td>
                                 <div class="custom-checkbox check_all">
-                                    <input type="checkbox" name="checkAccount" data-id="${item.accountID}" />
+                                    <input type="checkbox" name="checkAccount" data-id="${item.categoryId}" />
                                     <span class="checkmark"></span>
                                 </div>
                             </td>
-                            <td>${item.accountID}</td>
+                            <td>${item.categoryId}</td>
                             <td>
-                                <button type="button" class="view-info" data-id="${item.accountID}">
-                                    ${item.accountName}
+                                <button type="button" class="view-info" data-id="${item.categoryId}">
+                                    ${item.categoryName}
                                 </button>
                             </td>
-                           <td>${item.accountFullName}</td>
+                           <td>${item.categoryDescription}</td>
+                            <td>${item.orderNo}</td>
                             <td>${item.status}</td>
-                            <td>${item.nameUserCreate}</td>
-                            <td>${item.createDateString}</td>
-                            <td>
-                                <button type="button" class="delete-cms-account" data-id="${item.accountID}">
-                                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="">
-                                </button>
-                            </td>
+                            <td>${item.parentCategoryId}</td>
+                           
                         </tr>`);
                         });
                         refresh({
@@ -202,7 +198,7 @@ $(function () {
         app.component.Loading.Show();
         let selectedRow = $('input[name="checkAccount"]:checked');
         if (selectedRow.length != 1) {
-            toastr.error('Chọn một nhân viên để xóa');
+            toastr.error('Chọn một danh mục để xóa');
             $('.loading-wrapper').hide();
             return;
         }
@@ -331,10 +327,13 @@ var ViewAccount = function (id) {
             $('#detail-employee_modal .content-modal').addClass('show-modal');
         }
     }).done(function (res) {
-        let checked = $('.isEnable-hidden').val();
+        let checked = $('.isActive-hidden').val();
         if (checked) {
-            $('#detail-employee_modal input[name="isEnable"]').prop('checked', true);
+            $('#detail-employee_modal input[name="isActive"]').prop('checked', true);
         }
+        $('#detail-employee_modal select').select2();
+        let selectedParent = $('#detail-employee_modal .isCategoryParent-hidden').val();
+        LoadCategoriesToForm('#detail-employee_modal', selectedParent);
         $('#detail-employee_modal input').attr('disabled', 'disabled');
         $('#detail-employee_modal select').attr('disabled', 'disabled');
     });
@@ -351,7 +350,33 @@ var EditAccount = function (id) {
             $('#edit-employee_modal .content-modal').addClass('show-modal');
         }
     }).done(function () {
+        let checked = $('.isActive-hidden').val();
+        if (checked) {
+            $('#edit-employee_modal input[name="isActive"]').prop('checked', true);
+        }
+        $('#edit-employee_modal select').select2();
+        let selectedParent = $('#edit-employee_modal .isCategoryParent-hidden').val();
+        LoadCategoriesToForm('#edit-employee_modal', selectedParent);
+    });
+}
 
+var LoadCategoriesToForm = function (target, selected = null) {
+    $.get(baseUrl + "GetAllCategories", function (res) {
+        if (res.status == false) {
+            //$('#error-list').append(`<p class="error-message">${res.errors}</p>`);
+        }
+        else {
+            var el = $(target).find('.select-category-parent');
+            el.html('');
+            el.append(`<option value="">Danh mục cha</option>`);
+            $.each(res.data, function (index, item) {
+                el.append(`<option value="${item.categoryId}">${item.categoryName}</option>`);
+            });
+            if (selected) {
+                $(el).val(selected);
+                /*$(el).trigger('change');*/
+            }
+        }
     });
 }
 
@@ -518,7 +543,7 @@ var SetupPagination = function () {
                 let div = $('#table-body');
                 div.html('');
                 div.html(`
-                    <tr>
+                     <tr>
                           <th>
                                 <div class="custom-checkbox check_all">
                                     <input type="checkbox" />
@@ -526,12 +551,11 @@ var SetupPagination = function () {
                                 </div>
                             </th>
                             <th>Mã ID</th>
-                            <th>UserName</th>
-                            <th>Họ và tên</th>
-                            <th>Trạng thái</th>
-                            <th>Người tạo</th>
-                            <th>Ngày tạo</th>
-                            <th>Action</th>
+                            <th>Tên danh mục</th>
+                            <th>Mô tả danh mục</th>
+                            <th>Số thứ tự hiển thị</th>
+                            <th>Trạng thái</th>
+                            <th>Mã danh mục cha</th>
                     </tr>
                 `);
 
@@ -539,27 +563,23 @@ var SetupPagination = function () {
                     $.each(res.data, function (index, item) {
                         div.append(`
                         <tr>
-                            <td>
+                             <td>
                                 <div class="custom-checkbox check_all">
-                                    <input type="checkbox" name="checkAccount" data-id="${item.accountID}" />
+                                    <input type="checkbox" name="checkAccount" data-id="${item.categoryId}" />
                                     <span class="checkmark"></span>
                                 </div>
                             </td>
-                            <td>${item.accountID}</td>
+                            <td>${item.categoryId}</td>
                             <td>
-                                <button type="button" class="view-info" data-id="${item.accountID}">
-                                    ${item.accountName}
+                                <button type="button" class="view-info" data-id="${item.categoryId}">
+                                    ${item.categoryName}
                                 </button>
                             </td>
-                           <td>${item.accountFullName}</td>
+                           <td>${item.categoryDescription}</td>
+                            <td>${item.orderNo}</td>
                             <td>${item.status}</td>
-                            <td>${item.nameUserCreate}</td>
-                            <td>${item.createDateString}</td>
-                            <td>
-                                <button type="button" class="delete-cms-account" data-id="${item.accountID}">
-                                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="">
-                                </button>
-                            </td>
+                            <td>${item.parentCategoryId}</td>
+                            
                         </tr>`);
                     });
                     refresh({

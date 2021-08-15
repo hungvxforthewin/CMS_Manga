@@ -15,11 +15,27 @@ namespace CMSBussiness.ServiceImp
 {
     public class CategoryImp : BaseService<Category, int>, ICategory
     {
+        public DataResult<CategoryViewModel> GetAll()
+        {
+            try
+            {
+                List<CategoryViewModel> data = new List<CategoryViewModel>();
+                data = this.Raw_Query<CategoryViewModel>("SELECT * FROM Category WHERE isActive = 1").ToList();
+                return new DataResult<CategoryViewModel>() { Result = data };
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public DataResult<CategoryViewModel> GetList(SearchCategoryViewModel model, out int total)
         {
             List<CategoryViewModel> data = new List<CategoryViewModel>();
             DynamicParameters param = new DynamicParameters();
             param.Add("@Key", model.Key);
+            param.Add("@Status", model.Status);
             param.Add("@Page", model.Page);
             param.Add("@Size", model.Size);
             param.Add("@Total", dbType: DbType.Int32, direction: ParameterDirection.Output);

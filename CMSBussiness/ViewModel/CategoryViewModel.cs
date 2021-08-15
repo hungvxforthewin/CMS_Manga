@@ -6,7 +6,7 @@ namespace CMSBussiness.ViewModel
 {
     public class CategoryViewModel
     {
-        public short CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         public string CategoryName { get; set; }
 
@@ -14,14 +14,20 @@ namespace CMSBussiness.ViewModel
 
         public short ParentCategoryId { get; set; }
 
+        public string ParentCategoryName { get; set; }
+
         public byte OrderNo { get; set; }
 
         public bool isActive { get; set; }
+
+        public string Status { get; set; }
     }
     public class SearchCategoryViewModel
     {
 
         public string Key { get; set; }
+
+        public string Status { get; set; }
 
         public int Size { get; set; } = 10;
 

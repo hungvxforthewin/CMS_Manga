@@ -1,0 +1,69 @@
+﻿@using CMSBussiness.ViewModel
+@model CategoryViewModel
+
+<div class="header-modal">
+    <h3 class="modal__title">Thông tin danh mục</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+             alt="" />
+    </span>
+</div>
+
+<form id="form-model-edit">
+    <div class="body-modal add-employee_body-modal">
+        <input hidden value="@Model.CategoryId" name="CategoryId" />
+        <input hidden value="@Model.isActive" class="isActive-hidden" />
+        <input hidden value="@Model.ParentCategoryId" class="isCategoryParent-hidden" />
+        @Html.AntiForgeryToken()
+        <!-- row 1 -->
+        <div class="bs-row">
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <label>Tên danh mục</label>
+                    <input value="@Model.CategoryName" placeholder="Tên danh mục" name="CategoryName" />
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <label>Mô tả</label>
+                    <input value="@Model.CategoryDescription" placeholder="Nhập mô tả" name="CategoryDescription" />
+                </div>
+            </div>
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <label>Số TT</label>
+                    <input value="@Model.OrderNo" placeholder="Nhập số TT hiển thị" name="OrderNo" />
+                </div>
+            </div>
+        </div>
+        <div class="bs-row">
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <label>Danh mục cha</label>
+                    <select class="select2 select-category-parent" name="ParentCategoryId">
+                        <option value="">--Danh mục cha--</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="bs-col md-33">
+                <div class="modal-item">
+                    <label>Đang hoạt động</label>
+                    <input type="checkbox" name="isActive" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<div class="footer-modal">
+    <button modal-show="close"
+            class="close__btn btn-gray"
+            type="button">
+        Hủy bỏ
+    </button>
+</div>

@@ -194,7 +194,7 @@ namespace CMSSite.Areas.Admin.Controllers
                     isActive = model.isActive,
                     OrderNo = model.OrderNo,
                     ParentCategoryId = model.ParentCategoryId,
-                    CategoryId = model.CategoryId
+                    CategoryId = (short)model.CategoryId
                 };
                 try
                 {
@@ -206,6 +206,12 @@ namespace CMSSite.Areas.Admin.Controllers
                 }
             }
             return Json(new { status = true });
+        }
+        public IActionResult GetAllCategories()
+        {
+            List<CategoryViewModel> data = new List<CategoryViewModel>();
+            data = _category.GetAll().Result.ToList();
+            return Json(new { status = true, data });
         }
         #region HungVX Validate
         private List<ErrorResult> validform(CategoryViewModel entity)

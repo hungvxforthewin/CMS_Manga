@@ -12,6 +12,8 @@
 <form id="form-model-edit">
     <div class="body-modal add-employee_body-modal">
         <input hidden value="@Model.AccountID" name="AccountID" />
+        <input hidden value="@Model.isEnable" class="isEnable-hidden" />
+
         @Html.AntiForgeryToken()
         <!-- row 1 -->
         <div class="bs-row">

@@ -331,7 +331,7 @@ var ViewAccount = function (id) {
             $('#detail-employee_modal .content-modal').addClass('show-modal');
         }
     }).done(function (res) {
-        let checked = $('.isEnable-hidden').val();
+        let checked = $('#detail-employee_modal .isEnable-hidden').val();
         if (checked) {
             $('#detail-employee_modal input[name="isEnable"]').prop('checked', true);
         }
@@ -351,7 +351,10 @@ var EditAccount = function (id) {
             $('#edit-employee_modal .content-modal').addClass('show-modal');
         }
     }).done(function () {
-        
+        let checked = $('#edit-employee_modal .isEnable-hidden').val();
+        if (checked) {
+            $('#edit-employee_modal input[name="isEnable"]').prop('checked', true);
+        }
     });
 }
 

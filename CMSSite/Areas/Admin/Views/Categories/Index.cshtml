@@ -1,5 +1,261 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model CRMSite.Models.Pagination<CRMBussiness.ViewModel.DisplayPersonalTableViewModel>
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="/Assets/crm/css/tool.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Assets/crm/css/main.min.css" />
+    <style>
+        #main .main-content .tr_left-border table tr:hover td {
+            color: #5f6fff;
+        }
+
+        .section_employee-manage {
+            margin-left: 23px;
+        }
+    </style>
+}
+
+<section class="section_employee-manage">
+    <div class="module module-title">
+        <img src="/Assets/crm/images/layout/left-arrow.svg" alt="" />
+        <h2>Quản lý danh mục</h2>
+    </div>
+    <div class="module module-content">
+        <div class="search search-box">
+            <form id="search-form" style="width: 100%; margin-left: 40px;">
+                <div class="bs-row">
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-25">
+                        <div class="search-item">
+                            <label for="">Từ khóa</label>
+                            <input type="text" placeholder="Mã/Tên danh mục" name="Key" />
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-25">
+                        <div class="search-item">
+                            <label for="">Trạng thái</label>
+                            <select name="Status">
+                                <option value=""></option>
+                                <option value="0">Đã khóa</option>
+                                <option value="1">Đang hoạt động</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <div class="bs-col lg-25 xs-25">
+                        <div class="search-item">
+                            <label for=""></label>
+                            <button type="button" class="btn-green" style=" margin-top: 19px;" id="search-personal">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="handle">
+            <button class="add handle-button"
+                    type="button"
+                    modal-show="show"
+                    modal-data="#add-employee_modal">
+                <img src="/Assets/crm/images/employee-manage/add.svg" alt="" /> Thêm mới
+            </button>
+            <button class="edit handle-button"
+                    id="Edit-Employ"
+                    type="button"
+                    @*modal-show="show"
+                    modal-data="#edit-employee_modal"*@>
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/edit.svg" alt="" />
+                </div>
+                Chỉnh sửa
+            </button>
+            <button class="delete handle-button"
+                    id="Del-Employ"
+                    type="button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/delete.svg" alt="" />
+                </div>
+                Xóa
+            </button>
+
+            <button class="export handle-button">
+                <div class="icon">
+                    <img src="/Assets/crm/images/employee-manage/export.svg" alt="" />
+                </div>
+                Xuất file Excel
+            </button>
+        </div>
+        @* Table *@
+        <div class="data-table tr-bordered">
+            <table>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+            <div class="select_pagination">
+                <div class="select" id="size-page">
+                    <p>Hiển thị từ <span class="from"></span> đến <span class="to"></span> trong tổng số <span class="total"></span> bản ghi. Hiển thị</p>
+                    <select>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <p>&nbsp;bản ghi trên trang.</p>
+                </div>
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+        </div>
+        <!-- add modal -->
+        <div class="bs-modal" id="add-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title">thêm mới thông tin danh mục</h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <form id="form-model-add">
+                        <div class="body-modal add-employee_body-modal">
+                            <input hidden value="0" name="CategoryId" />
+                            @Html.AntiForgeryToken()
+                            <!-- row 1 -->
+                            <div class="bs-row">
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Tên danh mục</label>
+                                        <input placeholder="Tên danh mục" name="CategoryName" />
+                                    </div>
+                                </div>
+                                <!-- modal item -->
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Mô tả</label>
+                                        <input placeholder="Nhập mô tả" name="CategoryDescription" />
+                                    </div>
+                                </div>
+                                <div class="bs-col md-33">
+                                    <div class="modal-item">
+                                        <label>Số TT</label>
+                                        <input value="0" placeholder="Nhập số TT hiển thị" name="OrderNo" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bs-row">
+                                <div class="modal-item">
+                                    <label>Danh mục cha</label>
+                                    <select class="select2 select-category-parent" name="ParentCategoryId">
+                                        <option value="">--Danh mục cha--</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="footer-modal">
+                        <button class="close__btn btn-green btn-add-person"
+                                type="button">
+                            Thêm mới
+                        </button>
+                        <button modal-show="close"
+                                class="close__btn close__btn_fix btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- edit modal -->
+        <div class="bs-modal" id="edit-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+
+                </div>
+            </div>
+        </div>
+        <!-- detail modal -->
+        <div class="bs-modal" id="detail-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+
+                </div>
+            </div>
+        </div>
+        <!-- delete modal -->
+        <div class="bs-modal delete-modal" id="delete-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title">Xóa thông tin nhân sự</h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <div class="body-modal add-employee_body-modal">
+                        <img src="/Assets/crm/images/employee-manage/delete-modal.png"
+                             alt="" />
+                        <p id="txt-del-account">
+                            Bạn có chắc chắn muốn xóa nhân sự <span>xxxxxxxxxxx</span> không?
+                        </p>
+                    </div>
+                    <div class="footer-modal">
+                        <button id="delete-empl"
+                                class="close__btn btn-green"
+                                type="button">
+                            Đồng ý
+                        </button>
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- delete all modal -->
+        <div class="bs-modal delete-modal" id="delete_all-employee_modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title"></h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/crm/images/employee-manage/close-modal.svg"
+                                 alt="" />
+                        </span>
+                    </div>
+                    <div class="body-modal add-employee_body-modal">
+                        <img src="/Assets/crm/images/employee-manage/delete-modal.png"
+                             alt="" />
+                        <p>Bạn có chắc chắn muốn xóa tất cả nhân sự không?</p>
+                    </div>
+                    <div class="footer-modal">
+                        <button modal-show="close"
+                                class="close__btn btn-green"
+                                type="button">
+                            Đồng ý
+                        </button>
+                        <button modal-show="close"
+                                class="close__btn btn-gray"
+                                type="button">
+                            Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/Content/js/app.js"></script>
+    <script src="~/Content/js/extend/method.js"></script>
+    <script src="~/js/system.js"></script>
+    <script src="~/js/controllers/cms-category.js"></script>
 }
