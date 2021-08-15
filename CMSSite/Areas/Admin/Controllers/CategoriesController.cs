@@ -17,39 +17,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using EncodeByMd5;
+using CMSBussiness.IService;
+using CMSBussiness.ViewModel;
+using CMSModel.Models.Data;
 
 namespace CMSSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AccountsController : BaseController
+    public class CategoriesController : BaseController
     {
-            private readonly IAccount _account;
-            private EncodeImp _eCode;
-            public AccountsController(IConfiguration configuration, IAccount account, IHttpContextAccessor httpContextAccessor, ILogger<BaseController> logger)
-               : base(httpContextAccessor, logger)
-            {
-                _account = account;
-                _eCode = new EncodeImp();
-            }
+        private readonly IAccount _account;
+        private readonly ICategory _category;
+        private EncodeImp _eCode;
+        public CategoriesController(IConfiguration configuration, IAccount account, ICategory category, IHttpContextAccessor httpContextAccessor, ILogger<BaseController> logger)
+           : base(httpContextAccessor, logger)
+        {
+            _account = account;
+            _category = category;
+            _eCode = new EncodeImp();
+        }
         public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult GetList(SearchAccountViewModel model)
+        public IActionResult GetList(SearchCategoryViewModel model)
         {
             // trace log
             LogModel.Data = model.ToDataString();
             LogModel.Action = ActionType.GetInfo;
 
             int total;
-            var data = _account.GetList(model, out total);
+            var data = _category.GetList(model, out total);
             var handleResult = HandleGetResult(data);
             if (handleResult != null) return handleResult;
-            foreach (var item in data.Result)
-            {
-                item.NameUserCreate = tokenModel.Username;
-            }
+            
             //write trace log
             LogModel.Result = ActionResultValue.GetInfoSuccess;
             LogModel.Data = data.Result.ToDataString();
@@ -66,13 +68,15 @@ namespace CMSSite.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            var data = _account.Raw_Get(id);
-            var result = new AccountViewModel()
+            var data = _category.Raw_Get(id);
+            var result = new CategoryViewModel()
             {
-                AccountID = data.AccountID,
-                AccountName = data.AccountName,
-                AccountFullName = data.AccountFullName,
-                isEnable = data.isEnable
+                CategoryId = data.CategoryId,
+                CategoryName = data.CategoryName,
+                CategoryDescription = data.CategoryDescription,
+                isActive = data.isActive,
+                OrderNo = data.OrderNo,
+                ParentCategoryId = data.ParentCategoryId
             };
             //var handleResult = HandleGetResult(data);
             //if (handleResult != null) return handleResult;
@@ -87,13 +91,15 @@ namespace CMSSite.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            var data = _account.Raw_Get(id);
-            var result = new AccountViewModel()
+            var data = _category.Raw_Get(id);
+            var result = new CategoryViewModel()
             {
-                AccountID = data.AccountID,
-                AccountName = data.AccountName,
-                AccountFullName = data.AccountFullName,
-                isEnable = data.isEnable
+               CategoryId = data.CategoryId,
+               CategoryName = data.CategoryName,
+               CategoryDescription = data.CategoryDescription,
+               isActive = data.isActive,
+               OrderNo = data.OrderNo,
+               ParentCategoryId = data.ParentCategoryId
             };
             //var handleResult = HandleGetResult(data);
             //if (handleResult != null) return handleResult;
@@ -105,7 +111,7 @@ namespace CMSSite.Areas.Admin.Controllers
             LogModel.Action = ActionType.Delete;
             LogModel.Data = (new { id = id }).ToDataString();
 
-            var data = _account.Raw_Get(id);
+            var data = _category.Raw_Get(id);
             if (data == null)
             {
                 //write trace log
@@ -118,10 +124,10 @@ namespace CMSSite.Areas.Admin.Controllers
             {
                 //write trace log
                 LogModel.Result = ActionResultValue.DeleteSuccess;
-                LogModel.Message = "Xóa doanh số thành công";
+                LogModel.Message = "Xóa category thành công";
                 Logger.LogInformation(LogModel.ToString());
 
-                return Json(new { status = true, name = data.AccountFullName });
+                return Json(new { status = true, name = data.CategoryName });
             }
         }
         public IActionResult Delete(int id)
@@ -133,15 +139,15 @@ namespace CMSSite.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            var data = _account.Raw_Delete(id);
+            var data = _category.Raw_Delete(id);
             //var handleResult = HandleGetResult(data);
             //if (handleResult != null) return handleResult;
-            return Ok(new { status = true, mess = "Xóa nhân sự thành công" });
+            return Ok(new { status = true, mess = "Xóa category thành công" });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult InsertOrUpdate(AccountViewModel model)
-        {            
+        public IActionResult InsertOrUpdate(CategoryViewModel model)
+        {
             var errs = validform(model);
             if (errs.Count > 0)
             {
@@ -157,19 +163,20 @@ namespace CMSSite.Areas.Admin.Controllers
             }
             DateTime? dateNull = null;
 
-            if (model.AccountID <= 0)
+            if (model.CategoryId <= 0)
             {
                 var status = 0;
                 try
                 {
-                    model.AccountPassword = _eCode.EncodeMD5(model.AccountPassword);
-                    _account.InsertAccount(model, out status);
-                    if(status != 1)
+                    var data = new Category()
                     {
-                        var lstErr = new List<ErrorResult>() { new ErrorResult() { Field = "RevenueDate", ErrorMessage = "Tài khoản đã tồn tại" } };
-                        var jsonerrs = JsonConvert.SerializeObject(lstErr, Formatting.Indented);
-                        return Json(new { status = false, data = jsonerrs });
-                    }
+                        CategoryName = model.CategoryName,
+                        CategoryDescription = model.CategoryDescription,
+                        isActive = true,
+                        OrderNo = model.OrderNo,
+                        ParentCategoryId = model.ParentCategoryId
+                    };
+                    _category.Raw_Insert(data);
                 }
                 catch (Exception ex)
                 {
@@ -179,15 +186,15 @@ namespace CMSSite.Areas.Admin.Controllers
             }
             else
             {
-                var oldData = _account.Raw_Get(model.AccountID);
-                var data = new Account()
+                var oldData = _account.Raw_Get(model.CategoryId);
+                var data = new Category()
                 {
-                    AccountID = model.AccountID,
-                    AccountName = model.AccountName,
-                    AccountFullName = model.AccountFullName,
-                    isEnable = model.isEnable,
-                    CreateDate = oldData.CreateDate,
-                    AccountPassword = string.IsNullOrEmpty(model.AccountPassword) ? oldData.AccountPassword : _eCode.EncodeMD5(model.AccountPassword)
+                    CategoryName = model.CategoryName,
+                    CategoryDescription = model.CategoryDescription,
+                    isActive = model.isActive,
+                    OrderNo = model.OrderNo,
+                    ParentCategoryId = model.ParentCategoryId,
+                    CategoryId = model.CategoryId
                 };
                 try
                 {
@@ -201,7 +208,7 @@ namespace CMSSite.Areas.Admin.Controllers
             return Json(new { status = true });
         }
         #region HungVX Validate
-        private List<ErrorResult> validform(AccountViewModel entity)
+        private List<ErrorResult> validform(CategoryViewModel entity)
         {
 
             Dictionary<string, ErrorResult> dictErrors = new Dictionary<string, ErrorResult>();

@@ -92,6 +92,7 @@ namespace CRMSite
             services.AddControllers();
             services.AddSignalR();
             services.AddTransient<IAccount, AccountImp>();
+            //services.AddTransient<ICategory, CategoryImp>();
             services.AddTransient<IContractStaff, ContractStaffImp>();
             services.AddTransient<IKpiSaleManager, KpiSaleManagerImp>();
             services.AddTransient<IInvestor, InvestorImp>();

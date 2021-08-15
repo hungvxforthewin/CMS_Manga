@@ -923,3 +923,44 @@ Error Number:102,State:1,Class:15
     data([{"AccountID":2,"AccountName":"hungvx","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"Vũ Thanh Hùng","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"15-08-2021","Role":0},{"AccountID":1,"AccountName":"admin","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"npnam","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"21-07-2021","Role":0}](if any)),
     thus action result: Get information successfully,
     message: [] (bec4a12e)
+2021-08-15T16:54:22.5201184+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-15T16:54:22.5328249+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-15T16:54:22.5362112+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-15T16:54:22.9577673+07:00 8000002f-0002-fe00-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-15T16:54:31.4340496+07:00 8000002b-0000-f100-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-15T16:54:33.1933346+07:00 80000033-0002-fe00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Accounts/GetList" link to get information about  with
+    data([{"AccountID":2,"AccountName":"hungvx","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"Vũ Thanh Hùng","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"15-08-2021","Role":0},{"AccountID":1,"AccountName":"admin","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"npnam","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"21-07-2021","Role":0}](if any)),
+    thus action result: Get information successfully,
+    message: [] (bec4a12e)
+2021-08-15T16:58:34.5709636+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-08-15T16:58:34.5869405+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-08-15T16:58:34.5924910+07:00  [INF] Content root path: "D:\CODE GIT\CMS_Manga\CMSSite" (b5d60022)
+2021-08-15T16:58:34.8171377+07:00 80000035-0000-f100-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-15T16:58:53.2903823+07:00 80000036-0001-e000-b63f-84710c7967bb [INF] Anyone has been accessed the login system page (842c6616)
+2021-08-15T16:59:03.0590697+07:00 8000003a-0003-ed00-b63f-84710c7967bb [INF] admin[] has accessed the "/Login/LoginAccount" link to login the system account with
+    data((if any)),
+    thus action result: LOGIN THE SYSTEM SUCCESSFULLY,
+    message: [] (b8c9a129)
+2021-08-15T16:59:04.2769223+07:00 8000003c-0003-ed00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Accounts/GetList" link to get information about  with
+    data([{"AccountID":2,"AccountName":"hungvx","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"Vũ Thanh Hùng","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"15-08-2021","Role":0},{"AccountID":1,"AccountName":"admin","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"npnam","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"21-07-2021","Role":0}](if any)),
+    thus action result: Get information successfully,
+    message: [] (bec4a12e)
+2021-08-15T16:59:11.4654319+07:00 8000002e-0001-e700-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Accounts/GetList" link to get information about  with
+    data([{"AccountID":2,"AccountName":"hungvx","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"Vũ Thanh Hùng","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"15-08-2021","Role":0},{"AccountID":1,"AccountName":"admin","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"npnam","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"21-07-2021","Role":0}](if any)),
+    thus action result: Get information successfully,
+    message: [] (bec4a12e)
+2021-08-15T17:01:08.6303238+07:00 80000018-0000-ec00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/Accounts/GetList" link to get information about  with
+    data([{"AccountID":2,"AccountName":"hungvx","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"Vũ Thanh Hùng","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"15-08-2021","Role":0},{"AccountID":1,"AccountName":"admin","AccountPassword":"bec76a7c7462387836d5ade803a9d6b","AccountFullName":"npnam","NameUserCreate":"admin","isEnable":true,"Status":"Kích hoạt","CreateDate":null,"CreateDateString":"21-07-2021","Role":0}](if any)),
+    thus action result: Get information successfully,
+    message: [] (bec4a12e)
+2021-08-15T17:01:23.9123673+07:00 8000001a-0000-ec00-b63f-84710c7967bb [INF] admin[] has accessed the "/Admin/SaleRevenueStatistics/Index" link to get information about revenue statistics with
+    data((if any)),
+    thus action result: Access the page successfully,
+    message: [] (d2dc4c79)
+2021-08-15T17:01:25.1011292+07:00 8000001a-0002-f200-b63f-84710c7967bb [ERR] admin[] has accessed the "/Admin/SaleRevenueStatistics/GetStatisticsData/15-08-2021/0" link to get information about revenue statistics with
+    data({"Time":"15-08-2021","TimeOption":0}(if any)),
+    thus action result: Throw an error when the system attempts to connect to server,
+    message: [] (46e07029)
