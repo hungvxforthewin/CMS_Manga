@@ -13,7 +13,6 @@ namespace CMSModel.Models.Data
         [Key]
         public Guid ChapterId { get; set; }
 
-        [Key]
         public int BookId { get; set; }
         public string ChapterName { get; set; }
 

@@ -1,0 +1,129 @@
+﻿@using CMSBussiness.ViewModel
+@model BookChapterViewModel
+<div class="header-modal">
+    <h3 class="modal__title">Chỉnh sửa truyện</h3>
+    <span title="close" modal-show="close" class="close__modal">
+        <img src="/Assets/SA/images/layout/close-modal.svg" />
+    </span>
+</div>
+
+<form id="frm-book-chapter-edit">
+    @Html.AntiForgeryToken()
+    <div class="body-modal">
+        <div class="bs-row">
+            <input type="text" hidden name="ChapterId" value="@Model.ChapterId" />
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <input type="hidden" class="hidden-book" value="@Model.BookId" />
+                    <label>Truyện</label>
+                    <select class="select2 select-book" name="BookId">
+                        <option value="">-- Truyện --</option>
+
+                    </select>
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <input type="hidden" class="hidden-status" value="@Model.ChapterStatus" />
+                    <label>Trạng thái</label>
+                    <select class="select2 select-status" name="ChapterStatus">
+                        <option value="">-- Trạng thái --</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Tên Chapter</label>
+                    <input type="text" name="ChapterName" value="@Model.ChapterName" />
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Độ tuổi giới hạn</label>
+                    <input type="text" name="adultLimit" class="isNumberF" value="@Model.adultLimit" />
+                </div>
+            </div>
+        </div>
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Ngày đăng</label>
+                    <div class="date-select">
+                        <input type="text" class="search__input autofill_today" name="PublishDate" value="@Model.PublishDate">
+                        <img src="/Assets/SA/images/layout/date.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Premium</label>
+                    <input type="checkbox" class="checkbox-isPremium" name="isPremium" value="true" checked="@Model.isPremium" />
+                </div>
+            </div>
+        </div>
+        <div class="bs-row">
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Số lượt Like</label>
+                    <input type="text" name="" disabled="disabled" class="isNumberF" value="@Model.LikeNo" />
+                </div>
+            </div>
+            <!-- modal item -->
+            <div class="bs-col md-50">
+                <div class="modal-item">
+                    <label>Số lượt Bình luận</label>
+                    <input type="text" name="" disabled="disabled" class="isNumberF" value="@Model.CommentNo" />
+                </div>
+            </div>
+        </div>
+        <div class="bs-row" id="div-chapter-edit">
+            <div class="bs-col md-100">
+                <div class="modal-item">
+                    <label>Danh sách trang Chapter</label>
+                </div>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.imgUrls))
+            {
+                foreach (var item in Model.imgUrls.Split(';'))
+                {
+                    <div class="bs-col md-25 item-chapter-edit">
+                        <input type="file" class="form-control input-chapter myFileEdit" accept="image/*" />
+                        <div class="divImageMediaEdit">
+                            <img style="width: 150px; height: 100px; padding: 10px" src="@("/media/chapter/"+item)" />
+                            <span title="close" class="item-chapter-clear-edit">
+                                <img src="/Assets/SA/images/layout/close-modal.svg" width="20" />
+                            </span>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="bs-col md-25 item-chapter-edit">
+                <input type="file" class="form-control input-chapter myFileEdit" accept="image/*" />
+                <div class="divImageMediaEdit">
+                    <img />
+                </div>
+            </div>
+        </div>
+        <div class="bs-row">
+            <input hidden id="myFileNameEdit" name="imgUrlsEdit" type="text" value="@Model.imgUrls"/>
+        </div>
+    </div>
+
+
+    <div class="footer-modal">
+        <div class="group-button">
+            <button type="button" class="btn-gray close__modal" modal-show="close">Hủy bỏ</button>
+            <button type="button" class="btn-green" id="btn-update-book-chapter">Cập nhật</button>
+        </div>
+    </div>
+</form>
