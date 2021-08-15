@@ -10,5 +10,6 @@ namespace CRMBussiness.IService
         DataResult<AccountViewModel> Login(string UserName);
         Account GetByCodeStaff(string codeStaff);
         Account GetAccountLast();
+        bool InsertAccount(AccountViewModel model, out int statusInsert);
     }
 }

@@ -8,6 +8,7 @@ namespace CRMModel.Models.Data
     public class Account // CMS_Account
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int AccountID { get; set; }
 
         [Required(ErrorMessage = "Tên không được trống")]
