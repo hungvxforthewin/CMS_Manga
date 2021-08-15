@@ -15,7 +15,7 @@ namespace CMSBussiness.ServiceImp
 {
     public class BookChapterImp : BaseService<BookChapter, int>, IBookChapter
     {
-        public DataResult<BookChapterViewModel> GetById(int id)
+        public DataResult<BookChapterViewModel> GetById(Guid id)
         {
             try
             {

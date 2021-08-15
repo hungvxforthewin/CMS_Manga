@@ -10,6 +10,8 @@ namespace CMSBussiness.ViewModel
         public Guid ChapterId { get; set; }
 
         public string ChapterName { get; set; }
+        public string imgUrls { get; set; }
+        public string imgUrlsEdit { get; set; }
 
         public byte adultLimit { get; set; }
 
@@ -19,7 +21,7 @@ namespace CMSBussiness.ViewModel
 
         public byte ChapterStatus { get; set; }
 
-        public DateTime PublishDate { get; set; }
+        public string PublishDate { get; set; }
 
         //public DateTime lastUpdateTime { get; set; }
 
