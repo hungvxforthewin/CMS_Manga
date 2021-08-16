@@ -14,6 +14,7 @@ namespace CMSBussiness.IService
         DataResult<BookImageViewModel> GetDetail(int bookId, int imgId);
         bool DeleteById(int bookId, int imgId);
         //DataResult<BookImageViewModel> GetById(int id);
+        bool UpdateBanner(int bookId, int imgId, string imgUrl, bool isBanner, int bookIdOld);
 
     }
 }

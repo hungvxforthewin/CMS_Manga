@@ -7,6 +7,7 @@ namespace CMSBussiness.ViewModel
     public class BookImageViewModel
     {
         public int BookId { get; set; }
+        public int BookIdOld { get; set; }
         public int imgId { get; set; }
 
         public string imgUrl { get; set; }

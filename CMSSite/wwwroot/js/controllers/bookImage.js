@@ -150,7 +150,9 @@ $(function () {
     $('body').on('click', '#btn-update-book', function () {
         debugger;
         let data = $('#frm-book-edit').serializeObject();
-        data.CategoryIds = $(".select-category").select2("val");
+        //data.CategoryIds = $(".select-category").select2("val");
+        data.imgId = $('#book-edit input[name="selected-imgid"]').val();
+        data.bookIdOld = $('#book-edit input[name="selected-bookid"]').val();
         app.component.Loading.Show();
         $.ajax({
             method: 'POST',
@@ -161,7 +163,7 @@ $(function () {
             success: function (rs) {
                 //console.log(rs);
                 if (rs.status) {
-                    toastr.success('Cập nhật truyện thành công!', 'Thông báo');
+                    toastr.success('Cập nhật banner thành công!', 'Thông báo');
                     ResetValueInForm('#frm-book-edit');
                     $('#book-edit').modal('hide');
                     SetupPagination();
@@ -253,25 +255,25 @@ $(function () {
     })
 
 
-    $('body').on('change', '#myFileEdit', function () {
-        if (typeof (FileReader) != "undefined") {
-            var dvPreview = $("#divImageMediaPreviewEdit");
-            dvPreview.html("");
-            $($(this)[0].files).each(function () {
-                var file = $(this);
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var img = $("<img />");
-                    img.attr("style", "width: 150px; height:100px; padding: 10px");
-                    img.attr("src", e.target.result);
-                    dvPreview.append(img);
-                }
-                reader.readAsDataURL(file[0]);
-            });
-        } else {
-            alert("This browser does not support HTML5 FileReader.");
-        }
-    });
+    //$('body').on('change', '#myFileEdit', function () {
+    //    if (typeof (FileReader) != "undefined") {
+    //        var dvPreview = $("#divImageMediaPreviewEdit");
+    //        dvPreview.html("");
+    //        $($(this)[0].files).each(function () {
+    //            var file = $(this);
+    //            var reader = new FileReader();
+    //            reader.onload = function (e) {
+    //                var img = $("<img />");
+    //                img.attr("style", "width: 150px; height:100px; padding: 10px");
+    //                img.attr("src", e.target.result);
+    //                dvPreview.append(img);
+    //            }
+    //            reader.readAsDataURL(file[0]);
+    //        });
+    //    } else {
+    //        alert("This browser does not support HTML5 FileReader.");
+    //    }
+    //});
 
     $(".autofill_today").datetimepicker(
         {

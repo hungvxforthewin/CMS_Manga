@@ -139,58 +139,21 @@ namespace CMSSite.Areas.Admin.Controllers
             }
             else
             {
-                //var data = _bookService.Raw_Get(model.BookId);
-                //if (data.BookId != 0)
-                //{
-                //    data.BookName = model.BookName;
-                //    data.BookDescription = model.BookDescription;
-                //    data.adultLimit = model.adultLimit;
-                //    data.bookSexId = model.bookSexId;
-                //    data.isEnable = model.isEnable;
-                //    data.commentAllowed = model.commentAllowed;
-                //    data.authorAccountId = model.authorAccountId;
-                //    data.updateStatus = 1;
-                //    data.lastUpdateTime = DateTime.Now;
-                //    try
-                //    {
-                //        _bookService.Raw_Update(data);
-                //        var bookCategoriesFirst = _bookCategoryService.Raw_GetAll().Where(x => x.BookId == data.BookId);
-                //        if (bookCategoriesFirst.Count() > 0)
-                //        {
-                //            _bookCategoryService.Raw_Delete(string.Join(",", bookCategoriesFirst.Select(x => x.BookId)));
-                //        }
-                //        if (model.CategoryIds != null)
-                //        {
-                //            if (model.CategoryIds.Length > 0)
-                //            {
-                //                var bookCategories = new List<BookCategory>();
-                //                foreach (var item in model.CategoryIds)
-                //                {
-                //                    var bookCategory = new BookCategory
-                //                    {
-                //                        BookId = data.BookId,
-                //                        CategoryId = Int16.Parse(item),
-                //                    };
-                //                    if (item == model.CategoryIds.First())
-                //                    {
-                //                        bookCategory.isDefaultCate = true;
-                //                    }
-                //                    bookCategories.Add(bookCategory);
-                //                }
-                //                _bookCategoryService.Raw_InsertAllByKeys(bookCategories);
-                //            }
-                //        }
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        return Json(new { status = false, mess = "Lỗi hệ thống !" });
-                //    }
-                //}
-                //else
-                //{
-                //    return Json(new { status = false, mess = "Không tìm thấy dữ liệu !" });
-                //}
 
+                var data = new BookImage()
+                {
+                    BookId = model.BookId,
+                    imgUrl = model.imgUrl,
+                    IsBanner = model.IsBanner
+                };
+                try
+                {
+                    var dataNew = _bookImageService.UpdateBanner(model.BookId, model.imgId, model.imgUrl, model.IsBanner, model.BookIdOld);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { status = false, mess = "Lỗi hệ thống !" });
+                }
             }
             return Json(new { status = true });
         }

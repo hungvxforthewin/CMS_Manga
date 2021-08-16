@@ -91,5 +91,25 @@ namespace CMSBussiness.ServiceImp
                 return new DataResult<DisplayBookImageViewModel> { Error = true };
             }
         }
+
+        public bool UpdateBanner(int bookId, int imgId, string imgUrl, bool isBanner, int bookIdOld)
+        {
+            try
+            {
+                this.Raw_Query<DisplayBookImageViewModel>("UPDATE BookImage SET BookId = @BookId, IsBanner = @IsBanner, imgUrl = @imgUrl WHERE BookId = @BookIdOld AND imgId = @imgId", new Dictionary<string, object>() {
+                    {"BookId", bookId },
+                    {"IsBanner", isBanner },
+                    {"imgUrl", imgUrl },
+                    {"imgId", imgId },
+                    {"BookIdOld", bookIdOld }
+                }).SingleOrDefault();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
