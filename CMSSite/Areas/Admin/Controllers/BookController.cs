@@ -57,7 +57,7 @@ namespace CMSSite.Areas.Admin.Controllers
 
             foreach(var item in data.Result)
             {
-                item.IsApprove = item.isEnable && tokenModel.Role == 1;
+                item.IsApprove = !item.isEnable && tokenModel.Role == 1;
             }
 
             return Json(new { Data = data.Result, Total = total });

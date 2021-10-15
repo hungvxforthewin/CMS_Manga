@@ -63,8 +63,9 @@ $(function () {
                                 <button type="button" class="delete-book" data-id="${item.bookId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
                                 ${item.isApprove == false ? `` :
                                 `<div class='radiotext status'>
-                                    <button data-id="${item.bookId}" class="button_lit button2 accept-book" type="button">
-                                        <img src='/Assets/SA/images/accountant_contact-manage/done_all_24px_rounded.svg' alt='' />
+                                    <button data-id="${item.bookId}" class="button_lit button2 accept-book" type="button" modal-show="show"
+                                    modal-data="#book-accept" >
+                                        <img src='/Assets/SA/images/accountant_contact-manage/done_all_24px_rounded.svg' alt=''/>
                                         <p>Duyệt</p>
                                     </button>
                                 </div>`}
@@ -99,7 +100,7 @@ $(function () {
     });
 
     $('body').on('click', 'button.accept-book', function () {
-        $('#myModal1 input').val('');
+        $('#book-accept input').val('');
         let btn = $(this);
         let id = $(btn).data('id');
         if (id === "" || id === undefined) {
@@ -107,11 +108,10 @@ $(function () {
             return;
         }
         $('#id-book-confirm').val(id);
-        $('#myBtn1').trigger('click');
     })
 
     $('body').on('click', '#btn-update-confirm', function () {
-        let id = $('#id-contract-confirm').val();
+        let id = $('#id-book-confirm').val();
         $.ajax({
             type: 'POST',
             url: baseUrl + 'UpdateStatus',
@@ -121,9 +121,9 @@ $(function () {
             success: function (res) {
                 if (res.status) {
                     toastr.success('Duyệt truyện thành công', 'Thông báo !');
-                    $('#close-confirm').trigger('click');
+                    $('.close__modal').trigger('click');
                     SetupPagination();
-                    $('#myModal1 input').val('');
+                    $('#book-accept input').val('');
                 } else {
                     toastr.error(res.mess, 'Thông báo !');
                 }
@@ -301,6 +301,14 @@ var SetupPagination = function () {
                                 <td class="text-center">${item.status}</td>
                                 <td class="text-center">
                                     <button type="button" class="delete-book" data-id="${item.bookId}"><img src="/Assets/crm/images/employee-manage/delete.svg" alt="" /></button>
+                                    ${item.isApprove == false ? `` :
+                                    `<div class='radiotext status'>
+                                        <button data-id="${item.bookId}" class="button_lit button2 accept-book" type="button" modal-show="show"
+                                        modal-data="#book-accept" >
+                                            <img src='/Assets/SA/images/accountant_contact-manage/done_all_24px_rounded.svg' alt=''/>
+                                            <p>Duyệt</p>
+                                        </button>
+                                    </div>`}
                                 </td>
                             </tr>`);
                     });
