@@ -259,26 +259,29 @@
             </div>
 
             <!--Modal myModal1-->
-            <div id="myModal1" class="modal">
-                <div class="modal-content1">
-                    <div class="title">
-                        <span class="close1" id="close-confirm">
-                            <img src="/Assets/crm/images/accountant_contact-manage/close_24px.svg" />
-                        </span>
-                        <p>Duyệt truyện</p>
-                    </div>
-                    <div>
-                        <div class="bs-row row-lg-10 row-md-10 row-sm-15 row-xs10 row-tn-10">
-                            <div class="text-center">Bạn có chắc chắn muốn duyệt truyện không?</div>
+            <div id="book-accept" class="bs-modal">
+                <div class="modal-frame">
+                    <div class="content-modal">
+                        <div class="header-modal">
+                            <h3 class="modal__title">Duyệt truyện</h3>
+                            <span title="close" modal-show="close" class="close__modal">
+                                <img src="/Assets/SA/images/layout/close-modal.svg" />
+                            </span>
+                        </div>
+                        @Html.AntiForgeryToken()
+                        <div class="body-modal">
+                            <div class="text-center">Bạn có muốn duyệt truyện không?</div>
+                            <input type="hidden" id="id-book-confirm" />
                         </div>
 
-                        <input type="text" hidden id="id-book-confirm" />
 
-                    </div>
+                        <div class="footer-modal text-center">
+                            <div class="group-button">
+                                <button type="button" modal-show="close" class="btn-gray close__modal" id="close-accept">Hủy bỏ</button>
+                                <button type="button" class="btn-green btn-update-confirm" id="btn-update-confirm">Duyệt</button>
+                            </div>
+                        </div>
 
-                    <div class="two_button">
-                        <button class="bt button_cancel1">Hủy bỏ</button>
-                        <button class="bt button_update" type="button" id="btn-update-confirm">Duyệt</button>
                     </div>
                 </div>
             </div>
@@ -289,45 +292,6 @@
 
                     </div>
                 </div>
-                @*<div class="modal-frame">
-                <div class="content-modal">
-                    <div class="header-modal">
-                        <h3 class="modal__title">Doanh số nhân viên</h3>
-                        <span title="close" modal-show="close" class="close__modal">
-                            <img src="/Assets/SA/images/layout/close-modal.svg" />
-                        </span>
-                    </div>
-
-                    <div class="body-modal">
-                        <div class="modal-item">
-                            <p class="label">Tên nhân viên</p>
-                            <p class="detail">Nguyễn văn A</p>
-                        </div>
-                        <div class="modal-item">
-                            <p class="label">Phòng ban</p>
-                            <p class="detail">Phòng ban 1</p>
-                        </div>
-                        <div class="modal-item">
-                            <p class="label">Nhóm</p>
-                            <p class="detail">Nhóm 2</p>
-                        </div>
-                        <div class="modal-item">
-                            <p class="label">Doanh số</p>
-                            <p class="detail sale">
-                                <input />
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="footer-modal">
-                        <div class="group-button">
-                            <button class="btn-gray">Hủy bỏ</button>
-                            <button class="btn-green">Cập nhật</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>*@
             </div>
             <div class="bs-modal delete-modal" id="book-delete">
                 <div class="modal-frame">
@@ -369,24 +333,6 @@
     <script>
                 //$('.form_datetime').datetimepicker('update', new Date());
 
-        var modal1 = document.getElementById("myModal1");
-        var btn1 = document.getElementById("myBtn1");
-        var span1 = document.getElementsByClassName("close1")[0];
-        var span11 = document.getElementsByClassName("button_cancel1")[0];
-        btn1.onclick = function () {
-            modal1.style.display = "block";
-        }
-        span1.onclick = function () {
-            modal1.style.display = "none";
-        }
-        span11.onclick = function () {
-            modal1.style.display = "none";
-        }
-        window.onclick = function (event) {
-            if (event.target == modal1) {
-                modal1.style.display = "none";
-            }
-        }
 
     </script>
     <script src="~/Content/js/app.js"></script>
