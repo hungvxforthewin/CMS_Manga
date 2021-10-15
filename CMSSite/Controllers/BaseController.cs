@@ -41,7 +41,14 @@ namespace CRMSite.Controllers
                 var claims = _httpContextAccessor.HttpContext.User.Claims;
                 if (claims != null)
                 {
-                    tokenModel.Role = 1;
+                    if(claims.First(x => x.Type == SiteConst.TokenKey.USERNAME).Value.Equals("admin")) 
+                    {
+                        tokenModel.Role = 1;
+                    }
+                    else
+                    {
+                        tokenModel.Role = 2;
+                    }
                     tokenModel.FullName = claims.First(x => x.Type == SiteConst.TokenKey.FULLNAME).Value;
                     tokenModel.Username = claims.First(x => x.Type == SiteConst.TokenKey.USERNAME).Value;
                 }
@@ -74,6 +81,13 @@ namespace CRMSite.Controllers
                             break;
 
                         case 2:
+                            if (!currentPath.Contains("/Admin/") && _NoInAreaController.Where(x => currentPath.Contains(x)).FirstOrDefault() == null)
+                            {
+                                _isAllow = false;
+                            }
+                            break;
+
+                        case 3:
                             if (!currentPath.Contains("/Accountant/"))
                             {
                                 _isAllow = false;
@@ -81,7 +95,7 @@ namespace CRMSite.Controllers
                             break;
 
 
-                        case 3:
+                        case 4:
                             if (!currentPath.Contains("/HR/"))
                             {
                                 _isAllow = false;
