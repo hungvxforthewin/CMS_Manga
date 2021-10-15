@@ -61,6 +61,7 @@ namespace CMSBussiness.ViewModel
         public decimal Rating { get; set; }
 
         public string Status { get; set; }
-        public string isEnable { get; set; }
+        public bool isEnable { get; set; }
+        public bool IsApprove { get; set; }
     }
 }

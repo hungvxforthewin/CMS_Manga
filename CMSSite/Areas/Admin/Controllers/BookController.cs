@@ -34,6 +34,7 @@ namespace CMSSite.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.TokenModel = tokenModel;
             return View();
         }
 
@@ -53,6 +54,11 @@ namespace CMSSite.Areas.Admin.Controllers
             LogModel.Result = ActionResultValue.GetInfoSuccess;
             LogModel.Data = data.Result.ToDataString();
             Logger.LogInformation(LogModel.ToString());
+
+            foreach(var item in data.Result)
+            {
+                item.IsApprove = item.isEnable && tokenModel.Role == 1;
+            }
 
             return Json(new { Data = data.Result, Total = total });
         }
@@ -190,11 +196,12 @@ namespace CMSSite.Areas.Admin.Controllers
                     data.BookDescription = model.BookDescription;
                     data.adultLimit = model.adultLimit;
                     data.bookSexId = model.bookSexId;
-                    data.isEnable = model.isEnable;
                     data.commentAllowed = model.commentAllowed;
                     data.authorAccountId = model.authorAccountId;
                     data.updateStatus = 1;
                     data.lastUpdateTime = DateTime.Now;
+                    if(tokenModel.Role == 1)
+                        data.isEnable = model.isEnable;
                     try
                     {
                         _bookService.Raw_Update(data);
@@ -244,6 +251,7 @@ namespace CMSSite.Areas.Admin.Controllers
             //trace log
             LogModel.Action = ActionType.Update;
             LogModel.Data = (new { id = id }).ToDataString();
+            ViewBag.TokenModel = tokenModel;
             if (id <= 0)
             {
                 return BadRequest();
@@ -253,6 +261,54 @@ namespace CMSSite.Areas.Admin.Controllers
             //if (handleResult != null) return handleResult;
             return PartialView("Edit", data.DataItem);
         }
+        public IActionResult UpdateStatus(int id)
+        {
+
+            LogModel.Data = (new { id = id }).ToDataString();
+            LogModel.Action = ActionType.Update;
+
+            if (id <= 0)
+            {
+                //write trace log
+                LogModel.Result = ActionResultValue.InvalidInput;
+                LogModel.Message = "Truyện không tồn tại";
+                Logger.LogWarning(LogModel.ToString());
+
+                return Ok(new { status = false, mess = "Truyện không tồn tại" });
+            }
+
+            var data = _bookService.Raw_Get(id);
+            if (data.BookId != 0)
+            {
+                data.isEnable = true;
+                try
+                {
+                    _bookService.Raw_Update(data);
+                    LogModel.Result = ActionResultValue.UpdateSuccess;
+                    LogModel.Message = "Duyệt truyện thành công!";
+                    Logger.LogInformation(LogModel.ToString());
+                    return Ok(new { status = true, mess = "Duyệt truyện thành công" });
+                }
+                catch
+                {
+                    LogModel.Result = ActionResultValue.UpdateFailed;
+                    LogModel.Message = "Duyệt truyện không thành công!";
+                    Logger.LogInformation(LogModel.ToString());
+                    return Ok(new { status = false, mess = "Duyệt truyện không thành công" });
+                }
+            }
+            else
+            {
+                //write trace log
+                LogModel.Result = ActionResultValue.InvalidInput;
+                LogModel.Message = "Truyện không tồn tại";
+                Logger.LogWarning(LogModel.ToString());
+
+                return Ok(new { status = false, mess = "Truyện không tồn tại" });
+            }
+        }
+
+
 
         public IActionResult IsDelete(int id)
         {
