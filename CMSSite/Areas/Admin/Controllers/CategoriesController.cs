@@ -172,7 +172,7 @@ namespace CMSSite.Areas.Admin.Controllers
                     {
                         CategoryName = model.CategoryName,
                         CategoryDescription = model.CategoryDescription,
-                        isActive = true,
+                        isActive = false,
                         OrderNo = model.OrderNo,
                         ParentCategoryId = model.ParentCategoryId
                     };
@@ -239,6 +239,57 @@ namespace CMSSite.Areas.Admin.Controllers
             }
 
             return dictErrors.Values.GroupBy(x => x.ErrorMessage).Select(y => y.First()).ToList();
+        }
+        #endregion
+
+        #region UPDATE STATUS
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateStatus(int id)
+        {
+
+            LogModel.Data = (new { id = id }).ToDataString();
+            LogModel.Action = ActionType.Update;
+
+            if (id <= 0)
+            {
+                //write trace log
+                LogModel.Result = ActionResultValue.InvalidInput;
+                LogModel.Message = "Category không tồn tại";
+                Logger.LogWarning(LogModel.ToString());
+
+                return Ok(new { status = false, mess = "Category không tồn tại" });
+            }
+
+            var data = _category.Raw_Get(id);
+            if (data.CategoryId != 0)
+            {
+                data.isActive = true;
+                try
+                {
+                    _category.Raw_Update(data);
+                    LogModel.Result = ActionResultValue.UpdateSuccess;
+                    LogModel.Message = "Duyệt Category thành công!";
+                    Logger.LogInformation(LogModel.ToString());
+                    return Ok(new { status = true, mess = "Duyệt Category thành công" });
+                }
+                catch
+                {
+                    LogModel.Result = ActionResultValue.UpdateFailed;
+                    LogModel.Message = "Duyệt Category không thành công!";
+                    Logger.LogInformation(LogModel.ToString());
+                    return Ok(new { status = false, mess = "Duyệt Category không thành công" });
+                }
+            }
+            else
+            {
+                //write trace log
+                LogModel.Result = ActionResultValue.InvalidInput;
+                LogModel.Message = "Category không tồn tại";
+                Logger.LogWarning(LogModel.ToString());
+
+                return Ok(new { status = false, mess = "Category không tồn tại" });
+            }
         }
         #endregion
     }

@@ -141,6 +141,9 @@ $(function () {
                 `);
 
                     if (res.result != 400) {
+                        let button_approve = `
+                            
+                        `;
                         $.each(res.data, function (index, item) {
                             div.append(`
                         <tr>
@@ -156,9 +159,16 @@ $(function () {
                                     ${item.categoryName}
                                 </button>
                             </td>
-                           <td>${item.categoryDescription}</td>
+                            <td>${item.categoryDescription}</td>
                             <td>${item.orderNo}</td>
-                            <td>${item.status}</td>
+                            <td>${item.status == "Kích hoạt" ? `Kích hoạt` :
+                                    `<div class='radiotext status'>
+                                    <button data-id="${item.categoryId}" class="button_lit button2 accept-category" type="button" modal-show="show"
+                                    modal-data="#category-accept" >
+                                        <img src='/Assets/SA/images/accountant_contact-manage/done_all_24px_rounded.svg' alt=''/>
+                                        <p>Duyệt</p>
+                                    </button>
+                                </div>`}</td>
                             <td>${item.parentCategoryId}</td>
                            
                         </tr>`);
@@ -303,6 +313,39 @@ $(function () {
             }
         });
     });
+
+    // update status
+    $('body').on('click', 'button.accept-category', function () {
+        $('#category-accept input').val('');
+        let btn = $(this);
+        let id = $(btn).data('id');
+        if (id === "" || id === undefined) {
+            toastr.error('Category không tồn tại');
+            return;
+        }
+        $('#id-category-confirm').val(id);
+    })
+
+    $('body').on('click', '#btn-update-confirm', function () {
+        let id = $('#id-category-confirm').val();
+        $.ajax({
+            type: 'POST',
+            url: baseUrl + 'UpdateStatus',
+            data: {
+                id: id,
+            },
+            success: function (res) {
+                if (res.status) {
+                    toastr.success('Duyệt category thành công', 'Thông báo !');
+                    $('.close__modal').trigger('click');
+                    SetupPagination();
+                    $('#category-accept input').val('');
+                } else {
+                    toastr.error(res.mess, 'Thông báo !');
+                }
+            }
+        });
+    })
 
     SetupPagination();
 
@@ -575,9 +618,17 @@ var SetupPagination = function () {
                                     ${item.categoryName}
                                 </button>
                             </td>
-                           <td>${item.categoryDescription}</td>
+                            <td>${item.categoryDescription}</td>
                             <td>${item.orderNo}</td>
-                            <td>${item.status}</td>
+                            <td>${item.status == "Kích hoạt" ? `Kích hoạt` :
+                                `<div class='radiotext status'>
+                                    <button data-id="${item.categoryId}" class="button_lit button2 accept-category" type="button" modal-show="show"
+                                    modal-data="#category-accept" >
+                                        <img src='/Assets/SA/images/accountant_contact-manage/done_all_24px_rounded.svg' alt=''/>
+                                        <p>Duyệt</p>
+                                    </button>
+                                </div>`}</td>
+                            <td>${item.parentCategoryId}</td>
                             <td>${item.parentCategoryId}</td>
                             
                         </tr>`);

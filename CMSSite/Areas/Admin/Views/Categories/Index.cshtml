@@ -1,16 +1,16 @@
 ﻿@model CRMSite.Models.Pagination<CRMBussiness.ViewModel.DisplayPersonalTableViewModel>
 @section Styles{
-    <link rel="stylesheet" type="text/css" href="/Assets/crm/css/tool.min.css" />
-    <link rel="stylesheet" type="text/css" href="/Assets/crm/css/main.min.css" />
-    <style>
-        #main .main-content .tr_left-border table tr:hover td {
-            color: #5f6fff;
-        }
+<link rel="stylesheet" type="text/css" href="/Assets/crm/css/tool.min.css" />
+<link rel="stylesheet" type="text/css" href="/Assets/crm/css/main.min.css" />
+<style>
+    #main .main-content .tr_left-border table tr:hover td {
+        color: #5f6fff;
+    }
 
-        .section_employee-manage {
-            margin-left: 23px;
-        }
-    </style>
+    .section_employee-manage {
+        margin-left: 23px;
+    }
+</style>
 }
 
 <section class="section_employee-manage">
@@ -63,7 +63,7 @@
                     id="Edit-Employ"
                     type="button"
                     @*modal-show="show"
-                    modal-data="#edit-employee_modal"*@>
+                        modal-data="#edit-employee_modal"*@>
                 <div class="icon">
                     <img src="/Assets/crm/images/employee-manage/edit.svg" alt="" />
                 </div>
@@ -174,7 +174,6 @@
         <div class="bs-modal" id="edit-employee_modal">
             <div class="modal-frame">
                 <div class="content-modal">
-
                 </div>
             </div>
         </div>
@@ -182,7 +181,6 @@
         <div class="bs-modal" id="detail-employee_modal">
             <div class="modal-frame">
                 <div class="content-modal">
-
                 </div>
             </div>
         </div>
@@ -250,12 +248,39 @@
                 </div>
             </div>
         </div>
+        <!--Modal myModal1-->
+        <div id="category-accept" class="bs-modal">
+            <div class="modal-frame">
+                <div class="content-modal">
+                    <div class="header-modal">
+                        <h3 class="modal__title">Duyệt category</h3>
+                        <span title="close" modal-show="close" class="close__modal">
+                            <img src="/Assets/SA/images/layout/close-modal.svg" />
+                        </span>
+                    </div>
+                    @Html.AntiForgeryToken()
+                    <div class="body-modal">
+                        <div class="text-center">Bạn có muốn duyệt category không?</div>
+                        <input type="hidden" id="id-category-confirm" />
+                    </div>
+
+
+                    <div class="footer-modal text-center">
+                        <div class="group-button">
+                            <button type="button" modal-show="close" class="btn-gray close__modal" id="close-accept">Hủy bỏ</button>
+                            <button type="button" class="btn-green btn-update-confirm" id="btn-update-confirm">Duyệt</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 @section Scripts{
-    <script src="~/Content/js/app.js"></script>
-    <script src="~/Content/js/extend/method.js"></script>
-    <script src="~/js/system.js"></script>
-    <script src="~/js/controllers/cms-category.js"></script>
+<script src="~/Content/js/app.js"></script>
+<script src="~/Content/js/extend/method.js"></script>
+<script src="~/js/system.js"></script>
+<script src="~/js/controllers/cms-category.js"></script>
 }
